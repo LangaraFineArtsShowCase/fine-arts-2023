@@ -1,0 +1,34 @@
+.heroSection{
+    position: relative;
+    width: 100vw;
+    height: calc(0.41*100vw);
+    background-color: red;
+}
+
+.heroSection h1{
+
+    position:absolute;
+    bottom: calc(41vh*0.06);
+    left: calc(100vw*0.04);
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 800;
+    font-size: calc(0.08*100vw);
+    line-height: 120%;
+    color: white;
+}
+
+.heroSection img{
+    filter: brightness(50%);
+}
+
+@media (max-width: 390px) {
+    .heroSection{
+        height: calc(1.05*100vw);
+    }
+
+    .heroSection h1{
+        font-size: calc(0.16*100vw);
+        font-weight: 700;     
+    }
+}

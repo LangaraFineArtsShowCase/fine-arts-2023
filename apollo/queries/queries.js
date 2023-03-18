@@ -21,7 +21,7 @@ query MyQuery {
 //where: {orderby: {majorWork: true}} >> Artwork which is ticked in Major Work field
 export const GET_ARTISTS = gql`
 query MyQuery {
-    artworks2023(where: {majorWork: true}, first: 40) {
+    artworks2022(where: {majorWork: true}, first: 40) {
         nodes {
             artworkFields {
                 artworkTitle
@@ -39,7 +39,7 @@ query MyQuery {
             author {
                 node {
                     userId
-                    artists2023 {
+                    artists2022 {
                         nodes {
                             artistFields {
                                 artistName
