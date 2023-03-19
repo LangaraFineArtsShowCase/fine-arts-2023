@@ -36,7 +36,11 @@ const SideList = (props) => {
                     <li><h2>{props.name}</h2></li>
 
                     {props.list.map((item,index)=>(
-                        <li onClick={()=>{handelClick(item)}}>{item}</li>
+                        <li onClick={()=>{handelClick(item)}}
+                            key={index}
+                        >
+                            {item}
+                        </li>
                     ))}
                 </ul>
                 </div>
