@@ -85,8 +85,8 @@
   padding: 120px 0;
   box-sizing: border-box;
   opacity: 0;
-  transition: transform .5s ease-in,
-              opacity .4s ease-in-out;
+  transition: transform .45s ease-in,
+              opacity .35s ease-in-out;
 }
 
 .menuContainerOpen {
@@ -96,6 +96,7 @@
 
 .menuContainer .nav {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 }
@@ -160,6 +161,10 @@
 
 
 @media screen and (min-width: 767px) {
+  .menuContainer .nav {
+    flex-direction: row;
+  }
+
   .menuContainer .navColumn {
     flex-direction: column;
     border-left: 1px solid rgba(255, 255, 255, .5);

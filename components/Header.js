@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/Header.module.css'
 
-const Header = ({ artistList, originPage }) => {
+const Header = ({ artistList, studioList, originPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuLinksOpen, setIsMenuLinksOpen] = useState(false)
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
