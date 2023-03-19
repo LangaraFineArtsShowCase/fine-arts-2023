@@ -11,5 +11,5 @@ const client = new ApolloClient({
 });
 
 
-// console.log(process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL)
+console.log(process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL)
 export default client
