@@ -5,13 +5,15 @@ import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import Header from '@/components/Header'
 import RightArrow from '@/components/svg/RightArrow'
+import { studioArray } from '@/config/data_config'
+studioArray
 
 const Home = ({ artistList }) => {
   const [arrowColor, setArrowColor] = useState('#FFFFFF')
 
   return (
     <>
-      <Header artistList={artistList} originPage="home" />
+      <Header artistList={artistList} studioList={studioArray} originPage="home" />
       <main className={styles.main}>
         <div className={styles.title}>
           <span className={styles.school}>Langara</span>
