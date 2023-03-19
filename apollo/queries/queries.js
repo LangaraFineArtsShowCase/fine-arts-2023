@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_ARTIST_LIST = gql`
 query MyQuery {
-    artists2023(first: 40){
+    artists2022(first: 40){
         nodes {
             artistFields {
                 artistName
@@ -55,7 +55,7 @@ query MyQuery {
 
 export const GET_ARTIST = gql`
 query MyQuery($userId: Int) {
-    artists2023(where: {author: $userId}, first: 30) { 
+    artists2022(where: {author: $userId}, first: 30) { 
         nodes {
             artistFields {
                 artistName
@@ -67,7 +67,7 @@ query MyQuery($userId: Int) {
             author {
                 node {
                     userId
-                    artworks2023 {
+                    artworks2022 {
                         nodes {
                             artworkFields {
                                 artType
@@ -109,7 +109,7 @@ query MyQuery($userId: Int) {
 
 export const GET_STUDIO_WORKS = gql`
 query MyQuery($studio: String) {
-    artworks2023(where: {studio: $studio}, first: 50) { 
+    artworks2022(where: {studio: $studio}, first: 50) { 
         nodes {
             artworkFields {
                 artworkTitle
@@ -127,7 +127,7 @@ query MyQuery($studio: String) {
             author {
                 node {
                     userId
-                    artists2023 {
+                    artists2022 {
                         nodes {
                             artistFields {
                                 artistName
