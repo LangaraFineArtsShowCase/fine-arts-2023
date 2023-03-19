@@ -103,6 +103,7 @@ const ArtworkContainer = ({items}) =>{
                     leftColumn.map((item,index)=>(
                         <div
                             className={styles.artworkContainer}
+                            key = {index}
 
                         >
                             <Image
@@ -122,9 +123,14 @@ const ArtworkContainer = ({items}) =>{
                                 <div>
                                     {
 
-                                    item.author.node.artists2022.nodes.map((artist,index)=>(
+                                    item.author.node.artists2022.nodes.map((artist,i)=>(
 
-                                        <div className={styles.artistName}>{artist.artistFields.artistName}</div>
+                                        <div 
+                                            className={styles.artistName}
+                                            key = {i}    
+                                        >
+                                            {artist.artistFields.artistName}
+                                        </div>
                                     ))
 
                                     }
@@ -146,6 +152,7 @@ const ArtworkContainer = ({items}) =>{
                     rightColumn.map((item,index)=>(
                         <div
                             className={styles.artworkContainer}
+                            key = {index}
 
                         >
                             <Image
@@ -164,9 +171,13 @@ const ArtworkContainer = ({items}) =>{
                                 <div>
                                     {
 
-                                    item.author.node.artists2022.nodes.map((artist,index)=>(
+                                    item.author.node.artists2022.nodes.map((artist,i)=>(
 
-                                        <div className={styles.artistName}>{artist.artistFields.artistName}</div>
+                                        <div className={styles.artistName}
+                                             key = {i}
+                                        >
+                                            {artist.artistFields.artistName}
+                                        </div>
                                     ))
 
                                     }
