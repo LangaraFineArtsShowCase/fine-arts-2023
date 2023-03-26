@@ -13,7 +13,7 @@
 
 .sideMenu ul{
     list-style: none;
-
+    padding-left: 0;
     /* display: block; */
 }
 
