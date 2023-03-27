@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   // hostname "admin.langarafinagradshow.com"
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
