@@ -107,5 +107,15 @@ export const studioArray = [
         studioImage: [
             
         ]
+    },
+    {
+        studioID: 12,
+        studioName: 'performance',
+        studioSlug: 'performance',
+        studioDescription:'Performance Courses facilitate the development of interdisciplinary, time-based artworks that encourage students to integrate performative action into their work. Through group exercises, projects, lectures and self-directed research, students critically investigate the de-materialization of the art object, the relationship between performer and audience and the hyper-performativity of the contemporary subject. Researching and responding to the history of performance from early avant-garde cabaret to contemporary art, students explore the politics of the body, liveness, mediation and the role of documentation in their work. Performance courses aim to offer students a balance between playfulness and criticality amid an environment of creative risk taking and experimentation.',
+        studioFaculty: ['Elizabeth Milton'],
+        studioImage: [
+            
+        ]
     }
 ]

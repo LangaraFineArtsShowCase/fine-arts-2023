@@ -191,59 +191,13 @@ const ArtworkContainer = ({items}) =>{
                     <div></div>
                 }
             </div>
-            {/* {
-                shuffledItems.length>0
-                ?
-                shuffledItems.map((item,index)=>(
-                    <div 
-                        className={styles.artworkContainer} 
-                        onMouseEnter = {e => {
-                            handelMouseEnter(index)
-                        }}
-                        onMouseLeave = {e=>{
-                            handelMouseLeave(index)
-                        }}
-                    >
-
-                            <Image
-                                src ={item.artworkFields.thumbnail.mediaItemUrl}
-                                width={item.artworkFields.thumbnail.mediaDetails.width}
-                                height={item.artworkFields.thumbnail.mediaDetails.height}
-                                
-                            />
-
-
-
-                            <div className={"desc"+" "+styles.hideDesc} >
-
-                                <div className={styles.artName}>
-                                    {item.artworkFields.artworkTitle}
-                                </div>
-
-                                <div>
-                                    {
-
-                                    item.author.node.artists2023.nodes.map((artist,index)=>(
-
-                                        <div className={styles.artistName}>{artist.artistFields.artistName}</div>
-                                    ))
-
-                                    }
-                                </div>
-                            </div>
-                        
-                        
-                    </div>
-                ))
-                :
-                <div></div>
-            } */}
+            
 
             
         </div>
 
         <div className={styles.studioContainer}>
-                <SideList name={"Studios"} list={["Ceramics","Paintings","Indigenous carving & toolmaking","Drawing", "Design", "Sculpture","Media studio","Drawing","Print media","Textiles","Public art"]}/>
+                <SideList name={"Studios"} list={["Ceramics","Paintings","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media Studio","Drawing","Print media","Textiles","Public art", "Performance"]}/>
 
         </div>
         </div>
