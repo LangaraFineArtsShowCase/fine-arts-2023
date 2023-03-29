@@ -197,12 +197,14 @@ const ArtworkContainer = ({items, artistsNames}) =>{
         </div>
 
         <div className={styles.studioContainer}>
+
             {artistsNames
             ?
                 <SideList name={"Artists"} list={[]} artistsNames= {artistsNames}/>
 
             :
                 <SideList name={"Studios"} list={["Ceramics","Painting","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media Studio","Drawing","Print media","Textiles","Public art", "Performance"]}/>
+
 
             }
                 
