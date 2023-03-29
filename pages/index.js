@@ -17,12 +17,12 @@ const Home = ({ artistList }) => {
         <div className={styles.title}>
           <span className={styles.school}>Langara</span>
           <h1><span>Fine</span> <span>Arts</span></h1>
-          <h2><span>Graduation</span> Exhibition 2023</h2>
+          <h2>Grad Show 2023</h2>
         </div>
       </main>
 
       <div className={styles.buttonWrapper}>
-        <a href="#" onMouseEnter={() => setArrowColor('#000000')} onMouseLeave={() => setArrowColor('#FFFFFF')}>Enter Exhibition <RightArrow fill={arrowColor} /></a>
+        <Link href="/artists" onMouseEnter={() => setArrowColor('#000000')} onMouseLeave={() => setArrowColor('#FFFFFF')}>Enter Exhibition <RightArrow fill={arrowColor} /></Link>
       </div>
     </>
   )

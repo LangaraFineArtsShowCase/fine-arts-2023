@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { studioArray } from '@/config/data_config'
 import styles from '@/styles/Header.module.css'
 
 const Header = ({ artistList, studioList, originPage }) => {
@@ -54,8 +55,10 @@ const Header = ({ artistList, studioList, originPage }) => {
         <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end', maxWidth: originPage == 'home' && '100%' }}>
           {originPage != 'home' && (
             <div className={styles.headerTitle}>
-              <span>Langara Fine Arts</span>
-              <span>Graduation Exhibition 2023</span>
+              <Link href="/">
+                <span>Langara Fine Arts</span>
+                <span>Grad Show 2023</span>
+              </Link>
             </div>
           )}
 
@@ -106,7 +109,10 @@ const Header = ({ artistList, studioList, originPage }) => {
             </div>
           )}
           {isStudiosListOpen && (
-            <div className={styles.StudiosLinks}>studios</div>
+            <div className={styles.StudiosLinks}>
+
+              
+            </div>
           )}
         </div>
       </div>
