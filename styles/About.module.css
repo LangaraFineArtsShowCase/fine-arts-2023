@@ -55,6 +55,10 @@
   overflow: hidden;
 }
 
+.carousel {
+  margin-bottom: 40px;
+}
+
 .textAlignRight {
   text-align: right;
 }
@@ -219,6 +223,7 @@
   .heroSection .wrapper {
     display: grid;
     grid-template-columns: 650px 1fr;
+    align-items: center;
   }
 
   .videoWrapper {
@@ -226,6 +231,10 @@
     grid-row: 1 / 4;
     justify-self: end;
     margin: 1rem 0;
+  }
+
+  .carousel {
+    margin-bottom: 120px;
   }
 
   .facultyList {
@@ -244,7 +253,6 @@
 
   .thankYouTitle h2 {
     margin: 1rem 0;
-    width: 190px;
   }
 
   .langaraApplySection .wrapper {

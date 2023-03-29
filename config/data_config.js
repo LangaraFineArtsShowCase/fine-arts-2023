@@ -6,7 +6,7 @@ export const studioArray = [
         studioName: 'ceramics',
         studioSlug: 'ceramics',
         studioDescription: 'Ceramics courses at Langara offer students foundational techniques in clay that allow for the development of a range of forms, from functional objects to multimedia sculptures. Students explore a variety of hand building techniques, mold making and wheel throwing to create functional, decorative, and sculptural forms. They learn to fire work in a variety of kilns, temperatures, and atmospheres (raku, gas and electric). They make slips and glazes and experiment with a myriad of surface embellishments including printing on clay. Conceptual development and personal research is supported by presentations, reading groups and discussions that help each student develop their practice. Upon completion of the Langara Ceramics Program students are able to situate their practice within the arc of historical and contemporary ceramics making.',
-        studioFaculty: ['Alwyn O’Brien'],
+        studioFaculty: ['Alwyn O’Brien','Gloria Han'],
         studioImage: [
             {   
                 imagePath: `/images/studio/Ceramics1.jpg`,
@@ -137,12 +137,17 @@ export const studioArray = [
 ]
 
 export const aboutImages = [
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-1.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-2.jpeg`},  
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-3.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-4.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-5.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-6.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-7.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-8.jpeg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/01About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/02About.jpg`},  
+    {thumbnailPath: `${imageBasePath}/images/about/slides/03About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/04About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/05About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/06About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/07About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/08About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/09About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/10About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/11About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/12About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/12About_GroupPhoto.jpg`},
 ]

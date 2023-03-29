@@ -27,24 +27,27 @@ const Studio = ()=>{
     const { studio } = router.query;
     // console.log(studio);
 
-    const checkStudio = () => {
-        // console.log(studio);
+    // const checkStudio = () => {
+    //     // console.log(studio);
+    //     if(studio){
+    //         const foundStudio = studioArray.find((studioObj)=>studioObj.studioName == studio.toLowerCase());
+    //         // console.log(foundStudio);
+    //         if(foundStudio){
+    //             setDisplay(true);
+    //             setStudioDetail(foundStudio)
+    //         }
+    //     }
+
+    // }
+
+    useEffect(()=>{
         if(studio){
             const foundStudio = studioArray.find((studioObj)=>studioObj.studioName == studio.toLowerCase());
             // console.log(foundStudio);
             if(foundStudio){
                 setDisplay(true);
                 setStudioDetail(foundStudio)
-            }
-        }
-
-    }
-
-    useEffect(()=>{
-        if(studio){
-            checkStudio();
-            // console.log(display);
-            let alist = getArtistList();
+                let alist = getArtistList();
             let a = getArtists();
             let s = getStudioWorks(studio);
             a.then(result=>{
@@ -83,11 +86,11 @@ const Studio = ()=>{
                 // console.log(studioArtists);
                 setArtistsNames(studioArtists)
             })
+            }
+            // checkStudio();
+            // console.log(display);
+            
         }
-
-
-
-
     },[studio])
 
     // console.log(artistsNames);
@@ -106,8 +109,11 @@ const Studio = ()=>{
             />
             <div className={styles.desc}>
                 {studioDetail.studioDescription}
-                <div className={styles.faculty}>Studio Faclty: {studioDetail.studioFaculty.map((item)=>(
-                    <spam key={item}>{item}</spam>
+                <div className={styles.faculty}>Studio Faclty: {studioDetail.studioFaculty.map((item,index)=>(
+                    <span key={item}>
+                        {item}
+                        {index !== studioDetail.studioFaculty.length - 1 && ", "}
+                    </span>
                 ))}</div>    
             </div>
             <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>
