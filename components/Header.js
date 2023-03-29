@@ -79,7 +79,7 @@ const Header = ({ artistList, studioList, originPage }) => {
           </div>
           <div className={`${styles.navColumn} ${isMenuLinksOpen && styles.hideAboutMenu}`}>
             <h3>
-              <a href="/about">About</a>
+              <Link href="/about">About</Link>
             </h3>
             <span>3</span>
           </div>
