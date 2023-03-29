@@ -6,12 +6,12 @@ import styles from "../styles/ArtworksContainer.module.css";
 
 
 
-const ArtworkContainer = ({items}) =>{
+const ArtworkContainer = ({items, artistsNames}) =>{
     const [shuffledItems, setShuffledItems] = useState([])
     const [leftColumn, setLeftColumn] = useState([])
     const [rightColumn, setRightColumn] = useState([])
     // const [showInfo, setShowInfo] = useState({display: 'none'})
-
+    // console.log(artistsNames);
     let artworks;
     if(items.data != null){
         // artworks = items.data.artworks2023.nodes
@@ -45,8 +45,8 @@ const ArtworkContainer = ({items}) =>{
                 right.push(shuffledItems[i])
             }
         }
-        console.log(left);
-        console.log(right);
+        // console.log(left);
+        // console.log(right);
         setLeftColumn(left);
         setRightColumn(right);
     }
@@ -81,8 +81,8 @@ const ArtworkContainer = ({items}) =>{
     // }
 
 
-    console.log(shuffledItems);
-    console.log(leftColumn);
+    // console.log(shuffledItems);
+    // console.log(leftColumn);
 
     return(
         <>
@@ -197,8 +197,17 @@ const ArtworkContainer = ({items}) =>{
         </div>
 
         <div className={styles.studioContainer}>
-                <SideList name={"Studios"} list={["Ceramics","Paintings","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media Studio","Drawing","Print media","Textiles","Public art", "Performance"]}/>
 
+            {artistsNames
+            ?
+                <SideList name={"Artists"} list={[]} artistsNames= {artistsNames}/>
+
+            :
+                <SideList name={"Studios"} list={["Ceramics","Painting","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media Studio","Drawing","Print media","Textiles","Public art", "Performance"]}/>
+
+
+            }
+                
         </div>
         </div>
         </>

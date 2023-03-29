@@ -152,14 +152,14 @@
 
 .studioContainer {
     position: relative;
-    margin-left: var(--artwork-grid-gap);
+    margin-left:calc(0.55*var(--artwork-grid-gap)) ;
     padding-left: 5%;
     width: 100%;
     margin-right: calc(0.06*var(--artwork-container-width));
     margin-top: var(--artwork-grid-gap);
 }
 
-@media (min-width: 390px) {
+@media (min-width: 768px) {
     .artworkContainer:hover {    
         transform:scale(1.1,1.1)
     }
@@ -171,7 +171,7 @@
  }
 
 
-@media (max-width: 390px) {
+@media (max-width: 768px) {
     .container{
         flex-direction: column;
         width: 100%;
@@ -181,14 +181,22 @@
         margin-right: var(--artwork-grid-gap);
 
 
-     }
+    }
+
+    .container img{
+        min-width: 100%;
+    }
  
     .colTwo{
         width: 100%;
+        margin-left: 0px;
+        margin-top: 0px;
     }
 
     .colOne{
-        width:100%
+        width:100%;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
     }
 
     .studioContainer{

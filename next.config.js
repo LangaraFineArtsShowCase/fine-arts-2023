@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   // hostname "admin.langarafinagradshow.com"
   images: {
     unoptimized: true,

@@ -2,7 +2,7 @@
     position: relative;
     width: 100vw;
     height: calc(0.41*100vw);
-    background-color: red;
+    /* background-color: red; */
 }
 
 .heroSection h1{
@@ -22,7 +22,7 @@
     filter: brightness(50%);
 }
 
-@media (max-width: 390px) {
+@media (max-width: 768px) {
     .heroSection{
         height: calc(1.05*100vw);
     }
