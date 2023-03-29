@@ -50,7 +50,7 @@ const Header = ({ artistList, studioList, originPage }) => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.headerContainer} style={{ justifyContent: originPage == 'home' && 'flex-end' }}>
+      <div className={styles.headerContainer} style={{ justifyContent: originPage == 'home' && 'flex-end', backgroundColor: originPage == 'home' ? 'transparent' : '#FFFFFF', borderBottom: originPage == 'home' ? 'none' : '1px solid #181818' }}>
         {originPage != 'home' && (
           <div className={styles.headerTitle}>
             <span>Langara Fine Arts</span>
@@ -76,7 +76,9 @@ const Header = ({ artistList, studioList, originPage }) => {
             <span>2</span>
           </div>
           <div className={`${styles.navColumn} ${isMenuLinksOpen && styles.hideAboutMenu}`}>
-            <h3>About</h3>
+            <h3>
+              <a href="/about">About</a>
+            </h3>
             <span>3</span>
           </div>
         </div>

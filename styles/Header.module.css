@@ -9,7 +9,15 @@
 .headerContainer {
   display: flex;
   justify-content: space-between;
-  padding: 22px 40px;
+  align-items: center;
+  padding: 22px 16px;
+}
+
+.headerTitle span {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
 }
 
 .burgerMenu {
@@ -161,6 +169,10 @@
 
 
 @media screen and (min-width: 767px) {
+  .headerContainer {
+    padding: 22px 40px;
+  }
+
   .menuContainer .nav {
     flex-direction: row;
   }
