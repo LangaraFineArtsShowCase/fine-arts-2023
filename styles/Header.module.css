@@ -18,6 +18,11 @@
   margin: auto;
 }
 
+.headerTitle a {
+  color: #181818;
+  text-decoration: none;
+}
+
 .headerTitle span {
   display: block;
   font-size: 16px;
