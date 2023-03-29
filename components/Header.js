@@ -50,18 +50,20 @@ const Header = ({ artistList, studioList, originPage }) => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.headerContainer} style={{ justifyContent: originPage == 'home' && 'flex-end', backgroundColor: originPage == 'home' ? 'transparent' : '#FFFFFF', borderBottom: originPage == 'home' ? 'none' : '1px solid #181818' }}>
-        {originPage != 'home' && (
-          <div className={styles.headerTitle}>
-            <span>Langara Fine Arts</span>
-            <span>Graduation Exhibition 2023</span>
-          </div>
-        )}
+      <div className={styles.headerContainer} style={{ backgroundColor: originPage == 'home' ? 'transparent' : '#FFFFFF', borderBottom: originPage == 'home' ? 'none' : '1px solid #181818' }}>
+        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end', maxWidth: originPage == 'home' && '100%' }}>
+          {originPage != 'home' && (
+            <div className={styles.headerTitle}>
+              <span>Langara Fine Arts</span>
+              <span>Graduation Exhibition 2023</span>
+            </div>
+          )}
 
-        <div className={`${styles.burgerMenu} ${isMenuOpen && styles.burgerMenuOpen} ${isMenuLinksOpen && styles.burgerMenuLinksOpen}`} onClick={toggleMenu}>
-          <div />
-          <div />
-          <div />
+          <div className={`${styles.burgerMenu} ${isMenuOpen && styles.burgerMenuOpen} ${isMenuLinksOpen && styles.burgerMenuLinksOpen}`} onClick={toggleMenu}>
+            <div />
+            <div />
+            <div />
+          </div>
         </div>
       </div>
 
