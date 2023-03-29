@@ -193,6 +193,10 @@ body.menu-is-visible {
   padding-right: 24px;
 }
 
+.StudiosList > div:nth-child(2n+2) {
+  transform: translateY(30px);
+}
+
 .StudiosList img {
   max-width: 100%;
   height: auto;
@@ -290,5 +294,16 @@ body.menu-is-visible {
   .StudiosList {
     grid-template-columns: repeat(3, 1fr);
     margin-top: 800px;
+  }
+  
+  .StudiosList > div:nth-child(2n+2) {
+    transform: translateY(0);
+  }
+
+  .StudiosList > div:nth-child(2),
+  .StudiosList > div:nth-child(5),
+  .StudiosList > div:nth-child(8),
+  .StudiosList > div:nth-child(11) {
+    transform: translateY(40px);
   }
 }
