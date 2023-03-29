@@ -1,3 +1,5 @@
+export const imageBasePath = '';
+
 export const studioArray = [
     {
         studioID: 1,
@@ -118,4 +120,15 @@ export const studioArray = [
             
         ]
     }
+]
+
+export const aboutImages = [
+    {thumbnailPath: `${imageBasePath}/images/about/slides/about-1.jpeg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/about-2.jpeg`},  
+    {thumbnailPath: `${imageBasePath}/images/about/slides/about-3.jpeg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/about-4.jpeg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/about-5.jpeg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/about-6.jpeg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/about-7.jpeg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/about-8.jpeg`},
 ]

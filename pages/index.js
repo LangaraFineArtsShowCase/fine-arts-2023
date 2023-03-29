@@ -6,7 +6,6 @@ import styles from '@/styles/Home.module.css'
 import Header from '@/components/Header'
 import RightArrow from '@/components/svg/RightArrow'
 import { studioArray } from '@/config/data_config'
-studioArray
 
 const Home = ({ artistList }) => {
   const [arrowColor, setArrowColor] = useState('#FFFFFF')

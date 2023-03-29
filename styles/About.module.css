@@ -1,0 +1,102 @@
+.main {
+  margin-top: 92px;
+}
+
+.section {
+  padding: 30px 14px;
+  color: #181818;
+  line-height: 28px;
+}
+
+.section.bgGray {
+  background-color: #F5F5F5;
+}
+
+.section h2 {
+  margin: 0;
+}
+
+.wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.pageTitle {
+  color: #000;
+  font-size: 58px;
+  line-height: 64px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.pageSubtitle {
+  color: #000;
+  margin: 0;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.pageSubtitle small {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.videoWrapper {
+  margin: 40px auto;
+  width: 100%;
+  max-width: 363px;
+  border-radius: 50% 50% 0 0;
+  overflow: hidden;
+}
+
+.textAlignRight {
+  text-align: right;
+}
+
+.personPortrait * {
+  position: relative;
+}
+
+.personPortrait h2 {
+  padding-right: 16px;
+  color: #000;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 46px;
+  z-index: 1;
+}
+
+.personPortrait span {
+  padding-right: 16px;
+  color: white;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: lowercase;
+  z-index: 1;
+}
+
+.personPortrait img {
+  margin-top: -45px;
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 767px) {
+  .section {
+    padding: 40px;
+  }
+
+  .pageTitle {
+    text-align: left;
+  }
+
+  .pageSubtitle {
+    text-align: left;
+  }
+}
