@@ -2,11 +2,13 @@ import client from '../apollo/client'
 import { GET_ARTISTS, GET_ARTIST_LIST } from '@/apollo/queries/queries'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import Header from '@/components/Header'
 import { aboutImages, imageBasePath } from '../config/data_config'
 import dynamic from 'next/dynamic'
 import Carousel from 'better-react-carousel'
 import styles from '@/styles/About.module.css'
+import Footer from '@/components/Footer'
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
@@ -19,7 +21,7 @@ const About = ({artistList}) => {
         <section className={`${styles.section} ${styles.heroSection}`}>
           <div className={styles.wrapper}>
             <h1 className={styles.pageTitle}>Fine Arts</h1>
-            <h2 className={styles.pageSubtitle}>Graduation Exhibition <small>2023</small></h2>
+            <h2 className={styles.pageSubtitle}>Grad Show <small>2023</small></h2>
             <div className={styles.videoWrapper}>
               <ReactPlayer
                 url={`${imageBasePath}/videos/about/About-Video.mp4`}
@@ -216,9 +218,9 @@ const About = ({artistList}) => {
         <section className={`${styles.section} ${styles.bgGray} ${styles.langaraApplySection}`}>
           <div className={styles.wrapper}>
             <div className={`${styles.personPortrait} ${styles.textAlignRight}`}>
-              <h2>Langara fine arts</h2>
+              <h2>Langara Fine Arts</h2>
               <Image
-                src={`${imageBasePath}/images/about/langara-fine-arts.jpg`}
+                src={`${imageBasePath}/images/about/Langara-Fine-Arts-New.jpg`}
                 alt="langara fine arts"
                 width={361}
                 height={361}
@@ -235,13 +237,15 @@ const About = ({artistList}) => {
             <div className={styles.applyOnlineContainer}>
               <p>For information on admissions to the Langara Fine Arts program contact<br /><a href="mailto:admissions@langara.ca"><strong>admissions@langara.ca</strong></a></p>
               <p>
-                <a href="https://langara.ca/programs-and-courses/programs/fine-arts/application-info.html" className={styles.applyOnlineBtn}>Apply online today!</a>
+                <Link href="https://langara.ca/programs-and-courses/programs/fine-arts/application-info.html" className={styles.applyOnlineBtn} target="_blank">Apply online today!</Link>
               </p>
             </div>
           </div>
         </section>
 
       </main>
+
+      <Footer />
     </>
   )
 }
