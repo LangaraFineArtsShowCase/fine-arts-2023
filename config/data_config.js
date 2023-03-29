@@ -137,12 +137,17 @@ export const studioArray = [
 ]
 
 export const aboutImages = [
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-1.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-2.jpeg`},  
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-3.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-4.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-5.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-6.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-7.jpeg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/about-8.jpeg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/01About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/02About.jpg`},  
+    {thumbnailPath: `${imageBasePath}/images/about/slides/03About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/04About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/05About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/06About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/07About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/08About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/09About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/10About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/11About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/12About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/12About_GroupPhoto.jpg`},
 ]
