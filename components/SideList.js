@@ -1,24 +1,47 @@
+import {useState,useEffect} from 'react'
+import { redirect } from 'next/navigation';
 import styles from "../styles/SideList.module.css";
 import Head from 'next/head';
+// import { redirect } from 'next/navigation';
+import Link from 'next/link'
+
 
 
 const SideList = (props) => {
     // console.log(props)
+    const [list, setList] = useState([])
+    // console.log(list);
+    useEffect(()=>{
+        // setList(props.artistsNames)
+        const isArr = Object.prototype.toString.call(props.artistsNames) == '[object Array]';
+        console.log(props.artistsNames);
+        // console.log(typeof(props.artistsNames));
+
+        if(isArr){
+            setList(props.artistsNames)
+        }
+        console.log(list);
+    },[props.artistsNames])
 
     const handelClick = (e) => {
-        // console.log("who");
-        console.log(e);
-        // if(props.name == "studio"){
-        //     // redirect to individual studio page
-        //     // console.log(e);
-        //     // console.log("wat");
-        // }else{
+
+        console.log(`/studio/${e}`);
+        if(props.name == "Studios"){
+            // redirect to individual studio page
+            // console.log(e);
+            // console.log("wat");
+            // console.log("wat");
+            // redirect(`/studio/${e}`)
+        }
+        // else{
         //     // redirect to individual artist page
         //     // console.log("watt");
 
         // }
         // console.log("wat");
     }
+
+    // console.log(props.artistsNames);
 
     if(props){
         return(
@@ -35,13 +58,30 @@ const SideList = (props) => {
                 <ul>
                     <li><h2>{props.name}</h2></li>
 
+                    {!props.artistsNames?                   
+                    <>
                     {props.list.map((item,index)=>(
+                        
                         <li onClick={()=>{handelClick(item)}}
                             key={index}
                         >
-                            {item}
+                            <div><Link href={`studio/${item}`}>{item}</Link></div>
+                            
                         </li>
                     ))}
+                    </>
+                    :
+                    <>
+                    <>{list.map((item,index)=>(
+                        <li onClick={()=>{handelClick(item)}}
+                        key={index}
+                        >
+                            {item.name}
+                        </li>
+                    ))}</>
+                    </>
+                    }
+
                 </ul>
                 </div>
             </>

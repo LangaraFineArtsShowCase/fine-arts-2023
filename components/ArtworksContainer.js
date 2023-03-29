@@ -6,12 +6,12 @@ import styles from "../styles/ArtworksContainer.module.css";
 
 
 
-const ArtworkContainer = ({items}) =>{
+const ArtworkContainer = ({items, artistsNames}) =>{
     const [shuffledItems, setShuffledItems] = useState([])
     const [leftColumn, setLeftColumn] = useState([])
     const [rightColumn, setRightColumn] = useState([])
     // const [showInfo, setShowInfo] = useState({display: 'none'})
-
+    // console.log(artistsNames);
     let artworks;
     if(items.data != null){
         // artworks = items.data.artworks2023.nodes
@@ -45,8 +45,8 @@ const ArtworkContainer = ({items}) =>{
                 right.push(shuffledItems[i])
             }
         }
-        console.log(left);
-        console.log(right);
+        // console.log(left);
+        // console.log(right);
         setLeftColumn(left);
         setRightColumn(right);
     }
@@ -81,8 +81,8 @@ const ArtworkContainer = ({items}) =>{
     // }
 
 
-    console.log(shuffledItems);
-    console.log(leftColumn);
+    // console.log(shuffledItems);
+    // console.log(leftColumn);
 
     return(
         <>
@@ -191,60 +191,23 @@ const ArtworkContainer = ({items}) =>{
                     <div></div>
                 }
             </div>
-            {/* {
-                shuffledItems.length>0
-                ?
-                shuffledItems.map((item,index)=>(
-                    <div 
-                        className={styles.artworkContainer} 
-                        onMouseEnter = {e => {
-                            handelMouseEnter(index)
-                        }}
-                        onMouseLeave = {e=>{
-                            handelMouseLeave(index)
-                        }}
-                    >
-
-                            <Image
-                                src ={item.artworkFields.thumbnail.mediaItemUrl}
-                                width={item.artworkFields.thumbnail.mediaDetails.width}
-                                height={item.artworkFields.thumbnail.mediaDetails.height}
-                                
-                            />
-
-
-
-                            <div className={"desc"+" "+styles.hideDesc} >
-
-                                <div className={styles.artName}>
-                                    {item.artworkFields.artworkTitle}
-                                </div>
-
-                                <div>
-                                    {
-
-                                    item.author.node.artists2023.nodes.map((artist,index)=>(
-
-                                        <div className={styles.artistName}>{artist.artistFields.artistName}</div>
-                                    ))
-
-                                    }
-                                </div>
-                            </div>
-                        
-                        
-                    </div>
-                ))
-                :
-                <div></div>
-            } */}
+            
 
             
         </div>
 
         <div className={styles.studioContainer}>
-                <SideList name={"Studios"} list={["Ceramics","Paintings","Indigenous carving & toolmaking","Drawing", "Design", "Sculpture","Media studio","Drawing","Print media","Textiles","Public art"]}/>
 
+            {artistsNames
+            ?
+                <SideList name={"Artists"} list={[]} artistsNames= {artistsNames}/>
+
+            :
+                <SideList name={"Studios"} list={["Ceramics","Painting","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media Studio","Drawing","Print media","Textiles","Public art", "Performance"]}/>
+
+
+            }
+                
         </div>
         </div>
         </>
