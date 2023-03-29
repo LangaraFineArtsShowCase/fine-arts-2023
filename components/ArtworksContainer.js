@@ -35,7 +35,26 @@ const ArtworkContainer = ({items, artistsNames}) =>{
 
     }
 
-    const split = () => {
+    // const split = () => {
+    //     let left = [];
+    //     let right = [];
+    //     for(let i=0;i<shuffledItems.length;i++){
+    //         if(i%2==0){
+    //             left.push(shuffledItems[i])
+    //         }else{
+    //             right.push(shuffledItems[i])
+    //         }
+    //     }
+    //     // console.log(left);
+    //     // console.log(right);
+    //     setLeftColumn(left);
+    //     setRightColumn(right);
+    // }
+
+
+    useEffect(()=> {
+        shuffle(artworks)
+        // split();
         let left = [];
         let right = [];
         for(let i=0;i<shuffledItems.length;i++){
@@ -49,14 +68,8 @@ const ArtworkContainer = ({items, artistsNames}) =>{
         // console.log(right);
         setLeftColumn(left);
         setRightColumn(right);
-    }
-
-
-    useEffect(()=> {
-        shuffle(artworks)
-        split();
         // console.log(artworks);
-    }, [items,shuffledItems])
+    }, [items,shuffledItems,artworks])
 
 
     const numOfItems = shuffledItems.length
