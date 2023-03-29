@@ -126,6 +126,11 @@
   cursor: pointer;
 }
 
+.navColumn h3 a {
+  color: white;
+  text-decoration: none;
+}
+
 .navColumn span {
   font-size: 140px;
   font-weight: 900;

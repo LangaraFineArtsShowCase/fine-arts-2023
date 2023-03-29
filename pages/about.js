@@ -17,7 +17,7 @@ const About = ({artistList}) => {
       <Header artistList={artistList} />
       <main className={styles.main}>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.heroSection}`}>
           <div className={styles.wrapper}>
             <h1 className={styles.pageTitle}>Fine Arts</h1>
             <h2 className={styles.pageSubtitle}>Graduation Exhibition <small>2023</small></h2>
@@ -32,13 +32,15 @@ const About = ({artistList}) => {
                 height='400px'
               />
             </div>
-            <p>Welcome to Langara Fine Arts virtual graduation showcase for 2023</p>
-            <p>Our students have produced an incredible amount of amazing work this year which is evident in this virtual exhibition and in our in person exhibition at Langara College (April 29th to May 8th in the A Building Main Foyer). This two-part exhibition celebrates this dedicated group of young artists. As a Department, we want to express how proud we are of these students and their exhibited artwork.</p>
-            <p>Langara Fine Arts gratefully acknowledges that we do what we do on traditional, ancestral and unceded Musqueam territory.</p>
+            <div>
+              <p>Welcome to Langara Fine Arts virtual graduation showcase for 2023</p>
+              <p>Our students have produced an incredible amount of amazing work this year which is evident in this virtual exhibition and in our in person exhibition at Langara College (April 29th to May 8th in the A Building Main Foyer). This two-part exhibition celebrates this dedicated group of young artists. As a Department, we want to express how proud we are of these students and their exhibited artwork.</p>
+              <p>Langara Fine Arts gratefully acknowledges that we do what we do on traditional, ancestral and unceded Musqueam territory.</p>
+            </div>
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.bgGray}`}>
+        <section className={`${styles.section} ${styles.bgGray} ${styles.portraitStephanie}`}>
           <div className={styles.wrapper}>
             <div className={`${styles.personPortrait} ${styles.textAlignRight}`}>
               <h2>Stephanie Aitken</h2>
@@ -64,10 +66,10 @@ const About = ({artistList}) => {
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className={`${styles.section} ${styles.facultyListSection}`}>
           <div className={styles.wrapper}>
             <p>Langara Fine Arts is comprised of the following faculty and staff:</p>
-            <ul>
+            <ul className={styles.facultyList}>
               <li>
                 <strong>Charlotte Falk</strong>
                 <span>- design</span>
@@ -132,11 +134,18 @@ const About = ({artistList}) => {
           </div>
         </section>
 
-        <section>
-          <div>
-            <div>
+        <section className={`${styles.section} ${styles.bgGray} ${styles.portraitDarren}`}>
+          <div className={styles.wrapper}>
+            <div className={styles.personPortrait}>
               <h2>Darren Bernaerdt</h2>
               <span>- acting dean of arts</span>
+              <Image
+                src={`${imageBasePath}/images/about/darren-bernaerdt.jpg`}
+                alt="darren bernaerdt"
+                width={361}
+                height={361}
+                priority={true}
+              />
             </div>
             <div>
               <p>Your Grad Show marks an important chapter in your evolution as an artist. It is the beginning of the next step in your path as some of you transition to pursuing your degree, while others may decide to take advantage of the opportunity to develop their practice further. No matter what you’re looking ahead to, take a moment to recognize all that you have accomplished here at Langara.</p>
@@ -149,9 +158,9 @@ const About = ({artistList}) => {
           </div>
         </section>
 
-        <section>
-          <div>
-            <div>
+        <section className={`${styles.section} ${styles.thankYouSection}`}>
+          <div className={styles.wrapper}>
+            <div className={styles.thankYouTitle}>
               <h2>Thank you message</h2>
             </div>
             <div>
@@ -161,7 +170,7 @@ const About = ({artistList}) => {
             </div>
             <div>
               <p>HUGE thanks from all of us to the following folks who support our program:</p>
-              <ul>
+              <ul className={styles.thankYouList}>
                 <li>
                   <strong>Lynn Ruscheinsky and Yani Kong</strong>
                   <span>- Cultural Theory instructors, Art History</span>
@@ -187,10 +196,18 @@ const About = ({artistList}) => {
           </div>
         </section>
 
-        <section>
-          <div>
-            <div>
+        <section className={`${styles.section} ${styles.bgGray} ${styles.langaraApplySection}`}>
+          <div className={styles.wrapper}>
+            <div className={`${styles.personPortrait} ${styles.textAlignRight}`}>
               <h2>Langara fine arts</h2>
+              <Image
+                src={`${imageBasePath}/images/about/langara-fine-arts.jpg`}
+                alt="langara fine arts"
+                width={361}
+                height={361}
+                priority={true}
+                className={styles.langaraFineArtsImage}
+              />
             </div>
             <div>
               <p>The Langara Fine Arts diploma program is a two-year studio art foundation that emphasizes hands-on material-based skills within a supportive community of makers, learners, and thinkers.Langara Fine Arts is committed to a culture of humility and respect.</p>
@@ -198,10 +215,10 @@ const About = ({artistList}) => {
             <div>
               <p>Students have the opportunity to study drawing, design, painting, sculpture, foundry, printmaking, Indigenous carving, ceramics, textile art, media, performance and public art. Our tuition is affordable, and our courses are university transferable. Langara Fine Arts alumni go on to study at respected universities throughout Canada and beyond.</p>
             </div>
-            <div>
+            <div className={styles.applyOnlineContainer}>
               <p>For information on admissions to the Langara Fine Arts program contact<br /><a href="mailto:admissions@langara.ca"><strong>admissions@langara.ca</strong></a></p>
               <p>
-                <a href="https://langara.ca/programs-and-courses/programs/fine-arts/application-info.html">Apply online today!</a>
+                <a href="https://langara.ca/programs-and-courses/programs/fine-arts/application-info.html" className={styles.applyOnlineBtn}>Apply online today!</a>
               </p>
             </div>
           </div>
