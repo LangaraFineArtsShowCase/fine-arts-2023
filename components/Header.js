@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { studioArray } from '@/config/data_config'
 import styles from '@/styles/Header.module.css'
+import Image from 'next/image'
 
 const Header = ({ artistList, studioList, originPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -9,7 +10,16 @@ const Header = ({ artistList, studioList, originPage }) => {
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
   const [isStudiosListOpen, setIsStudiosListOpen] = useState(false)
 
-  // whem main menu closed, reset states
+  // add class to body when menu state is changed
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('menu-is-visible')
+    } else {
+      document.body.classList.remove('menu-is-visible')
+    }
+  }, [isMenuOpen])
+
+  // when main menu closed, reset states
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
     setIsArtistsListOpen(false)
@@ -109,9 +119,22 @@ const Header = ({ artistList, studioList, originPage }) => {
             </div>
           )}
           {isStudiosListOpen && (
-            <div className={styles.StudiosLinks}>
-
-              
+            <div className={styles.StudiosList}>
+              {studioArray.sort((a, b) => a.order - b.order).map((studio ,i) => (
+                <div key={i}>
+                  <Link href={`/studio/${studio.studioSlug}`}>
+                    <Image
+                      src={studio.studioImage[0]}
+                      alt={studio.studioName}
+                      width={360}
+                      height={360}
+                    />
+                  </Link>
+                  <h4>
+                    <Link href={`/studio/${studio.studioSlug}`}>{studio.studioName}</Link>
+                  </h4>
+                </div>
+              ))}
             </div>
           )}
         </div>
