@@ -13,7 +13,7 @@ import Image from 'next/image';
 
 
 
-const Studio = ()=>{
+const Studio = ({artistList})=>{
     const [artistList, setArtistList] = useState({})
     const [artist, setArtist] = useState({})
     const [artistsNames, setArtistsNames] = useState({})
@@ -27,23 +27,11 @@ const Studio = ()=>{
     const { studio } = router.query;
     // console.log(studio);
 
-    // const checkStudio = () => {
-    //     // console.log(studio);
-    //     if(studio){
-    //         const foundStudio = studioArray.find((studioObj)=>studioObj.studioName == studio.toLowerCase());
-    //         // console.log(foundStudio);
-    //         if(foundStudio){
-    //             setDisplay(true);
-    //             setStudioDetail(foundStudio)
-    //         }
-    //     }
 
-    // }
 
     useEffect(()=>{
         if(studio){
             const foundStudio = studioArray.find((studioObj)=>studioObj.studioName == studio.toLowerCase());
-            // console.log(foundStudio);
             if(foundStudio){
                 setDisplay(true);
                 setStudioDetail(foundStudio)
@@ -56,20 +44,14 @@ const Studio = ()=>{
             })
     
             alist.then(result=>{
-                // console.log(result);
                 setArtistList(result);
             })
     
             s.then(result=>{
-                console.log(studio);
-                // console.log(result);
-                setStudioWork(result);           
+                setStudioWork(result);        
                 const studioArtists=[]
-                // const arr = {'data':{'artworks2022':{"nodes":{"author"}}}};
-                // console.log(result);
                 result.data.artworks2022.nodes.map((element)=>{
                     let add = true;
-                    // console.log(element.author.node.userId);
                     studioArtists.map((a)=>{
                         if(a.userId === element.author.node.userId){
                             add = false;
@@ -79,21 +61,14 @@ const Studio = ()=>{
                         let studioArtist = {'userId':element.author.node.userId, 'name':element.author.node.artists2022.nodes[0].artistFields.artistName};
                         studioArtists.push(studioArtist)
                     }
-                    // if(element.artworkFields.studio===studio){
-                    //     nodes.push(element)
-                    // }
                 })
-                // console.log(studioArtists);
                 setArtistsNames(studioArtists)
             })
             }
-            // checkStudio();
-            // console.log(display);
             
         }
     },[studio])
 
-    // console.log(artistsNames);
     return(
 
         <>
@@ -109,7 +84,7 @@ const Studio = ()=>{
             />
             <div className={styles.desc}>
                 {studioDetail.studioDescription}
-                <div className={styles.faculty}>Studio Faclty: {studioDetail.studioFaculty.map((item,index)=>(
+                <div className={styles.faculty}>Studio Faculty: {studioDetail.studioFaculty.map((item,index)=>(
                     <span key={item}>
                         {item}
                         {index !== studioDetail.studioFaculty.length - 1 && ", "}
@@ -160,13 +135,6 @@ async function getArtists(){
 }
 
 async function getStudioWorks(s){
-    // const { data: studioWorks } = await client.query({
-    //     query: GET_STUDIO_WORKS,
-    //     variables: {
-    //         studio: studioName.replace("&amp;", "&")
-    //     }
-    // })
-    // console.log(studio);
     let a;
     try{
         a = await client.query({
@@ -180,3 +148,30 @@ async function getStudioWorks(s){
         // console.log(err);
     }
 }
+
+export async function getStaticProps(context) {
+
+    try {
+  
+      const { data } = await client.query({
+          query: GET_ARTIST_LIST
+      })
+  
+      return {
+          props: {
+            artistList: data?.artists2022?.nodes
+          },
+          // revalidate: 30,
+      }
+  
+    } catch (error) {
+      console.log('error', error)
+  
+      return {
+        props: {
+          artistList: []
+        },
+        // revalidate: 30,
+      }
+    }
+  }

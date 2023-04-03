@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import styles from '@/styles/Header.module.css'
 
-const Header = ({ artistList, studioList, originPage }) => {
+const Header = ({ artistList, studioList, originPage, bgColor }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuLinksOpen, setIsMenuLinksOpen] = useState(false)
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
@@ -49,7 +49,7 @@ const Header = ({ artistList, studioList, originPage }) => {
   });
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header} style={{backgroundColor: bgColor}}>
       <div className={styles.headerContainer} style={{ justifyContent: originPage == 'home' && 'flex-end' }}>
         {originPage != 'home' && (
           <div className={styles.headerTitle}>

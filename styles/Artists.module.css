@@ -2,7 +2,8 @@
     position: relative;
     width: 100vw;
     height: calc(0.41*100vw);
-    /* background-color: red; */
+    background-color: black;
+    z-index: 999;
 }
 
 .heroSection h1{
@@ -20,6 +21,17 @@
 
 .heroSection img{
     filter: brightness(50%);
+}
+
+.artistsHeader {
+    /* position: sticky; */
+    font-size: 1.75vw;
+    color: white;
+    /* mix-blend-mode: difference; */
+}
+
+.artistsHeader header{
+    /* background:red; */
 }
 
 @media (max-width: 768px) {

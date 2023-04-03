@@ -55,7 +55,7 @@ export const studioArray = [
         studioFaculty: ['Steven Hubert', 'Elizabeth Milton', 'Suzi Webster'],
         studioImage: [
             {   
-                imagePath: `/images/studio/MediaStudio1.jpg`,
+                imagePath: `/images/studio/Media1.jpg`,
             }
         ]
     },
@@ -79,7 +79,7 @@ export const studioArray = [
         studioFaculty: ['Elizabeth Milton'],
         studioImage: [
             {   
-                imagePath: `/images/studio/PerformanceArt.jpg`,
+                imagePath: `/images/studio/PerformanceArt1.jpg`,
             }
         ]
     },
