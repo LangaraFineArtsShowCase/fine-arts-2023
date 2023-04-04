@@ -8,9 +8,27 @@
 }
 
 .headerContainer {
+  padding: 22px 16px;
+}
+
+.headerWrapper {
   display: flex;
   justify-content: space-between;
-  padding: 22px 40px;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.headerTitle a {
+  color: #181818;
+  text-decoration: none;
+}
+
+.headerTitle span {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
 }
 
 .burgerMenu {
@@ -119,6 +137,11 @@
   cursor: pointer;
 }
 
+.navColumn h3 a {
+  color: white;
+  text-decoration: none;
+}
+
 .navColumn span {
   font-size: 140px;
   font-weight: 900;
@@ -162,6 +185,10 @@
 
 
 @media screen and (min-width: 767px) {
+  .headerContainer {
+    padding: 22px 40px;
+  }
+
   .menuContainer .nav {
     flex-direction: row;
   }

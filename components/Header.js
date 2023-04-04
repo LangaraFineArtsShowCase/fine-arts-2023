@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { studioArray } from '@/config/data_config'
 import styles from '@/styles/Header.module.css'
 
 const Header = ({ artistList, studioList, originPage, bgColor }) => {
@@ -49,19 +50,25 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
   });
 
   return (
-    <header className={styles.header} style={{backgroundColor: bgColor}}>
-      <div className={styles.headerContainer} style={{ justifyContent: originPage == 'home' && 'flex-end' }}>
-        {originPage != 'home' && (
-          <div className={styles.headerTitle}>
-            <span>Langara Fine Arts</span>
-            <span>Graduation Exhibition 2023</span>
-          </div>
-        )}
 
-        <div className={`${styles.burgerMenu} ${isMenuOpen && styles.burgerMenuOpen} ${isMenuLinksOpen && styles.burgerMenuLinksOpen}`} onClick={toggleMenu}>
-          <div />
-          <div />
-          <div />
+    <header className={styles.header}>
+      <div className={styles.headerContainer} style={{ backgroundColor: originPage == 'home' ? 'transparent' : '#FFFFFF', borderBottom: originPage == 'home' ? 'none' : '1px solid #181818' }}>
+        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end', maxWidth: originPage == 'home' && '100%' }}>
+          {originPage != 'home' && (
+            <div className={styles.headerTitle}>
+              <Link href="/">
+                <span>Langara Fine Arts</span>
+                <span>Grad Show 2023</span>
+              </Link>
+            </div>
+          )}
+
+
+          <div className={`${styles.burgerMenu} ${isMenuOpen && styles.burgerMenuOpen} ${isMenuLinksOpen && styles.burgerMenuLinksOpen}`} onClick={toggleMenu}>
+            <div />
+            <div />
+            <div />
+          </div>
         </div>
       </div>
 
@@ -76,7 +83,9 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
             <span>2</span>
           </div>
           <div className={`${styles.navColumn} ${isMenuLinksOpen && styles.hideAboutMenu}`}>
-            <h3>About</h3>
+            <h3>
+              <Link href="/about">About</Link>
+            </h3>
             <span>3</span>
           </div>
         </div>
@@ -102,7 +111,10 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
             </div>
           )}
           {isStudiosListOpen && (
-            <div className={styles.StudiosLinks}>studios</div>
+            <div className={styles.StudiosLinks}>
+
+              
+            </div>
           )}
         </div>
       </div>
