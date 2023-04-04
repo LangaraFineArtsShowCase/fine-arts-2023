@@ -14,7 +14,8 @@ import Image from 'next/image';
 
 
 const Studio = ({artistList})=>{
-    const [artistList, setArtistList] = useState({})
+
+    // const [artistList, setArtistList] = useState({})
     const [artist, setArtist] = useState({})
     const [artistsNames, setArtistsNames] = useState({})
 
@@ -44,7 +45,8 @@ const Studio = ({artistList})=>{
             })
     
             alist.then(result=>{
-                setArtistList(result);
+                // setArtistList(result);
+                artistList = result
             })
     
             s.then(result=>{
@@ -76,7 +78,7 @@ const Studio = ({artistList})=>{
         {display&&<>
             <div className={styles.heroSection}>
             <Image
-                src={studioDetail.studioImage[0].imagePath}
+                src={studioDetail.studioImage[1]}
                 alt="cover image"
                 layout="fill"
                 objectFit="cover"
@@ -175,3 +177,17 @@ export async function getStaticProps(context) {
       }
     }
   }
+
+  export async function getStaticPaths() {
+
+    return {
+        paths: studioArray.map((studio) => {
+            return {
+                params: {
+                    studio: studio.studioName,
+                }
+            }
+        }),
+        fallback: false
+    }
+}

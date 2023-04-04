@@ -4,11 +4,12 @@
   left: 0;
   width: 100%;
   z-index: 9999;
-  transition: all .5s ease-in-out; 
 }
 
 .headerContainer {
   padding: 22px 16px;
+  transition: all .5s ease-in-out; 
+
 }
 
 .headerWrapper {

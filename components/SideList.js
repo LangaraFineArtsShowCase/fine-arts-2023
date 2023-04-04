@@ -25,7 +25,7 @@ const SideList = (props) => {
 
     const handelClick = (e) => {
 
-        console.log(`/studio/${e}`);
+        // console.log(`/studio/${e}`);
         if(props.name == "Studios"){
             // redirect to individual studio page
             // console.log(e);
@@ -62,10 +62,12 @@ const SideList = (props) => {
                     <>
                     {props.list.map((item,index)=>(
                         
-                        <li onClick={()=>{handelClick(item)}}
+                        <li 
                             key={index}
                         >
-                            <div><Link href={`studio/${item}`}>{item}</Link></div>
+                            <div><Link href={`studio/${item.toLowerCase()}`}>{item}</Link></div>
+
+
                             
                         </li>
                     ))}

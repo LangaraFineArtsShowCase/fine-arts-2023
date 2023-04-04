@@ -55,7 +55,7 @@ const Artists = ()=>{
             
         // }, 100);
         // alert(headerStyle)
-        console.log(headerStyle);
+        // console.log(headerStyle);
         if(scrollPosition >= 35*vw){
             // console.log('CHANGE');
             setHeaderStyle('#181818')

@@ -8,7 +8,7 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
   const [isMenuLinksOpen, setIsMenuLinksOpen] = useState(false)
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
   const [isStudiosListOpen, setIsStudiosListOpen] = useState(false)
-
+console.log(bgColor);
   // whem main menu closed, reset states
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -52,11 +52,11 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
   return (
 
     <header className={styles.header}>
-      <div className={styles.headerContainer} style={{ backgroundColor: originPage == 'home' ? 'transparent' : '#FFFFFF', borderBottom: originPage == 'home' ? 'none' : '1px solid #181818' }}>
-        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end', maxWidth: originPage == 'home' && '100%' }}>
+      <div className={styles.headerContainer} style={{ backgroundColor: originPage == 'about' ? '#FFFFFF' : bgColor, borderBottom: originPage == 'about' ? '1px solid #181818' : 'none' }}>
+        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end', maxWidth: originPage == 'home' ? '100%': originPage == 'artists'? '92vw':'1200px' }}>
           {originPage != 'home' && (
-            <div className={styles.headerTitle}>
-              <Link href="/">
+            <div className={styles.headerTitle} >
+              <Link href="/" style={{color: originPage=='about'? '#181818':'#ffffff'}}>
                 <span>Langara Fine Arts</span>
                 <span>Grad Show 2023</span>
               </Link>
