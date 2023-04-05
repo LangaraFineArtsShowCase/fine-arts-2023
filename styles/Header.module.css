@@ -1,7 +1,3 @@
-body.menu-is-visible {
-  overflow: hidden;
-}
-
 .header {
   position: fixed;
   top: 0;
@@ -157,13 +153,29 @@ body.menu-is-visible {
 
 .menuLinks {
   position: fixed;
+  display: flex;
+  align-items: center;
+  top: 100px;
+  right: 0;
+  width: 100%;
+  height: calc(100vh - 100px);
+  padding: 0;
   background-color: white;
   overflow-y: auto;
+  box-sizing: border-box;
+  transform: translateY(100vh);
+  transition: all .5s ease-in-out;
+}
+
+.menuLinksOpen {
+  transform: translateY(0vh);
 }
 
 .artistList {
-  margin-top: 700px;
-  padding: 0 24px;
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .artistName {
@@ -172,6 +184,10 @@ body.menu-is-visible {
   align-items: flex-start;
   margin-bottom: 2rem;
   font-size: 18px;
+}
+
+.artistName:last-child {
+  padding-bottom: 48px;
 }
 
 .initial {
@@ -196,8 +212,8 @@ body.menu-is-visible {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 800px;
-  padding-right: 24px;
+  padding: 100px 24px;
+  height: 100%;
 }
 
 .StudiosList > div:nth-child(2n+2) {
@@ -241,7 +257,7 @@ body.menu-is-visible {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 100px;
+  height: 102px;
   background-color: white;
   color: #181818;
 }
@@ -249,23 +265,6 @@ body.menu-is-visible {
 .navColumn.slideArtistsMenu span,
 .navColumn.navColumn.slideStudiosMenu span {
   display: none;
-}
-
-.menuLinks {
-  display: flex;
-  align-items: center;
-  top: 100px;
-  right: 0;
-  width: 100%;
-  height: 100vh;
-  padding: 100px 24px;
-  box-sizing: border-box;
-  transform: translateY(100vh);
-  transition: all .5s ease-in-out;
-}
-
-.menuLinksOpen {
-  transform: translateY(0vh);
 }
 
 @media screen and (min-width: 767px) {
@@ -357,11 +356,16 @@ body.menu-is-visible {
     margin-top: 0;
     column-count: 2;
     width: 100%;
+    height: auto;
+  }
+
+  .artistName:last-child {
+    padding-bottom: 0;
   }
 
   .StudiosList {
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 1000px;
+    padding: 0 24px 0 0;
   }
   
   .StudiosList > div:nth-child(2n+2) {
