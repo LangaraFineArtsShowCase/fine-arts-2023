@@ -2,13 +2,14 @@ import client from "../../apollo/client"
 import { GET_ARTISTS, GET_ARTIST_LIST, GET_ARTIST} from "../../apollo/queries/queries"
 import { studioArray,awardWinners } from '../../config/data_config'
 import styles from "../../styles/Artist.module.css"
-import ArtworkContainer from "../../components/ArtworksContainer"
+// import ArtworkContainer from "../../components/ArtworksContainer"
+import ArtistArtworks from '@/components/ArtistArtworks'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState, useEffect } from 'react';
 import LeftLeaf from "@/components/svg/LeftLeaf"
 import Head from 'next/head'
-
+import Footer from "@/components/Footer"
 import Image from 'next/image';
 
 
@@ -102,9 +103,6 @@ const Artist = ({artistList})=>{
     return(
 
         <>
-        <Head>
-            <link rel="stylesheet" href="https://use.typekit.net/obc4toi.css"></link>
-        </Head>
         {/* header */}
         {display&&
         
@@ -139,10 +137,11 @@ const Artist = ({artistList})=>{
 
         <div>
             {/* <ArtworkContainer items = {studioWork} artistsNames = {artistsNames}/> */}
+            <ArtistArtworks items = {artistWork}/>
         </div>
         </div>}
 
-            
+            <Footer/>
         </>
     )
 }

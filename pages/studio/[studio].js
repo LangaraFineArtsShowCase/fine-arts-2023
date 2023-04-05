@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react';
 
 import Image from 'next/image';
 import Header from "@/components/Header"
-
+import Footer from "@/components/Footer"
 
 
 
@@ -131,7 +131,7 @@ const Studio = ({artistList})=>{
         </div>
         </>}
 
-            
+            <Footer/>
         </>
     )
 }

@@ -53,7 +53,7 @@ console.log(bgColor);
 
     <header className={styles.header}>
       <div className={styles.headerContainer} style={{ backgroundColor: originPage == 'about' ? '#FFFFFF' : bgColor, borderBottom: originPage == 'about' ? '1px solid #181818' : 'none' }}>
-        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end', maxWidth: originPage == 'home' ? '100%': originPage == 'artists'? '92vw':'1200px' }}>
+        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end', maxWidth: originPage == 'home' ? '100%': originPage == 'artists'||originPage == 'studio'? '92vw':'1200px' }}>
           {originPage != 'home' && (
             <div className={styles.headerTitle} >
               <Link href="/" style={{color: originPage=='about'? '#181818':'#ffffff'}}>
