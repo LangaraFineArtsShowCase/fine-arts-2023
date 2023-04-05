@@ -188,7 +188,7 @@
 }
 
 .artistName:last-child {
-  padding-bottom: 48px;
+  padding-bottom: 72px;
 }
 
 .initial {
@@ -219,6 +219,10 @@
 
 .StudiosList > div:nth-child(2n+2) {
   transform: translateY(30px);
+}
+
+.StudiosList > div:last-child {
+  padding-bottom: 72px;
 }
 
 .StudiosList img {
@@ -387,5 +391,9 @@
   .StudiosList > div:nth-child(8),
   .StudiosList > div:nth-child(11) {
     transform: translateY(40px);
+  }
+
+  .StudiosList > div:last-child {
+    padding-bottom: 0;
   }
 }
