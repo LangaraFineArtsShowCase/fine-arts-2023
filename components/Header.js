@@ -63,7 +63,7 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
 
     <header className={styles.header}>
       <div className={styles.headerContainer} style={{ backgroundColor: originPage == 'about' ? '#FFFFFF' : bgColor, borderBottom: originPage == 'about' ? '1px solid #181818' : 'none' }}>
-        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end', maxWidth: originPage == 'home' ? '100%': originPage == 'artists'||originPage == 'studio'? '92vw':'1200px' }}>
+        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end' }}>
           {originPage != 'home' && (
             <div className={styles.headerTitle} >
               <Link href="/" style={{color: originPage=='about'? '#181818':'#ffffff'}}>
@@ -84,7 +84,7 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
 
       <div className={`${styles.menuContainer} ${isMenuOpen && styles.menuContainerOpen} ${isMenuLinksOpen && styles.menuLinksVisible}`}>
         <div className={styles.nav}>
-          <div className={`${styles.navColumn} ${isStudiosListOpen && styles.hideArtistsMenu}`}>
+          <div className={`${styles.navColumn} ${isArtistsListOpen && styles.slideArtistsMenu} ${isStudiosListOpen && styles.hideArtistsMenu}`}>
             <h3 onClick={() => toggleMenuLinks('artists')}>Artists</h3>
             <span>1</span>
           </div>
