@@ -49,50 +49,19 @@ const ArtworkContainer = ({items, artistsNames}) =>{
                 right.push(shuffledItems[i])
             }
         }
-        // console.log(left);
-        // console.log(right);
+
         setLeftColumn(left);
         setRightColumn(right);
-        // console.log(artworks);
+
     }, [items,shuffledItems,artworks])
 
 
     const numOfItems = shuffledItems.length
-    // console.log(shuffledItems);
-    // console.log(numOfItems);
-
-    // const handelMouseEnter = (index) => {
-
-    //     const node = document.getElementsByClassName("desc");
-    //     // console.log(node);
-    //     if(node[index]){
-    //         node[index].className = "desc "+styles.showDesc
-    //     }
-    // }
-
-    // const handelMouseLeave = (index) => {
-    //     const node = document.getElementsByClassName("desc");
-    //     console.log(node);
-    //     if(node[index]){
-    //         node[index].className = "desc "+styles.hideDesc
-    //     }
-    // }
-
-
-    // console.log(shuffledItems);
-    // console.log(leftColumn);
 
     return(
         <>
-        {/* <Head>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&display=swap" rel="stylesheet"/>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,300&display=swap" rel="stylesheet"></link>
-        </Head> */}
-<div className={styles.flexContainer}>
+
+        <div className={styles.flexContainer}>
         <div className={styles.container}>
             <div className={styles.colOne}>
                 {

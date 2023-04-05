@@ -29,7 +29,7 @@ const Studio = ({artistList})=>{
 
     // console.log(studio);
     const router = useRouter()
-    const { studio } = router.query;
+    let { studio } = router.query;
     // console.log(studio);
     useEffect(()=>{
         const handleScroll = (event) => {
@@ -65,6 +65,9 @@ const Studio = ({artistList})=>{
                 setStudioDetail(foundStudio)
                 let alist = getArtistList();
             let a = getArtists();
+            if(studio == 'media'){
+                studio = 'media studio'
+            }
             let s = getStudioWorks(studio);
             a.then(result=>{
     
