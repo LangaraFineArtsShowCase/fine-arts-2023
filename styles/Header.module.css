@@ -101,11 +101,11 @@
   width: 100vw;
   height: 100vh;
   background: #181818;
-  padding: 120px 0;
+  padding: 12vh 0;
   box-sizing: border-box;
   opacity: 0;
-  transition: transform .45s ease-in,
-              opacity .35s ease-in-out;
+  transition: transform .35s ease-in,
+              opacity .25s ease-in-out;
 }
 
 .menuContainerOpen {
@@ -129,10 +129,12 @@
   color: white;
   opacity: 1;
   transform: translate(0vw, 0px);
-  transition: all .5s ease-in-out;
+  transition: all .35s ease-in-out,
+              color 0s ease-in-out;
 }
 
 .navColumn h3 {
+  flex: 1;
   margin: 0;
   font-size: 40px;
   font-weight: 800;
@@ -164,7 +166,7 @@
   overflow-y: auto;
   box-sizing: border-box;
   transform: translateY(100vh);
-  transition: all .5s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 
 .menuLinksOpen {
@@ -187,7 +189,7 @@
 }
 
 .artistName:last-child {
-  padding-bottom: 48px;
+  padding-bottom: 72px;
 }
 
 .initial {
@@ -218,6 +220,10 @@
 
 .StudiosList > div:nth-child(2n+2) {
   transform: translateY(30px);
+}
+
+.StudiosList > div:last-child {
+  padding-bottom: 72px;
 }
 
 .StudiosList img {
@@ -272,6 +278,12 @@
     padding: 22px 40px;
   }
 
+  .menuContainer {
+    padding: 120px 1rem;
+    transition: transform .45s ease-in,
+    opacity .35s ease-in-out;
+  }
+
   .menuContainer .nav {
     flex-direction: row;
   }
@@ -279,6 +291,7 @@
   .menuContainer .navColumn {
     flex-direction: column;
     border-left: 1px solid rgba(255, 255, 255, .5);
+    transition: all .5s ease-in-out;
   }
 
   .menuContainer .navColumn:first-child {
@@ -286,6 +299,7 @@
   }
 
   .navColumn h3 {
+    flex: 0;
     margin-top: 4rem;
     font-size: 4rem;
   }
@@ -354,6 +368,7 @@
 
   .artistList {
     margin-top: 0;
+    padding: 0 24px;
     column-count: 2;
     width: 100%;
     height: auto;
@@ -377,5 +392,9 @@
   .StudiosList > div:nth-child(8),
   .StudiosList > div:nth-child(11) {
     transform: translateY(40px);
+  }
+
+  .StudiosList > div:last-child {
+    padding-bottom: 0;
   }
 }
