@@ -93,7 +93,7 @@ const Artists = ()=>{
         </div>
 
         <div>
-            <ArtworkContainer items = {artist}/>
+            <ArtworkContainer items = {artist} originPage='artists'/>
         </div>
             <Footer/>
         </div>

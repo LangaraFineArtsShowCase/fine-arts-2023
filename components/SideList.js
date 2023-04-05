@@ -24,7 +24,7 @@ const SideList = (props) => {
     },[props.artistsNames])
 
     const handelClick = (e) => {
-
+        console.log(e);
         // console.log(`/studio/${e}`);
         if(props.name == "Studios"){
             // redirect to individual studio page
@@ -78,7 +78,9 @@ const SideList = (props) => {
                         <li onClick={()=>{handelClick(item)}}
                         key={index}
                         >
-                            {item.name}
+                            {/* {console.log(item.userId)} */}
+                            <div><Link href={`/artist/${item.userId}`}>{item.name}</Link></div>
+
                         </li>
                     ))}</>
                     </>

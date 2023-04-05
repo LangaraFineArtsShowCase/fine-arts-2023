@@ -11,6 +11,7 @@ import LeftLeaf from "@/components/svg/LeftLeaf"
 import Head from 'next/head'
 import Footer from "@/components/Footer"
 import Image from 'next/image';
+import Header from "@/components/Header"
 
 
 {/* <link rel="stylesheet" href="https://use.typekit.net/obc4toi.css"></link> */}
@@ -105,6 +106,10 @@ const Artist = ({artistList})=>{
         <>
 
         {/* header */}
+        {/* <Header/>
+         */}
+            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage="artist"/>}
+        
         {display&&
         
         <div className={styles.artistContainer}>

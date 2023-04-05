@@ -130,7 +130,7 @@ const Studio = ({artistList})=>{
         </div>
 
         <div>
-            <ArtworkContainer items = {studioWork} artistsNames = {artistsNames}/>
+            <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
         </div>
         </>}
 
