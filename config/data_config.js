@@ -56,8 +56,8 @@ export const studioArray = [
     {
         studioID: 5,
         order: 7,
-        studioName: 'media studio',
-        studioSlug: 'media studio',
+        studioName: 'media',
+        studioSlug: 'media',
         studioDescription:'First and second year Media Studio offers a practical and conceptual foundation in digital processes while allowing for the critical investigation of authorship, appropriation and remix culture. Through a variety of activities, projects, group and individual critiques, students deepen their critical media vocabulary while developing skills in analysis and production that aim to foster a rich engagement with contemporary culture and digital practice. In Media Studio, students experiment with sound, moving image, installation, projection, high-quality print output and the creation of artist books.',
         studioFaculty: ['Steven Hubert', 'Elizabeth Milton', 'Suzi Webster'],
         studioImage: [
@@ -160,4 +160,52 @@ export const aboutImages = [
     {thumbnailPath: `${imageBasePath}/images/about/slides/11About.jpg`},
     {thumbnailPath: `${imageBasePath}/images/about/slides/12About.jpg`},
     {thumbnailPath: `${imageBasePath}/images/about/slides/12About_GroupPhoto.jpg`},
+]
+
+export const awardWinners = [
+    {
+        winnerArtistID: 79,
+        winnerArtistName: 'Kassandra Lee',
+        awardName: 'Functional Ceramics Award Recipient '
+    },
+    {
+        winnerArtistID: 70,
+        winnerArtistName: 'Courtney Mott',
+        awardName: 'Sculptural Ceramics Award Recipient  '
+    },
+    {
+        winnerArtistID: 76,
+        winnerArtistName: 'Hayley Gossop',
+        awardName: 'Drawing Award Recipient'
+    },
+    {
+        winnerArtistID: 85,
+        winnerArtistName: 'Nawal Mustapha',
+        awardName: 'Design Award Recipient '
+    },
+    {
+        winnerArtistID: 80,
+        winnerArtistName: 'Leanne Inuarak-Dall',
+        awardName: 'Sculpture Award Recipient '
+    },
+    {
+        winnerArtistID: 89,
+        winnerArtistName: 'Seamus O Donnell',
+        awardName: 'Print Award Recipient'
+    },
+    {
+        winnerArtistID: 90,
+        winnerArtistName: 'Seraphine Lewis',
+        awardName: 'Media Award Recipient '
+    },
+    {
+        winnerArtistID: 75,
+        winnerArtistName: 'Hannah Watkins',
+        awardName: 'Painting Award Recipient'
+    },
+    {
+        winnerArtistID: 92,
+        winnerArtistName: 'Wakana Shimamura ',
+        awardName: 'Fine Arts Program Award Recipient'
+    },
 ]

@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 import React, { useState, useEffect } from 'react';
 
 import Image from 'next/image';
-
+import Header from "@/components/Header"
 
 
 
@@ -23,16 +23,43 @@ const Studio = ({artistList})=>{
 
     const [display, setDisplay] = useState(false)
     const [studioDetail, setStudioDetail] = useState({})
+    const [vh, setVh] = useState(1)
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [headerStyle, setHeaderStyle] = useState('')
+
     // console.log(studio);
     const router = useRouter()
     const { studio } = router.query;
     // console.log(studio);
+    useEffect(()=>{
+        const handleScroll = (event) => {
 
+            const height = window.innerHeight * 0.01;
+            const position = window.pageYOffset;
+
+            setVh(height);
+            setScrollPosition(position)
+        };
+    
+        
+        window.addEventListener("scroll", handleScroll)
+
+        return()=>{window.removeEventListener('scroll',handleScroll)}
+    },[])
+
+    useEffect(()=>{
+        if(scrollPosition >= 90*vh){
+            setHeaderStyle('#181818')
+        }else{
+            setHeaderStyle('')
+        }
+    },[scrollPosition])
 
 
     useEffect(()=>{
         if(studio){
             const foundStudio = studioArray.find((studioObj)=>studioObj.studioName == studio.toLowerCase());
+            
             if(foundStudio){
                 setDisplay(true);
                 setStudioDetail(foundStudio)
@@ -76,6 +103,8 @@ const Studio = ({artistList})=>{
         <>
         {/* header */}
         {display&&<>
+            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage="studio" bgColor={headerStyle}/>}
+
             <div className={styles.heroSection}>
             <Image
                 src={studioDetail.studioImage[1]}
