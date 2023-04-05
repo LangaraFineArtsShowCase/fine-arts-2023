@@ -75,7 +75,7 @@ const Artist = ({artistList})=>{
 
             awardWinners.map((a,i)=>{
                 // console.log(a);
-                console.log(currentArtistId);
+
                 if(a.winnerArtistID == currentArtistId){
                     setAwardWinner(true)
                     setAwardIndex(i)
@@ -99,19 +99,21 @@ const Artist = ({artistList})=>{
     },[artistWork])
 
     // console.log(artistDetail);
-    console.log(artistWork);
+
     return(
 
         <>
+
         {/* header */}
         {display&&
         
         <div className={styles.artistContainer}>
-        <div className={styles.heroSection}>
-            <div className={styles.artistNameHolder}>
-                <h1 className={styles.artistName}>{artistDetail.artistName}</h1>
+            <div className={styles.heroSection}>
+                <div className={styles.artistNameHolder}>
 
-                {displayAwardWinner&&
+                    <h1 className={styles.artistName}>{artistDetail.artistName}</h1>
+
+                    {displayAwardWinner&&
                     <div className={styles.award}>
                         <div className={styles.leftLeafHolder}>
                             <div className={styles.leftLeaf}><LeftLeaf/></div>
@@ -120,28 +122,35 @@ const Artist = ({artistList})=>{
                         <div className={styles.awardName}>{awardWinners[awardIndex].awardName}</div>
                         <div className={styles.rightLeaf}><LeftLeaf/></div>
                     </div>
-                }
+                    }
+
+                </div>
+
+                <div className={styles.artStudio}>
+                    {artField.length > 0 && artField.map((art,index)=>(
+                        <span key={index}>
+                            {art}{index !== artField.length - 1 && ', '}
+                        </span>
+                    ))}
+                </div>
+
+                <div className={styles.artistDesc}>{artistDetail.blurb}</div>
+
             </div>
-            <div className={styles.artStudio}>
-                {artField.length > 0 && artField.map((art,index)=>(
-                    <span key={index}>
-                        {art}{index !== artField.length - 1 && ', '}
-                    </span>
-                ))}
+
+            <div>
+
+                <ArtistArtworks items = {artistWork}/>
             </div>
-            <div className={styles.artistDesc}>{artistDetail.blurb}</div>
-
-
-            
-        </div>
-
-        <div>
-            {/* <ArtworkContainer items = {studioWork} artistsNames = {artistsNames}/> */}
-            <ArtistArtworks items = {artistWork}/>
-        </div>
         </div>}
 
-            <Footer/>
+        {/* <div>
+            {/* <ArtworkContainer items = {studioWork} artistsNames = {artistsNames}/> 
+            <ArtistArtworks items = {artistWork}/>
+        </div> */}
+        {/* </div> */}
+
+            {/* <Footer/> */}
         </>
     )
 }
