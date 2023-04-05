@@ -34,7 +34,7 @@ const About = ({artistList}) => {
               />
             </div>
             <div>
-              <p>Welcome to the Langara Fine Arts virtual graduation showcase for 2023!</p>
+              <p><strong>Welcome to the Langara Fine Arts virtual graduation showcase for 2023!</strong></p>
               <p>This digital presentation of artworks complements our in-person exhibition held at Langara College on West 49th Avenue in Vancouver from April 28<sup>th</sup> through May 7<sup>th</sup>, 2023. Made in our ceramics, drawing, design, Indigenous carving & tool making, painting, print media, public art, media, textile and sculpture courses, these works display the dedication, curiosity, and experimentation of our graduating students. We are extremely proud of this incredible work and congratulate our graduates on their significant achievement.</p>
               <p>We gratefully acknowledge that our learning takes place on traditional, ancestral and unceded <strong>xʷməθkʷəy̓əm, Musqeaum</strong> territory. We are deeply honoured to hold our given Musquem name, <strong>snəw̓eyəɬ leləm̓</strong>, house of teachings.</p>
             </div>
@@ -185,7 +185,7 @@ const About = ({artistList}) => {
 
               <p>On behalf of our graduating students, the Fine Arts Department would like to thank Langara College for funding our virtual grad show.</p>
 
-              <p>The following people are responsible for creating this website: <strong>Milos Campbell</strong> (Assistant Dept Chair), <strong>Charlotte Falk</strong> and <strong>Elizabeth Milton</strong> (Fine Arts Faculty) and <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor). Web & Mobile App students: <strong>Elmer Jr. Balbin</strong>, <strong>Akhil Noone</strong> and <strong>Anson Su</strong> and as well as Fine Arts students, <strong>Lindsay Chow</strong> and <strong>Sebastian Fuertes Pelayo</strong>. Thank you, team!</p>
+              <p>The following people are responsible for creating this website: <strong>Milos Campbell</strong> (Assistant Dept Chair), <strong>Charlotte Falk</strong> and <strong>Elizabeth Milton</strong> (Fine Arts Faculty) and <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor). Web & Mobile App students: <strong>Akhil Noone</strong>, <strong>Elmer Jr. Balbin</strong> and <strong>Anson Su</strong> and as well as Fine Arts students, <strong>Lindsay Chow</strong> and <strong>Sebastian Fuertes Pelayo</strong>. Thank you, team!</p>
             </div>
             <div>
               <p>Huge thanks and congratulations to our Fine Arts Graduates for providing such strong work to fill this virtual space.</p>
