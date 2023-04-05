@@ -101,11 +101,11 @@
   width: 100vw;
   height: 100vh;
   background: #181818;
-  padding: 120px 0;
+  padding: 12vh 0;
   box-sizing: border-box;
   opacity: 0;
-  transition: transform .45s ease-in,
-              opacity .35s ease-in-out;
+  transition: transform .35s ease-in,
+              opacity .25s ease-in-out;
 }
 
 .menuContainerOpen {
@@ -129,7 +129,7 @@
   color: white;
   opacity: 1;
   transform: translate(0vw, 0px);
-  transition: all .5s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 
 .navColumn h3 {
@@ -165,7 +165,7 @@
   overflow-y: auto;
   box-sizing: border-box;
   transform: translateY(100vh);
-  transition: all .5s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 
 .menuLinksOpen {
@@ -273,6 +273,12 @@
     padding: 22px 40px;
   }
 
+  .menuContainer {
+    padding: 120px 1rem;
+    transition: transform .45s ease-in,
+    opacity .35s ease-in-out;
+  }
+
   .menuContainer .nav {
     flex-direction: row;
   }
@@ -280,6 +286,7 @@
   .menuContainer .navColumn {
     flex-direction: column;
     border-left: 1px solid rgba(255, 255, 255, .5);
+    transition: all .5s ease-in-out;
   }
 
   .menuContainer .navColumn:first-child {
