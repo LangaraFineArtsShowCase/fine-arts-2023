@@ -1,14 +1,25 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { studioArray } from '@/config/data_config'
 import styles from '@/styles/Header.module.css'
+import Image from 'next/image'
 
-const Header = ({ artistList, studioList, originPage }) => {
+const Header = ({ artistList, studioList, originPage, bgColor }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuLinksOpen, setIsMenuLinksOpen] = useState(false)
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
   const [isStudiosListOpen, setIsStudiosListOpen] = useState(false)
 
-  // whem main menu closed, reset states
+  // add class to body when menu state is changed
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('menu-is-visible')
+    } else {
+      document.body.classList.remove('menu-is-visible')
+    }
+  }, [isMenuOpen])
+
+  // when main menu closed, reset states
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
     setIsArtistsListOpen(false)
@@ -49,25 +60,31 @@ const Header = ({ artistList, studioList, originPage }) => {
   });
 
   return (
-    <header className={styles.header}>
-      <div className={styles.headerContainer} style={{ justifyContent: originPage == 'home' && 'flex-end', backgroundColor: originPage == 'home' ? 'transparent' : '#FFFFFF', borderBottom: originPage == 'home' ? 'none' : '1px solid #181818' }}>
-        {originPage != 'home' && (
-          <div className={styles.headerTitle}>
-            <span>Langara Fine Arts</span>
-            <span>Graduation Exhibition 2023</span>
-          </div>
-        )}
 
-        <div className={`${styles.burgerMenu} ${isMenuOpen && styles.burgerMenuOpen} ${isMenuLinksOpen && styles.burgerMenuLinksOpen}`} onClick={toggleMenu}>
-          <div />
-          <div />
-          <div />
+    <header className={styles.header}>
+      <div className={styles.headerContainer} style={{ backgroundColor: originPage == 'about' ? '#FFFFFF' : bgColor, borderBottom: originPage == 'about' ? '1px solid #181818' : 'none' }}>
+        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end' }}>
+          {originPage != 'home' && (
+            <div className={styles.headerTitle} >
+              <Link href="/" style={{color: originPage=='about'? '#181818':'#ffffff'}}>
+                <span>Langara Fine Arts</span>
+                <span>Grad Show 2023</span>
+              </Link>
+            </div>
+          )}
+
+
+          <div className={`${styles.burgerMenu} ${isMenuOpen && styles.burgerMenuOpen} ${isMenuLinksOpen && styles.burgerMenuLinksOpen}`} onClick={toggleMenu}>
+            <div />
+            <div />
+            <div />
+          </div>
         </div>
       </div>
 
       <div className={`${styles.menuContainer} ${isMenuOpen && styles.menuContainerOpen} ${isMenuLinksOpen && styles.menuLinksVisible}`}>
         <div className={styles.nav}>
-          <div className={`${styles.navColumn} ${isStudiosListOpen && styles.hideArtistsMenu}`}>
+          <div className={`${styles.navColumn} ${isArtistsListOpen && styles.slideArtistsMenu} ${isStudiosListOpen && styles.hideArtistsMenu}`}>
             <h3 onClick={() => toggleMenuLinks('artists')}>Artists</h3>
             <span>1</span>
           </div>
@@ -77,7 +94,7 @@ const Header = ({ artistList, studioList, originPage }) => {
           </div>
           <div className={`${styles.navColumn} ${isMenuLinksOpen && styles.hideAboutMenu}`}>
             <h3>
-              <a href="/about">About</a>
+              <Link href="/about">About</Link>
             </h3>
             <span>3</span>
           </div>
@@ -104,7 +121,23 @@ const Header = ({ artistList, studioList, originPage }) => {
             </div>
           )}
           {isStudiosListOpen && (
-            <div className={styles.StudiosLinks}>studios</div>
+            <div className={styles.StudiosList}>
+              {studioArray.sort((a, b) => a.order - b.order).map((studio ,i) => (
+                <div key={i}>
+                  <Link href={`/studio/${studio.studioSlug}`}>
+                    <Image
+                      src={studio.studioImage[0]}
+                      alt={studio.studioName}
+                      width={360}
+                      height={360}
+                    />
+                  </Link>
+                  <h4>
+                    <Link href={`/studio/${studio.studioSlug}`}>{studio.studioName}</Link>
+                  </h4>
+                </div>
+              ))}
+            </div>
           )}
         </div>
       </div>

@@ -1,13 +1,25 @@
 .main {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 45px 40px;
   width: 100vw;
   height: 100vh;
-  background: url('/images/home/fine-arts-splash-desktop.jpg') center center no-repeat;
+  background: url('/images/home/SplashPage1New.jpg') center center no-repeat;
   background-size: cover;
   box-sizing: border-box;
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: 0;
 }
 
 .school {
@@ -24,6 +36,7 @@
   margin-top: -60px;
   color: white;
   line-height: .9;
+  z-index: 1;
 }
 
 .title h1 {
@@ -73,8 +86,8 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem 2rem;
-  background: linear-gradient(to right, white 25%, black 25%, black 50%, white 50%, white 75%, black 0);
-  background-size: 400% 100%;
+  background: linear-gradient(to right, white 50%, black 50%);
+  background-size: 200% 100%;
   background-position-x: 100%;
   color: white;
   text-decoration: none;
@@ -83,21 +96,11 @@
   line-height: 1.5;
   letter-spacing: 1px;
   box-sizing: border-box;
-  transition: background-position .6s ease-in-out,
+  transition: background-position .3s ease-in-out,
               color .3s ease-in-out;
 }
 
 .buttonWrapper a:hover {
   background-position-x: 0;
   color: black;
-}
-
-@media screen and (min-width: 768px) {
-  .main {
-
-  }
-
-  .title {
-    
-  }
 }

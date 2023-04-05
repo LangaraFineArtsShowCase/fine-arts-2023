@@ -54,14 +54,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* overflow:hidden; */
+
     position: relative;
 
     transform-origin: top left;
     transition: transform .5s ease-in-out; 
     text-align: center;
-    /* width: var(--artwork-container-width);
-    height: var(--artwork-container-width); */
 
     
     margin-left: auto;
@@ -119,11 +117,6 @@
 
 
 .artName {
-    /* position: absolute; */
-    /* top: 0px;
-    margin-top:15%;
-    left: 0px;
-    margin-left: 3% */
     text-align: left;
 
     max-width: 69%;
@@ -136,11 +129,6 @@
 }
 
 .artistName {
-    /* position: absolute;*/
-    /* top: 0px;
-    margin-top:10%;
-    right: 0px;
-    margin-right: 3% */
     text-align: right;
     font-family: 'Archivo', sans-serif;
     font-style: italic;

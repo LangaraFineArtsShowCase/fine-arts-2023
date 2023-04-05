@@ -8,13 +8,14 @@ import { useRouter } from 'next/router'
 import React, { useState, useEffect } from 'react';
 
 import Image from 'next/image';
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 
 
+const Studio = ({artistList})=>{
 
-
-const Studio = ()=>{
-    const [artistList, setArtistList] = useState({})
+    // const [artistList, setArtistList] = useState({})
     const [artist, setArtist] = useState({})
     const [artistsNames, setArtistsNames] = useState({})
 
@@ -22,30 +23,51 @@ const Studio = ()=>{
 
     const [display, setDisplay] = useState(false)
     const [studioDetail, setStudioDetail] = useState({})
+    const [vh, setVh] = useState(1)
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [headerStyle, setHeaderStyle] = useState('')
+
     // console.log(studio);
     const router = useRouter()
-    const { studio } = router.query;
+    let { studio } = router.query;
     // console.log(studio);
+    useEffect(()=>{
+        const handleScroll = (event) => {
 
-    const checkStudio = () => {
-        // console.log(studio);
-        if(studio){
-            const foundStudio = studioArray.find((studioObj)=>studioObj.studioName == studio.toLowerCase());
-            // console.log(foundStudio);
-            if(foundStudio){
-                setDisplay(true);
-                setStudioDetail(foundStudio)
-            }
+            const height = window.innerHeight * 0.01;
+            const position = window.pageYOffset;
+
+            setVh(height);
+            setScrollPosition(position)
+        };
+    
+        
+        window.addEventListener("scroll", handleScroll)
+
+        return()=>{window.removeEventListener('scroll',handleScroll)}
+    },[])
+
+    useEffect(()=>{
+        if(scrollPosition >= 90*vh){
+            setHeaderStyle('#181818')
+        }else{
+            setHeaderStyle('')
         }
+    },[scrollPosition])
 
-    }
 
     useEffect(()=>{
         if(studio){
-            checkStudio();
-            // console.log(display);
-            let alist = getArtistList();
+            const foundStudio = studioArray.find((studioObj)=>studioObj.studioName == studio.toLowerCase());
+            
+            if(foundStudio){
+                setDisplay(true);
+                setStudioDetail(foundStudio)
+                let alist = getArtistList();
             let a = getArtists();
+            if(studio == 'media'){
+                studio = 'media studio'
+            }
             let s = getStudioWorks(studio);
             a.then(result=>{
     
@@ -53,20 +75,15 @@ const Studio = ()=>{
             })
     
             alist.then(result=>{
-                // console.log(result);
-                setArtistList(result);
+                // setArtistList(result);
+                artistList = result
             })
     
             s.then(result=>{
-                console.log(studio);
-                // console.log(result);
-                setStudioWork(result);           
+                setStudioWork(result);        
                 const studioArtists=[]
-                // const arr = {'data':{'artworks2022':{"nodes":{"author"}}}};
-                // console.log(result);
                 result.data.artworks2022.nodes.map((element)=>{
                     let add = true;
-                    // console.log(element.author.node.userId);
                     studioArtists.map((a)=>{
                         if(a.userId === element.author.node.userId){
                             add = false;
@@ -76,29 +93,24 @@ const Studio = ()=>{
                         let studioArtist = {'userId':element.author.node.userId, 'name':element.author.node.artists2022.nodes[0].artistFields.artistName};
                         studioArtists.push(studioArtist)
                     }
-                    // if(element.artworkFields.studio===studio){
-                    //     nodes.push(element)
-                    // }
                 })
-                // console.log(studioArtists);
                 setArtistsNames(studioArtists)
             })
+            }
+            
         }
-
-
-
-
     },[studio])
 
-    // console.log(artistsNames);
     return(
 
         <>
         {/* header */}
         {display&&<>
+            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage="studio" bgColor={headerStyle}/>}
+
             <div className={styles.heroSection}>
             <Image
-                src={studioDetail.studioImage[0].imagePath}
+                src={studioDetail.studioImage[1]}
                 alt="cover image"
                 layout="fill"
                 objectFit="cover"
@@ -106,8 +118,11 @@ const Studio = ()=>{
             />
             <div className={styles.desc}>
                 {studioDetail.studioDescription}
-                <div className={styles.faculty}>Studio Faclty: {studioDetail.studioFaculty.map((item)=>(
-                    <spam key={item}>{item}</spam>
+                <div className={styles.faculty}>Studio Faculty: {studioDetail.studioFaculty.map((item,index)=>(
+                    <span key={item}>
+                        {item}
+                        {index !== studioDetail.studioFaculty.length - 1 && ", "}
+                    </span>
                 ))}</div>    
             </div>
             <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>
@@ -119,7 +134,7 @@ const Studio = ()=>{
         </div>
         </>}
 
-            
+            <Footer/>
         </>
     )
 }
@@ -154,13 +169,6 @@ async function getArtists(){
 }
 
 async function getStudioWorks(s){
-    // const { data: studioWorks } = await client.query({
-    //     query: GET_STUDIO_WORKS,
-    //     variables: {
-    //         studio: studioName.replace("&amp;", "&")
-    //     }
-    // })
-    // console.log(studio);
     let a;
     try{
         a = await client.query({
@@ -172,5 +180,46 @@ async function getStudioWorks(s){
         return a;
     }catch(err){
         // console.log(err);
+    }
+}
+
+export async function getStaticProps(context) {
+
+    try {
+  
+      const { data } = await client.query({
+          query: GET_ARTIST_LIST
+      })
+  
+      return {
+          props: {
+            artistList: data?.artists2022?.nodes
+          },
+          // revalidate: 30,
+      }
+  
+    } catch (error) {
+      console.log('error', error)
+  
+      return {
+        props: {
+          artistList: []
+        },
+        // revalidate: 30,
+      }
+    }
+  }
+
+  export async function getStaticPaths() {
+
+    return {
+        paths: studioArray.map((studio) => {
+            return {
+                params: {
+                    studio: studio.studioName,
+                }
+            }
+        }),
+        fallback: false
     }
 }

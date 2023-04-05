@@ -11,7 +11,7 @@
     max-width: calc(0.46*100vw);
     position:absolute;
     bottom: calc(100vw*0.02);
-    left: calc(100vw*0.04);
+    left: calc(100vw*0.035);
     font-family: 'Archivo';
     font-style: normal;
     font-weight: 800;
@@ -53,11 +53,17 @@
         /* position: relative; */
         /* margin-top:100%; */
         /* padding-top: 100%; */
-        /* left: 0px; */
-        bottom: 15px;
-        margin: auto;
-        font-size: calc(0.16*100vw);
+        left: 0px;
+        bottom: 0px;
+        /* margin: auto; */
+        font-size: 10vw;
         font-weight: 700;     
+        max-width: none;
+        width: 100%;
+        padding:40px;
+        padding-top:0px;
+        box-sizing: border-box;
+
     }
 
     .desc{

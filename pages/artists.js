@@ -5,6 +5,9 @@ import styles from "../styles/Artists.module.css"
 import ArtworkContainer from "../components/ArtworksContainer"
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react';
+import Header from '@/components/Header'
+import Footer from "@/components/Footer"
+
 
 import Image from 'next/image';
 
@@ -15,6 +18,9 @@ import Image from 'next/image';
 const Artists = ()=>{
     const [artistList, setArtistList] = useState({})
     const [artist, setArtist] = useState({})
+    const [vw, setVw] = useState(1)
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const [headerStyle, setHeaderStyle] = useState('')
 
 
     useEffect(()=>{
@@ -25,17 +31,55 @@ const Artists = ()=>{
         })
         alist.then(result=>{
             setArtistList(result)
+            // artistList = result
+
+
         })
+
+        const handleScroll = (event) => {
+
+            const width = window.innerWidth * 0.01;
+            const position = window.pageYOffset;
+
+            setVw(width);
+            setScrollPosition(position)
+        };
+    
         
+        window.addEventListener("scroll", handleScroll)
+
+        return()=>{window.removeEventListener('scroll',handleScroll)}
     },[])
 
-    console.log(artistList);
+    useEffect(()=>{
+        // setTimeout(() => {
+            
+        // }, 100);
+        // alert(headerStyle)
+        // console.log(headerStyle);
+        if(scrollPosition >= 35*vw){
+            // console.log('CHANGE');
+            setHeaderStyle('#181818')
+        }else{
+            setHeaderStyle('')
+        }
+    },[scrollPosition])
+    // console.log(vw);
+    // console.log(scrollPosition);
+    // console.log(artistList);
 
 
     return(
 
-        <>
+        <div>
         {/* header */}
+        <div className={styles.artistsHeader} style={{ backgroundColor: headerStyle }}>
+
+            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage="artists" bgColor={headerStyle}/>}
+        </div>
+
+        {/* <Header artistList={artistList} studioList={studioArray} originPage="artists" /> */}
+
         <div className={styles.heroSection}>
             <Image
                 // className={styles.coverImg}
@@ -51,8 +95,8 @@ const Artists = ()=>{
         <div>
             <ArtworkContainer items = {artist}/>
         </div>
-            
-        </>
+            <Footer/>
+        </div>
     )
 }
 
@@ -66,7 +110,7 @@ async function getArtistList(){
             query: GET_ARTIST_LIST
         })
 
-        return aList
+        return aList.data.artists2022.nodes
     }catch(err){
         console.log(err);
     }

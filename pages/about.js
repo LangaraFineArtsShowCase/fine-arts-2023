@@ -1,26 +1,27 @@
-import aboutStyles from '../styles/About.module.css'
 import client from '../apollo/client'
 import { GET_ARTISTS, GET_ARTIST_LIST } from '@/apollo/queries/queries'
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
+import Link from 'next/link'
 import Header from '@/components/Header'
 import { aboutImages, imageBasePath } from '../config/data_config'
 import dynamic from 'next/dynamic'
+import Carousel from 'better-react-carousel'
 import styles from '@/styles/About.module.css'
+import Footer from '@/components/Footer'
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 const About = ({artistList}) => {
   return (
     <>
-      <Header artistList={artistList} />
+      <Header artistList={artistList} originPage="about" />
       <main className={styles.main}>
 
         <section className={`${styles.section} ${styles.heroSection}`}>
           <div className={styles.wrapper}>
             <h1 className={styles.pageTitle}>Fine Arts</h1>
-            <h2 className={styles.pageSubtitle}>Graduation Exhibition <small>2023</small></h2>
+            <h2 className={styles.pageSubtitle}>Grad Show <small>2023</small></h2>
             <div className={styles.videoWrapper}>
               <ReactPlayer
                 url={`${imageBasePath}/videos/about/About-Video.mp4`}
@@ -33,11 +34,27 @@ const About = ({artistList}) => {
               />
             </div>
             <div>
-              <p>Welcome to Langara Fine Arts virtual graduation showcase for 2023</p>
-              <p>Our students have produced an incredible amount of amazing work this year which is evident in this virtual exhibition and in our in person exhibition at Langara College (April 29th to May 8th in the A Building Main Foyer). This two-part exhibition celebrates this dedicated group of young artists. As a Department, we want to express how proud we are of these students and their exhibited artwork.</p>
-              <p>Langara Fine Arts gratefully acknowledges that we do what we do on traditional, ancestral and unceded Musqueam territory.</p>
+              <p>Welcome to the Langara Fine Arts virtual graduation showcase for 2023!</p>
+              <p>This digital presentation of artworks complements our in-person exhibition held at Langara College on West 49th Avenue in Vancouver from April 28<sup>th</sup> through May 7<sup>th</sup>, 2023. Made in our ceramics, drawing, design, Indigenous carving & tool making, painting, print media, public art, media, textile and sculpture courses, these works display the dedication, curiosity, and experimentation of our graduating students. We are extremely proud of this incredible work and congratulate our graduates on their significant achievement.</p>
+              <p>We gratefully acknowledge that our learning takes place on traditional, ancestral and unceded <strong>xʷməθkʷəy̓əm, Musqeaum</strong> territory. We are deeply honoured to hold our given Musquem name, <strong>snəw̓eyəɬ leləm̓</strong>, house of teachings.</p>
             </div>
           </div>
+        </section>
+
+        <section className={styles.carousel}>
+          <Carousel cols={5} rows={1} gap={10} loop={true}>
+            {aboutImages.map((image, i) => (
+              <Carousel.Item key={i}>
+                <div className={styles.carouselItemWrapper}>
+                  <Image
+                    src={image.thumbnailPath}
+                    alt="image"
+                    fill
+                  />
+                </div>
+              </Carousel.Item>
+            ))}
+          </Carousel>
         </section>
 
         <section className={`${styles.section} ${styles.bgGray} ${styles.portraitStephanie}`}>
@@ -107,12 +124,12 @@ const About = ({artistList}) => {
                 <span>- performance, media studio, drawing and professional practice</span>
               </li>
               <li>
-                <strong>Suzi Webster</strong>
-                <span>- media studio and drawing</span>
+                <strong>Gloria Han</strong>
+                <span>- ceramics</span>
               </li>
               <li>
-                <strong>Janet Wang</strong>
-                <span>- term faculty, drawing</span>
+                <strong>Suzi Webster</strong>
+                <span>- media studio and drawing</span>
               </li>
               <li>
                 <strong>Will Morrison</strong>
@@ -161,31 +178,34 @@ const About = ({artistList}) => {
         <section className={`${styles.section} ${styles.thankYouSection}`}>
           <div className={styles.wrapper}>
             <div className={styles.thankYouTitle}>
-              <h2>Thank you message</h2>
+              <h2>THANK YOUs:</h2>
             </div>
             <div>
-              <p>On behalf of our graduating students, the Fine Arts Department would like to thank Langara College for funding our virtual grad show Here:There.</p>
-              <p>Thank you! Fine Arts Graduates for providing such strong work to fill this virtual space and congratulations on your accomplishments!</p>
-              <p>Special thanks to our amazing Chair, Stephanie Aitken for her hard work and dedication to running our program and for all of the tireless behind the scenes work of our Department Coordinator, Rita Yip. Deep gratitude to our donors: David Lambert Foundation, Shadbolt Centre for the Arts - Ceramics Programs, Craft Council of BC, Anne and Jeff Powell, and Tenline Sales for their generous contribution to our Fine Arts Awards program.</p>
+              <p>Special thanks to our amazing Department Chair, <strong>Stephanie Aitken</strong> for her dedication, insight and hard work running our program, Milos Campbell for her incredible support as Assistant Chair and for the tireless behind the scenes work of our Department Coordinator, <strong>Rita Yip</strong>. Deep gratitude to our donors: <strong>David Lambert Foundation</strong>, <strong>Shadbolt Centre for the Arts - Ceramics Programs</strong>, <strong>xCraft Council of BC</strong>, <strong>Anne and Jeff Powell</strong>, and <strong>Tenline Sales</strong> for their generous contribution to our Fine Arts Awards program.</p>
+
+              <p>On behalf of our graduating students, the Fine Arts Department would like to thank Langara College for funding our virtual grad show.</p>
+
+              <p>The following people are responsible for creating this website: <strong>Milos Campbell</strong> (Assistant Dept Chair), <strong>Charlotte Falk</strong> and <strong>Elizabeth Milton</strong> (Fine Arts Faculty) and <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor). Web & Mobile App students: <strong>Elmer Jr. Balbin</strong>, <strong>Akhil Noone</strong> and <strong>Anson Su</strong> and as well as Fine Arts students, <strong>Lindsay Chow</strong> and <strong>Sebastian Fuertes Pelayo</strong>. Thank you, team!</p>
             </div>
             <div>
-              <p>HUGE thanks from all of us to the following folks who support our program:</p>
+              <p>Huge thanks and congratulations to our Fine Arts Graduates for providing such strong work to fill this virtual space.</p>
+              <p>Many thanks to the following folks who support our program:</p>
               <ul className={styles.thankYouList}>
                 <li>
-                  <strong>Lynn Ruscheinsky and Yani Kong</strong>
-                  <span>- Cultural Theory instructors, Art History</span>
+                  <strong>Yani Kong</strong>
+                  <span>- Cultural Theory Instructor, Art History</span>
                 </li>
                 <li>
-                  <strong>Joyce Wong</strong>
-                  <span>- Fine Arts librarian</span>
+                  <strong>Rebecca Slaven</strong>
+                  <span>- Fine Arts Librarian</span>
                 </li>
                 <li>
-                  <strong>Alena Buis</strong>
+                  <strong>Spencer Dane</strong>
                   <span>-  Creative Arts and Industries Division Chair</span>
                 </li>
                 <li>
                   <strong>Darren Bernaerdt</strong>
-                  <span>- Our super supportive Dean of Arts</span>
+                  <span>- Acting Dean of Arts</span>
                 </li>
                 <li>
                   <span>Our amazing life models:</span>
@@ -199,9 +219,9 @@ const About = ({artistList}) => {
         <section className={`${styles.section} ${styles.bgGray} ${styles.langaraApplySection}`}>
           <div className={styles.wrapper}>
             <div className={`${styles.personPortrait} ${styles.textAlignRight}`}>
-              <h2>Langara fine arts</h2>
+              <h2>Langara Fine Arts</h2>
               <Image
-                src={`${imageBasePath}/images/about/langara-fine-arts.jpg`}
+                src={`${imageBasePath}/images/about/Langara-Fine-Arts-New.jpg`}
                 alt="langara fine arts"
                 width={361}
                 height={361}
@@ -210,7 +230,7 @@ const About = ({artistList}) => {
               />
             </div>
             <div>
-              <p>The Langara Fine Arts diploma program is a two-year studio art foundation that emphasizes hands-on material-based skills within a supportive community of makers, learners, and thinkers.Langara Fine Arts is committed to a culture of humility and respect.</p>
+              <p>The Langara Fine Arts diploma program is a two-year studio art foundation that emphasizes hands-on material-based skills within a supportive community of makers, learners, and thinkers. Langara Fine Arts is committed to a culture of humility and respect.</p>
             </div>
             <div>
               <p>Students have the opportunity to study drawing, design, painting, sculpture, foundry, printmaking, Indigenous carving, ceramics, textile art, media, performance and public art. Our tuition is affordable, and our courses are university transferable. Langara Fine Arts alumni go on to study at respected universities throughout Canada and beyond.</p>
@@ -218,13 +238,15 @@ const About = ({artistList}) => {
             <div className={styles.applyOnlineContainer}>
               <p>For information on admissions to the Langara Fine Arts program contact<br /><a href="mailto:admissions@langara.ca"><strong>admissions@langara.ca</strong></a></p>
               <p>
-                <a href="https://langara.ca/programs-and-courses/programs/fine-arts/application-info.html" className={styles.applyOnlineBtn}>Apply online today!</a>
+                <Link href="https://langara.ca/programs-and-courses/programs/fine-arts/application-info.html" className={styles.applyOnlineBtn} target="_blank">Apply online today!</Link>
               </p>
             </div>
           </div>
         </section>
 
       </main>
+
+      <Footer />
     </>
   )
 }
