@@ -172,8 +172,10 @@
 }
 
 .artistList {
-  padding: 0 24px;
+  padding: 24px;
+  width: 100%;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .artistName {
@@ -182,6 +184,10 @@
   align-items: flex-start;
   margin-bottom: 2rem;
   font-size: 18px;
+}
+
+.artistName:last-child {
+  padding-bottom: 48px;
 }
 
 .initial {
@@ -351,6 +357,10 @@
     column-count: 2;
     width: 100%;
     height: auto;
+  }
+
+  .artistName:last-child {
+    padding-bottom: 0;
   }
 
   .StudiosList {
