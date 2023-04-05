@@ -45,12 +45,13 @@ const About = ({artistList}) => {
           <Carousel cols={5} rows={1} gap={10} loop={true}>
             {aboutImages.map((image, i) => (
               <Carousel.Item key={i}>
-                <Image
-                  src={image.thumbnailPath}
-                  alt="image"
-                  width={363}
-                  height={280}
-                />
+                <div className={styles.carouselItemWrapper}>
+                  <Image
+                    src={image.thumbnailPath}
+                    alt="image"
+                    fill
+                  />
+                </div>
               </Carousel.Item>
             ))}
           </Carousel>
@@ -180,7 +181,7 @@ const About = ({artistList}) => {
               <h2>THANK YOUs:</h2>
             </div>
             <div>
-              <p>Special thanks to our amazing Department Chair,<strong>Stephanie Aitken</strong> for her dedication, insight and hard work running our program, Milos Campbell for her incredible support as Assistant Chair and for the tireless behind the scenes work of our Department Coordinator,<strong>Rita Yip</strong>. Deep gratitude to our donors: <strong>David Lambert Foundation</strong>, <strong>Shadbolt Centre for the Arts - Ceramics Programs</strong>, <strong>xCraft Council of BC</strong>, <strong>Anne and Jeff Powell</strong>, and <strong>Tenline Sales</strong> for their generous contribution to our Fine Arts Awards program.</p>
+              <p>Special thanks to our amazing Department Chair, <strong>Stephanie Aitken</strong> for her dedication, insight and hard work running our program, Milos Campbell for her incredible support as Assistant Chair and for the tireless behind the scenes work of our Department Coordinator, <strong>Rita Yip</strong>. Deep gratitude to our donors: <strong>David Lambert Foundation</strong>, <strong>Shadbolt Centre for the Arts - Ceramics Programs</strong>, <strong>xCraft Council of BC</strong>, <strong>Anne and Jeff Powell</strong>, and <strong>Tenline Sales</strong> for their generous contribution to our Fine Arts Awards program.</p>
 
               <p>On behalf of our graduating students, the Fine Arts Department would like to thank Langara College for funding our virtual grad show.</p>
 
@@ -196,7 +197,7 @@ const About = ({artistList}) => {
                 </li>
                 <li>
                   <strong>Rebecca Slaven</strong>
-                  <span>- Fine Arts librarian</span>
+                  <span>- Fine Arts Librarian</span>
                 </li>
                 <li>
                   <strong>Spencer Dane</strong>
@@ -229,7 +230,7 @@ const About = ({artistList}) => {
               />
             </div>
             <div>
-              <p>The Langara Fine Arts diploma program is a two-year studio art foundation that emphasizes hands-on material-based skills within a supportive community of makers, learners, and thinkers.Langara Fine Arts is committed to a culture of humility and respect.</p>
+              <p>The Langara Fine Arts diploma program is a two-year studio art foundation that emphasizes hands-on material-based skills within a supportive community of makers, learners, and thinkers. Langara Fine Arts is committed to a culture of humility and respect.</p>
             </div>
             <div>
               <p>Students have the opportunity to study drawing, design, painting, sculpture, foundry, printmaking, Indigenous carving, ceramics, textile art, media, performance and public art. Our tuition is affordable, and our courses are university transferable. Langara Fine Arts alumni go on to study at respected universities throughout Canada and beyond.</p>
