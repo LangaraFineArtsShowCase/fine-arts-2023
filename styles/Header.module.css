@@ -129,7 +129,8 @@
   color: white;
   opacity: 1;
   transform: translate(0vw, 0px);
-  transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out,
+              color 0s ease-in-out;
 }
 
 .navColumn h3 {
