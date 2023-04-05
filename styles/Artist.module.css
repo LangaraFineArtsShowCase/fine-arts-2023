@@ -1,0 +1,93 @@
+.artistContainer{
+    padding-left: 3vw;
+}
+
+.heroSection{
+    position: relative;
+    width: 100vw;
+    height: calc(0.41*100vw);
+    /* background-color: red; */
+    z-index: 10;
+    margin: 0px;
+    padding-top: 8vw;
+}
+
+.artistName{
+    /* position: absolute; */
+    /* top: 10vw; */
+    font-weight: 700;
+    font-size: 5vw;
+    line-height: 130%;
+}
+
+.artistDesc{
+    /* position:absolute; */
+    /* top: 20vw; */
+    margin-top: 2vw;
+    max-width: 69vw;
+    font-weight: 400;
+    /* font-size: 18px; */
+    font-size: 1.5vw;
+    line-height: 180%;
+}
+
+.artStudio{
+    text-transform:capitalize;
+    opacity: 0.5;
+    color: #181818;
+    font-weight: 600;
+    font-size: 1.5vw;
+    line-height: 150%;
+}
+
+.artistNameHolder{
+    /* display: inline-block; */
+    display: flex;
+    /* width: 100%; */
+    align-items: center;
+}
+
+.artistNameHolder h1{
+    display: inline;
+    margin-right: 30px;
+}
+
+.award{
+    /* display: inline-block; */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftLeaf{
+    display: inline-block;
+
+    /* padding-bottom: 10000%%;  */
+    /* scale: 50vw; */
+    /* width: 100%; 
+    height: auto; */
+    /* padding-bottom: 92%; */
+}
+
+/* .leftLeafHolder{
+    /* padding-bottom: 92%; 
+} */
+
+.awardName{
+    display: inline-block;
+    font-family: "utile-display", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5vw;
+    line-height: 140%;
+    max-width: 15vw;
+}
+
+.rightLeaf{
+    transform: scaleX(-1);
+    display: inline-block;
+    /* font-family: 'Utile Display'; */
+
+
+}

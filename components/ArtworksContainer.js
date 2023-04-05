@@ -35,21 +35,6 @@ const ArtworkContainer = ({items, artistsNames}) =>{
 
     }
 
-    // const split = () => {
-    //     let left = [];
-    //     let right = [];
-    //     for(let i=0;i<shuffledItems.length;i++){
-    //         if(i%2==0){
-    //             left.push(shuffledItems[i])
-    //         }else{
-    //             right.push(shuffledItems[i])
-    //         }
-    //     }
-    //     // console.log(left);
-    //     // console.log(right);
-    //     setLeftColumn(left);
-    //     setRightColumn(right);
-    // }
 
 
     useEffect(()=> {
@@ -99,14 +84,14 @@ const ArtworkContainer = ({items, artistsNames}) =>{
 
     return(
         <>
-        <Head>
+        {/* <Head>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
             <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&display=swap" rel="stylesheet"/>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
             <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,300&display=swap" rel="stylesheet"></link>
-        </Head>
+        </Head> */}
 <div className={styles.flexContainer}>
         <div className={styles.container}>
             <div className={styles.colOne}>
@@ -216,7 +201,7 @@ const ArtworkContainer = ({items, artistsNames}) =>{
                 <SideList name={"Artists"} list={[]} artistsNames= {artistsNames}/>
 
             :
-                <SideList name={"Studios"} list={["Ceramics","Painting","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media Studio","Drawing","Print media","Textiles","Public art", "Performance"]}/>
+                <SideList name={"Studios"} list={["Ceramics","Painting","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media","Drawing","Print Media","Textiles","Public art", "Performance"]}/>
 
 
             }

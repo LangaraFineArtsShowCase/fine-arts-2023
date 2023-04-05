@@ -12,6 +12,8 @@ body.menu-is-visible {
 
 .headerContainer {
   padding: 22px 16px;
+  transition: all .5s ease-in-out; 
+
 }
 
 .headerWrapper {

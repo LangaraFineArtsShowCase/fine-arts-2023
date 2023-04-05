@@ -15,7 +15,7 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 const About = ({artistList}) => {
   return (
     <>
-      <Header artistList={artistList} />
+      <Header artistList={artistList} originPage="about" />
       <main className={styles.main}>
 
         <section className={`${styles.section} ${styles.heroSection}`}>
