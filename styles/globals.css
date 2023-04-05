@@ -14,6 +14,10 @@ body {
   overscroll-behavior-y: none;
 }
 
+body.menu-is-visible {
+  overflow-y: hidden;
+}
+
 @media(max-width:768px){
   body {
     overscroll-behavior-y: initial;
