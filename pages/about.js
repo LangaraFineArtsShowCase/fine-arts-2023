@@ -123,7 +123,7 @@ const About = ({artistList}) => {
                 <span>- performance, media studio, drawing and professional practice</span>
               </li>
               <li>
-                <strong>Gloria Tan</strong>
+                <strong>Gloria Han</strong>
                 <span>- ceramics</span>
               </li>
               <li>
