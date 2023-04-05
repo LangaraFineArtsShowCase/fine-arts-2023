@@ -15,7 +15,7 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 const About = ({artistList}) => {
   return (
     <>
-      <Header artistList={artistList} />
+      <Header artistList={artistList} originPage="about" />
       <main className={styles.main}>
 
         <section className={`${styles.section} ${styles.heroSection}`}>
@@ -123,7 +123,7 @@ const About = ({artistList}) => {
                 <span>- performance, media studio, drawing and professional practice</span>
               </li>
               <li>
-                <strong>Gloria Tan</strong>
+                <strong>Gloria Han</strong>
                 <span>- ceramics</span>
               </li>
               <li>
