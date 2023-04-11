@@ -108,7 +108,7 @@ const Artist = ({artistList})=>{
         {/* header */}
         {/* <Header/>
          */}
-            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage="artist"/>}
+            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage="about"/>}
         
         {display&&
         

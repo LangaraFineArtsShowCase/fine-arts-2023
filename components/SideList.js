@@ -8,40 +8,50 @@ import Link from 'next/link'
 
 
 const SideList = (props) => {
-    // console.log(props)
     const [list, setList] = useState([])
-    // console.log(list);
     useEffect(()=>{
-        // setList(props.artistsNames)
         const isArr = Object.prototype.toString.call(props.artistsNames) == '[object Array]';
         console.log(props.artistsNames);
-        // console.log(typeof(props.artistsNames));
 
         if(isArr){
-            setList(props.artistsNames)
+            // setList(props.artistsNames)
+            let sorted = props.artistsNames;
+            // sorted.sort((a, b) => {
+            //     const lastNameA = a.name.split(' ').slice(-1)[0];
+            //     const lastNameB = b.name.split(' ').slice(-1)[0];
+                
+            //     if (lastNameA < lastNameB) {
+            //         console.log(lastNameA);
+            //       return -1;
+            //     }
+            //     if (lastNameA > lastNameB) {
+            //       return 1;
+            //     }
+            //     return 0;
+            // });
+            console.log('L'>'M');
+            sorted.sort((a,b)=>{
+                const splitA = a.name.split(" ");
+                const splitB = b.name.split(" ");
+                const lastA = splitA[splitA.length - 1];
+                const lastB = splitB[splitB.length - 1];
+                const lastLetterA = lastA.charAt(0)
+                const lastLetterB = lastB.charAt(0)
+
+                // console.log(splitA);
+                return lastLetterA == lastLetterB?
+                        (splitA>splitB):
+                        (lastLetterA>lastLetterB)
+            })
+
+            console.log(sorted);
+            setList(sorted)
         }
         console.log(list);
     },[props.artistsNames])
 
-    const handelClick = (e) => {
-        console.log(e);
-        // console.log(`/studio/${e}`);
-        if(props.name == "Studios"){
-            // redirect to individual studio page
-            // console.log(e);
-            // console.log("wat");
-            // console.log("wat");
-            // redirect(`/studio/${e}`)
-        }
-        // else{
-        //     // redirect to individual artist page
-        //     // console.log("watt");
 
-        // }
-        // console.log("wat");
-    }
-
-    // console.log(props.artistsNames);
+    console.log(props.artistsNames);
 
     if(props){
         return(

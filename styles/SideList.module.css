@@ -46,8 +46,11 @@
     text-decoration: none;
     
     cursor: pointer;
+  transition: all .5s ease-in-out; 
+
 }
 
-/* .sideMenu li:hover{
-    font-weight: 600;
-} */
+
+.sideMenu li div a:hover{
+    text-decoration: underline;
+}

@@ -12,23 +12,48 @@ const ExpandArtwork = (setShow, artwork)=>{
     const img = `image3d${imgSrc}`
 
 
+
     const handelLeftChangeImg = () => {
         if(imgSrc == 1){
-            setImgSrc(3)
+            if(art?.artworkFields?.image3d3){
+                setImgSrc(3)
+            }else{
+                setImgSrc(2)
+            }
         }else{
-            const newImgSrc = imgSrc - 1
+            const newImgSrc = +imgSrc - 1
 
             setImgSrc(newImgSrc)
         }
     }
 
     const handelRightChangeImg = () => {
-        if(imgSrc == 3){
+        if(imgSrc == 2){
+            if(art?.artworkFields?.image3d3){
+                setImgSrc(3)
+            }else{
+                setImgSrc(1)
+            }
+        }else if(imgSrc ==3){
             setImgSrc(1)
         }else{
-            let newImgSrc = imgSrc
-            setImgSrc((+imgSrc +1))
+            const newImgSrc = +imgSrc + 1
+
+            setImgSrc(newImgSrc)
         }
+
+        // if(art?.artworkFields?.image3d3 === 'undefined'){
+        //     console.log('wa');
+        // }else{
+        //     if(imgSrc == 3){
+        //         setImgSrc(1)
+    
+        //     }else{
+        //         let newImgSrc = imgSrc
+        //         setImgSrc((+imgSrc +1))
+        //     }
+        // }
+
     }
 
     return (
@@ -44,7 +69,9 @@ const ExpandArtwork = (setShow, artwork)=>{
                 
                 {art?.artworkFields?.artType == "multiple_view"&&
                     <div>
-                        <div className={styles.leftBtn} onClick={handelLeftChangeImg}>
+                        {art?.artworkFields?.image3d2&&
+                        <div>
+                                                   <div className={styles.leftBtn} onClick={handelLeftChangeImg}>
                             <div></div>
 
                         </div>
@@ -53,6 +80,9 @@ const ExpandArtwork = (setShow, artwork)=>{
                             <div></div>
 
                         </div>
+                        </div>
+                        }
+
 
                         <Image
                             src={art?.artworkFields?.[img]?.sourceUrl}
@@ -80,16 +110,6 @@ const ExpandArtwork = (setShow, artwork)=>{
                     <div className = {styles.videoPlayer} dangerouslySetInnerHTML={{__html : art.artworkFields.videoIframe}}></div>
 
 
-
-                    // <ReactPlayer
-                    //     url={}
-                    //     playing={true}
-                    //     muted={true}
-                    //     controls={false}
-                    //     loop={true}
-                    //     layout='fill'
-
-                    // />
                 }
             </div>
         </div>
