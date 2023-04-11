@@ -1,3 +1,7 @@
+.artistPage{
+    overflow-x: hidden;
+}
+
 .artistContainer{
     padding-left: 3vw;
 }

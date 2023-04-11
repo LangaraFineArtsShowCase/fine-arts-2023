@@ -1,9 +1,36 @@
 import styles from '../styles/ExpandArtwork.module.css'
 import Image from 'next/image';
+import { useState } from 'react';
+import dynamic from 'next/dynamic'
+
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 
 const ExpandArtwork = (setShow, artwork)=>{
+    const [imgSrc, setImgSrc] = useState('1')
     const art = setShow.artwork;
+    const img = `image3d${imgSrc}`
+
+
+    const handelLeftChangeImg = () => {
+        if(imgSrc == 1){
+            setImgSrc(3)
+        }else{
+            const newImgSrc = imgSrc - 1
+
+            setImgSrc(newImgSrc)
+        }
+    }
+
+    const handelRightChangeImg = () => {
+        if(imgSrc == 3){
+            setImgSrc(1)
+        }else{
+            let newImgSrc = imgSrc
+            setImgSrc((+imgSrc +1))
+        }
+    }
+
     return (
         <div className={styles.wholePage}>
             <div className={styles.imgHolder}>
@@ -14,6 +41,27 @@ const ExpandArtwork = (setShow, artwork)=>{
                         <div></div>
                     </div>
                 </div>
+                
+                {art?.artworkFields?.artType == "multiple_view"&&
+                    <div>
+                        <div className={styles.leftBtn} onClick={handelLeftChangeImg}>
+                            <div></div>
+
+                        </div>
+
+                        <div className={styles.rightBtn} onClick={handelRightChangeImg}>
+                            <div></div>
+
+                        </div>
+
+                        <Image
+                            src={art?.artworkFields?.[img]?.sourceUrl}
+                            alt={art?.artworkFields?.artworkTitle}
+                            layout='fill'
+                            objectFit='contain'
+                        />
+                    </div>
+                }
 
 
                 {art?.artworkFields?.artType == 'single_view'&&
@@ -23,6 +71,25 @@ const ExpandArtwork = (setShow, artwork)=>{
                         layout='fill'
                         objectFit='contain'
                     />
+                }
+
+
+
+                {art?.artworkFields?.artType == "video_view"&&
+    
+                    <div className = {styles.videoPlayer} dangerouslySetInnerHTML={{__html : art.artworkFields.videoIframe}}></div>
+
+
+
+                    // <ReactPlayer
+                    //     url={}
+                    //     playing={true}
+                    //     muted={true}
+                    //     controls={false}
+                    //     loop={true}
+                    //     layout='fill'
+
+                    // />
                 }
             </div>
         </div>

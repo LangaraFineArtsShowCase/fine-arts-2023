@@ -87,10 +87,10 @@ const ArtistArtworks = ({items}) => {
                             <div className={styles.artworkContainer} key={i}>
 
                                     <Image 
-                                        src={shuffle[i]?.artworkFields.artType=='single_view'?shuffle[i]?.artworkFields.image2d?.sourceUrl:shuffle[i]?.artworkFields.image3d1?.sourceUrl}
+                                        src = {shuffle[i]?.artworkFields?.thumbnail?.mediaItemUrl}
                                         alt={shuffle[i]?.artworkFields.artworkTitle}
-                                        layout='fill'
-                                        objectFit='contain'
+                                        height={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.height}
+                                        width={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.width}
 
                                         onClick={()=>{ handlePopup(i) }}
                                     />
@@ -112,13 +112,12 @@ const ArtistArtworks = ({items}) => {
                         col2.length>0&&col2.map((i)=>(
                             <div className={styles.artworkContainer} key={i}>
 
-                                    <Image 
-                                        src={shuffle[i]?.artworkFields.artType=='single_view'?shuffle[i]?.artworkFields.image2d?.sourceUrl:shuffle[i]?.artworkFields.image3d1?.sourceUrl}
-                                        alt={shuffle[i]?.artworkFields.artworkTitle}
-                                        layout='fill'
-                                        objectFit='contain'
 
-                                        // layout="responsive"
+                                    <Image 
+                                        src = {shuffle[i]?.artworkFields?.thumbnail?.mediaItemUrl}
+                                        alt={shuffle[i]?.artworkFields.artworkTitle}
+                                        height={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.height}
+                                        width={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.width}
                                         onClick={()=>{ handlePopup(i) }}
                                     />
 
@@ -140,11 +139,10 @@ const ArtistArtworks = ({items}) => {
                             <div className={styles.artworkContainer} key={i}>
 
                                     <Image 
-                                        src={shuffle[i]?.artworkFields.artType=='single_view'?shuffle[i]?.artworkFields.image2d?.sourceUrl:shuffle[i]?.artworkFields.image3d1?.sourceUrl}
+                                        src = {shuffle[i]?.artworkFields?.thumbnail?.mediaItemUrl}
                                         alt={shuffle[i]?.artworkFields.artworkTitle}
-                                        layout='fill'
-                                        objectFit='contain'
-
+                                        height={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.height}
+                                        width={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.width}
                                         onClick={()=>{ handlePopup(i) }}
                                     />
 

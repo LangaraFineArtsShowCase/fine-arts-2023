@@ -99,11 +99,11 @@ const Artist = ({artistList})=>{
 
     },[artistWork])
 
-    // console.log(artistDetail);
+    console.log(artistWork);
 
     return(
 
-        <>
+        <div className={styles.artistPage}>
 
         {/* header */}
         {/* <Header/>
@@ -155,8 +155,8 @@ const Artist = ({artistList})=>{
         </div> */}
         {/* </div> */}
 
-            {/* <Footer/> */}
-        </>
+            <Footer/>
+        </div>
     )
 }
 
