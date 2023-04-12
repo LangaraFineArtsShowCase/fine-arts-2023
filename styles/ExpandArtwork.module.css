@@ -12,6 +12,10 @@
     transition: transform .5s ease-in-out; 
 }
 
+.wholePage img{
+    max-height: 100vh;
+}
+
 .imgHolder{
     width: 100%;
     height: 100%;

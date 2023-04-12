@@ -86,6 +86,9 @@
 .websites{
     margin-top: 1vw;
     margin-bottom: 3vw;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .websites a{
