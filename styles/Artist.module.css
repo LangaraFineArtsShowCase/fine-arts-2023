@@ -1,32 +1,33 @@
+.artistPage{
+    overflow-x: hidden;
+}
+
 .artistContainer{
     padding-left: 3vw;
+    padding-right: 3vw;
 }
 
 .heroSection{
     position: relative;
     width: 100vw;
-    height: calc(0.25*100vw);
-    /* background-color: red; */
+    top: 93px;
+    height: auto;
     z-index: 10;
     margin: 0px;
-    padding-top: 8vw;
+    padding-top: 1vw;
+    margin-bottom: 30px;
 }
 
 .artistName{
-    /* position: absolute; */
-    /* top: 10vw; */
     font-weight: 700;
     font-size: 5vw;
     line-height: 130%;
 }
 
 .artistDesc{
-    /* position:absolute; */
-    /* top: 20vw; */
     margin-top: 2vw;
     max-width: 69vw;
     font-weight: 400;
-    /* font-size: 18px; */
     font-size: 1.5vw;
     line-height: 180%;
 }
@@ -41,9 +42,7 @@
 }
 
 .artistNameHolder{
-    /* display: inline-block; */
     display: flex;
-    /* width: 100%; */
     align-items: center;
 }
 
@@ -53,7 +52,6 @@
 }
 
 .award{
-    /* display: inline-block; */
     display: flex;
     text-align: center;
     justify-content: center;
@@ -62,17 +60,8 @@
 
 .leftLeaf{
     display: inline-block;
-
-    /* padding-bottom: 10000%%;  */
-    /* scale: 50vw; */
-    /* width: 100%; 
-    height: auto; */
-    /* padding-bottom: 92%; */
 }
 
-/* .leftLeafHolder{
-    /* padding-bottom: 92%; 
-} */
 
 .awardName{
     display: inline-block;
@@ -87,7 +76,85 @@
 .rightLeaf{
     transform: scaleX(-1);
     display: inline-block;
-    /* font-family: 'Utile Display'; */
+}
 
+.igHolder{
+    display: inline-block;
 
+}
+
+.websites{
+    margin-top: 1vw;
+    margin-bottom: 3vw;
+}
+
+.websites a{
+    margin: 20px;
+    margin-left: 0px;
+}
+
+@media (max-width: 1024px) {
+    .heroSection{
+        margin-bottom: 100px;
+        height: auto;
+    }
+
+    .artistDesc{
+        display: flex;
+        height: 100%;
+        font-weight: 400;
+        font-size: 2vw;
+        line-height: 180%;
+    }
+
+    .websites{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .heroSection{
+        margin-bottom: 100px;
+        height: auto;
+    }
+
+    .artistName{
+        font-size: 10vw;
+    }
+
+    .artStudio{
+        font-size: 4vw;
+    }
+
+    .artistDesc{
+        display: flex;
+        height: 100%;
+        font-weight: 400;
+        font-size: 3vw;
+        line-height: 180%;
+        max-width: 95%;
+    }
+    
+    .artistNameHolder h1{
+        display: block;
+        margin-right: 30px;
+    }
+
+    .artistNameHolder {
+        display: grid;
+        grid-template-columns: auto;
+    }
+
+    .award{
+        justify-content: left;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .awardName{
+        font-size: 3vw;
+        max-width: 200px;
+    }
 }

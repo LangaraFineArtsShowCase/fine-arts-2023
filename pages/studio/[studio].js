@@ -25,7 +25,9 @@ const Studio = ({artistList})=>{
     const [studioDetail, setStudioDetail] = useState({})
     const [vh, setVh] = useState(1)
     const [scrollPosition, setScrollPosition] = useState(0);
-    const [headerStyle, setHeaderStyle] = useState('')
+    const [headerStyle, setHeaderStyle] = useState('transparent')
+    const [headerOrigin, setHeaderOrigin] = useState('studio')
+
 
     // console.log(studio);
     const router = useRouter()
@@ -49,9 +51,9 @@ const Studio = ({artistList})=>{
 
     useEffect(()=>{
         if(scrollPosition >= 90*vh){
-            setHeaderStyle('#181818')
+            setHeaderOrigin('about')
         }else{
-            setHeaderStyle('')
+            setHeaderOrigin('studio')
         }
     },[scrollPosition])
 
@@ -106,7 +108,7 @@ const Studio = ({artistList})=>{
         <>
         {/* header */}
         {display&&<>
-            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage="studio" bgColor={headerStyle}/>}
+            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage={headerOrigin} bgColor={headerStyle}/>}
 
             <div className={styles.heroSection}>
             <Image
@@ -130,7 +132,7 @@ const Studio = ({artistList})=>{
         </div>
 
         <div>
-            <ArtworkContainer items = {studioWork} artistsNames = {artistsNames}/>
+            <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
         </div>
         </>}
 

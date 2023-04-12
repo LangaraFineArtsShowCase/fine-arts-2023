@@ -4,6 +4,7 @@ import styles from "../styles/ArtistArtworks.module.css";
 import ExpandArtwork from './ExpandArtwork';
 
 
+
 const ArtistArtworks = ({items}) => {
     const [col1,setCol1] = useState([]);
     const [col2,setCol2] = useState([]);
@@ -66,12 +67,17 @@ const ArtistArtworks = ({items}) => {
     }
 
 
-    console.log(shuffle);
-    console.log(col1);
+    // console.log(shuffle);
+    // console.log(col1);
     // console.log(    shuffle[1]?.image2d?.sourceUrl);
+
+    const disablePopup = () => {
+        setShow(false);
+    }
+
     return(
         <>
-        {/* {show&&<ExpandArtwork setShow={setShow} artwork={popUpContent}/>} */}
+        {show&&<ExpandArtwork setShow={disablePopup} artwork={popUpContent}/>}
         <div className={styles.flexContainer}>
             <div className={styles.container}>
 
@@ -81,9 +87,11 @@ const ArtistArtworks = ({items}) => {
                             <div className={styles.artworkContainer} key={i}>
 
                                     <Image 
-                                        src={shuffle[i]?.artworkFields.artType=='single_view'?shuffle[i]?.artworkFields.image2d?.sourceUrl:shuffle[i]?.artworkFields.image3d1?.sourceUrl}
+                                        src = {shuffle[i]?.artworkFields?.thumbnail?.mediaItemUrl}
                                         alt={shuffle[i]?.artworkFields.artworkTitle}
-                                        layout='fill'
+                                        height={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.height}
+                                        width={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.width}
+
                                         onClick={()=>{ handlePopup(i) }}
                                     />
 
@@ -104,11 +112,13 @@ const ArtistArtworks = ({items}) => {
                         col2.length>0&&col2.map((i)=>(
                             <div className={styles.artworkContainer} key={i}>
 
+
                                     <Image 
-                                        src={shuffle[i]?.artworkFields.artType=='single_view'?shuffle[i]?.artworkFields.image2d?.sourceUrl:shuffle[i]?.artworkFields.image3d1?.sourceUrl}
+                                        src = {shuffle[i]?.artworkFields?.thumbnail?.mediaItemUrl}
                                         alt={shuffle[i]?.artworkFields.artworkTitle}
-                                        layout='fill'
-                                        // layout="responsive"
+                                        height={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.height}
+                                        width={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.width}
+                                        onClick={()=>{ handlePopup(i) }}
                                     />
 
                                 <div className={styles.hideDesc}>
@@ -129,9 +139,11 @@ const ArtistArtworks = ({items}) => {
                             <div className={styles.artworkContainer} key={i}>
 
                                     <Image 
-                                        src={shuffle[i]?.artworkFields.artType=='single_view'?shuffle[i]?.artworkFields.image2d?.sourceUrl:shuffle[i]?.artworkFields.image3d1?.sourceUrl}
+                                        src = {shuffle[i]?.artworkFields?.thumbnail?.mediaItemUrl}
                                         alt={shuffle[i]?.artworkFields.artworkTitle}
-                                        layout='fill'
+                                        height={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.height}
+                                        width={shuffle[i]?.artworkFields.thumbnail?.mediaDetails?.width}
+                                        onClick={()=>{ handlePopup(i) }}
                                     />
 
                                 <div className={styles.hideDesc}>

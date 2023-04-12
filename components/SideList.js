@@ -8,40 +8,32 @@ import Link from 'next/link'
 
 
 const SideList = (props) => {
-    // console.log(props)
     const [list, setList] = useState([])
-    // console.log(list);
     useEffect(()=>{
-        // setList(props.artistsNames)
         const isArr = Object.prototype.toString.call(props.artistsNames) == '[object Array]';
         console.log(props.artistsNames);
-        // console.log(typeof(props.artistsNames));
 
         if(isArr){
-            setList(props.artistsNames)
+            // setList(props.artistsNames)
+            let sorted = props.artistsNames;
+
+            sorted = sorted.sort((a,b)=>{
+                const lastNameA = a.name.split(' ').slice(-1)[0];
+                const lastNameB = b.name.split(' ').slice(-1)[0];
+                // console.log(lastNameA);
+                if(lastNameA<lastNameB)return -1
+                if(lastNameA>lastNameB)return 1
+
+            })
+
+
+            setList(sorted)
         }
-        console.log(list);
+
     },[props.artistsNames])
 
-    const handelClick = (e) => {
 
-        // console.log(`/studio/${e}`);
-        if(props.name == "Studios"){
-            // redirect to individual studio page
-            // console.log(e);
-            // console.log("wat");
-            // console.log("wat");
-            // redirect(`/studio/${e}`)
-        }
-        // else{
-        //     // redirect to individual artist page
-        //     // console.log("watt");
-
-        // }
-        // console.log("wat");
-    }
-
-    // console.log(props.artistsNames);
+    console.log(props.artistsNames);
 
     if(props){
         return(
@@ -75,10 +67,12 @@ const SideList = (props) => {
                     :
                     <>
                     <>{list.map((item,index)=>(
-                        <li onClick={()=>{handelClick(item)}}
+                        <li
                         key={index}
                         >
-                            {item.name}
+                            {/* {console.log(item.userId)} */}
+                            <div><Link href={`/artist/${item.userId}`}>{item.name}</Link></div>
+
                         </li>
                     ))}</>
                     </>

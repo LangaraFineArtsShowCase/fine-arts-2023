@@ -96,6 +96,15 @@
   height: auto;
 }
 
+.portraitJoanne .personPortrait img {
+  margin-top: 0;
+  border-radius: 5px;
+}
+
+.portraitJoanne h2 {
+  margin: 2rem 0;
+}
+
 .personPortrait .langaraFineArtsImage {
   margin-top: -20px;
   border-radius: 5px;
@@ -296,7 +305,15 @@
     gap: 18px;
   }
 
-  .portraitDarren .personPortrait {
+  .portraitJoanne .wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .portraitDarren .personPortrait,
+  .portraitJoanne .personPortrait {
     order: 3;
   }
 }

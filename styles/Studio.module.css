@@ -44,6 +44,15 @@
     width: 100%;
 }
 
+@media (max-width: 1024px) {
+    .desc{
+        top:calc(100vw*0.1);
+        font-size: calc(100vw*0.025);
+        line-height: calc(0.035*100vw);
+
+    }
+}
+
 @media (max-width: 768px) {
     .heroSection{
         height: calc(2*100vw);

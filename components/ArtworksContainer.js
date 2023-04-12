@@ -3,13 +3,17 @@ import Head from 'next/head';
 import SideList from "./SideList";
 import Image from 'next/image';
 import styles from "../styles/ArtworksContainer.module.css";
+import StudioPopUp from './StudioPopUp';
+import { useRouter } from 'next/router';
 
 
 
-const ArtworkContainer = ({items, artistsNames}) =>{
+const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     const [shuffledItems, setShuffledItems] = useState([])
     const [leftColumn, setLeftColumn] = useState([])
     const [rightColumn, setRightColumn] = useState([])
+    const [show, setShow] = useState(false)
+    const [popUpContent, setPopUpContent] = useState({})
     // const [showInfo, setShowInfo] = useState({display: 'none'})
     // console.log(artistsNames);
     let artworks;
@@ -55,13 +59,34 @@ const ArtworkContainer = ({items, artistsNames}) =>{
 
     }, [items,shuffledItems,artworks])
 
+    const router = useRouter();
 
     const numOfItems = shuffledItems.length
+    // console.log(originPage);
+    const handlePopup = (a) =>{
+        if(originPage == 'studio'){
+            setShow(true);
+            setPopUpContent(a);
+        }else{
+            console.log(a);
+            router.push(`/artist/${a.author.node.userId}`)
+        }
+    }
+
+    const closePopUp = () => {
+        console.log('wat');
+
+        // setShowPopUp(false);
+    }
+    const disablePopup = () => {
+        setShow(false);
+    }
 
     return(
         <>
 
         <div className={styles.flexContainer}>
+        {show==true&&<StudioPopUp setShow={disablePopup} content={popUpContent}/>}
         <div className={styles.container}>
             <div className={styles.colOne}>
                 {
@@ -78,7 +103,7 @@ const ArtworkContainer = ({items, artistsNames}) =>{
                                 width={item.artworkFields.thumbnail.mediaDetails.width}
                                 height={item.artworkFields.thumbnail.mediaDetails.height}
                                 alt={item.artworkFields.artworkTitle}
-
+                                onClick={()=>{handlePopup(item)}}
                             />
 
                             <div className={styles.hideDesc}>
@@ -127,6 +152,8 @@ const ArtworkContainer = ({items, artistsNames}) =>{
                                 width={item.artworkFields.thumbnail.mediaDetails.width}
                                 height={item.artworkFields.thumbnail.mediaDetails.height}
                                 alt={item.artworkFields.artworkTitle}
+                                onClick={()=>{handlePopup(item)}}
+
                             />
 
                             <div className={styles.hideDesc}>
