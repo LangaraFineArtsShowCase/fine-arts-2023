@@ -20,7 +20,8 @@ const Artists = ()=>{
     const [artist, setArtist] = useState({})
     const [vw, setVw] = useState(1)
     const [scrollPosition, setScrollPosition] = useState(0);
-    const [headerStyle, setHeaderStyle] = useState('')
+    const [headerStyle, setHeaderStyle] = useState('transparent')
+    const [headerOrigin, setHeaderOrigin] = useState('artists')
 
 
     useEffect(()=>{
@@ -52,16 +53,11 @@ const Artists = ()=>{
     },[])
 
     useEffect(()=>{
-        // setTimeout(() => {
-            
-        // }, 100);
-        // alert(headerStyle)
-        // console.log(headerStyle);
+
         if(scrollPosition >= 35*vw){
-            // console.log('CHANGE');
-            setHeaderStyle('#181818')
+            setHeaderOrigin('about')
         }else{
-            setHeaderStyle('')
+            setHeaderOrigin('artists')
         }
     },[scrollPosition])
     // console.log(vw);
@@ -75,7 +71,7 @@ const Artists = ()=>{
         {/* header */}
         <div className={styles.artistsHeader} style={{ backgroundColor: headerStyle }}>
 
-            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage="artists" bgColor={headerStyle}/>}
+            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage={headerOrigin} bgColor={headerStyle}/>}
         </div>
 
         {/* <Header artistList={artistList} studioList={studioArray} originPage="artists" /> */}
@@ -93,7 +89,7 @@ const Artists = ()=>{
         </div>
 
         <div>
-            <ArtworkContainer items = {artist}/>
+            <ArtworkContainer items = {artist} originPage='artists'/>
         </div>
             <Footer/>
         </div>
