@@ -12,18 +12,18 @@ const Home = ({ artistList }) => {
 
   return (
     <>
-      <Header artistList={artistList} studioList={studioArray} originPage="home" />
+      {/* <Header artistList={artistList} studioList={studioArray} originPage="home" /> */}
       <main className={styles.main}>
         <div className={styles.title}>
           <span className={styles.school}>Langara</span>
           <h1><span>Fine</span> <span>Arts</span></h1>
-          <h2>Grad Show 2023</h2>
+          <h2>Grad Show 2023<br />Coming Soon</h2>
         </div>
       </main>
 
-      <div className={styles.buttonWrapper}>
+      {/* <div className={styles.buttonWrapper}>
         <Link href="/artists" onMouseEnter={() => setArrowColor('#000000')} onMouseLeave={() => setArrowColor('#FFFFFF')}>Enter Exhibition <RightArrow fill={arrowColor} /></Link>
-      </div>
+      </div> */}
     </>
   )
 }
