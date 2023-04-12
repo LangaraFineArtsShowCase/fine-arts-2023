@@ -42,7 +42,7 @@ const About = ({artistList}) => {
         </section>
 
         <section className={styles.carousel}>
-          <Carousel cols={5} rows={1} gap={10} loop={true}>
+          <Carousel cols={4} rows={1} gap={10} loop={true}>
             {aboutImages.map((image, i) => (
               <Carousel.Item key={i}>
                 <div className={styles.carouselItemWrapper}>
