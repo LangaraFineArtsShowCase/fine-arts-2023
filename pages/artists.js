@@ -15,7 +15,7 @@ import Image from 'next/image';
 
 
 
-const Artists = ()=>{
+const Artists = ({aList})=>{
     const [artistList, setArtistList] = useState({})
     const [artist, setArtist] = useState({})
     const [vw, setVw] = useState(1)
@@ -32,10 +32,9 @@ const Artists = ()=>{
         })
         alist.then(result=>{
             setArtistList(result)
-            // artistList = result
-
-
         })
+
+
 
         const handleScroll = (event) => {
 
@@ -49,7 +48,9 @@ const Artists = ()=>{
         
         window.addEventListener("scroll", handleScroll)
 
+
         return()=>{window.removeEventListener('scroll',handleScroll)}
+
     },[])
 
     useEffect(()=>{
@@ -60,9 +61,6 @@ const Artists = ()=>{
             setHeaderOrigin('artists')
         }
     },[scrollPosition])
-    // console.log(vw);
-    // console.log(scrollPosition);
-    // console.log(artistList);
 
 
     return(
@@ -71,14 +69,12 @@ const Artists = ()=>{
         {/* header */}
         <div className={styles.artistsHeader} style={{ backgroundColor: headerStyle }}>
 
-            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage={headerOrigin} bgColor={headerStyle}/>}
+            {(artistList.length>0)&&<Header artistList={aList} studioList={studioArray} originPage={headerOrigin} bgColor={headerStyle}/>}
         </div>
 
-        {/* <Header artistList={artistList} studioList={studioArray} originPage="artists" /> */}
 
         <div className={styles.heroSection}>
             <Image
-                // className={styles.coverImg}
                 src="/images/NewArtistsPage1.jpg"
                 alt="cover image"
                 layout="fill"
@@ -124,3 +120,28 @@ async function getArtists(){
         console.log(err);
     }
 }
+
+export async function getStaticProps(context) {
+
+    try {
+  
+      const { data } = await client.query({
+          query: GET_ARTIST_LIST
+      })
+  
+      return {
+          props: {
+            aList: data?.artists2022?.nodes
+          },
+      }
+  
+    } catch (error) {
+      console.log('error', error)
+  
+      return {
+        props: {
+          aList: []
+        },
+      }
+    }
+  }
