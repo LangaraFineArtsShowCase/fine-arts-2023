@@ -54,3 +54,10 @@
 .sideMenu li div a:hover{
     text-decoration: underline;
 }
+
+@media (max-width: 1024px) {
+    .sideMenu li{
+        margin-bottom: calc(0.08*var(--artwork-container-width));
+        font-size: calc(0.07*var(--artwork-container-width));
+    }
+}

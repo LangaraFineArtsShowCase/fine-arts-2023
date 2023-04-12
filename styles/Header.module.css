@@ -27,8 +27,7 @@ body.menu-is-visible {
 .headerTitle a {
   color: #181818;
   text-decoration: none;
-  transition: all .5s ease-in-out; 
-
+  
 }
 
 .headerTitle span {

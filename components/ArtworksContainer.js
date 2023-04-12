@@ -3,7 +3,7 @@ import Head from 'next/head';
 import SideList from "./SideList";
 import Image from 'next/image';
 import styles from "../styles/ArtworksContainer.module.css";
-import StudioPopUp from './studioPopUp';
+import StudioPopUp from './StudioPopUp';
 import { useRouter } from 'next/router';
 
 

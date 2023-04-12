@@ -16,38 +16,20 @@ const SideList = (props) => {
         if(isArr){
             // setList(props.artistsNames)
             let sorted = props.artistsNames;
-            // sorted.sort((a, b) => {
-            //     const lastNameA = a.name.split(' ').slice(-1)[0];
-            //     const lastNameB = b.name.split(' ').slice(-1)[0];
-                
-            //     if (lastNameA < lastNameB) {
-            //         console.log(lastNameA);
-            //       return -1;
-            //     }
-            //     if (lastNameA > lastNameB) {
-            //       return 1;
-            //     }
-            //     return 0;
-            // });
-            console.log('L'>'M');
-            sorted.sort((a,b)=>{
-                const splitA = a.name.split(" ");
-                const splitB = b.name.split(" ");
-                const lastA = splitA[splitA.length - 1];
-                const lastB = splitB[splitB.length - 1];
-                const lastLetterA = lastA.charAt(0)
-                const lastLetterB = lastB.charAt(0)
 
-                // console.log(splitA);
-                return lastLetterA == lastLetterB?
-                        (splitA>splitB):
-                        (lastLetterA>lastLetterB)
+            sorted = sorted.sort((a,b)=>{
+                const lastNameA = a.name.split(' ').slice(-1)[0];
+                const lastNameB = b.name.split(' ').slice(-1)[0];
+                // console.log(lastNameA);
+                if(lastNameA<lastNameB)return -1
+                if(lastNameA>lastNameB)return 1
+
             })
 
-            console.log(sorted);
+
             setList(sorted)
         }
-        console.log(list);
+
     },[props.artistsNames])
 
 
@@ -85,7 +67,7 @@ const SideList = (props) => {
                     :
                     <>
                     <>{list.map((item,index)=>(
-                        <li onClick={()=>{handelClick(item)}}
+                        <li
                         key={index}
                         >
                             {/* {console.log(item.userId)} */}
