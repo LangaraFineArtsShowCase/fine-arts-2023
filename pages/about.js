@@ -3,6 +3,7 @@ import { GET_ARTISTS, GET_ARTIST_LIST } from '@/apollo/queries/queries'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
 import Header from '@/components/Header'
 import { aboutImages, imageBasePath } from '../config/data_config'
 import dynamic from 'next/dynamic'
@@ -15,6 +16,9 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 const About = ({artistList}) => {
   return (
     <>
+      <Head>
+        <title>About - Langara Fine Arts Grad Show 2023</title>
+      </Head>
       <Header artistList={artistList} originPage="about" />
       <main className={styles.main}>
 
