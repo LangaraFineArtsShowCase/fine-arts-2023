@@ -46,8 +46,18 @@
     text-decoration: none;
     
     cursor: pointer;
+  transition: all .5s ease-in-out; 
+
 }
 
-/* .sideMenu li:hover{
-    font-weight: 600;
-} */
+
+.sideMenu li div a:hover{
+    text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+    .sideMenu li{
+        margin-bottom: calc(0.08*var(--artwork-container-width));
+        font-size: calc(0.07*var(--artwork-container-width));
+    }
+}
