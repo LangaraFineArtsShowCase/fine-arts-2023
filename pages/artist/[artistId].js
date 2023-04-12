@@ -12,7 +12,7 @@ import Head from 'next/head'
 import Footer from "@/components/Footer"
 import Image from 'next/image';
 import Header from "@/components/Header"
-import IgLogo from "@/components/svg/igLogo"
+
 
 
 {/* <link rel="stylesheet" href="https://use.typekit.net/obc4toi.css"></link> */}
