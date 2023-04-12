@@ -11,7 +11,7 @@ const SideList = (props) => {
     const [list, setList] = useState([])
     useEffect(()=>{
         const isArr = Object.prototype.toString.call(props.artistsNames) == '[object Array]';
-        console.log(props.artistsNames);
+
 
         if(isArr){
             // setList(props.artistsNames)
@@ -33,7 +33,6 @@ const SideList = (props) => {
     },[props.artistsNames])
 
 
-    console.log(props.artistsNames);
 
     if(props){
         return(
