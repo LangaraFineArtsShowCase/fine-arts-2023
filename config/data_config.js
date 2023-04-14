@@ -159,9 +159,10 @@ export const aboutImages = [
     {thumbnailPath: `${imageBasePath}/images/about/slides/10About.jpg`},
     {thumbnailPath: `${imageBasePath}/images/about/slides/11About.jpg`},
     {thumbnailPath: `${imageBasePath}/images/about/slides/12About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/12About_GroupPhoto.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_DigitalInstall.jpg`},
-    // {thumbnailPath: `${imageBasePath}/images/about/slides/About_FriendsPlinths.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/13About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/14About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/15About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/16About.jpg`},
 ]
 
 export const awardWinners = [
