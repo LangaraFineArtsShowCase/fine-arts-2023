@@ -59,6 +59,11 @@
   margin-bottom: 40px;
 }
 
+.carouselItemWrapper {
+  position: relative;
+  height: 320px;
+}
+
 .carousel img {
   object-fit: cover;
 }
@@ -257,8 +262,7 @@
   }
 
   .carouselItemWrapper {
-    position: relative;
-    height: 320px;
+    height: 250px;
   }
 
   .facultyList {
@@ -315,5 +319,11 @@
   .portraitDarren .personPortrait,
   .portraitJoanne .personPortrait {
     order: 3;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .carouselItemWrapper {
+    height: 320px;
   }
 }

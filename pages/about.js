@@ -46,7 +46,12 @@ const About = ({artistList}) => {
         </section>
 
         <section className={styles.carousel}>
-          <Carousel cols={4} rows={1} gap={10} loop={true}>
+          <Carousel
+            cols={4}
+            rows={1}
+            gap={10}
+            loop={true}
+          >
             {aboutImages.map((image, i) => (
               <Carousel.Item key={i}>
                 <div className={styles.carouselItemWrapper}>
@@ -79,7 +84,7 @@ const About = ({artistList}) => {
             </div>
             <div>
               <p>Finally, I’d like to acknowledge our students for contributing to each other’s achievement in our program. It takes a village to make an artist and we’re very proud of your love and support of each other. I hope you will take this community with you wherever you are going. </p>
-              <p>Please enjoy this showcase and contact me or Liz or Rita if you’re interested in purchasing any of the work you see, we’ll put the artists in touch with you if the work is available for purchase.</p>
+              <p>Please enjoy this showcase and contact our Department Co-Ordinator, Rita Yip (<a href="mailto:ritayip@langara.ca">ritayip@langara.ca</a>) if you’re interested in purchasing any of the work you see. We’ll put the artist in touch with you if the piece is available for purchase.</p>
               <p>Congratulations Grads, please do stay in touch with us!</p>
             </div>
           </div>
