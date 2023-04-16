@@ -79,7 +79,7 @@ const Artists = ({aList})=>{
                 alt="cover image"
                 layout="fill"
                 objectFit="cover"
-                objectPosition="center"
+                objectPosition="bottom right"
             />
             <h1 > ARTISTS</h1>
         </div>

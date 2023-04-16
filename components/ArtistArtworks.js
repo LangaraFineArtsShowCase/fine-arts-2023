@@ -49,27 +49,15 @@ const ArtistArtworks = ({items}) => {
             }
 
         }
-        console.log(col1);
-        console.log(col2);
-        console.log(col3);
         setCol1(colOne);
         setCol2(colTwo);
         setCol3(colThree);
     },[shuffle])
 
-    // console.log(col1);
-    // col1.map((i)=>{
-    //     console.log(shuffle[i].artworkFields.image2d);
-    // })
     const handlePopup=(i)=>{
         setShow(true);
         setPopUpContent(shuffle[i]);
     }
-
-
-    // console.log(shuffle);
-    // console.log(col1);
-    // console.log(    shuffle[1]?.image2d?.sourceUrl);
 
     const disablePopup = () => {
         setShow(false);
