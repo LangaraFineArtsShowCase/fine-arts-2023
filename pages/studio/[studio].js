@@ -84,7 +84,7 @@ const Studio = ({artistList})=>{
             s.then(result=>{
                 setStudioWork(result);        
                 const studioArtists=[]
-                result.data.artworks2022.nodes.map((element)=>{
+                result.data.artworks2023.nodes.map((element)=>{
                     let add = true;
                     studioArtists.map((a)=>{
                         if(a.userId === element.author.node.userId){
@@ -92,7 +92,7 @@ const Studio = ({artistList})=>{
                         }
                     })
                     if(add){
-                        let studioArtist = {'userId':element.author.node.userId, 'name':element.author.node.artists2022.nodes[0].artistFields.artistName};
+                        let studioArtist = {'userId':element.author.node.userId, 'name':element.author.node.artists2023.nodes[0].artistFields.artistName};
                         studioArtists.push(studioArtist)
                     }
                 })
@@ -195,7 +195,7 @@ export async function getStaticProps(context) {
   
       return {
           props: {
-            artistList: data?.artists2022?.nodes
+            artistList: data?.artists2023?.nodes
           },
           // revalidate: 30,
       }

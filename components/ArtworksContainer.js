@@ -19,7 +19,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     let artworks;
     if(items.data != null){
         // artworks = items.data.artworks2023.nodes
-        artworks = items.data.artworks2022.nodes
+        artworks = items.data.artworks2023?.nodes
 
     }
 
@@ -115,7 +115,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
                                 <div>
                                     {
 
-                                    item.author.node.artists2022.nodes.map((artist,i)=>(
+                                    item.author.node.artists2023.nodes.map((artist,i)=>(
 
                                         <div 
                                             className={styles.artistName}
@@ -165,7 +165,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
                                 <div>
                                     {
 
-                                    item.author.node.artists2022.nodes.map((artist,i)=>(
+                                    item.author.node.artists2023.nodes.map((artist,i)=>(
 
                                         <div className={styles.artistName}
                                              key = {i}

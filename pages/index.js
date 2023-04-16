@@ -40,7 +40,7 @@ export async function getStaticProps(context) {
 
     return {
         props: {
-          artistList: data?.artists2022?.nodes
+          artistList: data?.artists2023?.nodes
         },
         // revalidate: 30,
     }
