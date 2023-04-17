@@ -2,6 +2,7 @@ import { useState } from 'react'
 import client from '@/apollo/client'
 import { GET_ARTIST_LIST } from '@/apollo/queries/queries'
 import Link from 'next/link'
+import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Header from '@/components/Header'
 import RightArrow from '@/components/svg/RightArrow'
@@ -12,18 +13,21 @@ const Home = ({ artistList }) => {
 
   return (
     <>
-      {/* <Header artistList={artistList} studioList={studioArray} originPage="home" /> */}
+      <Head>
+        <title>Langara Fine Arts Grad Show 2023</title>
+      </Head>
+      <Header artistList={artistList} studioList={studioArray} originPage="home" />
       <main className={styles.main}>
         <div className={styles.title}>
           <span className={styles.school}>Langara</span>
           <h1><span>Fine</span> <span>Arts</span></h1>
-          <h2>Grad Show 2023<br />Coming Soon</h2>
+          <h2>Grad Show 2023</h2>
         </div>
       </main>
 
-      {/* <div className={styles.buttonWrapper}>
+      <div className={styles.buttonWrapper}>
         <Link href="/artists" onMouseEnter={() => setArrowColor('#000000')} onMouseLeave={() => setArrowColor('#FFFFFF')}>Enter Exhibition <RightArrow fill={arrowColor} /></Link>
-      </div> */}
+      </div>
     </>
   )
 }
