@@ -79,7 +79,7 @@ const Artists = ({aList})=>{
                 alt="cover image"
                 layout="fill"
                 objectFit="cover"
-                objectPosition="center"
+                objectPosition="bottom right"
             />
             <h1 > ARTISTS</h1>
         </div>
@@ -102,7 +102,7 @@ async function getArtistList(){
             query: GET_ARTIST_LIST
         })
 
-        return aList.data.artists2022.nodes
+        return aList.data.artists2023.nodes
     }catch(err){
         console.log(err);
     }
@@ -131,7 +131,7 @@ export async function getStaticProps(context) {
   
       return {
           props: {
-            aList: data?.artists2022?.nodes
+            aList: data?.artists2023?.nodes
           },
       }
   
