@@ -46,7 +46,7 @@ const Artist = ({artistList})=>{
             // console.log(artistId);
             const alist = getArtistList();
             alist.then(result=>{
-                result.data.artists2022.nodes.map((a, i)=>{
+                result.data.artists2023.nodes.map((a, i)=>{
                     if(a.author.node.userId == artistId){
                         setDisplay(true);
                         setCurrentArtist(a);
@@ -63,9 +63,9 @@ const Artist = ({artistList})=>{
             // console.log(currentArtistId);
             const detail = getArtistWork(currentArtistId);
             detail.then(result=>{
-                if(result.data.artists2022.nodes.length==1){
-                    const artistInfo = result.data?.artists2022?.nodes[0]?.artistFields;
-                    const artworkArray = result.data?.artists2022?.nodes[0]?.author?.node?.artworks2022?.nodes
+                if(result.data.artists2023.nodes.length==1){
+                    const artistInfo = result.data?.artists2023?.nodes[0]?.artistFields;
+                    const artworkArray = result.data?.artists2023?.nodes[0]?.author?.node?.artworks2023?.nodes
                     if(artistInfo){
                         setArtistDetail(artistInfo);
                     }
@@ -99,7 +99,6 @@ const Artist = ({artistList})=>{
         }
 
     },[artistWork])
-console.log(artistDetail);
 
     return(
 
@@ -280,7 +279,7 @@ export async function getStaticProps(context) {
   
       return {
           props: {
-            artistList: data?.artists2022?.nodes
+            artistList: data?.artists2023?.nodes
           },
           // revalidate: 30,
       }
@@ -304,7 +303,7 @@ export async function getStaticPaths() {
     })
 
     return {
-        paths: artistList?.artists2022?.nodes.map((artist) => {
+        paths: artistList?.artists2023?.nodes.map((artist) => {
             return {
                 params: {
                     artistId: artist.author.node.userId.toString(),

@@ -84,7 +84,7 @@ const Studio = ({artistList})=>{
             s.then(result=>{
                 setStudioWork(result);        
                 const studioArtists=[]
-                result.data.artworks2022.nodes.map((element)=>{
+                result.data.artworks2023.nodes.map((element)=>{
                     let add = true;
                     studioArtists.map((a)=>{
                         if(a.userId === element.author.node.userId){
@@ -92,7 +92,7 @@ const Studio = ({artistList})=>{
                         }
                     })
                     if(add){
-                        let studioArtist = {'userId':element.author.node.userId, 'name':element.author.node.artists2022.nodes[0].artistFields.artistName};
+                        let studioArtist = {'userId':element.author.node.userId, 'name':element.author.node.artists2023.nodes[0].artistFields.artistName};
                         studioArtists.push(studioArtist)
                     }
                 })
@@ -102,6 +102,7 @@ const Studio = ({artistList})=>{
             
         }
     },[studio])
+    // console.log(studioWork.data.artworks2023.nodes);
 
     return(
 
@@ -130,10 +131,13 @@ const Studio = ({artistList})=>{
             <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>
             
         </div>
-
-        <div>
-            <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
-        </div>
+        {studioWork.data?.artworks2023?.nodes?.length>0&&
+            <>
+                <div>
+                    <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
+                </div>
+            </>
+        }
         </>}
 
             <Footer/>
@@ -195,7 +199,7 @@ export async function getStaticProps(context) {
   
       return {
           props: {
-            artistList: data?.artists2022?.nodes
+            artistList: data?.artists2023?.nodes
           },
           // revalidate: 30,
       }

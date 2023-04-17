@@ -37,14 +37,14 @@ const SideList = (props) => {
     if(props){
         return(
             <>
-                    <Head>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&display=swap" rel="stylesheet"/>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,300&display=swap" rel="stylesheet"></link>
-        </Head>
+            <Head>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+                <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&display=swap" rel="stylesheet"/>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+                <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,300&display=swap" rel="stylesheet"></link>
+            </Head>
                 <div className={styles.sideMenu}>
                 <ul>
                     <li><h2>{props.name}</h2></li>
@@ -66,10 +66,8 @@ const SideList = (props) => {
                     :
                     <>
                     <>{list.map((item,index)=>(
-                        <li
-                        key={index}
-                        >
-                            {/* {console.log(item.userId)} */}
+                        <li key={index}>
+                            
                             <div><Link href={`/artist/${item.userId}`}>{item.name}</Link></div>
 
                         </li>

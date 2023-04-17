@@ -195,7 +195,7 @@
     .artworkContainer{
         width: 100%;
         height: auto;
-        max-height: 50%;
+        /* max-height: 50%; */
         max-width: 100%;
         margin-bottom: calc(1.5*var(--artwork-container-width));
         /* height: 90%; */
@@ -203,13 +203,14 @@
 
 
     .hideDesc{
+        max-width: 100%;
         opacity: 1;
         /* font-size: 10vw; */
         width: calc(100% - 40px + 20px);
         /* width: 370px; */
         left: 0px;
         padding-left: 20px;
-        padding-right: 45px;
+        padding-right: 20px;
         padding-bottom: 15px;
         padding-top:30px;
         box-sizing: content-box;
