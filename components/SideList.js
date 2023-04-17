@@ -66,10 +66,8 @@ const SideList = (props) => {
                     :
                     <>
                     <>{list.map((item,index)=>(
-                        <li
-                        key={index}
-                        >
-                            {/* {console.log(item.userId)} */}
+                        <li key={index}>
+                            
                             <div><Link href={`/artist/${item.userId}`}>{item.name}</Link></div>
 
                         </li>

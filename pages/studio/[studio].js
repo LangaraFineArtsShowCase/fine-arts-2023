@@ -102,6 +102,7 @@ const Studio = ({artistList})=>{
             
         }
     },[studio])
+    // console.log(studioWork.data.artworks2023.nodes);
 
     return(
 
@@ -130,10 +131,13 @@ const Studio = ({artistList})=>{
             <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>
             
         </div>
-
-        <div>
-            <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
-        </div>
+        {studioWork.data?.artworks2023?.nodes?.length>0&&
+            <>
+                <div>
+                    <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
+                </div>
+            </>
+        }
         </>}
 
             <Footer/>

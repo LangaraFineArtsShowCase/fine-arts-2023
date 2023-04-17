@@ -2,7 +2,6 @@ import styles from '../styles/ExpandArtwork.module.css'
 import Image from 'next/image';
 
 const StudioPopUp = (props) => {
-    console.log(props.content);
     const art = props.content
     return (    
         <div className={styles.wholePage}>

@@ -11,8 +11,9 @@
     position:absolute;
     bottom: calc(41vh*0.06);
     left: calc(100vw*0.04);
-    font-family: 'Archivo';
+    /* font-family: 'Archivo'; */
     /* font-family: 'Archivo', sans-serif; */
+    font-family: 'Archivo', sans-serif;
 
     font-style: normal;
     font-weight: 800;

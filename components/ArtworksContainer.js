@@ -68,16 +68,10 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
             setShow(true);
             setPopUpContent(a);
         }else{
-            console.log(a);
             router.push(`/artist/${a.author.node.userId}`)
         }
     }
 
-    const closePopUp = () => {
-        console.log('wat');
-
-        // setShowPopUp(false);
-    }
     const disablePopup = () => {
         setShow(false);
     }

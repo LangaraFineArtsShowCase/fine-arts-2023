@@ -99,7 +99,6 @@ const Artist = ({artistList})=>{
         }
 
     },[artistWork])
-console.log(artistDetail);
 
     return(
 
