@@ -69,7 +69,7 @@ const Artists = ({aList})=>{
         {/* header */}
         <div className={styles.artistsHeader} style={{ backgroundColor: headerStyle }}>
 
-            {(artistList.length>0)&&<Header artistList={aList} studioList={studioArray} originPage={headerOrigin} bgColor={headerStyle}/>}
+            {(artistList?.length>0)&&<Header artistList={aList} studioList={studioArray} originPage={headerOrigin} bgColor={headerStyle}/>}
         </div>
 
 
