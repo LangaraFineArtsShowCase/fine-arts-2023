@@ -114,7 +114,7 @@ export const studioArray = [
         studioFaculty: ['Devon Knowles', 'Aaron Nelson Moody', 'Will Morrison, Workshop Coordinator'],
         studioImage: [
             `${imageBasePath}/images/studios/PublicArt1-min.jpg`,
-            `${imageBasePath}/images/studios/PublicArt1jpg`
+            `${imageBasePath}/images/studios/PublicArt1.jpg`
 
         ]
     },

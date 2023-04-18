@@ -102,7 +102,8 @@ const Studio = ({artistList})=>{
             
         }
     },[studio])
-    // console.log(studioWork.data.artworks2023.nodes);
+    console.log(studioWork);
+    console.log(studioWork.data?.artworks2023?.nodes.length);
 
     return(
 
@@ -131,10 +132,16 @@ const Studio = ({artistList})=>{
             <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>
             
         </div>
-        {studioWork.data?.artworks2023?.nodes?.length>0&&
+        {studioWork.data?.artworks2023?.nodes?.length>0?
             <>
                 <div>
                     <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
+                </div>
+            </>
+        :
+            <>
+                <div className={styles.noArt}>
+                    No art work to show
                 </div>
             </>
         }

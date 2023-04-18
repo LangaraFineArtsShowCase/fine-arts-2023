@@ -129,6 +129,8 @@
 
 }
 
+
+
 .artistName {
     text-align: right;
     font-family: 'Archivo', sans-serif;
@@ -137,6 +139,13 @@
     font-size: calc(0.04*var(--artwork-container-width));
     line-height: 160%;
     max-width: 100%;
+    cursor: pointer;
+
+}
+
+.artistName:hover{
+    text-decoration: underline;
+    text-decoration-color: white;
 }
 
 .studioContainer {
