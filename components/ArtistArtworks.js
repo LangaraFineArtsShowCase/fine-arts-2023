@@ -89,6 +89,14 @@ const ArtistArtworks = ({items}) => {
                                         {shuffle[i]?.artworkFields.artworkTitle}
                                     </div>
 
+                                    <div className={styles.artSize}>
+                                        {shuffle[i].artworkFields.size}
+                                    </div>
+
+                                    <div className={styles.artMaterial}>
+                                        {shuffle[i].artworkFields.material}
+                                    </div>
+
                                 </div>
                             </div>
                         ))
@@ -115,6 +123,16 @@ const ArtistArtworks = ({items}) => {
                                         {shuffle[i]?.artworkFields.artworkTitle}
                                     </div>
 
+
+
+                                    <div className={styles.artSize}>
+                                        {shuffle[i].artworkFields.size}
+                                    </div>
+
+                                    <div className={styles.artMaterial}>
+                                        {shuffle[i].artworkFields.material}
+                                    </div>
+
                                 </div>
                             </div>
                         ))
@@ -138,6 +156,14 @@ const ArtistArtworks = ({items}) => {
 
                                     <div className={styles.artName}>
                                         {shuffle[i]?.artworkFields.artworkTitle}
+                                    </div>
+
+                                    <div className={styles.artSize}>
+                                        {shuffle[i].artworkFields.size}
+                                    </div>
+
+                                    <div className={styles.artMaterial}>
+                                        {shuffle[i].artworkFields.material}
                                     </div>
 
                                 </div>

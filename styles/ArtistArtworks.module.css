@@ -90,6 +90,7 @@
 	/* margin-bottom: */
     transition: all .5s ease-in-out; 
     /* margin-top:calc(0px - var(--Artist-Text-Banner-Offset-Y)); */
+    flex-wrap: wrap;
 
 }
 
@@ -112,7 +113,8 @@
 .artName {
     text-align: left;
 
-    max-width: 69%;
+    /* max-width: 69%; */
+    width: 100%;
     font-family: 'Archivo', sans-serif;
 
     font-style: normal;
@@ -122,7 +124,7 @@
 
 }
 
-.artistName {
+.artSize {
     text-align: right;
     font-family: 'Archivo', sans-serif;
     font-style: italic;
@@ -132,6 +134,18 @@
     max-width: 100%;
 }
 
+.artMaterial {
+    width: 100%;
+
+    display: block;
+    text-align: right;
+    font-family: 'Archivo', sans-serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: calc(0.04*var(--artwork-container-width));
+    line-height: 160%;
+    max-width: 100%;
+}
 
 @media (min-width: 768px) {
     .artworkContainer:hover {    

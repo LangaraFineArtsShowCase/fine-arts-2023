@@ -16,6 +16,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     const [popUpContent, setPopUpContent] = useState({})
     // const [showInfo, setShowInfo] = useState({display: 'none'})
     // console.log(artistsNames);
+    // console.log(items);
     let artworks;
     if(items.data != null){
         // artworks = items.data.artworks2023.nodes
@@ -26,7 +27,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     // const what = ([...artworks])
 
 
-    // console.log(artworks.length);
+    console.log(artworks);
 
     const shuffle = (artworks) => {
         if(artworks){
@@ -64,16 +65,20 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     const numOfItems = shuffledItems.length
     // console.log(originPage);
     const handlePopup = (a) =>{
+        console.log(a);
         if(originPage == 'studio'){
             setShow(true);
             setPopUpContent(a);
         }else{
-            router.push(`/artist/${a.author.node.userId}`)
         }
     }
 
     const disablePopup = () => {
         setShow(false);
+    }
+
+    const handleArtistClick = (a) => {
+        router.push(`/artist/${a.author.node.userId}`)
     }
 
     return(
@@ -114,6 +119,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
                                         <div 
                                             className={styles.artistName}
                                             key = {i}    
+                                            onClick={()=>{handleArtistClick(item)}}
                                         >
                                             {artist.artistFields.artistName}
                                         </div>
@@ -163,6 +169,8 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
 
                                         <div className={styles.artistName}
                                              key = {i}
+                                            onClick={()=>{handleArtistClick(item)}}
+
                                         >
                                             {artist.artistFields.artistName}
                                         </div>
@@ -191,7 +199,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
                 <SideList name={"Artists"} list={[]} artistsNames= {artistsNames}/>
 
             :
-                <SideList name={"Studios"} list={["Ceramics","Painting","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media","Drawing","Print Media","Textiles","Public art", "Performance"]}/>
+                <SideList name={"Studios"} list={["Ceramics","Painting","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media","Drawing","Print Media","Textiles","Public Art", "Performance"]}/>
 
 
             }

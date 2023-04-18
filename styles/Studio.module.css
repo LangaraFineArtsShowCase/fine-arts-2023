@@ -17,7 +17,7 @@
     font-style: normal;
     font-weight: 800;
     font-size: calc(0.07*100vw);
-    line-height: 108px;
+    line-height: 98px;
     color: white;
 }
 
@@ -43,6 +43,15 @@
 .heroSection img{
     filter: brightness(50%);
     width: 100%;
+}
+
+.noArt {
+    padding-top: 5%;
+    text-align: center;
+    font-style: normal;
+    font-weight: 800;
+    font-size: calc(0.02*100vw);
+    line-height: 108px;
 }
 
 @media (max-width: 1024px) {
