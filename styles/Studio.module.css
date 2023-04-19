@@ -52,9 +52,15 @@
     font-weight: 800;
     font-size: calc(0.02*100vw);
     line-height: 108px;
+    color: #454545;
 }
 
 @media (max-width: 1024px) {
+
+    .noArt{
+        font-size: calc(0.05*100vw)
+    }
+
     .desc{
         top:calc(100vw*0.1);
         font-size: calc(100vw*0.025);

@@ -92,7 +92,7 @@ const Studio = ({artistList})=>{
                         }
                     })
                     if(add){
-                        let studioArtist = {'userId':element.author.node.userId, 'name':element.author.node.artists2023.nodes[0].artistFields.artistName};
+                        let studioArtist = {'userId':element.author?.node?.userId, 'name':element.author?.node?.artists2023?.nodes[0]?.artistFields?.artistName};
                         studioArtists.push(studioArtist)
                     }
                 })
@@ -141,7 +141,7 @@ const Studio = ({artistList})=>{
         :
             <>
                 <div className={styles.noArt}>
-                    No art work to show
+                    No art work to show.
                 </div>
             </>
         }

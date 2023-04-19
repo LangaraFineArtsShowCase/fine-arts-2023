@@ -70,6 +70,8 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
             setShow(true);
             setPopUpContent(a);
         }else{
+            router.push(`/artist/${a.author.node.userId}`)
+
         }
     }
 
