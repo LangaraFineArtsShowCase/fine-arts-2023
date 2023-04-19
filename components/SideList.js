@@ -18,8 +18,8 @@ const SideList = (props) => {
             let sorted = props.artistsNames;
 
             sorted = sorted.sort((a,b)=>{
-                const lastNameA = a.name.split(' ').slice(-1)[0];
-                const lastNameB = b.name.split(' ').slice(-1)[0];
+                const lastNameA = a.name?.split(' ').slice(-1)[0];
+                const lastNameB = b.name?.split(' ').slice(-1)[0];
                 // console.log(lastNameA);
                 if(lastNameA<lastNameB)return -1
                 if(lastNameA>lastNameB)return 1
