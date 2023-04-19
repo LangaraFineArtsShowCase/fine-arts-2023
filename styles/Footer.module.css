@@ -43,6 +43,20 @@
   text-decoration: underline;
 }
 
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcons svg {
+  transform: scale(1);
+  transition: all .3s ease-in-out;
+}
+
+.socialIcons svg:hover {
+  transform: scale(1.2);
+}
+
 .howToApply {
   display: flex;
   flex-direction: row;
@@ -84,5 +98,9 @@
 
   .wrapper > div {
     flex: 1;
+  }
+
+  .wrapper > .howToApplyWrapper {
+    flex: 1.5;
   }
 }

@@ -59,6 +59,11 @@
   margin-bottom: 40px;
 }
 
+.carouselItemWrapper {
+  position: relative;
+  height: 320px;
+}
+
 .carousel img {
   object-fit: cover;
 }
@@ -94,6 +99,15 @@
   margin-top: -48px;
   max-width: 100%;
   height: auto;
+}
+
+.portraitJoanne .personPortrait img {
+  margin-top: 0;
+  border-radius: 5px;
+}
+
+.portraitJoanne h2 {
+  margin: 2rem 0;
 }
 
 .personPortrait .langaraFineArtsImage {
@@ -248,8 +262,7 @@
   }
 
   .carouselItemWrapper {
-    position: relative;
-    height: 280px;
+    height: 250px;
   }
 
   .facultyList {
@@ -296,7 +309,21 @@
     gap: 18px;
   }
 
-  .portraitDarren .personPortrait {
+  .portraitJoanne .wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .portraitDarren .personPortrait,
+  .portraitJoanne .personPortrait {
     order: 3;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .carouselItemWrapper {
+    height: 320px;
   }
 }
