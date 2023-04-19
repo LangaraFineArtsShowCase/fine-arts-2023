@@ -141,7 +141,7 @@ const Studio = ({artistList})=>{
         :
             <>
                 <div className={styles.noArt}>
-                    No art work to show
+                    No art work to show.
                 </div>
             </>
         }
