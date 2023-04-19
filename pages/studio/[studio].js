@@ -102,8 +102,8 @@ const Studio = ({artistList})=>{
             
         }
     },[studio])
-    console.log(studioWork);
-    console.log(studioWork.data?.artworks2023?.nodes.length);
+    // console.log(studioWork);
+    // console.log(studioWork.data?.artworks2023?.nodes.length);
 
     return(
 

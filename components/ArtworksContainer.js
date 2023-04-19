@@ -27,7 +27,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     // const what = ([...artworks])
 
 
-    console.log(artworks);
+    // console.log(artworks);
 
     const shuffle = (artworks) => {
         if(artworks){
