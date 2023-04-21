@@ -100,10 +100,10 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
 
                         >
                             <Image
-                                src ={item.artworkFields.thumbnail.mediaItemUrl}
-                                width={item.artworkFields.thumbnail.mediaDetails.width}
-                                height={item.artworkFields.thumbnail.mediaDetails.height}
-                                alt={item.artworkFields.artworkTitle}
+                                src ={item?.artworkFields?.thumbnail?.mediaItemUrl}
+                                width={item?.artworkFields?.thumbnail?.mediaDetails?.width}
+                                height={item?.artworkFields?.thumbnail?.mediaDetails?.height}
+                                alt={item?.artworkFields?.artworkTitle}
                                 onClick={()=>{handlePopup(item)}}
                             />
 
@@ -150,10 +150,10 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
 
                         >
                             <Image
-                                src ={item.artworkFields.thumbnail.mediaItemUrl}
-                                width={item.artworkFields.thumbnail.mediaDetails.width}
-                                height={item.artworkFields.thumbnail.mediaDetails.height}
-                                alt={item.artworkFields.artworkTitle}
+                                src ={item?.artworkFields?.thumbnail?.mediaItemUrl}
+                                width={item?.artworkFields?.thumbnail?.mediaDetails?.width}
+                                height={item?.artworkFields?.thumbnail?.mediaDetails?.height}
+                                alt={item?.artworkFields?.artworkTitle}
                                 onClick={()=>{handlePopup(item)}}
 
                             />
@@ -161,7 +161,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
                             <div className={styles.hideDesc}>
 
                                 <div className={styles.artName}>
-                                    {item.artworkFields.artworkTitle}
+                                    {item?.artworkFields?.artworkTitle}
                                 </div>
 
                                 <div>
