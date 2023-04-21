@@ -18,7 +18,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     // console.log(artistsNames);
     // console.log(items);
     let artworks;
-    if(items.data != null){
+    if(items?.data != null){
         // artworks = items.data.artworks2023.nodes
         artworks = items.data.artworks2023?.nodes
 
@@ -27,7 +27,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     // const what = ([...artworks])
 
 
-    console.log(artworks);
+    // console.log(artworks);
 
     const shuffle = (artworks) => {
         if(artworks){
@@ -70,6 +70,8 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
             setShow(true);
             setPopUpContent(a);
         }else{
+            router.push(`/artist/${a.author.node.userId}`)
+
         }
     }
 

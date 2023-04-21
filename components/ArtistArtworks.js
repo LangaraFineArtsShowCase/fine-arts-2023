@@ -12,20 +12,55 @@ const ArtistArtworks = ({items}) => {
     const [shuffle, setShuffled] = useState([]);
     const [show,setShow] = useState(false)
     const [popUpContent,setPopUpContent] = useState({})
+    const [vw, setVw] = useState(1);
 
+
+    useEffect(()=>{
+        const width = window.innerWidth;
+        // console.log(width);
+        setVw(width);
+        
+        const handleResize = (event) => {
+
+            const width = window.innerWidth;
+            // console.log(width);
+            setVw(width);
+        };
+    
+        
+        window.addEventListener("resize", handleResize)
+        window.addEventListener("load", handleResize)
+
+
+        return()=>{
+                    window.removeEventListener('resize',handleResize)
+                    window.removeEventListener('load',handleResize)
+                  }
+    },[])
 
 
     useEffect(()=>{
         let artworks = items
+        // console.log(artworks);
         
 
 
-        for (let i = artworks.length - 1; i >= 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [artworks[i], artworks[j]] = [artworks[j], artworks[i]]
+        // for (let i = artworks.length - 1; i >= 0; i--) {
+        //     const j = Math.floor(Math.random() * (i + 1));
+        //     [artworks[i], artworks[j]] = [artworks[j], artworks[i]]
+        // }
+        if(artworks.length>0){
+            artworks.sort((a,b)=>{
+                let orderA = a.artworkFields.order;
+                let orderB = b.artworkFields.order;
+                return(orderA - orderB)
+    
+            })
+            // console.log(artworks);
+    
+            setShuffled(artworks)
         }
 
-        setShuffled(artworks)
 
 
 
@@ -33,9 +68,10 @@ const ArtistArtworks = ({items}) => {
     },[items])
 
     useEffect(()=>{
-        const colOne = [];
-        const colTwo = [];
-        const colThree = [];
+        // console.log(vw);
+        let colOne = [];
+        let colTwo = [];
+        let colThree = [];
         for(let i =0;i<shuffle.length;i=i+3){
 
             colOne.push(i);
@@ -49,10 +85,48 @@ const ArtistArtworks = ({items}) => {
             }
 
         }
+
+        if(vw<768){
+            colOne = [];
+            colTwo = [];
+            colThree = [];
+            for (let i = 0; i < shuffle.length; i = i + 3) {
+                if(i<3){
+                    colOne.push(i);
+                    if(i+1<shuffle.length){
+                        colOne.push(i+1);
+                    }
+                    if(i+2<shuffle.length){
+                        colOne.push(i+2);
+                    }
+                }else if(i<6){
+                    colTwo.push(i);
+                    if(i+1<shuffle.length){
+                        colTwo.push(i+1);
+                    }
+                    if(i+2<shuffle.length){
+                        colTwo.push(i+2);
+                    }
+                }else{
+                    colThree.push(i);
+                    if(i+1<shuffle.length){
+                        colThree.push(i+1);
+                    }
+                    if(i+2<shuffle.length){
+                        colThree.push(i+2);
+                    }
+
+                }
+
+            }
+              
+
+        }
+
         setCol1(colOne);
         setCol2(colTwo);
         setCol3(colThree);
-    },[shuffle])
+    },[shuffle, vw])
 
     const handlePopup=(i)=>{
         setShow(true);
