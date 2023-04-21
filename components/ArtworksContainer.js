@@ -18,7 +18,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     // console.log(artistsNames);
     // console.log(items);
     let artworks;
-    if(items.data != null){
+    if(items?.data != null){
         // artworks = items.data.artworks2023.nodes
         artworks = items.data.artworks2023?.nodes
 
