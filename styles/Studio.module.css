@@ -52,7 +52,7 @@
     font-weight: 800;
     font-size: calc(0.02*100vw);
     line-height: 108px;
-    color: #454545;
+    color: #080808;
 }
 
 @media (max-width: 1024px) {
