@@ -84,7 +84,7 @@ const Studio = ({artistList})=>{
             s.then(result=>{
                 setStudioWork(result);        
                 const studioArtists=[]
-                result.data.artworks2023.nodes.map((element)=>{
+                result?.data.artworks2023.nodes.map((element)=>{
                     let add = true;
                     studioArtists.map((a)=>{
                         if(a.userId === element.author.node.userId){
@@ -102,8 +102,8 @@ const Studio = ({artistList})=>{
             
         }
     },[studio])
-    console.log(studioWork);
-    console.log(studioWork.data?.artworks2023?.nodes.length);
+    // console.log(studioWork);
+    // console.log(studioWork.data?.artworks2023?.nodes.length);
 
     return(
 
@@ -132,7 +132,7 @@ const Studio = ({artistList})=>{
             <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>
             
         </div>
-        {studioWork.data?.artworks2023?.nodes?.length>0?
+        {studioWork?.data?.artworks2023?.nodes?.length>0?
             <>
                 <div>
                     <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
