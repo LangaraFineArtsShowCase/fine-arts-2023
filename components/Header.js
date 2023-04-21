@@ -113,8 +113,12 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
                   : 
                   <p className={styles.initial}></p> 
                   }
-                  <Link href={`/artist/${artist.author.node.userId}`} >
+                  <Link href={`/artist/${artist.author.node.userId}`} passHref legacyBehavior>
+                    <a onClick={(e) => {
+                      toggleMenu()
+                    }}>
                       {artist.artistFields.artistName}
+                    </a>
                   </Link>
                 </div>
               ))}
@@ -124,13 +128,17 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
             <div className={styles.StudiosList}>
               {studioArray.sort((a, b) => a.order - b.order).map((studio ,i) => (
                 <div key={i}>
-                  <Link href={`/studio/${studio.studioSlug}`}>
-                    <Image
-                      src={studio.studioImage[0]}
-                      alt={studio.studioName}
-                      width={360}
-                      height={360}
-                    />
+                  <Link href={`/studio/${studio.studioSlug}`} passHref legacyBehavior>
+                    <a onClick={(e) => {
+                      toggleMenu()
+                    }}>
+                      <Image
+                        src={studio.studioImage[0]}
+                        alt={studio.studioName}
+                        width={360}
+                        height={360}
+                      />
+                    </a>
                   </Link>
                   <h4>
                     <Link href={`/studio/${studio.studioSlug}`}>{studio.studioName}</Link>
