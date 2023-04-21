@@ -13,6 +13,7 @@ const ArtistArtworks = ({items}) => {
     const [show,setShow] = useState(false)
     const [popUpContent,setPopUpContent] = useState({})
     const [vw, setVw] = useState(1);
+    // console.log(items);
 
 
     useEffect(()=>{
@@ -164,11 +165,11 @@ const ArtistArtworks = ({items}) => {
                                     </div>
 
                                     <div className={styles.artSize}>
-                                        {shuffle[i].artworkFields.size}
+                                        {shuffle[i]?.artworkFields.size}
                                     </div>
 
                                     <div className={styles.artMaterial}>
-                                        {shuffle[i].artworkFields.material}
+                                        {shuffle[i]?.artworkFields.material}
                                     </div>
 
                                 </div>
@@ -200,11 +201,11 @@ const ArtistArtworks = ({items}) => {
 
 
                                     <div className={styles.artSize}>
-                                        {shuffle[i].artworkFields.size}
+                                        {shuffle[i]?.artworkFields.size}
                                     </div>
 
                                     <div className={styles.artMaterial}>
-                                        {shuffle[i].artworkFields.material}
+                                        {shuffle[i]?.artworkFields.material}
                                     </div>
 
                                 </div>
@@ -233,11 +234,11 @@ const ArtistArtworks = ({items}) => {
                                     </div>
 
                                     <div className={styles.artSize}>
-                                        {shuffle[i].artworkFields.size}
+                                        {shuffle[i]?.artworkFields.size}
                                     </div>
 
                                     <div className={styles.artMaterial}>
-                                        {shuffle[i].artworkFields.material}
+                                        {shuffle[i]?.artworkFields.material}
                                     </div>
 
                                 </div>
