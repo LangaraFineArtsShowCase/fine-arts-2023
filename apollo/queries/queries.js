@@ -109,7 +109,7 @@ query MyQuery($userId: Int) {
 
 export const GET_STUDIO_WORKS = gql`
 query MyQuery($studio: String) {
-    artworks2023(where: {studio: $studio}, first: 50) { 
+    artworks2023(where: {studio: $studio}, first: 100) { 
         nodes {
             artworkFields {
                 artworkTitle
