@@ -94,7 +94,15 @@ const Artist = ({artistList})=>{
                     artF.push(art.artworkFields.studio)
                 }
             })
-            // console.log(artF);
+            artF.map((item, index)=>{
+                const words = item.split(" ")
+                for (let i = 0 ; i<words.length;i++){
+                    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+                }
+                artF[index] = words.join(" ");
+            })
+
+
             setArtField(artF)
         }
 
