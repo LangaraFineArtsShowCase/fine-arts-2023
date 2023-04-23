@@ -123,6 +123,21 @@ query MyQuery($studio: String) {
                         width
                     }
                 }
+                videoIframe
+                artType
+                artworkTitle
+                image2d {
+                    sourceUrl
+                }
+                image3d1 {
+                    sourceUrl
+                }
+                image3d2 {
+                    sourceUrl
+                }
+                image3d3 {
+                    sourceUrl
+                }
             }
             author {
                 node {
