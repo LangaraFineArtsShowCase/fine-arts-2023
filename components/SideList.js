@@ -17,6 +17,7 @@ const SideList = (props) => {
             // setList(props.artistsNames)
             let sorted = props.artistsNames;
 
+
             sorted = sorted.sort((a,b)=>{
                 const lastNameA = a.name?.split(' ').slice(-1)[0];
                 const lastNameB = b.name?.split(' ').slice(-1)[0];
