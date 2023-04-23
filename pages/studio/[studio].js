@@ -140,9 +140,9 @@ const Studio = ({artistList})=>{
             </>
         :
             <>
-                <div className={styles.noArt}>
+                {/* <div className={styles.noArt}>
                     No art work to show.
-                </div>
+                </div> */}
             </>
         }
         </>}
