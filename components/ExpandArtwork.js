@@ -9,6 +9,7 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 const ExpandArtwork = (setShow, artwork)=>{
     const [imgSrc, setImgSrc] = useState('1')
     const art = setShow.artwork;
+    // console.log(art);
     const img = `image3d${imgSrc}`
 
 
