@@ -58,7 +58,6 @@
     transform-origin: top left;
     transition: transform .5s ease-in-out; 
     text-align: center;
-    cursor: pointer;
 
     
     margin-left: auto;
@@ -108,6 +107,8 @@
     position: relative;
     object-fit: contain;
     z-index: 10;
+    cursor: pointer;
+
     /* margin: 0; */
 }
 
