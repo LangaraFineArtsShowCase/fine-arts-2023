@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from "../styles/ArtworksContainer.module.css";
 import StudioPopUp from './StudioPopUp';
 import { useRouter } from 'next/router';
+import ExpandArtwork from './ExpandArtwork';
 
 
 
@@ -65,10 +66,13 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     const numOfItems = shuffledItems.length
     // console.log(originPage);
     const handlePopup = (a) =>{
-        console.log(a);
+        // console.log(a);
         if(originPage == 'studio'){
-            setShow(true);
-            setPopUpContent(a);
+            // setShow(true);
+            // setPopUpContent(a);
+            // console.log(a);
+            router.push(`/artist/${a.author.node.userId}`)
+
         }else{
             router.push(`/artist/${a.author.node.userId}`)
 
@@ -87,7 +91,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
         <>
 
         <div className={styles.flexContainer}>
-        {show==true&&<StudioPopUp setShow={disablePopup} content={popUpContent}/>}
+        {show==true&&<ExpandArtwork setShow={disablePopup} artwork={popUpContent}/>}
         <div className={styles.container}>
             <div className={styles.colOne}>
                 {
