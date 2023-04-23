@@ -41,6 +41,11 @@
     line-height: 150%;
 }
 
+.artStudio span{
+    text-transform:capitalize;
+
+}
+
 .artistNameHolder{
     display: flex;
     align-items: center;
