@@ -186,8 +186,8 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin-bottom: 2rem;
-  font-size: 18px;
+  margin-bottom: 1.5rem;
+  font-size: 16px;
 }
 
 .artistName:last-child {
@@ -404,5 +404,10 @@
 @media screen and (min-width: 1024px) {
   .artistList {
     column-count: 3;
+  }
+
+  .artistName {
+    margin-bottom: 2rem;
+    font-size: 18px;
   }
 }
