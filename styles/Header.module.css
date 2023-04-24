@@ -400,3 +400,9 @@
     padding-bottom: 0;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .artistList {
+    column-count: 3;
+  }
+}
