@@ -40,6 +40,12 @@
     font-style: italic;
 }
 
+.desc a{
+    margin-top: calc(0.01*100vw);
+    font-style: italic;
+    color: white;
+}
+
 .heroSection img{
     filter: brightness(50%);
     width: 100%;
@@ -63,7 +69,7 @@
 
     .desc{
         top:calc(100vw*0.1);
-        font-size: calc(100vw*0.025);
+        font-size: calc(100vw*0.023);
         line-height: calc(0.035*100vw);
 
     }
