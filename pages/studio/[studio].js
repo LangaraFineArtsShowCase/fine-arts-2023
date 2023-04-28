@@ -129,7 +129,7 @@ const Studio = ({artistList})=>{
                     </span>
                 ))}</div>  
                 {studio=="public art"&&<a href="https://thecanadaline.com/art-program/808-2/">
-                    Student Project: Langara 49th Station Project by Hive Mind
+                    Student Project: Langara 49th Station Project by Hivemind
                 </a>}  
             </div>
             <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>

@@ -174,7 +174,7 @@ export const awardWinners = [
     {
         winnerArtistID: 131,
         winnerArtistName: 'Katelynn Aquash',
-        awardName: 'PRINTMAKING SERIGRAPHY AWARD'
+        awardName: 'PRINTMAKING INTAGLIO AWARD'
     },
     {
         winnerArtistID: 124,
