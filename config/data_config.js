@@ -169,7 +169,7 @@ export const awardWinners = [
     {
         winnerArtistID: 116,
         winnerArtistName: 'Akiab Martinez',
-        awardName: 'FUNCTIONAL CERAMICS'
+        awardName: 'FUNCTIONAL CERAMICS AWARD'
     },
     {
         winnerArtistID: 131,
@@ -184,7 +184,7 @@ export const awardWinners = [
     {
         winnerArtistID: 109,
         winnerArtistName: 'Nicole Guillemin',
-        awardName: 'SCULPTURAL CERAMICS'
+        awardName: 'SCULPTURAL CERAMICS AWARD'
     },
     {
         winnerArtistID: 101,
