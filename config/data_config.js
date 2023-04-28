@@ -167,48 +167,53 @@ export const aboutImages = [
 
 export const awardWinners = [
     {
-        winnerArtistID: 79,
-        winnerArtistName: 'Kassandra Lee',
-        awardName: 'Functional Ceramics Award Recipient '
+        winnerArtistID: 116,
+        winnerArtistName: 'Akiab Martinez',
+        awardName: 'FUNCTIONAL CERAMICS AWARD'
     },
     {
-        winnerArtistID: 70,
-        winnerArtistName: 'Courtney Mott',
-        awardName: 'Sculptural Ceramics Award Recipient  '
+        winnerArtistID: 131,
+        winnerArtistName: 'Katelynn Aquash',
+        awardName: 'PRINTMAKING SERIGRAPHY AWARD'
     },
     {
-        winnerArtistID: 76,
-        winnerArtistName: 'Hayley Gossop',
-        awardName: 'Drawing Award Recipient'
+        winnerArtistID: 124,
+        winnerArtistName: 'Marina Ross',
+        awardName: 'PRINTMAKING SILK SCREEN AWARD'
     },
     {
-        winnerArtistID: 85,
-        winnerArtistName: 'Nawal Mustapha',
-        awardName: 'Design Award Recipient '
+        winnerArtistID: 109,
+        winnerArtistName: 'Nicole Guillemin',
+        awardName: 'SCULPTURAL CERAMICS AWARD'
     },
     {
-        winnerArtistID: 80,
-        winnerArtistName: 'Leanne Inuarak-Dall',
-        awardName: 'Sculpture Award Recipient '
+        winnerArtistID: 101,
+        winnerArtistName: 'Sam Avelar',
+        awardName: 'PAINTING AWARD'
     },
     {
-        winnerArtistID: 89,
-        winnerArtistName: 'Seamus O Donnell',
-        awardName: 'Print Award Recipient'
+        winnerArtistID: 111,
+        winnerArtistName: 'Natasha Hing',
+        awardName: 'DESIGN AWARD'
     },
     {
-        winnerArtistID: 90,
-        winnerArtistName: 'Seraphine Lewis',
-        awardName: 'Media Award Recipient '
+        winnerArtistID: 112,
+        winnerArtistName: 'Lenna Ius',
+        awardName: 'SCULPTURE AWARD'
     },
     {
-        winnerArtistID: 75,
-        winnerArtistName: 'Hannah Watkins',
-        awardName: 'Painting Award Recipient'
+        winnerArtistID: 117,
+        winnerArtistName: 'Rebecca Mills',
+        awardName: 'DRAWING AWARD'
     },
     {
-        winnerArtistID: 92,
-        winnerArtistName: 'Wakana Shimamura ',
-        awardName: 'Fine Arts Program Award Recipient'
+        winnerArtistID: 100,
+        winnerArtistName: 'Daniel Asis',
+        awardName: 'MEDIA AWARD'
+    },
+    {
+        winnerArtistID: 127,
+        winnerArtistName: 'Matt Trinh',
+        awardName: 'FINE ARTS PROGRAM AWARD'
     },
 ]
