@@ -34,11 +34,14 @@ const Artist = ({artistList})=>{
     const [display, setDisplay] = useState(false)
     const [displayAwardWinner, setAwardWinner] = useState(false)
     const [awardIndex, setAwardIndex] = useState('')
-
+    
 
 
     const router = useRouter()
     const { artistId } = router.query;
+
+
+
     
 
     useEffect(()=>{
@@ -58,6 +61,9 @@ const Artist = ({artistList})=>{
     },[artistId])
 
     useEffect(()=>{
+        // console.log("changed");
+        setAwardWinner(false);
+
         if(currentArtist){
             const currentArtistId = currentArtist.author?.node?.userId;
             // console.log(currentArtistId);
@@ -125,7 +131,7 @@ const Artist = ({artistList})=>{
 
                     <h1 className={styles.artistName}>{artistDetail.artistName}</h1>
                     
-                    {displayAwardWinner&&
+                    {displayAwardWinner?
                     <div className={styles.award}>
                         <div className={styles.leftLeafHolder}>
                             <div className={styles.leftLeaf}><LeftLeaf/></div>
@@ -134,6 +140,8 @@ const Artist = ({artistList})=>{
                         <div className={styles.awardName}>{awardWinners[awardIndex].awardName}</div>
                         <div className={styles.rightLeaf}><LeftLeaf/></div>
                     </div>
+                    :
+                    <></>
                     }
 
                 </div>
