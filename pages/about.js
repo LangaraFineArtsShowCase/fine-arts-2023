@@ -274,25 +274,6 @@ const About = ({artistList}) => {
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.bgGray} ${styles.portraitJoanne}`}>
-          <div className={styles.wrapper}>
-            <div className={styles.personPortrait}>
-              <Image
-                src={`${imageBasePath}/images/about/Joanne-Zabudsky.jpg`}
-                alt="joanne zabudsky"
-                width={361}
-                height={361}
-                priority={true}
-              />
-            </div>
-            <div>
-              <h2>In Loving Memory of Joanne Zabudsky,</h2>
-              <p>Joanne was many things to many people, yet to us she was our beloved Fine Arts Studio Coordinator for over 30 years.  She was the glue that held the Fine Arts program together. And although Joanne never sought the limelight, it is important that she is gratefully and publicly acknowledged for all that she contributed to Langara’s culture, students’ lives, and her enduring legacy across Canada.</p>
-              <p>Current faculty and staff - many of whom are alums of this program - and the many others she touched in her role at Langara, reflect on the goodness and strength that was Joanne. We all feel a great sense of loss. She lives on in our memories as someone who was always available to lend a hand, to speak words of wisdom, or be a shoulder to lean on. To both the history of Langara and to us as individuals, her contribution will never be forgotten.</p>
-            </div>
-          </div>
-        </section>
-
         <section className={`${styles.section} ${styles.bgGray} ${styles.langaraApplySection}`}>
           <div className={styles.wrapper}>
             <div className={`${styles.personPortrait} ${styles.textAlignRight}`}>
