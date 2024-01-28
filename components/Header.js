@@ -68,7 +68,7 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
             <div className={styles.headerTitle} >
               <Link href="/" style={{color: originPage=='about'? '#181818':'#ffffff'}}>
                 <span>Langara Fine Arts</span>
-                <span>Grad Show 2023</span>
+                <span>Grad Show 2024</span>
               </Link>
             </div>
           )}
