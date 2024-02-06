@@ -14,14 +14,14 @@ const Home = ({ artistList }) => {
   return (
     <>
       <Head>
-        <title>Langara Fine Arts Grad Show 2023</title>
+        <title>Langara Fine Arts Grad Show 2024</title>
       </Head>
       <Header artistList={artistList} studioList={studioArray} originPage="home" />
       <main className={styles.main}>
         <div className={styles.title}>
           <span className={styles.school}>Langara</span>
           <h1><span>Fine</span> <span>Arts</span></h1>
-          <h2>Grad Show 2023</h2>
+          <h2>Grad Show 2024</h2>
         </div>
       </main>
 
