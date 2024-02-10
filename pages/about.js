@@ -38,12 +38,6 @@ const About = ({artistList}) => {
             </div>
             <div>
               <p>
-                <strong>
-                  Welcome to the Langara Fine Arts virtual graduation showcase
-                  for 2024!
-                </strong>
-              </p>
-              <p>
                 We gratefully acknowledge that our learning takes place on
                 traditional, ancestral and unceded{' '}
                 <strong> xʷməθkʷəy̓əm, Musqeaum</strong> territory. We are deeply
@@ -51,19 +45,21 @@ const About = ({artistList}) => {
                 <strong>snəw̓eyəɬ leləm̓,</strong> house of teachings.
               </p>
               <p>
-                This digital presentation of artworks complements our on-campus
-                exhibition held at Langara College on West 49th Avenue in
-                Vancouver from April 25<sup>th</sup> — May 5<sup>th</sup>, 2024.
-                Celebrating the artistic development of our graduating students,
-                this website features artwork made within diverse studio areas
-                (including: ceramics, drawing, design, Indigenous carving & tool
-                making, painting, performance, print media, public art, media,
-                textiles and sculpture). We are extremely proud of our students’
-                dedication, curiosity, and experimentation and congratulate them
-                on their significant achievement. If you wish to inquire about
-                purchasing any of these featured artworks, feel free to reach
-                out to our Department Coordinator, Rita Yip (
-                <a href="mailto:ritayip@langara.ca">ritayip@langara.ca</a>) .
+                <strong>
+                  Welcome to the Langara Fine Arts virtual graduation showcase for 2024!
+                </strong>
+              </p>
+              <p>
+                This digital presentation of artworks complements our on-campus exhibition held at 
+                Langara College on West 49th Avenue in Vancouver from April 25<sup>th</sup> — May 5<sup>th</sup>, 2024.  
+                Made in our ceramics, drawing, design, Indigenous carving & tool making, painting, print media, 
+                public art, media, textile and sculpture courses, these works display the dedication, curiosity, 
+                and experimentation of our graduating students. We are extremely proud of this incredible work and 
+                congratulate our graduates on their significant achievement.
+              </p>
+              <p className={styles.byline}>
+                If you wish to inquire about purchasing any of these featured artworks, feel free to reach
+                out to our Department Coordinator, Rita Yip (<a href="mailto:ritayip@langara.ca">ritayip@langara.ca</a>) .
               </p>
             </div>
           </div>
