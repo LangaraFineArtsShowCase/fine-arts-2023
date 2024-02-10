@@ -33,7 +33,16 @@ export const studioArray = [
         studioName: 'drawing',
         studioSlug: 'drawing',
         studioDescription:'Fine Arts students at Langara develop drawing skills using hands-on material processes. In first year, perceptual skills are emphasized with subject matter that includes still-life, life models, and the urban/natural environment. For second year, studio work is complemented with critiques, lectures, and research into artists who use drawing as a primary medium. Students engage with a wide range of traditional and non-traditional drawing materials often working from challenging studio set-ups, regularly involving a life model. Traditional drawing practices are emphasized while addressing the role of drawing in the 21st century. Independent research is encouraged, and the relationship of drawing to the wider contemporary context is explored.',
-        studioFaculty: ['Stephanie Aitken', 'Milos Campbell', 'Steven Hubert', 'Aurora Landin', 'Elizabeth Milton', 'Helena Wadsley', 'Suzi Webster'],
+        studioFaculty: [
+            'Stephanie Aitken',
+            'Milos Campbell',
+            'Steven Hubert',
+            'Aurora Landin',
+            'Elizabeth Milton',
+            'Natalie Purschwitz',
+            'Helena Wadsley',
+            'Suzi Webster',
+          ],
         studioImage: [
             `${imageBasePath}/images/studios/Drawing1-min.jpg`,
             `${imageBasePath}/images/studios/Drawing1.jpg`
@@ -111,7 +120,10 @@ export const studioArray = [
         studioName: 'public art',
         studioSlug: 'public art',
         studioDescription:'In our Public Art classes students engage in the three major stages involved in the production of public art: concept development, detailed design and fabrication and installation. Students create individual site-specific projects and together produce two large scale works that are installed for the duration of a year at the Langara-49th Canada Line station, part of the Canada Line Public Art Program. Projects include 2d design, file preparation for laser cutting, elements of pattern making, green sand casting in bronze, metal chasing and finishing. As a collective, students prepare 2d files for large scale file output, work with a local print house and collaborate on one large scale sculptural work from concept to installation.',
-        studioFaculty: ['Devon Knowles', 'Aaron Nelson Moody', 'Will Morrison, Workshop Coordinator'],
+        studioFaculty: [
+            'Charlotte Falk',
+            'Will Morrison, Workshop Coordinator',
+        ],
         studioImage: [
             `${imageBasePath}/images/studios/PublicArt1-min.jpg`,
             `${imageBasePath}/images/studios/PublicArt1.jpg`
@@ -123,8 +135,14 @@ export const studioArray = [
         order: 6,
         studioName: 'sculpture',
         studioSlug: 'sculpture',
-        studioDescription:'In the sculpture area at Langara students explore traditional and contemporary approaches to working with three-dimensional form. Students gain hands-on experience with a variety of processes that include; working with wood, carving stone, metal fabrication, body casting, making complex molds, using synthetics, bas relief modelling, metal greensand casting, incorporating found objects and investigating chosen materials for independent projects. Special Topics courses expand on these ideas and include connecting foundry casting process for lost-wax to an equally ancient Coast Salish art and tradition of making. These courses encourage making art for family and community, gift giving and cultural expression while also exploring newer sculpture practices located in contemporary Western art.',
-        studioFaculty: ['Steven Hubert', 'Devon Knowles', 'Aaron Nelson Moody','Will Morrison, Workshop Co-ordinator'],
+        studioDescription:
+        'Sculpture courses introduce students to traditional and contemporary approaches to three-dimensional form. Students gain hands-on experience with a variety of processes that include; working with wood, carving stone, metal fabrication, body casting, making complex molds, using synthetics, incorporating found objects and investigating chosen materials for independent projects. These courses encourage students to develop their practice on both a conceptual and technical level while implementing a critical approach to materiality and three-dimensional form.',
+        studioFaculty: [
+            'Steven Hubert',
+            'Scott Kemp',
+            'Natalie Purschwitz',
+            'Will Morrison, Workshop Coordinator',
+        ],        
         studioImage: [
             `${imageBasePath}/images/studios/Sculpture1-min.jpg`,
             `${imageBasePath}/images/studios/Sculpture1.jpg`
