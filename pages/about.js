@@ -222,13 +222,12 @@ const About = ({artistList}) => {
               />
             </div>
             <div>
-              <p>The 2023 Fine Arts Grad Show marks the culmination of years of hard work as a student and evolution as an artist. Congratulations on this significant achievement! For some of you, this marks the beginning of the next step in your academic journey while for others, you may decide to take advantage of the opportunity to develop your practice further. No matter what you’re looking ahead to, take a moment to recognize all that you have accomplished here at Langara.</p>
-              <p>During your time here, you have been part of a vibrant community. Your instructors and studio technicians have shared their knowledge and passion for their discipline.</p>
+              <p>This year’s Fine Arts Grad Show represents the very best work of the students graduating in 2024. It is the culmination of their dedication, creativity, and hard work. I extend my heartfelt congratulations to each of the students for their achievement. Seeing the range of artistic expression is always a highlight each spring and this year’s show is no exception.</p>
+              <p>As the Dean of Arts, I commend each of you for maintaining your commitment as an artist and for pursing your artistic vision. The faculty and staff in the Fine Arts department were a critical part of your journey. The quality of your work is testament to the exceptional education and mentorship that you have received.</p>
             </div>
             <div>
-              <p>Guest speakers brought additional perspectives for you to consider. Your fellow students have been there to support you as well.</p>
-              <p>This is the time to celebrate the journey that you have been on - the journey that you have created with your commitment, perseverance, and vision. You are part of a community who have the power to inspire, inform, and effect change through their art.</p>
-              <p>Congratulations and I wish you all the very best in the next phase of your journey as an artist.</p>
+              <p>The Grad Show marks the end of one chapter in your development as an artist. Whether you continue to further studies, explore other paths, or develop your practice further, I hope you take a moment to reflect on your time at Langara College and the vibrant community that you are part of. Your work has the power to inspire, inform, and affect change. </p>
+              <p>Congratulations on your achievements and I look forward to hearing about your future successes and seeing the impact of your work. </p>
             </div>
           </div>
         </section>
