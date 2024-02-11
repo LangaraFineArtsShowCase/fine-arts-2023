@@ -140,29 +140,37 @@ const About = ({artistList}) => {
           <div className={styles.wrapper}>
             <p>Langara Fine Arts is comprised of the following faculty and staff:</p>
             <ul className={styles.facultyList}>
+            <li>
+                <strong>Milos Campbell</strong>
+                <span>- printmaking, drawing</span>
+              </li>
               <li>
                 <strong>Charlotte Falk</strong>
-                <span>- design</span>
+                <span>- design, public art</span>
               </li>
               <li>
-                <strong>Aaron Nelson Moody</strong>
-                <span>- indigenous carving, tool making, public art, foundry and replication</span>
-              </li>
-              <li>
-                <strong>Devon Knowles</strong>
-                <span>- sculpture, public art and foundry and replication</span>
+                <strong>Gloria Han</strong>
+                <span>- ceramics</span>
               </li>
               <li>
                 <strong>Steve Hubert</strong>
-                <span>-sculpture, painting, media and drawing</span>
+                <span>- sculpture, painting, media and drawing</span>
+              </li>
+              <li>
+                <strong>Scott Kemp</strong>
+                <span>- sculpture</span>
               </li>
               <li>
                 <strong>Aurora Landin</strong>
                 <span>- printmaking, drawing and professional practice</span>
               </li>
               <li>
-                <strong>Helena Wadsley</strong>
-                <span>- painting, drawing, textile studio</span>
+                <strong>Aaron Nelson Moody</strong>
+                <span>- indigenous carving, tool making, public art, foundry and replication</span>
+              </li>
+              <li>
+                <strong>Natalie Purschwitz</strong>
+                <span>- sculpture, drawing</span>
               </li>
               <li> 
                 <strong>Alwyn O’Brien</strong>
@@ -173,12 +181,8 @@ const About = ({artistList}) => {
                 <span>- design</span>
               </li>
               <li>
-                <strong>Elizabeth Milton</strong>
-                <span>- performance, media studio, drawing and professional practice</span>
-              </li>
-              <li>
-                <strong>Gloria Han</strong>
-                <span>- ceramics</span>
+                <strong>Helena Wadsley</strong>
+                <span>- painting, drawing, textile studio</span>
               </li>
               <li>
                 <strong>Suzi Webster</strong>
@@ -193,12 +197,12 @@ const About = ({artistList}) => {
                 <span>- Studio Coordinator</span>
               </li>
               <li>
-                <strong>Milos Campbell</strong>
-                <span>- Assistant Department Chair, printmaking, drawing</span>
+                <strong>Elizabeth Milton</strong>
+                <span>- Assistant Department Chair, performance, media studio, drawing and professional practice</span>
               </li>
               <li>
                 <strong>Stephanie Aitken</strong>
-                <span>- Department Chair, painting</span>
+                <span>- Department Chair, painting, drawing</span>
               </li>
             </ul>
           </div>
