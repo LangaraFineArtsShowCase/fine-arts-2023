@@ -58,8 +58,8 @@ const About = ({artistList}) => {
                 congratulate our graduates on their significant achievement.
               </p>
               <p className={styles.byline}>
-                If you wish to inquire about purchasing any of these featured artworks, feel free to reach
-                out to our Department Coordinator, Rita Yip (<a href="mailto:ritayip@langara.ca">ritayip@langara.ca</a>) .
+                If you wish to inquire about purchasing any of these featured artworks, feel free to reach out to our Studio Coordinator, Rita Yip
+                (<a href="mailto:ritayip@langara.ca">ritayip@langara.ca</a>) .
               </p>
             </div>
           </div>
@@ -166,7 +166,7 @@ const About = ({artistList}) => {
               </li>
               <li>
                 <strong>Aaron Nelson Moody</strong>
-                <span>- indigenous carving, tool making, public art, foundry and replication</span>
+                <span>- indigenous carving and tool making</span>
               </li>
               <li>
                 <strong>Natalie Purschwitz</strong>
