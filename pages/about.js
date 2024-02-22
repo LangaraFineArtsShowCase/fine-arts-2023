@@ -20,7 +20,6 @@ const About = ({artistList}) => {
       </Head>
       <Header artistList={artistList} originPage="about" />
       <main className={styles.main}>
-
         <section className={`${styles.section} ${styles.heroSection}`}>
           <div className={styles.wrapper}>
             <h1 className={styles.pageTitle}>Fine Arts</h1>
@@ -238,20 +237,47 @@ const About = ({artistList}) => {
               <h2>THANK YOUs:</h2>
             </div>
             <div>
-              <p>Special thanks to our amazing Department Chair, <strong>Stephanie Aitken</strong> for her dedication, insight and hard work running our program, <strong>Milos Campbell</strong> for her incredible support as Assistant Chair and for the tireless behind the scenes work of our Department Coordinator, <strong>Rita Yip</strong>. Deep gratitude to our donors: <strong>David Lambert Foundation</strong>, <strong>Shadbolt Centre for the Arts - Ceramics Programs</strong>, <strong>xCraft Council of BC</strong>, <strong>Anne and Jeff Powell</strong>, and <strong>Tenline Sales</strong> for their generous contribution to our Fine Arts Awards program.</p>
+              <p>
+                Special thanks to our incredible Department Chair,{' '}
+                <strong>Stephanie Aitken</strong> for her dedication, insight
+                and hard work running our program,{' '}
+                <strong>Elizabeth Milton</strong> for her amazing support as
+                Assistant Chair and for the tireless behind the scenes work of
+                our Studio Coordinator,{' '}
+                <strong>Rita Yip</strong>. Deep gratitude to our donors:{' '}
+                <strong>David Lambert Foundation</strong>,{' '}
+                <strong>
+                  Shadbolt Centre for the Arts - Ceramics Programs
+                </strong>
+                , <strong>Craft Council of BC</strong>,{' '}
+                <strong>Anne and Jeff Powell</strong>, and{' '}
+                <strong>Tenline Sales</strong> for their generous contribution
+                to our Fine Arts Awards program.
+              </p>
 
-              <p>On behalf of our graduating students, the Fine Arts Department would like to thank Langara College for funding our virtual grad show.</p>
+              <p>
+                On behalf of our graduating students, the Fine Arts Department
+                would like to thank Langara College for funding our virtual grad
+                show.
+              </p>
 
-              <p>The following people are responsible for creating this website: <strong>Milos Campbell</strong> (Assistant Dept Chair), <strong>Charlotte Falk</strong> and <strong>Elizabeth Milton</strong> (Fine Arts Faculty) and <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor). Web & Mobile App students: <strong>Akhil Noone</strong> (site design), <strong>Elmer Jr. Balbin</strong> and <strong>Anson Su</strong> (developers). Fine Art Students: <strong>Lindsay Chow</strong> (image co-ordination and photography) and <strong>Sebastian Fuertes Pelayo</strong> (art direction). Thank you, team! Splash page image: Sculpture by <strong>Nicole Guillemin</strong>, Photo: <strong>Lindsay Chow</strong>.</p>
+              <p>
+                The following people are responsible for creating this website:{' '}
+                <strong>Elizabeth Milton</strong> (Assistant Dept Chair) and{' '}
+                <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor).
+                Web & Mobile App student:{' '}<strong>Wonnyo Hamester Tozawa</strong>{' '}
+                (developer). Thank you, team! Splash page image: Sculpture by
+                _________.
+              </p>
             </div>
+
             <div>
-              <p>Huge thanks and congratulations to our Fine Arts Graduates for providing such strong work to fill this virtual space.</p>
+              <p>
+                Huge thanks and congratulations to our Fine Arts Graduates for
+                providing such strong work to fill this virtual space.
+              </p>
               <p>Many thanks to the following folks who support our program:</p>
               <ul className={styles.thankYouList}>
-                <li>
-                  <strong>Yani Kong</strong>
-                  <span>- Cultural Theory Instructor, Art History</span>
-                </li>
                 <li>
                   <strong>Rebecca Slaven</strong>
                   <span>- Fine Arts Librarian</span>
