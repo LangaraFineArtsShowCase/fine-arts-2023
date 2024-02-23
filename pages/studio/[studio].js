@@ -84,7 +84,7 @@ const Studio = ({artistList})=>{
             s.then(result=>{
                 setStudioWork(result);        
                 const studioArtists=[]
-                result?.data.artworks2023.nodes.map((element)=>{
+                result?.data.artworks2024.nodes.map((element)=>{
                     let add = true;
                     studioArtists.map((a)=>{
                         if(a.userId === element.author.node.userId){
@@ -92,7 +92,7 @@ const Studio = ({artistList})=>{
                         }
                     })
                     if(add){
-                        let studioArtist = {'userId':element.author?.node?.userId, 'name':element.author?.node?.artists2023?.nodes[0]?.artistFields?.artistName};
+                        let studioArtist = {'userId':element.author?.node?.userId, 'name':element.author?.node?.artists2024?.nodes[0]?.artistFields?.artistName};
                         studioArtists.push(studioArtist)
                     }
                 })
@@ -102,8 +102,6 @@ const Studio = ({artistList})=>{
             
         }
     },[studio])
-    // console.log(studioWork);
-    // console.log(studioWork.data?.artworks2023?.nodes.length);
 
     return(
 
@@ -135,7 +133,7 @@ const Studio = ({artistList})=>{
             <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>
             
         </div>
-        {studioWork?.data?.artworks2023?.nodes?.length>0?
+        {studioWork?.data?.artworks2024?.nodes?.length>0?
             <>
                 <div>
                     <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
@@ -167,7 +165,7 @@ async function getArtistList(){
 
         return aList
     }catch(err){
-        // console.log(err);
+        console.log(err);
     }
 }
 
@@ -180,7 +178,7 @@ async function getArtists(){
 
         return a
     }catch(err){
-        // console.log(err);
+        console.log(err);
     }
 }
 
@@ -209,7 +207,7 @@ export async function getStaticProps(context) {
   
       return {
           props: {
-            artistList: data?.artists2023?.nodes
+            artistList: data?.artists2024?.nodes
           },
           // revalidate: 30,
       }

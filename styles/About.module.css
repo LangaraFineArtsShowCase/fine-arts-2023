@@ -55,6 +55,11 @@
   overflow: hidden;
 }
 
+.byline{
+  font-size: 0.8rem;
+  line-height: 20px;
+}
+
 .carousel {
   margin-bottom: 40px;
 }

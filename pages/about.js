@@ -20,7 +20,6 @@ const About = ({artistList}) => {
       </Head>
       <Header artistList={artistList} originPage="about" />
       <main className={styles.main}>
-
         <section className={`${styles.section} ${styles.heroSection}`}>
           <div className={styles.wrapper}>
             <h1 className={styles.pageTitle}>Fine Arts</h1>
@@ -38,12 +37,6 @@ const About = ({artistList}) => {
             </div>
             <div>
               <p>
-                <strong>
-                  Welcome to the Langara Fine Arts virtual graduation showcase
-                  for 2024!
-                </strong>
-              </p>
-              <p>
                 We gratefully acknowledge that our learning takes place on
                 traditional, ancestral and unceded{' '}
                 <strong> xʷməθkʷəy̓əm, Musqeaum</strong> territory. We are deeply
@@ -51,19 +44,21 @@ const About = ({artistList}) => {
                 <strong>snəw̓eyəɬ leləm̓,</strong> house of teachings.
               </p>
               <p>
-                This digital presentation of artworks complements our on-campus
-                exhibition held at Langara College on West 49th Avenue in
-                Vancouver from April 25<sup>th</sup> — May 5<sup>th</sup>, 2024.
-                Celebrating the artistic development of our graduating students,
-                this website features artwork made within diverse studio areas
-                (including: ceramics, drawing, design, Indigenous carving & tool
-                making, painting, performance, print media, public art, media,
-                textiles and sculpture). We are extremely proud of our students’
-                dedication, curiosity, and experimentation and congratulate them
-                on their significant achievement. If you wish to inquire about
-                purchasing any of these featured artworks, feel free to reach
-                out to our Department Coordinator, Rita Yip (
-                <a href="mailto:ritayip@langara.ca">ritayip@langara.ca</a>) .
+                <strong>
+                  Welcome to the Langara Fine Arts virtual graduation showcase for 2024!
+                </strong>
+              </p>
+              <p>
+                This digital presentation of artworks complements our on-campus exhibition held at 
+                Langara College on West 49th Avenue in Vancouver from April 25<sup>th</sup> — May 5<sup>th</sup>, 2024.  
+                Made in our ceramics, drawing, design, Indigenous carving & tool making, painting, print media, 
+                public art, media, textile and sculpture courses, these works display the dedication, curiosity, 
+                and experimentation of our graduating students. We are extremely proud of this incredible work and 
+                congratulate our graduates on their significant achievement.
+              </p>
+              <p className={styles.byline}>
+                If you wish to inquire about purchasing any of these featured artworks, feel free to reach out to our Studio Coordinator, Rita Yip
+                (<a href="mailto:ritayip@langara.ca">ritayip@langara.ca</a>) .
               </p>
             </div>
           </div>
@@ -144,29 +139,37 @@ const About = ({artistList}) => {
           <div className={styles.wrapper}>
             <p>Langara Fine Arts is comprised of the following faculty and staff:</p>
             <ul className={styles.facultyList}>
+            <li>
+                <strong>Milos Campbell</strong>
+                <span>- printmaking, drawing</span>
+              </li>
               <li>
                 <strong>Charlotte Falk</strong>
-                <span>- design</span>
+                <span>- design, public art</span>
               </li>
               <li>
-                <strong>Aaron Nelson Moody</strong>
-                <span>- indigenous carving, tool making, public art, foundry and replication</span>
-              </li>
-              <li>
-                <strong>Devon Knowles</strong>
-                <span>- sculpture, public art and foundry and replication</span>
+                <strong>Gloria Han</strong>
+                <span>- ceramics</span>
               </li>
               <li>
                 <strong>Steve Hubert</strong>
-                <span>-sculpture, painting, media and drawing</span>
+                <span>- sculpture, painting, media and drawing</span>
+              </li>
+              <li>
+                <strong>Scott Kemp</strong>
+                <span>- sculpture</span>
               </li>
               <li>
                 <strong>Aurora Landin</strong>
                 <span>- printmaking, drawing and professional practice</span>
               </li>
               <li>
-                <strong>Helena Wadsley</strong>
-                <span>- painting, drawing, textile studio</span>
+                <strong>Aaron Nelson Moody</strong>
+                <span>- indigenous carving and tool making</span>
+              </li>
+              <li>
+                <strong>Natalie Purschwitz</strong>
+                <span>- sculpture, drawing</span>
               </li>
               <li> 
                 <strong>Alwyn O’Brien</strong>
@@ -177,12 +180,8 @@ const About = ({artistList}) => {
                 <span>- design</span>
               </li>
               <li>
-                <strong>Elizabeth Milton</strong>
-                <span>- performance, media studio, drawing and professional practice</span>
-              </li>
-              <li>
-                <strong>Gloria Han</strong>
-                <span>- ceramics</span>
+                <strong>Helena Wadsley</strong>
+                <span>- painting, drawing, textile studio</span>
               </li>
               <li>
                 <strong>Suzi Webster</strong>
@@ -197,12 +196,12 @@ const About = ({artistList}) => {
                 <span>- Studio Coordinator</span>
               </li>
               <li>
-                <strong>Milos Campbell</strong>
-                <span>- Assistant Department Chair, printmaking, drawing</span>
+                <strong>Elizabeth Milton</strong>
+                <span>- Assistant Department Chair, performance, media studio, drawing and professional practice</span>
               </li>
               <li>
                 <strong>Stephanie Aitken</strong>
-                <span>- Department Chair, painting</span>
+                <span>- Department Chair, painting, drawing</span>
               </li>
             </ul>
           </div>
@@ -222,13 +221,12 @@ const About = ({artistList}) => {
               />
             </div>
             <div>
-              <p>The 2023 Fine Arts Grad Show marks the culmination of years of hard work as a student and evolution as an artist. Congratulations on this significant achievement! For some of you, this marks the beginning of the next step in your academic journey while for others, you may decide to take advantage of the opportunity to develop your practice further. No matter what you’re looking ahead to, take a moment to recognize all that you have accomplished here at Langara.</p>
-              <p>During your time here, you have been part of a vibrant community. Your instructors and studio technicians have shared their knowledge and passion for their discipline.</p>
+              <p>This year’s Fine Arts Grad Show represents the very best work of the students graduating in 2024. It is the culmination of their dedication, creativity, and hard work. I extend my heartfelt congratulations to each of the students for their achievement. Seeing the range of artistic expression is always a highlight each spring and this year’s show is no exception.</p>
+              <p>As the Dean of Arts, I commend each of you for maintaining your commitment as an artist and for pursing your artistic vision. The faculty and staff in the Fine Arts department were a critical part of your journey. The quality of your work is testament to the exceptional education and mentorship that you have received.</p>
             </div>
             <div>
-              <p>Guest speakers brought additional perspectives for you to consider. Your fellow students have been there to support you as well.</p>
-              <p>This is the time to celebrate the journey that you have been on - the journey that you have created with your commitment, perseverance, and vision. You are part of a community who have the power to inspire, inform, and effect change through their art.</p>
-              <p>Congratulations and I wish you all the very best in the next phase of your journey as an artist.</p>
+              <p>The Grad Show marks the end of one chapter in your development as an artist. Whether you continue to further studies, explore other paths, or develop your practice further, I hope you take a moment to reflect on your time at Langara College and the vibrant community that you are part of. Your work has the power to inspire, inform, and affect change. </p>
+              <p>Congratulations on your achievements and I look forward to hearing about your future successes and seeing the impact of your work. </p>
             </div>
           </div>
         </section>
@@ -239,20 +237,47 @@ const About = ({artistList}) => {
               <h2>THANK YOUs:</h2>
             </div>
             <div>
-              <p>Special thanks to our amazing Department Chair, <strong>Stephanie Aitken</strong> for her dedication, insight and hard work running our program, <strong>Milos Campbell</strong> for her incredible support as Assistant Chair and for the tireless behind the scenes work of our Department Coordinator, <strong>Rita Yip</strong>. Deep gratitude to our donors: <strong>David Lambert Foundation</strong>, <strong>Shadbolt Centre for the Arts - Ceramics Programs</strong>, <strong>xCraft Council of BC</strong>, <strong>Anne and Jeff Powell</strong>, and <strong>Tenline Sales</strong> for their generous contribution to our Fine Arts Awards program.</p>
+              <p>
+                Special thanks to our incredible Department Chair,{' '}
+                <strong>Stephanie Aitken</strong> for her dedication, insight
+                and hard work running our program,{' '}
+                <strong>Elizabeth Milton</strong> for her amazing support as
+                Assistant Chair and for the tireless behind the scenes work of
+                our Studio Coordinator,{' '}
+                <strong>Rita Yip</strong>. Deep gratitude to our donors:{' '}
+                <strong>David Lambert Foundation</strong>,{' '}
+                <strong>
+                  Shadbolt Centre for the Arts - Ceramics Programs
+                </strong>
+                , <strong>Craft Council of BC</strong>,{' '}
+                <strong>Anne and Jeff Powell</strong>, and{' '}
+                <strong>Tenline Sales</strong> for their generous contribution
+                to our Fine Arts Awards program.
+              </p>
 
-              <p>On behalf of our graduating students, the Fine Arts Department would like to thank Langara College for funding our virtual grad show.</p>
+              <p>
+                On behalf of our graduating students, the Fine Arts Department
+                would like to thank Langara College for funding our virtual grad
+                show.
+              </p>
 
-              <p>The following people are responsible for creating this website: <strong>Milos Campbell</strong> (Assistant Dept Chair), <strong>Charlotte Falk</strong> and <strong>Elizabeth Milton</strong> (Fine Arts Faculty) and <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor). Web & Mobile App students: <strong>Akhil Noone</strong> (site design), <strong>Elmer Jr. Balbin</strong> and <strong>Anson Su</strong> (developers). Fine Art Students: <strong>Lindsay Chow</strong> (image co-ordination and photography) and <strong>Sebastian Fuertes Pelayo</strong> (art direction). Thank you, team! Splash page image: Sculpture by <strong>Nicole Guillemin</strong>, Photo: <strong>Lindsay Chow</strong>.</p>
+              <p>
+                The following people are responsible for creating this website:{' '}
+                <strong>Elizabeth Milton</strong> (Assistant Dept Chair) and{' '}
+                <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor).
+                Web & Mobile App student:{' '}<strong>Wonnyo Hamester Tozawa</strong>{' '}
+                (developer). Thank you, team! Splash page image: Sculpture by
+                _________.
+              </p>
             </div>
+
             <div>
-              <p>Huge thanks and congratulations to our Fine Arts Graduates for providing such strong work to fill this virtual space.</p>
+              <p>
+                Huge thanks and congratulations to our Fine Arts Graduates for
+                providing such strong work to fill this virtual space.
+              </p>
               <p>Many thanks to the following folks who support our program:</p>
               <ul className={styles.thankYouList}>
-                <li>
-                  <strong>Yani Kong</strong>
-                  <span>- Cultural Theory Instructor, Art History</span>
-                </li>
                 <li>
                   <strong>Rebecca Slaven</strong>
                   <span>- Fine Arts Librarian</span>
@@ -326,8 +351,8 @@ export async function getStaticProps(context) {
 
       return {
           props: {
-              artistList: artistList?.artists2023?.nodes,
-              artists: artists?.artworks2023?.nodes  
+              artistList: artistList?.artists2024?.nodes,
+              artists: artists?.artworks2024?.nodes  
           },
           // revalidate: 30,
       }
