@@ -13,6 +13,7 @@ const nextConfig = {
       },
     ],
   },
+  basePath: '/2023',
 }
 
 module.exports = nextConfig

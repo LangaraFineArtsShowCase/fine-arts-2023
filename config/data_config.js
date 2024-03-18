@@ -1,4 +1,4 @@
-export const imageBasePath = '';
+export const imageBasePath = '/2023';
 
 export const studioArray = [
     {
