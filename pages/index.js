@@ -8,13 +8,9 @@ import Header from '@/components/Header'
 import RightArrow from '@/components/svg/RightArrow'
 import { studioArray } from '@/config/data_config'
 
-const Home = ({ artistList }) => {
+const Home = ({ artistList, showComingSoon }) => {
   const [arrowColor, setArrowColor] = useState('#FFFFFF')
-  const [showComingSoon, setShowComingSoon] = useState(false)
 
-  useEffect(() => {
-    setShowComingSoon(process.env.NEXT_PUBLIC_ENABLE_COMING_SOON === 'true')
-  }, [])
   return (
     <>
       <Head>
