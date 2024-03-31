@@ -10,12 +10,10 @@ import { studioArray } from '@/config/data_config'
 
 const Home = ({ artistList }) => {
   const [arrowColor, setArrowColor] = useState('#FFFFFF')
-  const [showExhibitionButton, setShowExhibitionButton] = useState(true)
+  const [showComingSoon, setShowComingSoon] = useState(false)
 
   useEffect(() => {
-    setShowExhibitionButton(
-      process.env.NEXT_PUBLIC_ENABLE_COMING_SOON !== 'true'
-    )
+    setShowComingSoon(process.env.NEXT_PUBLIC_ENABLE_COMING_SOON === 'true')
   }, [])
   return (
     <>
@@ -34,11 +32,13 @@ const Home = ({ artistList }) => {
             <span>Fine</span> <span>Arts</span>
           </h1>
           <h2>Grad Show 2024</h2>
-          <span className={styles.coming_soon}>Coming Soon!</span>
+          {showComingSoon && (
+            <span className={styles.coming_soon}>Coming Soon!</span>
+          )}
         </div>
       </main>
 
-      {showExhibitionButton && (
+      {!showComingSoon && (
         <div className={styles.buttonWrapper}>
           <Link
             href="/artists"
