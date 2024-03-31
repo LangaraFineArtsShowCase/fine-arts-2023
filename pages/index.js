@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import client from '@/apollo/client'
 import { GET_ARTIST_LIST } from '@/apollo/queries/queries'
 import Link from 'next/link'
@@ -10,24 +10,45 @@ import { studioArray } from '@/config/data_config'
 
 const Home = ({ artistList }) => {
   const [arrowColor, setArrowColor] = useState('#FFFFFF')
+  const [showExhibitionButton, setShowExhibitionButton] = useState(true)
 
+  useEffect(() => {
+    setShowExhibitionButton(
+      process.env.NEXT_PUBLIC_ENABLE_COMING_SOON !== 'true'
+    )
+  }, [])
   return (
     <>
       <Head>
         <title>Langara Fine Arts Grad Show 2024</title>
       </Head>
-      <Header artistList={artistList} studioList={studioArray} originPage="home" />
+      <Header
+        artistList={artistList}
+        studioList={studioArray}
+        originPage="home"
+      />
       <main className={styles.main}>
         <div className={styles.title}>
           <span className={styles.school}>Langara</span>
-          <h1><span>Fine</span> <span>Arts</span></h1>
+          <h1>
+            <span>Fine</span> <span>Arts</span>
+          </h1>
           <h2>Grad Show 2024</h2>
+          <span className={styles.coming_soon}>Coming Soon!</span>
         </div>
       </main>
 
-      <div className={styles.buttonWrapper}>
-        <Link href="/artists" onMouseEnter={() => setArrowColor('#000000')} onMouseLeave={() => setArrowColor('#FFFFFF')}>Enter Exhibition <RightArrow fill={arrowColor} /></Link>
-      </div>
+      {showExhibitionButton && (
+        <div className={styles.buttonWrapper}>
+          <Link
+            href="/artists"
+            onMouseEnter={() => setArrowColor('#000000')}
+            onMouseLeave={() => setArrowColor('#FFFFFF')}
+          >
+            Enter Exhibition <RightArrow fill={arrowColor} />
+          </Link>
+        </div>
+      )}
     </>
   )
 }
@@ -35,26 +56,23 @@ const Home = ({ artistList }) => {
 export default Home
 
 export async function getStaticProps(context) {
-
   try {
-
     const { data } = await client.query({
-        query: GET_ARTIST_LIST
+      query: GET_ARTIST_LIST,
     })
 
     return {
-        props: {
-          artistList: data?.artists2024?.nodes
-        },
-        // revalidate: 30,
+      props: {
+        artistList: data?.artists2024?.nodes,
+      },
+      // revalidate: 30,
     }
-
   } catch (error) {
     console.log('error', error)
 
     return {
       props: {
-        artistList: []
+        artistList: [],
       },
       // revalidate: 30,
     }
