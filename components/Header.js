@@ -9,6 +9,7 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
   const [isMenuLinksOpen, setIsMenuLinksOpen] = useState(false)
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
   const [isStudiosListOpen, setIsStudiosListOpen] = useState(false)
+  const [comingSoonEnabled, setComingSoonEnabled] = useState(false)
 
   // add class to body when menu state is changed
   useEffect(() => {
@@ -18,6 +19,10 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
       document.body.classList.remove('menu-is-visible')
     }
   }, [isMenuOpen])
+
+  useEffect(() => {
+    setComingSoonEnabled(process.env.NEXT_PUBLIC_ENABLE_COMING_SOON !== 'true')
+  }, [])
 
   // when main menu closed, reset states
   const toggleMenu = () => {
@@ -40,59 +45,94 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
     }
     setIsMenuLinksOpen(!isMenuLinksOpen)
   }
-  
+
   //Sort alphabetically
   let newArtistList = artistList.sort((a, b) => {
-    if (a.artistFields.artistName < b.artistFields.artistName) return -1;
-    if (a.artistFields.artistName > b.artistFields.artistName) return 1;
-    return 0;
+    if (a.artistFields.artistName < b.artistFields.artistName) return -1
+    if (a.artistFields.artistName > b.artistFields.artistName) return 1
+    return 0
   })
 
   //To put (a) before artist name
-  let prev = ""
-  newArtistList.forEach(artist => {
-    if(artist.artistFields.artistName[0] == prev) {
-        artist.artistFields.isNewInitial = false
+  let prev = ''
+  newArtistList.forEach((artist) => {
+    if (artist.artistFields.artistName[0] == prev) {
+      artist.artistFields.isNewInitial = false
     } else {
-        artist.artistFields.isNewInitial = true
-        prev = artist.artistFields.artistName[0]
+      artist.artistFields.isNewInitial = true
+      prev = artist.artistFields.artistName[0]
     }
-  });
+  })
 
   return (
-
     <header className={styles.header}>
-      <div className={styles.headerContainer} style={{ backgroundColor: originPage == 'about' ? '#FFFFFF' : bgColor, borderBottom: originPage == 'about' ? '1px solid #181818' : 'none' }}>
-        <div className={styles.headerWrapper} style={{ justifyContent: originPage == 'home' && 'flex-end' }}>
+      <div
+        className={styles.headerContainer}
+        style={{
+          backgroundColor: originPage == 'about' ? '#FFFFFF' : bgColor,
+          borderBottom: originPage == 'about' ? '1px solid #181818' : 'none',
+        }}
+      >
+        <div
+          className={styles.headerWrapper}
+          style={{
+            ...(originPage === 'home' ? { justifyContent: 'flex-end' } : {}),
+          }}
+        >
           {originPage != 'home' && (
-            <div className={styles.headerTitle} >
-              <Link href="/" style={{color: originPage=='about'? '#181818':'#ffffff'}}>
+            <div className={styles.headerTitle}>
+              <Link
+                href="/"
+                style={{ color: originPage == 'about' ? '#181818' : '#ffffff' }}
+              >
                 <span>Langara Fine Arts</span>
-                <span>Grad Show 2023</span>
+                <span>Grad Show 2024</span>
               </Link>
             </div>
           )}
 
-
-          <div className={`${styles.burgerMenu} ${isMenuOpen && styles.burgerMenuOpen} ${isMenuLinksOpen && styles.burgerMenuLinksOpen}`} onClick={toggleMenu}>
-            <div />
-            <div />
-            <div />
-          </div>
+          {comingSoonEnabled && (
+            <div
+              className={`${styles.burgerMenu} ${
+                isMenuOpen && styles.burgerMenuOpen
+              } ${isMenuLinksOpen && styles.burgerMenuLinksOpen}`}
+              onClick={toggleMenu}
+            >
+              <div />
+              <div />
+              <div />
+            </div>
+          )}
         </div>
       </div>
 
-      <div className={`${styles.menuContainer} ${isMenuOpen && styles.menuContainerOpen} ${isMenuLinksOpen && styles.menuLinksVisible}`}>
+      <div
+        className={`${styles.menuContainer} ${
+          isMenuOpen && styles.menuContainerOpen
+        } ${isMenuLinksOpen && styles.menuLinksVisible}`}
+      >
         <div className={styles.nav}>
-          <div className={`${styles.navColumn} ${isArtistsListOpen && styles.slideArtistsMenu} ${isStudiosListOpen && styles.hideArtistsMenu}`}>
+          <div
+            className={`${styles.navColumn} ${
+              isArtistsListOpen && styles.slideArtistsMenu
+            } ${isStudiosListOpen && styles.hideArtistsMenu}`}
+          >
             <h3 onClick={() => toggleMenuLinks('artists')}>Artists</h3>
             <span>1</span>
           </div>
-          <div className={`${styles.navColumn} ${isArtistsListOpen && styles.hideStudiosMenu} ${isStudiosListOpen && styles.slideStudiosMenu}`}>
+          <div
+            className={`${styles.navColumn} ${
+              isArtistsListOpen && styles.hideStudiosMenu
+            } ${isStudiosListOpen && styles.slideStudiosMenu}`}
+          >
             <h3 onClick={() => toggleMenuLinks('studios')}>Studios</h3>
             <span>2</span>
           </div>
-          <div className={`${styles.navColumn} ${isMenuLinksOpen && styles.hideAboutMenu}`}>
+          <div
+            className={`${styles.navColumn} ${
+              isMenuLinksOpen && styles.hideAboutMenu
+            }`}
+          >
             <h3>
               <Link href="/about">About</Link>
             </h3>
@@ -100,23 +140,32 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
           </div>
         </div>
 
-        <div className={`${styles.menuLinks} ${isMenuLinksOpen && styles.menuLinksOpen}`}>
+        <div
+          className={`${styles.menuLinks} ${
+            isMenuLinksOpen && styles.menuLinksOpen
+          }`}
+        >
           {isArtistsListOpen && (
             <div className={styles.artistList}>
               {newArtistList.map((artist, i) => (
                 <div key={i} className={styles.artistName}>
-                  {artist.artistFields.isNewInitial 
-                  ?
-                  <p className={styles.initial}> 
+                  {artist.artistFields.isNewInitial ? (
+                    <p className={styles.initial}>
                       {artist.artistFields.artistName[0]}
-                  </p> 
-                  : 
-                  <p className={styles.initial}></p> 
-                  }
-                  <Link href={`/artist/${artist.author.node.userId}`} passHref legacyBehavior>
-                    <a onClick={(e) => {
-                      toggleMenu()
-                    }}>
+                    </p>
+                  ) : (
+                    <p className={styles.initial}></p>
+                  )}
+                  <Link
+                    href={`/artist/${artist.author.node.userId}`}
+                    passHref
+                    legacyBehavior
+                  >
+                    <a
+                      onClick={(e) => {
+                        toggleMenu()
+                      }}
+                    >
                       {artist.artistFields.artistName}
                     </a>
                   </Link>
@@ -126,25 +175,35 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
           )}
           {isStudiosListOpen && (
             <div className={styles.StudiosList}>
-              {studioArray.sort((a, b) => a.order - b.order).map((studio ,i) => (
-                <div key={i}>
-                  <Link href={`/studio/${studio.studioSlug}`} passHref legacyBehavior>
-                    <a onClick={(e) => {
-                      toggleMenu()
-                    }}>
-                      <Image
-                        src={studio.studioImage[0]}
-                        alt={studio.studioName}
-                        width={360}
-                        height={360}
-                      />
-                    </a>
-                  </Link>
-                  <h4>
-                    <Link href={`/studio/${studio.studioSlug}`}>{studio.studioName}</Link>
-                  </h4>
-                </div>
-              ))}
+              {studioArray
+                .sort((a, b) => a.order - b.order)
+                .map((studio, i) => (
+                  <div key={i}>
+                    <Link
+                      href={`/studio/${studio.studioSlug}`}
+                      passHref
+                      legacyBehavior
+                    >
+                      <a
+                        onClick={(e) => {
+                          toggleMenu()
+                        }}
+                      >
+                        <Image
+                          src={studio.studioImage[0]}
+                          alt={studio.studioName}
+                          width={360}
+                          height={360}
+                        />
+                      </a>
+                    </Link>
+                    <h4>
+                      <Link href={`/studio/${studio.studioSlug}`}>
+                        {studio.studioName}
+                      </Link>
+                    </h4>
+                  </div>
+                ))}
             </div>
           )}
         </div>

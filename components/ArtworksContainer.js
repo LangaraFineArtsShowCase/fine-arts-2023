@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Head from 'next/head';
 import SideList from "./SideList";
 import Image from 'next/image';
 import styles from "../styles/ArtworksContainer.module.css";
-import StudioPopUp from './StudioPopUp';
 import { useRouter } from 'next/router';
 import ExpandArtwork from './ExpandArtwork';
 
@@ -14,21 +12,11 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
     const [leftColumn, setLeftColumn] = useState([])
     const [rightColumn, setRightColumn] = useState([])
     const [show, setShow] = useState(false)
-    const [popUpContent, setPopUpContent] = useState({})
-    // const [showInfo, setShowInfo] = useState({display: 'none'})
-    // console.log(artistsNames);
-    // console.log(items);
+
     let artworks;
     if(items?.data != null){
-        // artworks = items.data.artworks2023.nodes
-        artworks = items.data.artworks2023?.nodes
-
+        artworks = items.data.artworks2024?.nodes
     }
-
-    // const what = ([...artworks])
-
-
-    // console.log(artworks);
 
     const shuffle = (artworks) => {
         if(artworks){
@@ -45,7 +33,6 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
 
     useEffect(()=> {
         shuffle(artworks)
-        // split();
         let left = [];
         let right = [];
         for(let i=0;i<shuffledItems.length;i++){
@@ -63,14 +50,8 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
 
     const router = useRouter();
 
-    const numOfItems = shuffledItems.length
-    // console.log(originPage);
     const handlePopup = (a) =>{
-        // console.log(a);
         if(originPage == 'studio'){
-            // setShow(true);
-            // setPopUpContent(a);
-            // console.log(a);
             router.push(`/artist/${a.author.node.userId}`)
 
         }else{
@@ -91,7 +72,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
         <>
 
         <div className={styles.flexContainer}>
-        {show==true&&<ExpandArtwork setShow={disablePopup} artwork={popUpContent}/>}
+        {show==true&&<ExpandArtwork setShow={disablePopup}/>}
         <div className={styles.container}>
             <div className={styles.colOne}>
                 {
@@ -120,7 +101,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
                                 <div>
                                     {
 
-                                    item.author.node.artists2023.nodes.map((artist,i)=>(
+                                    item.author.node.artists2024.nodes.map((artist,i)=>(
 
                                         <div 
                                             className={styles.artistName}
@@ -171,7 +152,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
                                 <div>
                                     {
 
-                                    item.author.node.artists2023.nodes.map((artist,i)=>(
+                                    item.author.node.artists2024.nodes.map((artist,i)=>(
 
                                         <div className={styles.artistName}
                                              key = {i}
@@ -203,11 +184,8 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
             {artistsNames
             ?
                 <SideList name={"Artists"} list={[]} artistsNames= {artistsNames}/>
-
             :
                 <SideList name={"Studios"} list={["Ceramics","Painting","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media","Drawing","Print Media","Textiles","Public Art", "Performance"]}/>
-
-
             }
                 
         </div>

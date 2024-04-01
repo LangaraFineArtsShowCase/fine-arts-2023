@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import client from '@/apollo/client'
 import { GET_ARTIST_LIST } from '@/apollo/queries/queries'
 import Link from 'next/link'
@@ -8,26 +8,43 @@ import Header from '@/components/Header'
 import RightArrow from '@/components/svg/RightArrow'
 import { studioArray } from '@/config/data_config'
 
-const Home = ({ artistList }) => {
+const Home = ({ artistList, showComingSoon }) => {
   const [arrowColor, setArrowColor] = useState('#FFFFFF')
 
   return (
     <>
       <Head>
-        <title>Langara Fine Arts Grad Show 2023</title>
+        <title>Langara Fine Arts Grad Show 2024</title>
       </Head>
-      <Header artistList={artistList} studioList={studioArray} originPage="home" />
+      <Header
+        artistList={artistList}
+        studioList={studioArray}
+        originPage="home"
+      />
       <main className={styles.main}>
         <div className={styles.title}>
           <span className={styles.school}>Langara</span>
-          <h1><span>Fine</span> <span>Arts</span></h1>
-          <h2>Grad Show 2023</h2>
+          <h1>
+            <span>Fine</span> <span>Arts</span>
+          </h1>
+          <h2>Grad Show 2024</h2>
+          {showComingSoon && (
+            <span className={styles.coming_soon}>Coming Soon!</span>
+          )}
         </div>
       </main>
 
-      <div className={styles.buttonWrapper}>
-        <Link href="/artists" onMouseEnter={() => setArrowColor('#000000')} onMouseLeave={() => setArrowColor('#FFFFFF')}>Enter Exhibition <RightArrow fill={arrowColor} /></Link>
-      </div>
+      {!showComingSoon && (
+        <div className={styles.buttonWrapper}>
+          <Link
+            href="/artists"
+            onMouseEnter={() => setArrowColor('#000000')}
+            onMouseLeave={() => setArrowColor('#FFFFFF')}
+          >
+            Enter Exhibition <RightArrow fill={arrowColor} />
+          </Link>
+        </div>
+      )}
     </>
   )
 }
@@ -35,26 +52,23 @@ const Home = ({ artistList }) => {
 export default Home
 
 export async function getStaticProps(context) {
-
   try {
-
     const { data } = await client.query({
-        query: GET_ARTIST_LIST
+      query: GET_ARTIST_LIST,
     })
 
     return {
-        props: {
-          artistList: data?.artists2023?.nodes
-        },
-        // revalidate: 30,
+      props: {
+        artistList: data?.artists2024?.nodes,
+      },
+      // revalidate: 30,
     }
-
   } catch (error) {
     console.log('error', error)
 
     return {
       props: {
-        artistList: []
+        artistList: [],
       },
       // revalidate: 30,
     }

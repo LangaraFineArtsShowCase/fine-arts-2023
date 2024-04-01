@@ -55,6 +55,11 @@
   overflow: hidden;
 }
 
+.byline{
+  font-size: 0.8rem;
+  line-height: 20px;
+}
+
 .carousel {
   margin-bottom: 40px;
 }
@@ -99,6 +104,16 @@
   margin-top: -48px;
   max-width: 100%;
   height: auto;
+}
+
+.letterSignature {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+.letterSignature p {
+  margin :0;
 }
 
 .portraitJoanne .personPortrait img {
