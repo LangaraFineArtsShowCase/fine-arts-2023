@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic'
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 
-const ExpandArtwork = (setShow, artwork)=>{
+const ExpandArtwork = (setShow)=>{
     const [imgSrc, setImgSrc] = useState('1')
     const art = setShow.artwork;
     // console.log(art);
