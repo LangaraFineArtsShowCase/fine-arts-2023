@@ -96,7 +96,7 @@ export const studioArray = [
         studioDescription:'Performance Courses facilitate the development of interdisciplinary, time-based artworks that encourage students to integrate performative action into their work. Through group exercises, projects, lectures and self-directed research, students critically investigate the de-materialization of the art object, the relationship between performer and audience and the hyper-performativity of the contemporary subject. Researching and responding to the history of performance from early avant-garde cabaret to contemporary art, students explore the politics of the body, liveness, mediation and the role of documentation in their work. Performance courses aim to offer students a balance between playfulness and criticality amid an environment of creative risk taking and experimentation.',
         studioFaculty: ['Elizabeth Milton'],
         studioImage: [
-            `${imageBasePath}/images/studios/PerformanceArt-min.jpg`,
+            `${imageBasePath}/images/studios/PerformanceArt1-min.jpg`,
             `${imageBasePath}/images/studios/PerformanceArt1.jpg`
 
         ]
@@ -165,23 +165,24 @@ export const studioArray = [
 ]
 
 export const aboutImages = [
-    {thumbnailPath: `${imageBasePath}/images/about/slides/01About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/02About.jpg`},  
-    {thumbnailPath: `${imageBasePath}/images/about/slides/03About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/04About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/05About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/06About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/07About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/08About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/09About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/10About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/11About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/12About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/13About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/14About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/15About.jpg`},
-    {thumbnailPath: `${imageBasePath}/images/about/slides/16About.jpg`},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/01About_PublicArt.jpg`, altText: "Alt text for image 1"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/02About_Print.jpg`, altText: "Alt text for image 2"},  
+    {thumbnailPath: `${imageBasePath}/images/about/slides/03About_Carving.jpg`, altText: "Alt text for image 3"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/04About_Textiles.jpg`, altText: "Alt text for image 4"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/05About_Painting.jpg`, altText: "Alt text for image 5"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/06About_Ceramics.jpg`, altText: "Alt text for image 6"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/07About_Drawing.jpg`, altText: "Alt text for image 7"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/08About_Design.jpg`, altText: "Alt text for image 8"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/09About_Mashup.jpg`, altText: "Alt text for image 9"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/10About_Sculpture.jpg`, altText: "Alt text for image 10"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/11About_Media.jpg`, altText: "Alt text for image 11"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/12About_Community.jpg`, altText: "Alt text for image 12"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/13About_PublicArtMashup.jpg`, altText: "Alt text for image 13"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/14About_Ceramics.jpg`, altText: "Alt text for image 14"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/15About_Performance.jpg`, altText: "Alt text for image 15"},
+    {thumbnailPath: `${imageBasePath}/images/about/slides/16About_Sculpture.jpg`, altText: "Alt text for image 16"},
 ]
+//TODO: Pending alternative text
 
 export const awardWinners = [
     {
