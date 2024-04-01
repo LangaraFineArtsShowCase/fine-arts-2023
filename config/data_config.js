@@ -51,7 +51,7 @@ export const studioArray = [
     },
     {
         studioID: 4,
-        order: 6,
+        order: 7,
         studioName: 'indigenous carving & toolmaking',
         studioSlug: 'indigenous carving & toolmaking',
         studioDescription:'Indigenous Carving classes at Langara integrate conversations about ancient cultural artistic forms and traditions into the classroom in an authentic way. Through Coast Salish teachings on safe and effective tool use, students develop foundational wood carving skills and develop sculptural forms with hand tools. In Tool Making classes, students work mostly with simple hand tools to modify, refurbish, or repurpose existing tools, or create their own for use in their personal or artistic practice. Carving knives, clay working and printmaking tools or tool and brush rolls are common projects.',
@@ -132,7 +132,7 @@ export const studioArray = [
     },
     {   
         studioID: 10,
-        order: 7,
+        order: 6,
         studioName: 'sculpture',
         studioSlug: 'sculpture',
         studioDescription:
