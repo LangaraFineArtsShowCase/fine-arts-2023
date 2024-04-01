@@ -266,9 +266,9 @@ const About = ({artistList}) => {
                 <strong>Elizabeth Milton</strong> (Assistant Dept Chair) and{' '}
                 <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor).
                 Web & Mobile App student:{' '}<strong>Wonnyo Hamester Tozawa</strong>{' '}
-                (developer). Thank you, team! Splash page image: Sculpture by
-                _________.
+                (developer). Thank you, team!
               </p>
+              <p>Photos by Lindsay Chow, Splash Page Image: Painting by Madelyn Marchant.</p>
             </div>
 
             <div>
