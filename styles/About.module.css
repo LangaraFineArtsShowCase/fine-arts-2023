@@ -66,7 +66,7 @@
 
 .carouselItemWrapper {
   position: relative;
-  height: 320px;
+  padding-top: 75%;
 }
 
 .carousel img {
@@ -276,10 +276,6 @@
     margin-bottom: 120px;
   }
 
-  .carouselItemWrapper {
-    height: 250px;
-  }
-
   .facultyList {
     grid-template-columns: auto;
     grid-template-rows: repeat(4, 1fr);
@@ -334,11 +330,5 @@
   .portraitDarren .personPortrait,
   .portraitJoanne .personPortrait {
     order: 3;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .carouselItemWrapper {
-    height: 320px;
   }
 }

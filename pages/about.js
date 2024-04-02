@@ -39,7 +39,7 @@ const About = ({artistList}) => {
               <p>
                 We gratefully acknowledge that our learning takes place on
                 traditional, ancestral and unceded{' '}
-                <strong> xʷməθkʷəy̓əm, Musqeaum</strong> territory. We are deeply
+                <strong> xʷməθkʷəy̓əm, Musqueam</strong> territory. We are deeply
                 honoured to hold our given Musquem name,{' '}
                 <strong>snəw̓eyəɬ leləm̓,</strong> house of teachings.
               </p>

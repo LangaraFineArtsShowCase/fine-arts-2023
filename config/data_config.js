@@ -16,10 +16,10 @@ export const studioArray = [
     },
     {
         studioID: 2,
-        order: 4,
+        order: 3,
         studioName: 'design',
         studioSlug: 'design',
-        studioDescription:'Foundation Design courses in the Fine Arts program allow for the development of core design skills that include: observation, analysis, research, planning, design conceptualization, detail development and communication. Advanced courses enable students to further synthesize their skills while approaching a range of industrial design questions. Overall, our design studios aim to broaden the application of our creative skills to an expanded field by exploring the wider implications making has on the world around us. Through a sophisticated range of new digital competencies, new methods and materials, and new transferable skills, we investigate how what we think and what we make can drive positive change. ',
+        studioDescription:'Foundation Design courses allow for the development of core design skills that include: observation, analysis, research, planning, design conceptualization, detail development and communication. Advanced courses enable students to further synthesize their skills while approaching a range of industrial design questions. Our design studios aim to broaden the application of creative skills to an expanded field by exploring the wider implications making has on the world around us. Through a sophisticated range of digital competencies, methods and materials, and transferable skills, we investigate how what we think and what we make can drive positive change. ',
         studioFaculty: ['Charlotte Falk', 'Philip Robbins'],
         studioImage: [
             `${imageBasePath}/images/studios/Design1-min.jpg`,
@@ -51,7 +51,7 @@ export const studioArray = [
     },
     {
         studioID: 4,
-        order: 8,
+        order: 7,
         studioName: 'indigenous carving & toolmaking',
         studioSlug: 'indigenous carving & toolmaking',
         studioDescription:'Indigenous Carving classes at Langara integrate conversations about ancient cultural artistic forms and traditions into the classroom in an authentic way. Through Coast Salish teachings on safe and effective tool use, students develop foundational wood carving skills and develop sculptural forms with hand tools. In Tool Making classes, students work mostly with simple hand tools to modify, refurbish, or repurpose existing tools, or create their own for use in their personal or artistic practice. Carving knives, clay working and printmaking tools or tool and brush rolls are common projects.',
@@ -64,20 +64,20 @@ export const studioArray = [
     },
     {
         studioID: 5,
-        order: 7,
+        order: 10,
         studioName: 'media',
         studioSlug: 'media',
         studioDescription:'First and second year Media Studio offers a practical and conceptual foundation in digital processes while allowing for the critical investigation of authorship, appropriation and remix culture. Through a variety of activities, projects, group and individual critiques, students deepen their critical media vocabulary while developing skills in analysis and production that aim to foster a rich engagement with contemporary culture and digital practice. In Media Studio, students experiment with sound, moving image, installation, projection, high-quality print output and the creation of artist books.',
         studioFaculty: ['Steven Hubert', 'Elizabeth Milton', 'Suzi Webster'],
         studioImage: [
-            `${imageBasePath}/images/studios/MediaStudio1-min.jpg`,
-            `${imageBasePath}/images/studios/MediaStudio1.jpg`
+            `${imageBasePath}/images/studios/Media1-min.jpg`,
+            `${imageBasePath}/images/studios/Media1.jpg`
 
         ]
     },
     {
         studioID: 6,
-        order: 9,
+        order: 11,
         studioName: 'painting',
         studioSlug: 'painting',
         studioDescription:'Langara Painting courses provide a studio-based experience that allows for the exploration of various techniques, palettes and design elements while solving conceptual and aesthetic problems. Traditional and contemporary approaches are introduced with an emphasis on direct observation and problem-solving that enables students to express ideas and emotions by using the principles of design, colour, form, value, and other compositional relationships. Second year painting emphasizes colour exploration and critical thinking, and the study of various art theories in relationship to painting. ',
@@ -90,7 +90,7 @@ export const studioArray = [
     },
     {
         studioID: 7,
-        order: 11,
+        order: 9,
         studioName: 'performance',
         studioSlug: 'performance',
         studioDescription:'Performance Courses facilitate the development of interdisciplinary, time-based artworks that encourage students to integrate performative action into their work. Through group exercises, projects, lectures and self-directed research, students critically investigate the de-materialization of the art object, the relationship between performer and audience and the hyper-performativity of the contemporary subject. Researching and responding to the history of performance from early avant-garde cabaret to contemporary art, students explore the politics of the body, liveness, mediation and the role of documentation in their work. Performance courses aim to offer students a balance between playfulness and criticality amid an environment of creative risk taking and experimentation.',
@@ -103,26 +103,26 @@ export const studioArray = [
     },
     {
         studioID: 8,
-        order: 3,
+        order: 8,
         studioName: 'print media',
         studioSlug: 'print media',
         studioDescription:'Langara Print Media courses offer students the ability to explore a wide variety of media and printing processes. Through the creation of original prints, students are able to integrate historical approaches and contemporary innovations into their work. First Year students are introduced to the basic materials and techniques used in creating editions of prints of various types, while second year courses focus on an in-depth understanding through concentration on a particular media. Courses in Serigraphy (Silkscreen), Intaglio Etching, Relief/Collograph and Plate Lithography are offered on a rotating basis. Students develop skills and proficiency while also developing self-directed projects that reflect individual interests and research.',
         studioFaculty: ['Milos Campbell', 'Aurora Landin'],
         studioImage: [
-            `${imageBasePath}/images/studios/Printmaking1-min.jpg`,
-            `${imageBasePath}/images/studios/Printmaking1.jpg`
+            `${imageBasePath}/images/studios/PrintMedia1-min.jpg`,
+            `${imageBasePath}/images/studios/PrintMedia1.jpg`
 
         ]
     },
     {
         studioID: 9,
-        order: 10,
+        order: 4,
         studioName: 'public art',
         studioSlug: 'public art',
         studioDescription:'In our Public Art classes students engage in the three major stages involved in the production of public art: concept development, detailed design and fabrication and installation. Students create individual site-specific projects and together produce two large scale works that are installed for the duration of a year at the Langara-49th Canada Line station, part of the Canada Line Public Art Program. Projects include 2d design, file preparation for laser cutting, elements of pattern making, green sand casting in bronze, metal chasing and finishing. As a collective, students prepare 2d files for large scale file output, work with a local print house and collaborate on one large scale sculptural work from concept to installation.',
         studioFaculty: [
             'Charlotte Falk',
-            'Will Morrison, Workshop Coordinator',
+            'Workshop Coordinator: Will Morrison',
         ],
         studioImage: [
             `${imageBasePath}/images/studios/PublicArt1-min.jpg`,
@@ -141,7 +141,7 @@ export const studioArray = [
             'Steven Hubert',
             'Scott Kemp',
             'Natalie Purschwitz',
-            'Will Morrison, Workshop Coordinator',
+            'Workshop Coordinator: Will Morrison',
         ],        
         studioImage: [
             `${imageBasePath}/images/studios/Sculpture1-min.jpg`,
