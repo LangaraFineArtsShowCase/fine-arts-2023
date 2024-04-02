@@ -40,7 +40,7 @@ const About = ({artistList}) => {
             <div>
               <p><strong>Welcome to the Langara Fine Arts virtual graduation showcase for 2023!</strong></p>
               <p>This digital presentation of artworks complements our in-person exhibition held at Langara College on West 49th Avenue in Vancouver from April 28<sup>th</sup> through May 7<sup>th</sup>, 2023. Made in our ceramics, drawing, design, Indigenous carving & tool making, painting, print media, public art, media, textile and sculpture courses, these works display the dedication, curiosity, and experimentation of our graduating students. We are extremely proud of this incredible work and congratulate our graduates on their significant achievement.</p>
-              <p>We gratefully acknowledge that our learning takes place on traditional, ancestral and unceded <strong>xʷməθkʷəy̓əm, Musqeaum</strong> territory. We are deeply honoured to hold our given Musquem name, <strong>snəw̓eyəɬ leləm̓</strong>, house of teachings.</p>
+              <p>We gratefully acknowledge that our learning takes place on traditional, ancestral and unceded <strong>xʷməθkʷəy̓əm, Musqueam</strong> territory. We are deeply honoured to hold our given Musqueam name, <strong>snəw̓eyəɬ leləm̓</strong>, house of teachings.</p>
             </div>
           </div>
         </section>
