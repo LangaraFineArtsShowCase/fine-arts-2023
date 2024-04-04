@@ -127,10 +127,6 @@ const About = ({artistList}) => {
                 Please do stay in touch, we are and will remain your biggest
                 fans.
               </p>
-              <div className={styles.letterSignature}>
-                <p>Stephanie Aitken Langara</p>
-                <p>Fine Arts Department Chair</p>
-              </div>
             </div>
           </div>
         </section>
@@ -248,7 +244,7 @@ const About = ({artistList}) => {
                 <strong>David Lambert Foundation</strong>,{' '}
                 <strong>
                   Shadbolt Centre for the Arts - Ceramics Programs
-                </strong>
+                </strong> , <strong>North-West Ceramics Foundation</strong>
                 , <strong>Craft Council of BC</strong>,{' '}
                 <strong>Anne and Jeff Powell</strong>, and{' '}
                 <strong>Tenline Sales</strong> for their generous contribution
