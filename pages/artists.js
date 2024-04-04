@@ -78,8 +78,11 @@ const Artists = ({aList})=>{
                 src="/images/NewArtistsPage1.jpg"
                 alt="cover image"
                 layout="fill"
-                objectFit="cover"
-                objectPosition="bottom right"
+                style={{
+                    layout:"fill",
+                    objectFit:"cover",
+                    objectPosition:"right"
+                }}
             />
             <h1 > ARTISTS</h1>
         </div>

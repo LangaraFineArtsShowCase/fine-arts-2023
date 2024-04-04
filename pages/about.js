@@ -39,8 +39,8 @@ const About = ({artistList}) => {
               <p>
                 We gratefully acknowledge that our learning takes place on
                 traditional, ancestral and unceded{' '}
-                <strong> xʷməθkʷəy̓əm, Musqeaum</strong> territory. We are deeply
-                honoured to hold our given Musquem name,{' '}
+                <strong> xʷməθkʷəy̓əm, Musqueam</strong> territory. We are deeply
+                honoured to hold our given Musqueam name,{' '}
                 <strong>snəw̓eyəɬ leləm̓,</strong> house of teachings.
               </p>
               <p>
@@ -127,10 +127,6 @@ const About = ({artistList}) => {
                 Please do stay in touch, we are and will remain your biggest
                 fans.
               </p>
-              <div className={styles.letterSignature}>
-                <p>Stephanie Aitken Langara</p>
-                <p>Fine Arts Department Chair</p>
-              </div>
             </div>
           </div>
         </section>
@@ -248,7 +244,7 @@ const About = ({artistList}) => {
                 <strong>David Lambert Foundation</strong>,{' '}
                 <strong>
                   Shadbolt Centre for the Arts - Ceramics Programs
-                </strong>
+                </strong> , <strong>North-West Ceramics Foundation</strong>
                 , <strong>Craft Council of BC</strong>,{' '}
                 <strong>Anne and Jeff Powell</strong>, and{' '}
                 <strong>Tenline Sales</strong> for their generous contribution
@@ -266,9 +262,9 @@ const About = ({artistList}) => {
                 <strong>Elizabeth Milton</strong> (Assistant Dept Chair) and{' '}
                 <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor).
                 Web & Mobile App student:{' '}<strong>Wonnyo Hamester Tozawa</strong>{' '}
-                (developer). Thank you, team! Splash page image: Sculpture by
-                _________.
+                (developer). Thank you, team!
               </p>
+              <p>Photos by Lindsay Chow, Splash Page Image: Painting by Madelyn Marchant.</p>
             </div>
 
             <div>
