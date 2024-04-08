@@ -3,8 +3,10 @@ import Link from 'next/link'
 import { studioArray } from '@/config/data_config'
 import styles from '@/styles/Header.module.css'
 import Image from 'next/image'
+import useIsLargeScreen from '@/hooks/useIsLargeScreen'
 
 const Header = ({ artistList, studioList, originPage, bgColor }) => {
+  const {isLargeScreen} = useIsLargeScreen();
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuLinksOpen, setIsMenuLinksOpen] = useState(false)
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
@@ -176,7 +178,7 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
           {isStudiosListOpen && (
             <div className={styles.StudiosList}>
               {studioArray
-                .sort((a, b) => a.order - b.order)
+                .sort((a, b) => isLargeScreen ? a.order - b.order : a.mobileOrder - b.mobileOrder )
                 .map((studio, i) => (
                   <div key={i}>
                     <Link
