@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_ARTIST_LIST = gql`
 query MyQuery {
-    artists2024(first: 40){
+    artists2024(first: 40, where:{ status:PUBLISH }){
         nodes {
             artistFields {
                 artistName
@@ -21,7 +21,7 @@ query MyQuery {
 //where: {orderby: {majorWork: true}} >> Artwork which is ticked in Major Work field
 export const GET_ARTISTS = gql`
 query MyQuery {
-    artworks2024(where: {majorWork: true}, first: 40) {
+    artworks2024(where: {majorWork: true, status : PUBLISH }, first: 40) {
         nodes {
             artworkFields {
                 artworkTitle
