@@ -61,7 +61,7 @@ export async function getStaticProps(context) {
       props: {
         artistList: data?.artists2024?.nodes,
       },
-      // revalidate: 30,
+      revalidate: 30,
     }
   } catch (error) {
     console.log('error', error)
@@ -70,7 +70,7 @@ export async function getStaticProps(context) {
       props: {
         artistList: [],
       },
-      // revalidate: 30,
+      revalidate: 30,
     }
   }
 }

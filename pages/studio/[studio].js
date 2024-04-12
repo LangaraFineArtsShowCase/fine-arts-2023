@@ -1,9 +1,12 @@
 import client from "../../apollo/client"
-import { GET_ARTISTS, GET_ARTIST_LIST, GET_STUDIO_WORKS} from "../../apollo/queries/queries"
+import {
+  GET_ARTISTS_MAJOR,
+  GET_ARTIST_LIST,
+  GET_STUDIO_WORKS,
+} from '../../apollo/queries/queries'
 import { studioArray } from '../../config/data_config'
 import styles from "../../styles/Studio.module.css"
 import ArtworkContainer from "../../components/ArtworksContainer"
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState, useEffect } from 'react';
 
@@ -136,7 +139,7 @@ const Studio = ({artistList})=>{
         {studioWork?.data?.artworks2024?.nodes?.length>0?
             <>
                 <div>
-                    <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
+                    <ArtworkContainer items={studioWork?.data?.artworks2024?.nodes} artistsNames = {artistsNames} originPage = 'studio'/>
                 </div>
             </>
         :
@@ -173,7 +176,7 @@ async function getArtists(){
     let a;
     try{
         let a = await client.query({
-            query: GET_ARTISTS
+          query: GET_ARTISTS_MAJOR,
         })
 
         return a
@@ -209,7 +212,7 @@ export async function getStaticProps(context) {
           props: {
             artistList: data?.artists2024?.nodes
           },
-          // revalidate: 30,
+          revalidate: 30,
       }
   
     } catch (error) {
@@ -219,7 +222,7 @@ export async function getStaticProps(context) {
         props: {
           artistList: []
         },
-        // revalidate: 30,
+        revalidate: 30,
       }
     }
   }
@@ -234,6 +237,6 @@ export async function getStaticProps(context) {
                 }
             }
         }),
-        fallback: false
+        fallback: 'blocking'
     }
 }

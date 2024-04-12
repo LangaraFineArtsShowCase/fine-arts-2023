@@ -1,5 +1,9 @@
 import client from "../../apollo/client"
-import { GET_ARTISTS, GET_ARTIST_LIST, GET_ARTIST} from "../../apollo/queries/queries"
+import {
+  GET_ARTISTS_MAJOR,
+  GET_ARTIST_LIST,
+  GET_ARTIST,
+} from '../../apollo/queries/queries'
 import { studioArray,awardWinners } from '../../config/data_config'
 import styles from "../../styles/Artist.module.css"
 // import ArtworkContainer from "../../components/ArtworksContainer"
@@ -234,41 +238,6 @@ async function getArtistList(){
     }
 }
 
-async function getArtists(){
-    let a;
-    try{
-        let a = await client.query({
-            query: GET_ARTISTS
-        })
-
-        return a
-    }catch(err){
-        // console.log(err);
-    }
-}
-
-async function getStudioWorks(s){
-    // const { data: studioWorks } = await client.query({
-    //     query: GET_STUDIO_WORKS,
-    //     variables: {
-    //         studio: studioName.replace("&amp;", "&")
-    //     }
-    // })
-    // console.log(studio);
-    let a;
-    try{
-        a = await client.query({
-            query: GET_STUDIO_WORKS,
-            variables:{
-                studio: s
-            }
-        })
-        return a;
-    }catch(err){
-        // console.log(err);
-    }
-}
-
 async function getArtistWork(a){
     let arts;
     try{
@@ -296,7 +265,7 @@ export async function getStaticProps(context) {
           props: {
             artistList: data?.artists2024?.nodes
           },
-          // revalidate: 30,
+          revalidate: 30,
       }
   
     } catch (error) {
@@ -306,7 +275,7 @@ export async function getStaticProps(context) {
         props: {
           artistList: []
         },
-        // revalidate: 30,
+        revalidate: 30,
       }
     }
   }
@@ -325,6 +294,6 @@ export async function getStaticPaths() {
                 }
             }
         }),
-        fallback: false
+        fallback: 'blocking'
     }
 }

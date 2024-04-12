@@ -7,16 +7,12 @@ import ExpandArtwork from './ExpandArtwork';
 
 
 
-const ArtworkContainer = ({items, artistsNames, originPage}) =>{
+const ArtworkContainer = ({items: artworks, artistsNames, originPage}) =>{
     const [shuffledItems, setShuffledItems] = useState([])
     const [leftColumn, setLeftColumn] = useState([])
     const [rightColumn, setRightColumn] = useState([])
     const [show, setShow] = useState(false)
 
-    let artworks;
-    if(items?.data != null){
-        artworks = items.data.artworks2024?.nodes
-    }
 
     const shuffle = (artworks) => {
         if(artworks){
@@ -28,8 +24,6 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
         }
 
     }
-
-
 
     useEffect(()=> {
         shuffle(artworks)
@@ -46,7 +40,7 @@ const ArtworkContainer = ({items, artistsNames, originPage}) =>{
         setLeftColumn(left);
         setRightColumn(right);
 
-    }, [items,shuffledItems,artworks])
+    }, [artworks,shuffledItems,artworks])
 
     const router = useRouter();
 
