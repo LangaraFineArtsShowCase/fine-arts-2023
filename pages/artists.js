@@ -1,141 +1,117 @@
 import client from "../apollo/client"
-import { GET_ARTISTS, GET_ARTIST_LIST } from "../apollo/queries/queries"
+import { GET_ARTISTS_MAJOR, GET_ARTIST_LIST } from '../apollo/queries/queries'
 import { studioArray } from '../config/data_config'
-import styles from "../styles/Artists.module.css"
-import ArtworkContainer from "../components/ArtworksContainer"
-import Link from 'next/link'
+import styles from '../styles/Artists.module.css'
+import ArtworkContainer from '../components/ArtworksContainer'
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header'
-import Footer from "@/components/Footer"
+import Footer from '@/components/Footer'
+import Image from 'next/image'
+
+const Artists = ({
+  artistList,
+  majorArtworks,
+}) => {
+  const [vw, setVw] = useState(1)
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const [headerStyle] = useState('transparent')
+  const [headerOrigin, setHeaderOrigin] = useState('artists')
 
 
-import Image from 'next/image';
+  useEffect(() => {
+    // let alist = getArtistList()
+    // let a = getArtists()
+    // a.then((result) => {
+    //   setMajorArtworks(result)
+    //   console.log({ result })
+    // })
+    // // alist.then(result=>{
+    // //     setArtistList(result)
+    // //     console.log({result})
+    // // })
 
+    const handleScroll = (event) => {
+      const width = window.innerWidth * 0.01
+      const position = window.pageYOffset
 
+      setVw(width)
+      setScrollPosition(position)
+    }
 
+    window.addEventListener('scroll', handleScroll)
 
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
-const Artists = ({aList})=>{
-    const [artistList, setArtistList] = useState({})
-    const [artist, setArtist] = useState({})
-    const [vw, setVw] = useState(1)
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [headerStyle, setHeaderStyle] = useState('transparent')
-    const [headerOrigin, setHeaderOrigin] = useState('artists')
+  useEffect(() => {
+    if (scrollPosition >= 35 * vw) {
+      setHeaderOrigin('about')
+    } else {
+      setHeaderOrigin('artists')
+    }
+  }, [scrollPosition])
 
+  return (
+    <div>
+      {/* header */}
+      <div
+        className={styles.artistsHeader}
+        style={{ backgroundColor: headerStyle }}
+      >
+        {artistList?.length > 0 && (
+          <Header
+            artistList={artistList}
+            studioList={studioArray}
+            originPage={headerOrigin}
+            bgColor={headerStyle}
+          />
+        )}
+      </div>
 
-    useEffect(()=>{
-        let alist = getArtistList();
-        let a = getArtists();
-        a.then(result=>{
-            setArtist(result)
-        })
-        alist.then(result=>{
-            setArtistList(result)
-        })
+      <div className={styles.heroSection}>
+        <Image
+          src="/images/NewArtistsPage1.jpg"
+          alt="cover image"
+          layout="fill"
+          style={{
+            layout: 'fill',
+            objectFit: 'cover',
+            objectPosition: 'right',
+          }}
+        />
+        <h1>ARTISTS</h1>
+      </div>
 
-
-
-        const handleScroll = (event) => {
-
-            const width = window.innerWidth * 0.01;
-            const position = window.pageYOffset;
-
-            setVw(width);
-            setScrollPosition(position)
-        };
-    
-        
-        window.addEventListener("scroll", handleScroll)
-
-
-        return()=>{window.removeEventListener('scroll',handleScroll)}
-
-    },[])
-
-    useEffect(()=>{
-
-        if(scrollPosition >= 35*vw){
-            setHeaderOrigin('about')
-        }else{
-            setHeaderOrigin('artists')
-        }
-    },[scrollPosition])
-
-
-    return(
-
-        <div>
-        {/* header */}
-        <div className={styles.artistsHeader} style={{ backgroundColor: headerStyle }}>
-
-            {(artistList?.length>0)&&<Header artistList={aList} studioList={studioArray} originPage={headerOrigin} bgColor={headerStyle}/>}
-        </div>
-
-
-        <div className={styles.heroSection}>
-            <Image
-                src="/images/NewArtistsPage1.jpg"
-                alt="cover image"
-                layout="fill"
-                style={{
-                    layout:"fill",
-                    objectFit:"cover",
-                    objectPosition:"right"
-                }}
-            />
-            <h1 > ARTISTS</h1>
-        </div>
-
-        <div>
-            <ArtworkContainer items = {artist} originPage='artists'/>
-        </div>
-            <Footer/>
-        </div>
-    )
+      <div>
+        <ArtworkContainer items={majorArtworks} originPage="artists" />
+      </div>
+      <Footer />
+    </div>
+  )
 }
 
 export default Artists
 
-async function getArtistList(){
-    let aList;
-
-    try{
-        let aList = await client.query({
-            query: GET_ARTIST_LIST
-        })
-
-        return aList.data.artists2024.nodes
-    }catch(err){
-        console.log(err);
-    }
-}
-
-async function getArtists(){
-    let a;
-    try{
-        let a = await client.query({
-            query: GET_ARTISTS
-        })
-
-        return a
-    }catch(err){
-        console.log(err);
-    }
-}
-
 export async function getStaticProps(context) {
 
     try {
-  
-      const { data } = await client.query({
-          query: GET_ARTIST_LIST
+      const { data: artistList } = await client.query({
+        query: GET_ARTIST_LIST,
       })
   
+      const { data: majorArtworks } = await client.query({
+        query: GET_ARTISTS_MAJOR,
+      })
+
+
       return {
-          props: {
-            aList: data?.artists2024?.nodes
-          },
+        props: {
+          artistList: artistList?.artists2024?.nodes,
+          majorArtworks: majorArtworks?.artworks2024?.nodes,
+        },
+        revalidate: 30,
       }
   
     } catch (error) {
@@ -143,8 +119,10 @@ export async function getStaticProps(context) {
   
       return {
         props: {
-          aList: []
+          artistList: [],
+          majorArtworks: [],
         },
+        revalidate: 30,
       }
     }
   }

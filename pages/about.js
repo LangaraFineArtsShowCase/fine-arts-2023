@@ -350,7 +350,7 @@ export async function getStaticProps(context) {
               artistList: artistList?.artists2024?.nodes,
               artists: artists?.artworks2024?.nodes  
           },
-          // revalidate: 30,
+          revalidate: 30,
       }
 
   } catch (error) {
@@ -361,7 +361,7 @@ export async function getStaticProps(context) {
               artistList: [],
               artists: [], 
           },
-          // revalidate: 30,
+          revalidate: 30,
       }
   }
 }

@@ -19,38 +19,38 @@ query MyQuery {
 
 
 //where: {orderby: {majorWork: true}} >> Artwork which is ticked in Major Work field
-export const GET_ARTISTS = gql`
-query MyQuery {
-    artworks2024(where: {majorWork: true, status : PUBLISH }, first: 40) {
-        nodes {
-            artworkFields {
-                artworkTitle
-                material
-                size
-                studio
-                thumbnail {
-                    mediaItemUrl
-                    mediaDetails {
-                        height
-                        width
-                    }
-                }
+export const GET_ARTISTS_MAJOR = gql`
+  query MyQuery {
+    artworks2024(where: { majorWork: true, status: PUBLISH }, first: 40) {
+      nodes {
+        artworkFields {
+          artworkTitle
+          material
+          size
+          studio
+          thumbnail {
+            mediaItemUrl
+            mediaDetails {
+              height
+              width
             }
-            author {
-                node {
-                    userId
-                    artists2024 {
-                        nodes {
-                            artistFields {
-                                artistName
-                            }
-                        }
-                    }
-                }
-            }
+          }
         }
+        author {
+          node {
+            userId
+            artists2024 {
+              nodes {
+                artistFields {
+                  artistName
+                }
+              }
+            }
+          }
+        }
+      }
     }
-}
+  }
 `
 
 export const GET_ARTIST = gql`

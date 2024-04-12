@@ -7,32 +7,14 @@ import useIsLargeScreen from '@/hooks/useIsLargeScreen'
 import client from "../apollo/client"
 import { GET_ARTIST_LIST } from "../apollo/queries/queries"
 
-const Header = ({ originPage, bgColor }) => {
-  const {isLargeScreen} = useIsLargeScreen();
+const Header = ({ artistList, originPage, bgColor }) => {
+  const { isLargeScreen } = useIsLargeScreen()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuLinksOpen, setIsMenuLinksOpen] = useState(false)
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
   const [isStudiosListOpen, setIsStudiosListOpen] = useState(false)
   const [comingSoonEnabled, setComingSoonEnabled] = useState(false)
 
-  const [artistList, setArtistList] = useState([])
-
-
-  useEffect(() => {
-    const getArtists = async () => {
-      try {
-        const { data } = await client.query({
-          query: GET_ARTIST_LIST,
-        })
-
-        setArtistList(data?.artists2024?.nodes ?? [])
-      } catch (error) {
-        console.log('error', error)
-      }
-    }
-
-    getArtists()
-  }, [])
 
   // add class to body when menu state is changed
   useEffect(() => {
@@ -69,17 +51,17 @@ const Header = ({ originPage, bgColor }) => {
     setIsMenuLinksOpen(!isMenuLinksOpen)
   }
 
-  const getSortedArtists = (artists = [])=>{
+  const getSortedArtists = (artists = []) => {
     let stutends = []
     let prev = ''
 
-     stutends = [...artists].sort((a, b) => {
+    stutends = [...artists].sort((a, b) => {
       if (a.artistFields.artistName < b.artistFields.artistName) return -1
       if (a.artistFields.artistName > b.artistFields.artistName) return 1
       return 0
     })
 
-    stutends =  stutends.map((artist) => {
+    stutends = stutends.map((artist) => {
       if (artist.artistFields.artistName[0] == prev) {
         artist.artistFields.isNewInitial = false
         return artist
@@ -205,7 +187,11 @@ const Header = ({ originPage, bgColor }) => {
           {isStudiosListOpen && (
             <div className={styles.StudiosList}>
               {studioArray
-                .sort((a, b) => isLargeScreen ? a.order - b.order : a.mobileOrder - b.mobileOrder )
+                .sort((a, b) =>
+                  isLargeScreen
+                    ? a.order - b.order
+                    : a.mobileOrder - b.mobileOrder
+                )
                 .map((studio, i) => (
                   <div key={i}>
                     <Link
