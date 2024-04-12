@@ -209,10 +209,10 @@ export async function getStaticProps(context) {
       })
   
       return {
-          props: {
-            artistList: data?.artists2024?.nodes
-          },
-          revalidate: 30,
+        props: {
+          artistList: data?.artists2024?.nodes,
+        },
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
   
     } catch (error) {
@@ -220,9 +220,9 @@ export async function getStaticProps(context) {
   
       return {
         props: {
-          artistList: []
+          artistList: [],
         },
-        revalidate: 30,
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
     }
   }
@@ -230,13 +230,13 @@ export async function getStaticProps(context) {
   export async function getStaticPaths() {
 
     return {
-        paths: studioArray.map((studio) => {
-            return {
-                params: {
-                    studio: studio.studioName,
-                }
-            }
-        }),
-        fallback: 'blocking'
+      paths: studioArray.map((studio) => {
+        return {
+          params: {
+            studio: studio.studioName,
+          },
+        }
+      }),
+      fallback: process.env.REVALIDATE_DATA === 'true' ? 'blocking' : false,
     }
 }

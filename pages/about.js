@@ -346,22 +346,22 @@ export async function getStaticProps(context) {
       
 
       return {
-          props: {
-              artistList: artistList?.artists2024?.nodes,
-              artists: artists?.artworks2024?.nodes  
-          },
-          revalidate: 30,
+        props: {
+          artistList: artistList?.artists2024?.nodes,
+          artists: artists?.artworks2024?.nodes,
+        },
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
 
   } catch (error) {
       console.log('error', error)
 
       return {
-          props: {
-              artistList: [],
-              artists: [], 
-          },
-          revalidate: 30,
+        props: {
+          artistList: [],
+          artists: [],
+        },
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
   }
 }
