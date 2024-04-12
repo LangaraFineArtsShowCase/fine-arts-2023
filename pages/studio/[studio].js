@@ -237,6 +237,6 @@ export async function getStaticProps(context) {
                 }
             }
         }),
-        fallback: true
+        fallback: 'blocking'
     }
 }
