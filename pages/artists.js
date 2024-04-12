@@ -111,7 +111,7 @@ export async function getStaticProps(context) {
           artistList: artistList?.artists2024?.nodes,
           majorArtworks: majorArtworks?.artworks2024?.nodes,
         },
-        revalidate: 30,
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
   
     } catch (error) {
@@ -122,7 +122,7 @@ export async function getStaticProps(context) {
           artistList: [],
           majorArtworks: [],
         },
-        revalidate: 30,
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
     }
   }

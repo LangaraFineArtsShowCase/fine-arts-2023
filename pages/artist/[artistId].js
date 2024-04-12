@@ -23,15 +23,9 @@ import Header from "@/components/Header"
 
 
 const Artist = ({artistList})=>{
-    // const [artistList, setArtistList] = useState({})
-    const [artist, setArtist] = useState({})
     const [currentArtist, setCurrentArtist] = useState({})
-
-    const [artistsNames, setArtistsNames] = useState({})
     const [artistDetail, setArtistDetail] = useState({})
 
-
-    // const [studioWork, setStudioWork] = useState({})
     const [artistWork, setArtistWork] = useState({})
     const [artField, setArtField] = useState({})
 
@@ -39,14 +33,8 @@ const Artist = ({artistList})=>{
     const [displayAwardWinner, setAwardWinner] = useState(false)
     const [awardIndex, setAwardIndex] = useState('')
     
-
-
     const router = useRouter()
     const { artistId } = router.query;
-
-
-
-    
 
     useEffect(()=>{
         if(artistId){
@@ -262,10 +250,10 @@ export async function getStaticProps(context) {
       })
   
       return {
-          props: {
-            artistList: data?.artists2024?.nodes
-          },
-          revalidate: 30,
+        props: {
+          artistList: data?.artists2024?.nodes,
+        },
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
   
     } catch (error) {
@@ -273,9 +261,9 @@ export async function getStaticProps(context) {
   
       return {
         props: {
-          artistList: []
+          artistList: [],
         },
-        revalidate: 30,
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
     }
   }
@@ -287,13 +275,13 @@ export async function getStaticPaths() {
     })
 
     return {
-        paths: artistList?.artists2024?.nodes.map((artist) => {
-            return {
-                params: {
-                    artistId: artist.author.node.userId.toString(),
-                }
-            }
-        }),
-        fallback: 'blocking'
+      paths: artistList?.artists2024?.nodes.map((artist) => {
+        return {
+          params: {
+            artistId: artist.author.node.userId.toString(),
+          },
+        }
+      }),
+      fallback: process.env.REVALIDATE_DATA === 'true' ? 'blocking' : false,
     }
 }
