@@ -237,6 +237,6 @@ export async function getStaticProps(context) {
                 }
             }
         }),
-        fallback: false
+        fallback: true
     }
 }
