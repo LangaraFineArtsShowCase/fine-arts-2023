@@ -3,13 +3,18 @@ import Link from 'next/link'
 import { studioArray } from '@/config/data_config'
 import styles from '@/styles/Header.module.css'
 import Image from 'next/image'
+import useIsLargeScreen from '@/hooks/useIsLargeScreen'
+import client from "../apollo/client"
+import { GET_ARTIST_LIST } from "../apollo/queries/queries"
 
-const Header = ({ artistList, studioList, originPage, bgColor }) => {
+const Header = ({ artistList, originPage, bgColor }) => {
+  const { isLargeScreen } = useIsLargeScreen()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMenuLinksOpen, setIsMenuLinksOpen] = useState(false)
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
   const [isStudiosListOpen, setIsStudiosListOpen] = useState(false)
   const [comingSoonEnabled, setComingSoonEnabled] = useState(false)
+
 
   // add class to body when menu state is changed
   useEffect(() => {
@@ -46,23 +51,29 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
     setIsMenuLinksOpen(!isMenuLinksOpen)
   }
 
-  //Sort alphabetically
-  let newArtistList = artistList.sort((a, b) => {
-    if (a.artistFields.artistName < b.artistFields.artistName) return -1
-    if (a.artistFields.artistName > b.artistFields.artistName) return 1
-    return 0
-  })
+  const getSortedArtists = (artists = []) => {
+    let stutends = []
+    let prev = ''
 
-  //To put (a) before artist name
-  let prev = ''
-  newArtistList.forEach((artist) => {
-    if (artist.artistFields.artistName[0] == prev) {
-      artist.artistFields.isNewInitial = false
-    } else {
-      artist.artistFields.isNewInitial = true
-      prev = artist.artistFields.artistName[0]
-    }
-  })
+    stutends = [...artists].sort((a, b) => {
+      if (a.artistFields.artistName < b.artistFields.artistName) return -1
+      if (a.artistFields.artistName > b.artistFields.artistName) return 1
+      return 0
+    })
+
+    stutends = stutends.map((artist) => {
+      if (artist.artistFields.artistName[0] == prev) {
+        artist.artistFields.isNewInitial = false
+        return artist
+      } else {
+        artist.artistFields.isNewInitial = true
+        prev = artist.artistFields.artistName[0]
+        return artist
+      }
+    })
+
+    return stutends
+  }
 
   return (
     <header className={styles.header}>
@@ -147,7 +158,7 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
         >
           {isArtistsListOpen && (
             <div className={styles.artistList}>
-              {newArtistList.map((artist, i) => (
+              {getSortedArtists(artistList).map((artist, i) => (
                 <div key={i} className={styles.artistName}>
                   {artist.artistFields.isNewInitial ? (
                     <p className={styles.initial}>
@@ -176,7 +187,11 @@ const Header = ({ artistList, studioList, originPage, bgColor }) => {
           {isStudiosListOpen && (
             <div className={styles.StudiosList}>
               {studioArray
-                .sort((a, b) => a.order - b.order)
+                .sort((a, b) =>
+                  isLargeScreen
+                    ? a.order - b.order
+                    : a.mobileOrder - b.mobileOrder
+                )
                 .map((studio, i) => (
                   <div key={i}>
                     <Link

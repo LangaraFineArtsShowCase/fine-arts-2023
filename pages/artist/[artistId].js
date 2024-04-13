@@ -1,5 +1,9 @@
 import client from "../../apollo/client"
-import { GET_ARTISTS, GET_ARTIST_LIST, GET_ARTIST} from "../../apollo/queries/queries"
+import {
+  GET_ARTISTS_MAJOR,
+  GET_ARTIST_LIST,
+  GET_ARTIST,
+} from '../../apollo/queries/queries'
 import { studioArray,awardWinners } from '../../config/data_config'
 import styles from "../../styles/Artist.module.css"
 // import ArtworkContainer from "../../components/ArtworksContainer"
@@ -19,15 +23,9 @@ import Header from "@/components/Header"
 
 
 const Artist = ({artistList})=>{
-    // const [artistList, setArtistList] = useState({})
-    const [artist, setArtist] = useState({})
     const [currentArtist, setCurrentArtist] = useState({})
-
-    const [artistsNames, setArtistsNames] = useState({})
     const [artistDetail, setArtistDetail] = useState({})
 
-
-    // const [studioWork, setStudioWork] = useState({})
     const [artistWork, setArtistWork] = useState({})
     const [artField, setArtField] = useState({})
 
@@ -35,14 +33,8 @@ const Artist = ({artistList})=>{
     const [displayAwardWinner, setAwardWinner] = useState(false)
     const [awardIndex, setAwardIndex] = useState('')
     
-
-
     const router = useRouter()
     const { artistId } = router.query;
-
-
-
-    
 
     useEffect(()=>{
         if(artistId){
@@ -234,41 +226,6 @@ async function getArtistList(){
     }
 }
 
-async function getArtists(){
-    let a;
-    try{
-        let a = await client.query({
-            query: GET_ARTISTS
-        })
-
-        return a
-    }catch(err){
-        // console.log(err);
-    }
-}
-
-async function getStudioWorks(s){
-    // const { data: studioWorks } = await client.query({
-    //     query: GET_STUDIO_WORKS,
-    //     variables: {
-    //         studio: studioName.replace("&amp;", "&")
-    //     }
-    // })
-    // console.log(studio);
-    let a;
-    try{
-        a = await client.query({
-            query: GET_STUDIO_WORKS,
-            variables:{
-                studio: s
-            }
-        })
-        return a;
-    }catch(err){
-        // console.log(err);
-    }
-}
-
 async function getArtistWork(a){
     let arts;
     try{
@@ -293,10 +250,10 @@ export async function getStaticProps(context) {
       })
   
       return {
-          props: {
-            artistList: data?.artists2024?.nodes
-          },
-          // revalidate: 30,
+        props: {
+          artistList: data?.artists2024?.nodes,
+        },
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
   
     } catch (error) {
@@ -304,9 +261,9 @@ export async function getStaticProps(context) {
   
       return {
         props: {
-          artistList: []
+          artistList: [],
         },
-        // revalidate: 30,
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
     }
   }
@@ -318,13 +275,13 @@ export async function getStaticPaths() {
     })
 
     return {
-        paths: artistList?.artists2024?.nodes.map((artist) => {
-            return {
-                params: {
-                    artistId: artist.author.node.userId.toString(),
-                }
-            }
-        }),
-        fallback: false
+      paths: artistList?.artists2024?.nodes.map((artist) => {
+        return {
+          params: {
+            artistId: artist.author.node.userId.toString(),
+          },
+        }
+      }),
+      fallback: process.env.REVALIDATE_DATA === 'true' ? 'blocking' : false,
     }
 }

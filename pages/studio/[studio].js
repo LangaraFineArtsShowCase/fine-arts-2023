@@ -1,9 +1,12 @@
 import client from "../../apollo/client"
-import { GET_ARTISTS, GET_ARTIST_LIST, GET_STUDIO_WORKS} from "../../apollo/queries/queries"
+import {
+  GET_ARTISTS_MAJOR,
+  GET_ARTIST_LIST,
+  GET_STUDIO_WORKS,
+} from '../../apollo/queries/queries'
 import { studioArray } from '../../config/data_config'
 import styles from "../../styles/Studio.module.css"
 import ArtworkContainer from "../../components/ArtworksContainer"
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState, useEffect } from 'react';
 
@@ -136,7 +139,7 @@ const Studio = ({artistList})=>{
         {studioWork?.data?.artworks2024?.nodes?.length>0?
             <>
                 <div>
-                    <ArtworkContainer items = {studioWork} artistsNames = {artistsNames} originPage = 'studio'/>
+                    <ArtworkContainer items={studioWork?.data?.artworks2024?.nodes} artistsNames = {artistsNames} originPage = 'studio'/>
                 </div>
             </>
         :
@@ -173,7 +176,7 @@ async function getArtists(){
     let a;
     try{
         let a = await client.query({
-            query: GET_ARTISTS
+          query: GET_ARTISTS_MAJOR,
         })
 
         return a
@@ -206,10 +209,10 @@ export async function getStaticProps(context) {
       })
   
       return {
-          props: {
-            artistList: data?.artists2024?.nodes
-          },
-          // revalidate: 30,
+        props: {
+          artistList: data?.artists2024?.nodes,
+        },
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
   
     } catch (error) {
@@ -217,9 +220,9 @@ export async function getStaticProps(context) {
   
       return {
         props: {
-          artistList: []
+          artistList: [],
         },
-        // revalidate: 30,
+        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
     }
   }
@@ -227,13 +230,13 @@ export async function getStaticProps(context) {
   export async function getStaticPaths() {
 
     return {
-        paths: studioArray.map((studio) => {
-            return {
-                params: {
-                    studio: studio.studioName,
-                }
-            }
-        }),
-        fallback: false
+      paths: studioArray.map((studio) => {
+        return {
+          params: {
+            studio: studio.studioName,
+          },
+        }
+      }),
+      fallback: process.env.REVALIDATE_DATA === 'true' ? 'blocking' : false,
     }
 }
