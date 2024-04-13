@@ -1,5 +1,5 @@
 import client from '../apollo/client'
-import { GET_ARTISTS, GET_ARTIST_LIST } from '@/apollo/queries/queries'
+import { GET_ARTISTS_MAJOR, GET_ARTIST_LIST } from '@/apollo/queries/queries'
 import Image from 'next/image'
 import Link from 'next/link'
 import Head from 'next/head'
@@ -10,9 +10,9 @@ import Carousel from 'better-react-carousel'
 import styles from '@/styles/About.module.css'
 import Footer from '@/components/Footer'
 
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
-const About = ({artistList}) => {
+const About = ({ artistList }) => {
   return (
     <>
       <Head>
@@ -23,7 +23,9 @@ const About = ({artistList}) => {
         <section className={`${styles.section} ${styles.heroSection}`}>
           <div className={styles.wrapper}>
             <h1 className={styles.pageTitle}>Fine Arts</h1>
-            <h2 className={styles.pageSubtitle}>Grad Show <small>2024</small></h2>
+            <h2 className={styles.pageSubtitle}>
+              Grad Show <small>2024</small>
+            </h2>
             <div className={styles.videoWrapper}>
               <ReactPlayer
                 url={`${imageBasePath}/videos/about/About-Video.mp4`}
@@ -31,8 +33,8 @@ const About = ({artistList}) => {
                 muted={true}
                 controls={false}
                 loop={true}
-                width='400px'
-                height='400px'
+                width="400px"
+                height="400px"
               />
             </div>
             <div>
@@ -45,49 +47,50 @@ const About = ({artistList}) => {
               </p>
               <p>
                 <strong>
-                  Welcome to the Langara Fine Arts virtual graduation showcase for 2024!
+                  Welcome to the Langara Fine Arts virtual graduation showcase
+                  for 2024!
                 </strong>
               </p>
               <p>
-                This digital presentation of artworks complements our on-campus exhibition held at 
-                Langara College on West 49th Avenue in Vancouver from April 25<sup>th</sup> — May 5<sup>th</sup>, 2024.  
-                Made in our ceramics, drawing, design, Indigenous carving & tool making, painting, print media, 
-                public art, media, textile and sculpture courses, these works display the dedication, curiosity, 
-                and experimentation of our graduating students. We are extremely proud of this incredible work and 
-                congratulate our graduates on their significant achievement.
+                This digital presentation of artworks complements our on-campus
+                exhibition held at Langara College on West 49th Avenue in
+                Vancouver from April 25<sup>th</sup> — May 5<sup>th</sup>, 2024.
+                Made in our ceramics, drawing, design, Indigenous carving & tool
+                making, painting, performance, print media, public art, media, textile and
+                sculpture courses, these works display the dedication,
+                curiosity, and experimentation of our graduating students. We
+                are extremely proud of this incredible work and congratulate our
+                graduates on their significant achievement.
               </p>
               <p className={styles.byline}>
-                If you wish to inquire about purchasing any of these featured artworks, feel free to reach out to our Studio Coordinator, Rita Yip
-                (<a href="mailto:ritayip@langara.ca">ritayip@langara.ca</a>) .
+                If you wish to inquire about purchasing any of these featured
+                artworks, feel free to reach out to our Studio Coordinator, Rita
+                Yip (<a href="mailto:ritayip@langara.ca">ritayip@langara.ca</a>)
+                .
               </p>
             </div>
           </div>
         </section>
 
         <section className={styles.carousel}>
-          <Carousel
-            cols={4}
-            rows={1}
-            gap={10}
-            loop={true}
-          >
+          <Carousel cols={4} rows={1} gap={10} loop={true}>
             {aboutImages.map((image, i) => (
               <Carousel.Item key={i}>
                 <div className={styles.carouselItemWrapper}>
-                  <Image
-                    src={image.thumbnailPath}
-                    alt="image"
-                    fill
-                  />
+                  <Image src={image.thumbnailPath} alt="image" fill />
                 </div>
               </Carousel.Item>
             ))}
           </Carousel>
         </section>
 
-        <section className={`${styles.section} ${styles.bgGray} ${styles.portraitStephanie}`}>
+        <section
+          className={`${styles.section} ${styles.bgGray} ${styles.portraitStephanie}`}
+        >
           <div className={styles.wrapper}>
-            <div className={`${styles.personPortrait} ${styles.textAlignRight}`}>
+            <div
+              className={`${styles.personPortrait} ${styles.textAlignRight}`}
+            >
               <h2>Stephanie Aitken</h2>
               <span>- Department Chair</span>
               <Image
@@ -133,9 +136,11 @@ const About = ({artistList}) => {
 
         <section className={`${styles.section} ${styles.facultyListSection}`}>
           <div className={styles.wrapper}>
-            <p>Langara Fine Arts is comprised of the following faculty and staff:</p>
+            <p>
+              Langara Fine Arts is comprised of the following faculty and staff:
+            </p>
             <ul className={styles.facultyList}>
-            <li>
+              <li>
                 <strong>Milos Campbell</strong>
                 <span>- printmaking, drawing</span>
               </li>
@@ -167,7 +172,7 @@ const About = ({artistList}) => {
                 <strong>Natalie Purschwitz</strong>
                 <span>- sculpture, drawing</span>
               </li>
-              <li> 
+              <li>
                 <strong>Alwyn O’Brien</strong>
                 <span>- ceramics</span>
               </li>
@@ -193,7 +198,10 @@ const About = ({artistList}) => {
               </li>
               <li>
                 <strong>Elizabeth Milton</strong>
-                <span>- Assistant Department Chair, performance, media studio, drawing and professional practice</span>
+                <span>
+                  - Assistant Department Chair, performance, media studio,
+                  drawing and professional practice
+                </span>
               </li>
               <li>
                 <strong>Stephanie Aitken</strong>
@@ -203,7 +211,9 @@ const About = ({artistList}) => {
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.bgGray} ${styles.portraitDarren}`}>
+        <section
+          className={`${styles.section} ${styles.bgGray} ${styles.portraitDarren}`}
+        >
           <div className={styles.wrapper}>
             <div className={styles.personPortrait}>
               <h2>Darren Bernaerdt</h2>
@@ -217,12 +227,37 @@ const About = ({artistList}) => {
               />
             </div>
             <div>
-              <p>This year’s Fine Arts Grad Show represents the very best work of the students graduating in 2024. It is the culmination of their dedication, creativity, and hard work. I extend my heartfelt congratulations to each of the students for their achievement. Seeing the range of artistic expression is always a highlight each spring and this year’s show is no exception.</p>
-              <p>As the Dean of Arts, I commend each of you for maintaining your commitment as an artist and for pursing your artistic vision. The faculty and staff in the Fine Arts department were a critical part of your journey. The quality of your work is testament to the exceptional education and mentorship that you have received.</p>
+              <p>
+                This year’s Fine Arts Grad Show represents the very best work of
+                the students graduating in 2024. It is the culmination of their
+                dedication, creativity, and hard work. I extend my
+                heartfelt congratulations to each of the students for their
+                achievement. Seeing the range of artistic expression is always a
+                highlight each spring and this year’s show is no exception.
+              </p>
+              <p>
+                As the Dean of Arts, I commend each of you for maintaining your
+                commitment as an artist and for pursing your artistic vision.
+                The faculty and staff in the Fine Arts department were a
+                critical part of your journey. The quality of your work is
+                testament to the exceptional education and mentorship that you
+                have received.
+              </p>
             </div>
             <div>
-              <p>The Grad Show marks the end of one chapter in your development as an artist. Whether you continue to further studies, explore other paths, or develop your practice further, I hope you take a moment to reflect on your time at Langara College and the vibrant community that you are part of. Your work has the power to inspire, inform, and affect change. </p>
-              <p>Congratulations on your achievements and I look forward to hearing about your future successes and seeing the impact of your work. </p>
+              <p>
+                The Grad Show marks the end of one chapter in your development
+                as an artist. Whether you continue to further studies, explore
+                other paths, or develop your practice further, I hope you take a
+                moment to reflect on your time at Langara College and the
+                vibrant community that you are part of. Your work has the power
+                to inspire, inform, and affect change.{' '}
+              </p>
+              <p>
+                Congratulations on your achievements and I look forward to
+                hearing about your future successes and seeing the impact of
+                your work.{' '}
+              </p>
             </div>
           </div>
         </section>
@@ -239,13 +274,14 @@ const About = ({artistList}) => {
                 and hard work running our program,{' '}
                 <strong>Elizabeth Milton</strong> for her amazing support as
                 Assistant Chair and for the tireless behind the scenes work of
-                our Studio Coordinator,{' '}
-                <strong>Rita Yip</strong>. Deep gratitude to our donors:{' '}
+                our Studio Coordinator, <strong>Rita Yip</strong>. Deep
+                gratitude to our donors:{' '}
                 <strong>David Lambert Foundation</strong>,{' '}
                 <strong>
                   Shadbolt Centre for the Arts - Ceramics Programs
-                </strong> , <strong>North-West Ceramics Foundation</strong>
-                , <strong>Craft Council of BC</strong>,{' '}
+                </strong>{' '}
+                , <strong>North-West Ceramics Foundation</strong>,{' '}
+                <strong>Craft Council of BC</strong>,{' '}
                 <strong>Anne and Jeff Powell</strong>, and{' '}
                 <strong>Tenline Sales</strong> for their generous contribution
                 to our Fine Arts Awards program.
@@ -261,10 +297,14 @@ const About = ({artistList}) => {
                 The following people are responsible for creating this website:{' '}
                 <strong>Elizabeth Milton</strong> (Assistant Dept Chair) and{' '}
                 <strong>Tomoko Okochi</strong> (Web & Mobile App Instructor).
-                Web & Mobile App student:{' '}<strong>Wonnyo Hamester Tozawa</strong>{' '}
-                (developer). Thank you, team!
+                Web & Mobile App student:{' '}
+                <strong>Wonnyo Hamester Tozawa</strong> (developer). Thank you,
+                team!
               </p>
-              <p>Photos by Lindsay Chow, Splash Page Image: Painting by Madelyn Marchant.</p>
+              <p>
+                Photos by Lindsay Chow, Splash Page Image: Painting by Madelyn
+                Marchant.
+              </p>
             </div>
 
             <div>
@@ -280,7 +320,7 @@ const About = ({artistList}) => {
                 </li>
                 <li>
                   <strong>Spencer Dane</strong>
-                  <span>-  Creative Arts and Industries Division Chair</span>
+                  <span>- Creative Arts and Industries Division Chair</span>
                 </li>
                 <li>
                   <strong>Darren Bernaerdt</strong>
@@ -288,16 +328,23 @@ const About = ({artistList}) => {
                 </li>
                 <li>
                   <span>Our amazing life models:</span>
-                  <strong>- Guy, Steve, Hélène, Jessica, Michael, Amanda, Ann, Tiffany, Mark and Fran</strong>
+                  <strong>
+                    - Guy, Steve, Hélène, Jessica, Michael, Amanda, Ann,
+                    Tiffany, Mark and Fran
+                  </strong>
                 </li>
               </ul>
             </div>
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.bgGray} ${styles.langaraApplySection}`}>
+        <section
+          className={`${styles.section} ${styles.bgGray} ${styles.langaraApplySection}`}
+        >
           <div className={styles.wrapper}>
-            <div className={`${styles.personPortrait} ${styles.textAlignRight}`}>
+            <div
+              className={`${styles.personPortrait} ${styles.textAlignRight}`}
+            >
               <h2>Langara Fine Arts</h2>
               <Image
                 src={`${imageBasePath}/images/about/Langara-Fine-Arts-New.jpg`}
@@ -309,20 +356,45 @@ const About = ({artistList}) => {
               />
             </div>
             <div>
-              <p>The Langara Fine Arts diploma program is a two-year studio art foundation that emphasizes hands-on material-based skills within a supportive community of makers, learners, and thinkers. Langara Fine Arts is committed to a culture of humility and respect.</p>
+              <p>
+                The Langara Fine Arts diploma program is a two-year studio art
+                foundation that emphasizes hands-on material-based skills within
+                a supportive community of makers, learners, and thinkers.
+                Langara Fine Arts is committed to a culture of humility and
+                respect.
+              </p>
             </div>
             <div>
-              <p>Students have the opportunity to study drawing, design, painting, sculpture, foundry, printmaking, Indigenous carving, ceramics, textile art, media, performance and public art. Our tuition is affordable, and our courses are university transferable. Langara Fine Arts alumni go on to study at respected universities throughout Canada and beyond.</p>
+              <p>
+                Students have the opportunity to study drawing, design,
+                painting, sculpture, foundry, printmaking, Indigenous carving,
+                ceramics, textile art, media, performance and public art. Our
+                tuition is affordable, and our courses are university
+                transferable. Langara Fine Arts alumni go on to study at
+                respected universities throughout Canada and beyond.
+              </p>
             </div>
             <div className={styles.applyOnlineContainer}>
-              <p>For information on admissions to the Langara Fine Arts program contact<br /><a href="mailto:admissions@langara.ca"><strong>admissions@langara.ca</strong></a></p>
               <p>
-                <Link href="https://langara.ca/programs-and-courses/programs/fine-arts/application-info.html" className={styles.applyOnlineBtn} target="_blank">Apply online today!</Link>
+                For information on admissions to the Langara Fine Arts program
+                contact
+                <br />
+                <a href="mailto:admissions@langara.ca">
+                  <strong>admissions@langara.ca</strong>
+                </a>
+              </p>
+              <p>
+                <Link
+                  href="https://langara.ca/programs-and-courses/programs/fine-arts/application-info.html"
+                  className={styles.applyOnlineBtn}
+                  target="_blank"
+                >
+                  Apply online today!
+                </Link>
               </p>
             </div>
           </div>
         </section>
-
       </main>
 
       <Footer />
@@ -333,35 +405,31 @@ const About = ({artistList}) => {
 export default About
 
 export async function getStaticProps(context) {
-
   try {
+    const { data: artistList } = await client.query({
+      query: GET_ARTIST_LIST,
+    })
 
-      const { data: artistList } = await client.query({
-          query: GET_ARTIST_LIST
-      })
+    const { data: majorArtworks } = await client.query({
+      query: GET_ARTISTS_MAJOR,
+    })
 
-      const { data: artists } = await client.query({
-          query: GET_ARTISTS
-      })
-      
-
-      return {
-        props: {
-          artistList: artistList?.artists2024?.nodes,
-          artists: artists?.artworks2024?.nodes,
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
-
+    return {
+      props: {
+        artistList: artistList?.artists2024?.nodes,
+        majorArtworks: majorArtworks?.artworks2024?.nodes,
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
+    }
   } catch (error) {
-      console.log('error', error)
+    console.log('error', error)
 
-      return {
-        props: {
-          artistList: [],
-          artists: [],
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
+    return {
+      props: {
+        artistList: [],
+        majorArtworks: [],
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
+    }
   }
 }
