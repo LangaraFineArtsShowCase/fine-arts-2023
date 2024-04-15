@@ -133,7 +133,7 @@ const Artist = ({ artistList }) => {
               {artField.length > 0 &&
                 artField.map((art, index) => (
                   <span key={index}>
-                    {art}
+                    {unescape(art)}
                     {index !== artField.length - 1 && ', '}
                   </span>
                 ))}
@@ -144,7 +144,11 @@ const Artist = ({ artistList }) => {
             </div>
             <div className={styles.websites}>
               {artistDetail.instagram && (
-                <Link href={artistDetail.instagram} target="_blank" className={styles.igHolder}>
+                <Link
+                  href={artistDetail.instagram}
+                  target="_blank"
+                  className={styles.igHolder}
+                >
                   <svg
                     width={20}
                     height={20}
@@ -181,7 +185,11 @@ const Artist = ({ artistList }) => {
               )}
 
               {artistDetail.linkedin && (
-                <Link href={artistDetail.linkedin} target="_blank" className={styles.liHolder}>
+                <Link
+                  href={artistDetail.linkedin}
+                  target="_blank"
+                  className={styles.liHolder}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 25 25"
