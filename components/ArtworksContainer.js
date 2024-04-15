@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from "../styles/ArtworksContainer.module.css";
 import { useRouter } from 'next/router';
 import ExpandArtwork from './ExpandArtwork';
+import  unescape  from 'lodash/unescape';
 
 
 
@@ -89,7 +90,7 @@ const ArtworkContainer = ({items: artworks, artistsNames, originPage}) =>{
                             <div className={styles.hideDesc}>
 
                                 <div className={styles.artName}>
-                                    {item.artworkFields.artworkTitle}
+                                    {unescape(item.artworkFields.artworkTitle)}
                                 </div>
 
                                 <div>
@@ -102,7 +103,7 @@ const ArtworkContainer = ({items: artworks, artistsNames, originPage}) =>{
                                             key = {i}    
                                             onClick={()=>{handleArtistClick(item)}}
                                         >
-                                            {artist.artistFields.artistName}
+                                            {unescape(artist.artistFields.artistName)}
                                         </div>
                                     ))
 
@@ -140,7 +141,7 @@ const ArtworkContainer = ({items: artworks, artistsNames, originPage}) =>{
                             <div className={styles.hideDesc}>
 
                                 <div className={styles.artName}>
-                                    {item?.artworkFields?.artworkTitle}
+                                    {unescape(item?.artworkFields?.artworkTitle)}
                                 </div>
 
                                 <div>
@@ -153,7 +154,7 @@ const ArtworkContainer = ({items: artworks, artistsNames, originPage}) =>{
                                             onClick={()=>{handleArtistClick(item)}}
 
                                         >
-                                            {artist.artistFields.artistName}
+                                            {unescape(artist.artistFields.artistName)}
                                         </div>
                                     ))
 

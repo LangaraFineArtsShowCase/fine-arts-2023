@@ -4,8 +4,7 @@ import { studioArray } from '@/config/data_config'
 import styles from '@/styles/Header.module.css'
 import Image from 'next/image'
 import useIsLargeScreen from '@/hooks/useIsLargeScreen'
-import client from "../apollo/client"
-import { GET_ARTIST_LIST } from "../apollo/queries/queries"
+import unescape from 'lodash/unescape'
 
 const Header = ({ artistList, originPage, bgColor }) => {
   const { isLargeScreen } = useIsLargeScreen()
@@ -14,7 +13,6 @@ const Header = ({ artistList, originPage, bgColor }) => {
   const [isArtistsListOpen, setIsArtistsListOpen] = useState(false)
   const [isStudiosListOpen, setIsStudiosListOpen] = useState(false)
   const [comingSoonEnabled, setComingSoonEnabled] = useState(false)
-
 
   // add class to body when menu state is changed
   useEffect(() => {
@@ -177,7 +175,7 @@ const Header = ({ artistList, originPage, bgColor }) => {
                         toggleMenu()
                       }}
                     >
-                      {artist.artistFields.artistName}
+                      {unescape(artist.artistFields.artistName)}
                     </a>
                   </Link>
                 </div>
