@@ -66,6 +66,10 @@
     width: max-content;
 }
 
+.artworkContainer:hover{
+    z-index: 20;
+}
+
 .hideDesc {
     display:flex;
     position: absolute;

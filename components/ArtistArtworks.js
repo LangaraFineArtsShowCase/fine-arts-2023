@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from "../styles/ArtistArtworks.module.css";
 import ExpandArtwork from './ExpandArtwork';
-
+import  unescape  from 'lodash/unescape';
 
 
 const ArtistArtworks = ({items}) => {
@@ -148,7 +148,6 @@ const ArtistArtworks = ({items}) => {
                     {
                         col1.length>0&&col1.map((i)=>(
                             <div className={styles.artworkContainer} key={i}>
-
                                     <Image 
                                         src = {shuffle[i]?.artworkFields?.thumbnail?.mediaItemUrl}
                                         alt={shuffle[i]?.artworkFields.artworkTitle}
@@ -161,15 +160,15 @@ const ArtistArtworks = ({items}) => {
                                 <div className={styles.hideDesc}>
 
                                     <div className={styles.artName}>
-                                        {shuffle[i]?.artworkFields.artworkTitle}
+                                        {unescape( shuffle[i]?.artworkFields.artworkTitle)}
                                     </div>
 
                                     <div className={styles.artSize}>
-                                        {shuffle[i]?.artworkFields.size}
+                                        {unescape(shuffle[i]?.artworkFields.size)}
                                     </div>
 
                                     <div className={styles.artMaterial}>
-                                        {shuffle[i]?.artworkFields.material}
+                                        {unescape(shuffle[i]?.artworkFields.material)}
                                     </div>
 
                                 </div>
@@ -195,17 +194,15 @@ const ArtistArtworks = ({items}) => {
                                 <div className={styles.hideDesc}>
 
                                     <div className={styles.artName}>
-                                        {shuffle[i]?.artworkFields.artworkTitle}
+                                        {unescape(shuffle[i]?.artworkFields.artworkTitle)}
                                     </div>
 
-
-
                                     <div className={styles.artSize}>
-                                        {shuffle[i]?.artworkFields.size}
+                                        {unescape(shuffle[i]?.artworkFields.size)}
                                     </div>
 
                                     <div className={styles.artMaterial}>
-                                        {shuffle[i]?.artworkFields.material}
+                                        {unescape(shuffle[i]?.artworkFields.material)}
                                     </div>
 
                                 </div>
