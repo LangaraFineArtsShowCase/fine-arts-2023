@@ -88,7 +88,7 @@ const Artist = ({ artistList }) => {
         }
       })
 
-      setArtField(artF)
+      setArtField(artF.filter((art) => !!art))
     }
   }, [artistWork])
 
