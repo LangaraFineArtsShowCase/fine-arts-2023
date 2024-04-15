@@ -66,7 +66,10 @@
     margin-right: auto;
     height:max-content;
     width: max-content;
+}
 
+.artworkContainer:hover{
+    z-index: 20;
 }
 
 .artworkContainer img{
