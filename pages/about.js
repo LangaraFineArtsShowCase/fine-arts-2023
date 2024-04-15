@@ -35,6 +35,7 @@ const About = ({ artistList }) => {
                 loop={true}
                 width="400px"
                 height="400px"
+                playsinline
               />
             </div>
             <div>
@@ -56,11 +57,11 @@ const About = ({ artistList }) => {
                 exhibition held at Langara College on West 49th Avenue in
                 Vancouver from April 25<sup>th</sup> — May 5<sup>th</sup>, 2024.
                 Made in our ceramics, drawing, design, Indigenous carving & tool
-                making, painting, performance, print media, public art, media, textile and
-                sculpture courses, these works display the dedication,
-                curiosity, and experimentation of our graduating students. We
-                are extremely proud of this incredible work and congratulate our
-                graduates on their significant achievement.
+                making, painting, performance, print media, public art, media,
+                textile and sculpture courses, these works display the
+                dedication, curiosity, and experimentation of our graduating
+                students. We are extremely proud of this incredible work and
+                congratulate our graduates on their significant achievement.
               </p>
               <p className={styles.byline}>
                 If you wish to inquire about purchasing any of these featured
