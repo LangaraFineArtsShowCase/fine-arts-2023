@@ -79,7 +79,6 @@ const Artist = ({ artistList }) => {
         }
       })
       artF.map((item, index) => {
-        console.log({ item })
         if (item) {
           const words = item.split(' ')
           for (let i = 0; i < words.length; i++) {
@@ -145,7 +144,7 @@ const Artist = ({ artistList }) => {
             </div>
             <div className={styles.websites}>
               {artistDetail.instagram && (
-                <Link href={artistDetail.instagram} className={styles.igHolder}>
+                <Link href={artistDetail.instagram} target="_blank" className={styles.igHolder}>
                   <svg
                     width={20}
                     height={20}
@@ -164,6 +163,7 @@ const Artist = ({ artistList }) => {
                 <Link
                   href={artistDetail.personalWebsite}
                   className={styles.webHolder}
+                  target="_blank"
                 >
                   <svg
                     width="20"
@@ -181,7 +181,7 @@ const Artist = ({ artistList }) => {
               )}
 
               {artistDetail.linkedin && (
-                <Link href={artistDetail.linkedin} className={styles.liHolder}>
+                <Link href={artistDetail.linkedin} target="_blank" className={styles.liHolder}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 25 25"
