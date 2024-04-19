@@ -23,7 +23,7 @@
 
 .desc{
     display: block;
-    max-width: calc(0.46*100vw);
+    max-width: calc(0.55*100vw);
     position:absolute;
     top:calc(100vw*0.07);
     right:calc(100vw*0.02);
