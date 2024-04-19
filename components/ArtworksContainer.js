@@ -46,6 +46,10 @@ const ArtworkContainer = ({items: artworks, artistsNames, originPage}) =>{
     const router = useRouter();
 
     const handlePopup = (a) =>{
+        if(a?.custom){
+            return 
+        }
+
         if(originPage == 'studio'){
             router.push(`/artist/${a.author.node.userId}`)
 
@@ -96,7 +100,7 @@ const ArtworkContainer = ({items: artworks, artistsNames, originPage}) =>{
                                 <div>
                                     {
 
-                                    item.author.node.artists2024.nodes.map((artist,i)=>(
+                                   !!item?.author && item.author.node.artists2024.nodes.map((artist,i)=>(
 
                                         <div 
                                             className={styles.artistName}
@@ -147,7 +151,7 @@ const ArtworkContainer = ({items: artworks, artistsNames, originPage}) =>{
                                 <div>
                                     {
 
-                                    item.author.node.artists2024.nodes.map((artist,i)=>(
+                                   !!item?.author && item.author.node.artists2024.nodes.map((artist,i)=>(
 
                                         <div className={styles.artistName}
                                              key = {i}

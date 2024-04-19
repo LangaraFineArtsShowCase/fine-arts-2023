@@ -3,12 +3,13 @@ import {
   GET_ARTISTS_MAJOR,
   GET_ARTIST_LIST,
   GET_STUDIO_WORKS,
+  GET_CUSTOM_ARTWORKS
 } from '../../apollo/queries/queries'
 import { studioArray } from '../../config/data_config'
 import styles from "../../styles/Studio.module.css"
 import ArtworkContainer from "../../components/ArtworksContainer"
 import { useRouter } from 'next/router'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 import Image from 'next/image';
 import Header from "@/components/Header"
@@ -16,8 +17,7 @@ import Footer from "@/components/Footer"
 
 
 
-const Studio = ({artistList})=>{
-
+const Studio = ({artistList, customArtworks})=>{
     // const [artistList, setArtistList] = useState({})
     const [artist, setArtist] = useState({})
     const [artistsNames, setArtistsNames] = useState({})
@@ -31,6 +31,7 @@ const Studio = ({artistList})=>{
     const [headerStyle, setHeaderStyle] = useState('transparent')
     const [headerOrigin, setHeaderOrigin] = useState('studio')
 
+    const items = useMemo(()=> [...(studioWork?.data?.artworks2024?.nodes?? []), ...(customArtworks?.map((data)=>({...data, custom:true})) ??[])], [studioWork,customArtworks])
 
     // console.log(studio);
     const router = useRouter()
@@ -136,10 +137,14 @@ const Studio = ({artistList})=>{
             <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>
             
         </div>
-        {studioWork?.data?.artworks2024?.nodes?.length>0?
+        {items.length>0?
             <>
                 <div>
-                    <ArtworkContainer items={studioWork?.data?.artworks2024?.nodes} artistsNames = {artistsNames} originPage = 'studio'/>
+                    <ArtworkContainer 
+                        items={items} 
+                        artistsNames={artistsNames}
+                        originPage='studio'
+                    />
                 </div>
             </>
         :
@@ -207,10 +212,15 @@ export async function getStaticProps(context) {
       const { data } = await client.query({
           query: GET_ARTIST_LIST
       })
-  
+
+      const { data: custom } = await client.query({
+        query: GET_CUSTOM_ARTWORKS,
+      })
+
       return {
         props: {
           artistList: data?.artists2024?.nodes,
+          customArtworks: custom?.customArtworks?.nodes,
         },
         revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
@@ -221,6 +231,7 @@ export async function getStaticProps(context) {
       return {
         props: {
           artistList: [],
+          customArtworks: [],
         },
         revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
