@@ -67,129 +67,136 @@ const ArtworkContainer = ({items: artworks, artistsNames, originPage}) =>{
         router.push(`/artist/${a.author.node.userId}`)
     }
 
-    return(
-        <>
-
+    return (
+      <>
         <div className={styles.flexContainer}>
-        {show==true&&<ExpandArtwork setShow={disablePopup}/>}
-        <div className={styles.container}>
+          {show == true && <ExpandArtwork setShow={disablePopup} />}
+          <div className={styles.container}>
             <div className={styles.colOne}>
-                {
-                    leftColumn.length>0
-                    ?
-                    leftColumn.map((item,index)=>(
-                        <div
-                            className={styles.artworkContainer}
-                            key = {index}
+              {leftColumn.length > 0 ? (
+                leftColumn.map((item, index) => (
+                  <div className={styles.artworkContainer} key={index}>
+                    <Image
+                      src={item?.artworkFields?.thumbnail?.mediaItemUrl}
+                      width={
+                        item?.artworkFields?.thumbnail?.mediaDetails?.width
+                      }
+                      height={
+                        item?.artworkFields?.thumbnail?.mediaDetails?.height
+                      }
+                      alt={item?.artworkFields?.artworkTitle}
+                      onClick={() => {
+                        handlePopup(item)
+                      }}
+                    />
 
-                        >
-                            <Image
-                                src ={item?.artworkFields?.thumbnail?.mediaItemUrl}
-                                width={item?.artworkFields?.thumbnail?.mediaDetails?.width}
-                                height={item?.artworkFields?.thumbnail?.mediaDetails?.height}
-                                alt={item?.artworkFields?.artworkTitle}
-                                onClick={()=>{handlePopup(item)}}
-                            />
-
-                            <div className={styles.hideDesc}>
-
-                                <div className={styles.artName}>
-                                    {unescape(item.artworkFields.artworkTitle)}
-                                </div>
-
-                                <div>
-                                    {
-
-                                   !!item?.author && item.author.node.artists2024.nodes.map((artist,i)=>(
-
-                                        <div 
-                                            className={styles.artistName}
-                                            key = {i}    
-                                            onClick={()=>{handleArtistClick(item)}}
-                                        >
-                                            {unescape(artist.artistFields.artistName)}
-                                        </div>
-                                    ))
-
-                                    }
-                                </div>
-
-                            </div>
+                    {!!item?.author && !item?.artworkFields?.custom && (
+                      <div className={styles.hideDesc}>
+                        <div className={styles.artName}>
+                          {unescape(item.artworkFields.artworkTitle)}
                         </div>
-                        
-                    ))
-                    :
-                    <div></div>
-                }
+
+                        <div>
+                          {item.author.node.artists2024.nodes.map(
+                            (artist, i) => (
+                              <div
+                                className={styles.artistName}
+                                key={i}
+                                onClick={() => {
+                                  handleArtistClick(item)
+                                }}
+                              >
+                                {unescape(artist.artistFields.artistName)}
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))
+              ) : (
+                <div></div>
+              )}
             </div>
 
             <div className={styles.colTwo}>
-                {
-                    rightColumn.length>0
-                    ?
-                    rightColumn.map((item,index)=>(
-                        <div
-                            className={styles.artworkContainer}
-                            key = {index}
+              {rightColumn.length > 0 ? (
+                rightColumn.map((item, index) => (
+                  <div className={styles.artworkContainer} key={index}>
+                    <Image
+                      src={item?.artworkFields?.thumbnail?.mediaItemUrl}
+                      width={
+                        item?.artworkFields?.thumbnail?.mediaDetails?.width
+                      }
+                      height={
+                        item?.artworkFields?.thumbnail?.mediaDetails?.height
+                      }
+                      alt={item?.artworkFields?.artworkTitle}
+                      onClick={() => {
+                        handlePopup(item)
+                      }}
+                    />
 
-                        >
-                            <Image
-                                src ={item?.artworkFields?.thumbnail?.mediaItemUrl}
-                                width={item?.artworkFields?.thumbnail?.mediaDetails?.width}
-                                height={item?.artworkFields?.thumbnail?.mediaDetails?.height}
-                                alt={item?.artworkFields?.artworkTitle}
-                                onClick={()=>{handlePopup(item)}}
+                    <div className={styles.hideDesc}>
+                      <div className={styles.artName}>
+                        {unescape(item?.artworkFields?.artworkTitle)}
+                      </div>
 
-                            />
-
-                            <div className={styles.hideDesc}>
-
-                                <div className={styles.artName}>
-                                    {unescape(item?.artworkFields?.artworkTitle)}
-                                </div>
-
-                                <div>
-                                    {
-
-                                   !!item?.author && item.author.node.artists2024.nodes.map((artist,i)=>(
-
-                                        <div className={styles.artistName}
-                                             key = {i}
-                                            onClick={()=>{handleArtistClick(item)}}
-
-                                        >
-                                            {unescape(artist.artistFields.artistName)}
-                                        </div>
-                                    ))
-
-                                    }
-                                </div>
-
-                            </div>
-                        </div>
-                        
-                    ))
-                    :
-                    <div></div>
-                }
+                      <div>
+                        {!!item?.author &&
+                          item.author.node.artists2024.nodes.map(
+                            (artist, i) => (
+                              <div
+                                className={styles.artistName}
+                                key={i}
+                                onClick={() => {
+                                  handleArtistClick(item)
+                                }}
+                              >
+                                {unescape(artist.artistFields.artistName)}
+                              </div>
+                            )
+                          )}
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div></div>
+              )}
             </div>
-            
+          </div>
 
-            
+          <div className={styles.studioContainer}>
+            {artistsNames ? (
+              <SideList
+                name={'Artists'}
+                list={[]}
+                artistsNames={artistsNames}
+              />
+            ) : (
+              <SideList
+                name={'Studios'}
+                list={[
+                  'Ceramics',
+                  'Painting',
+                  'Indigenous Carving & Toolmaking',
+                  'Drawing',
+                  'Design',
+                  'Sculpture',
+                  'Media',
+                  'Drawing',
+                  'Print Media',
+                  'Textiles',
+                  'Public Art',
+                  'Performance',
+                ]}
+              />
+            )}
+          </div>
         </div>
-
-        <div className={styles.studioContainer}>
-
-            {artistsNames
-            ?
-                <SideList name={"Artists"} list={[]} artistsNames= {artistsNames}/>
-            :
-                <SideList name={"Studios"} list={["Ceramics","Painting","Indigenous Carving & Toolmaking","Drawing", "Design", "Sculpture","Media","Drawing","Print Media","Textiles","Public Art", "Performance"]}/>
-            }
-                
-        </div>
-        </div>
-        </>
+      </>
     )
 }
 
