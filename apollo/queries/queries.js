@@ -155,3 +155,25 @@ query MyQuery($studio: String) {
     }
 }
 `
+
+
+export const GET_CUSTOM_ARTWORKS = gql`
+    query GET_CUSTOM_ARTWORKS {
+        customArtworks(where: {status: PUBLISH}) {
+            nodes {
+                artworkFields {
+                artworkTitle
+                artType
+                studio
+                thumbnail {
+                    mediaItemUrl
+                    mediaDetails {
+                        height
+                        width
+                        }
+                    }
+                }
+            }
+        }
+    }
+`
