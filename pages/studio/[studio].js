@@ -14,151 +14,183 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+import ArtistArtworks from '@/components/ArtistArtworks'
 
+const Studio = ({ artistList, customArtworks }) => {
+  const [artist, setArtist] = useState({})
+  const [artistsNames, setArtistsNames] = useState({})
 
+  const [studioWork, setStudioWork] = useState({})
 
-const Studio = ({artistList, customArtworks})=>{
-    // const [artistList, setArtistList] = useState({})
-    const [artist, setArtist] = useState({})
-    const [artistsNames, setArtistsNames] = useState({})
+  const [display, setDisplay] = useState(false)
+  const [studioDetail, setStudioDetail] = useState({})
+  const [vh, setVh] = useState(1)
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const [headerStyle, setHeaderStyle] = useState('transparent')
+  const [headerOrigin, setHeaderOrigin] = useState('studio')
 
-    const [studioWork, setStudioWork] = useState({})
+  const router = useRouter()
+  let { studio } = router.query
 
-    const [display, setDisplay] = useState(false)
-    const [studioDetail, setStudioDetail] = useState({})
-    const [vh, setVh] = useState(1)
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [headerStyle, setHeaderStyle] = useState('transparent')
-    const [headerOrigin, setHeaderOrigin] = useState('studio')
+  const items = useMemo(
+    () => [
+      ...(studioWork?.data?.artworks2024?.nodes ?? []),
+      ...(customArtworks
+        ?.filter((data) => data?.artworkFields?.studio === studio)
+        ?.map((data) => ({ ...data, custom: true })) ?? []),
+    ],
+    [studioWork, customArtworks]
+  )
 
-    const items = useMemo(()=> [...(studioWork?.data?.artworks2024?.nodes?? []), ...(customArtworks?.map((data)=>({...data, custom:true})) ??[])], [studioWork,customArtworks])
+  useEffect(() => {
+    const handleScroll = () => {
+      const height = window.innerHeight * 0.01
+      const position = window.pageYOffset
 
-    // console.log(studio);
-    const router = useRouter()
-    let { studio } = router.query;
-    // console.log(studio);
-    useEffect(()=>{
-        const handleScroll = (event) => {
+      setVh(height)
+      setScrollPosition(position)
+    }
 
-            const height = window.innerHeight * 0.01;
-            const position = window.pageYOffset;
+    window.addEventListener('scroll', handleScroll)
 
-            setVh(height);
-            setScrollPosition(position)
-        };
-    
-        
-        window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
-        return()=>{window.removeEventListener('scroll',handleScroll)}
-    },[])
+  useEffect(() => {
+    if (scrollPosition >= 90 * vh) {
+      setHeaderOrigin('about')
+    } else {
+      setHeaderOrigin('studio')
+    }
+  }, [scrollPosition])
 
-    useEffect(()=>{
-        if(scrollPosition >= 90*vh){
-            setHeaderOrigin('about')
-        }else{
-            setHeaderOrigin('studio')
+  useEffect(() => {
+    if (studio) {
+      const foundStudio = studioArray.find(
+        (studioObj) => studioObj.studioName == studio.toLowerCase()
+      )
+
+      if (foundStudio) {
+        setDisplay(true)
+        setStudioDetail(foundStudio)
+        let alist = getArtistList()
+        let a = getArtists()
+        if (studio == 'media') {
+          studio = 'media studio'
         }
-    },[scrollPosition])
+        let s = getStudioWorks(studio)
+        a.then((result) => {
+          setArtist(result)
+        })
 
+        alist.then((result) => {
+          artistList = result
+        })
 
-    useEffect(()=>{
-        if(studio){
-            const foundStudio = studioArray.find((studioObj)=>studioObj.studioName == studio.toLowerCase());
-            
-            if(foundStudio){
-                setDisplay(true);
-                setStudioDetail(foundStudio)
-                let alist = getArtistList();
-            let a = getArtists();
-            if(studio == 'media'){
-                studio = 'media studio'
+        s.then((result) => {
+          setStudioWork(result)
+          const studioArtists = []
+          result?.data.artworks2024.nodes.map((element) => {
+            let add = true
+            studioArtists.map((a) => {
+              if (a.userId === element.author.node.userId) {
+                add = false
+              }
+            })
+            if (add) {
+              let studioArtist = {
+                userId: element.author?.node?.userId,
+                name: element.author?.node?.artists2024?.nodes[0]?.artistFields
+                  ?.artistName,
+              }
+              studioArtists.push(studioArtist)
             }
-            let s = getStudioWorks(studio);
-            a.then(result=>{
-    
-                setArtist(result)
-            })
-    
-            alist.then(result=>{
-                // setArtistList(result);
-                artistList = result
-            })
-    
-            s.then(result=>{
-                setStudioWork(result);        
-                const studioArtists=[]
-                result?.data.artworks2024.nodes.map((element)=>{
-                    let add = true;
-                    studioArtists.map((a)=>{
-                        if(a.userId === element.author.node.userId){
-                            add = false;
-                        }
-                    })
-                    if(add){
-                        let studioArtist = {'userId':element.author?.node?.userId, 'name':element.author?.node?.artists2024?.nodes[0]?.artistFields?.artistName};
-                        studioArtists.push(studioArtist)
-                    }
-                })
-                setArtistsNames(studioArtists)
-            })
-            }
-            
-        }
-    },[studio])
+          })
+          setArtistsNames(studioArtists)
+        })
+      }
+    }
+  }, [studio])
 
-    return(
-
+  return (
+    <>
+      {/* header */}
+      {display && (
         <>
-        {/* header */}
-        {display&&<>
-            {(artistList.length>0)&&<Header artistList={artistList} studioList={studioArray} originPage={headerOrigin} bgColor={headerStyle}/>}
+          {artistList.length > 0 && (
+            <Header
+              artistList={artistList}
+              studioList={studioArray}
+              originPage={headerOrigin}
+              bgColor={headerStyle}
+            />
+          )}
 
-            <div className={styles.heroSection}>
+          <div className={styles.heroSection}>
             <Image
-                src={studioDetail.studioImage[1]}
-                alt="cover image"
-                layout="fill"
-                objectFit="cover"
-                objectPosition="center"
+              src={studioDetail.studioImage[1]}
+              alt="cover image"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
             />
             <div className={styles.desc}>
-                {studioDetail.studioDescription}
-                <div className={styles.faculty}>Studio Faculty: {studioDetail.studioFaculty.map((item,index)=>(
-                    <span key={item}>
-                        {item}
-                        {index !== studioDetail.studioFaculty.length - 1 && ", "}
-                    </span>
-                ))}</div>  
-                {studio=="public art"&&<a href="https://thecanadaline.com/art-program/out-of-the-tunnel/">
-                    Student Project: Langara 49th Station Project
-                </a>}  
+              {studioDetail.studioDescription}
+              <div className={styles.faculty}>
+                Studio Faculty:{' '}
+                {studioDetail.studioFaculty.map((item, index) => (
+                  <span key={item}>
+                    {item}
+                    {index !== studioDetail.studioFaculty.length - 1 && ', '}
+                  </span>
+                ))}
+              </div>
+              {studio == 'public art' && (
+                <a href="https://thecanadaline.com/art-program/out-of-the-tunnel/">
+                  Student Project: Langara 49th Station Project
+                </a>
+              )}
             </div>
-            <div className={styles.title}>{display&&<h1>{studio.toUpperCase()}</h1>}</div>
-            
-        </div>
-        {items.length>0?
+            <div className={styles.title}>
+              {display && <h1>{studio.toUpperCase()}</h1>}
+            </div>
+          </div>
+
+          {items.length > 0 ? (
             <>
+              {artistsNames.length > 0 ? (
                 <div>
-                    <ArtworkContainer 
-                        items={items} 
-                        artistsNames={artistsNames}
-                        originPage='studio'
-                    />
+                  <ArtworkContainer
+                    items={items}
+                    artistsNames={artistsNames}
+                    originPage="studio"
+                  />
                 </div>
+              ) : (
+                <div
+                  style={{
+                    paddingLeft: '3vw',
+                  }}
+                >
+                  <ArtistArtworks items={items} />
+                </div>
+              )}
             </>
-        :
+          ) : (
             <>
-                {/* <div className={styles.noArt}>
+              {/* <div className={styles.noArt}>
                     No art work to show.
                 </div> */}
             </>
-        }
-        </>}
-
-            <Footer/>
+          )}
         </>
-    )
+      )}
+
+      <Footer />
+    </>
+  )
 }
 
 export default Studio
@@ -220,7 +252,7 @@ export async function getStaticProps(context) {
       return {
         props: {
           artistList: data?.artists2024?.nodes,
-          customArtworks: custom?.customArtworks?.nodes,
+          customArtworks: custom?.customArtworks?.nodes?.filter((data)=> data?.customArtworkYear?.year === 2024),
         },
         revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
       }
