@@ -56,7 +56,8 @@ const ArtworkContainer = ({ items, artistsNames, originPage }) => {
       setArtworks(items?.filter((artwork) => !artwork?.custom))
       setAdditionalArtworks(items?.filter((artwork) => !!artwork?.custom))
     }
-  }, [])
+  }, [items, artistsNames])
+
   const router = useRouter()
 
   const handlePopup = (a) => {
