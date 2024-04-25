@@ -39,7 +39,7 @@ const Studio = ({ artistList, customArtworks }) => {
         ?.filter((data) => data?.artworkFields?.studio === studio)
         ?.map((data) => ({ ...data, custom: true })) ?? []),
     ],
-    [studioWork, customArtworks]
+    [studioWork, customArtworks, studio]
   )
 
   useEffect(() => {
