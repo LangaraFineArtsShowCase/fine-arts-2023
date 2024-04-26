@@ -196,54 +196,44 @@ export const aboutImages = [
 //TODO: Pending alternative text
 
 export const awardWinners = [
-    {
-        winnerArtistID: 116,
-        winnerArtistName: 'Akiab Martinez',
-        awardName: 'FUNCTIONAL CERAMICS AWARD'
-    },
-    {
-        winnerArtistID: 131,
-        winnerArtistName: 'Katelynn Aquash',
-        awardName: 'PRINTMAKING INTAGLIO AWARD'
-    },
-    {
-        winnerArtistID: 124,
-        winnerArtistName: 'Marina Ross',
-        awardName: 'PRINTMAKING SILK SCREEN AWARD'
-    },
-    {
-        winnerArtistID: 109,
-        winnerArtistName: 'Nicole Guillemin',
-        awardName: 'SCULPTURAL CERAMICS AWARD'
-    },
-    {
-        winnerArtistID: 101,
-        winnerArtistName: 'Sam Avelar',
-        awardName: 'PAINTING AWARD'
-    },
-    {
-        winnerArtistID: 111,
-        winnerArtistName: 'Natasha Hing',
-        awardName: 'DESIGN AWARD'
-    },
-    {
-        winnerArtistID: 112,
-        winnerArtistName: 'Lenna Ius',
-        awardName: 'SCULPTURE AWARD'
-    },
-    {
-        winnerArtistID: 117,
-        winnerArtistName: 'Rebecca Mills',
-        awardName: 'DRAWING AWARD'
-    },
-    {
-        winnerArtistID: 100,
-        winnerArtistName: 'Daniel Asis',
-        awardName: 'MEDIA AWARD'
-    },
-    {
-        winnerArtistID: 127,
-        winnerArtistName: 'Matt Trinh',
-        awardName: 'FINE ARTS PROGRAM AWARD'
-    },
+  {
+    winnerArtistID: 153,
+    winnerArtistName: 'Jordan Mitchell',
+    awardName: 'Sculptural Ceramics Award',
+  },
+  {
+    winnerArtistID: 165,
+    winnerArtistName: 'Naomi Zhang',
+    awardName: 'FUNCTIONAL CERAMICS AWARD',
+  },
+  {
+    winnerArtistID: 161,
+    winnerArtistName: 'Netsanet Tsegaye',
+    awardName: 'Printmaking Award',
+  },
+  {
+    winnerArtistID: 136,
+    winnerArtistName: 'Hiva Barikani',
+    awardName: 'Sculpture Award',
+  },
+  {
+    winnerArtistID: 135,
+    winnerArtistName: 'Nicole Abas',
+    awardName: 'Drawing Award',
+  },
+  {
+    winnerArtistID: 162,
+    winnerArtistName: 'Eden Veaudry',
+    awardName: 'Painting Award',
+  },
+  {
+    winnerArtistID: 140,
+    winnerArtistName: 'Lindsay Chow',
+    awardName: 'Fine Arts Program Award',
+  },
+  {
+    winnerArtistID: 154,
+    winnerArtistName: 'Natasha Nitschke',
+    awardName: 'Joanne Zabudsky Memorial Award',
+  },
 ]
