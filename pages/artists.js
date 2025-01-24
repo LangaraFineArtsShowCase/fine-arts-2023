@@ -1,22 +1,18 @@
-import client from "../apollo/client"
+import client from '../apollo/client'
 import { GET_ARTISTS_MAJOR, GET_ARTIST_LIST } from '../apollo/queries/queries'
 import { studioArray } from '../config/data_config'
 import styles from '../styles/Artists.module.css'
 import ArtworkContainer from '../components/ArtworksContainer'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
 
-const Artists = ({
-  artistList,
-  majorArtworks,
-}) => {
+const Artists = ({ artistList, majorArtworks }) => {
   const [vw, setVw] = useState(1)
   const [scrollPosition, setScrollPosition] = useState(0)
   const [headerStyle] = useState('transparent')
   const [headerOrigin, setHeaderOrigin] = useState('artists')
-
 
   useEffect(() => {
     // let alist = getArtistList()
@@ -54,7 +50,10 @@ const Artists = ({
   }, [scrollPosition])
 
   return (
-    <div>
+    <div
+      className={styles.headerWrapper}
+      style={{ overflowX: 'hidden !important', maxWidth: '100vw !important' }}
+    >
       {/* header */}
       <div
         className={styles.artistsHeader}
@@ -81,7 +80,9 @@ const Artists = ({
             objectPosition: 'right',
           }}
         />
-        <h1>ARTISTS</h1>
+        <h1 className={styles.pageTitle} style={{ textTransform: 'uppercase' }}>
+          Artists
+        </h1>
       </div>
 
       <div>
@@ -95,34 +96,31 @@ const Artists = ({
 export default Artists
 
 export async function getStaticProps(context) {
+  try {
+    const { data: artistList } = await client.query({
+      query: GET_ARTIST_LIST,
+    })
 
-    try {
-      const { data: artistList } = await client.query({
-        query: GET_ARTIST_LIST,
-      })
-  
-      const { data: majorArtworks } = await client.query({
-        query: GET_ARTISTS_MAJOR,
-      })
+    const { data: majorArtworks } = await client.query({
+      query: GET_ARTISTS_MAJOR,
+    })
 
+    return {
+      props: {
+        artistList: artistList?.artists2024?.nodes,
+        majorArtworks: majorArtworks?.artworks2024?.nodes,
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
+    }
+  } catch (error) {
+    console.log('error', error)
 
-      return {
-        props: {
-          artistList: artistList?.artists2024?.nodes,
-          majorArtworks: majorArtworks?.artworks2024?.nodes,
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
-  
-    } catch (error) {
-      console.log('error', error)
-  
-      return {
-        props: {
-          artistList: [],
-          majorArtworks: [],
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
+    return {
+      props: {
+        artistList: [],
+        majorArtworks: [],
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
     }
   }
+}

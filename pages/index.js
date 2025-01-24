@@ -14,7 +14,7 @@ const Home = ({ artistList, showComingSoon }) => {
   return (
     <>
       <Head>
-        <title>Langara Fine Arts Grad Show 2024</title>
+        <title>Langara Fine Arts Grad Show 2025</title>
       </Head>
       <Header
         artistList={artistList}
@@ -27,7 +27,7 @@ const Home = ({ artistList, showComingSoon }) => {
           <h1>
             <span>Fine</span> <span>Arts</span>
           </h1>
-          <h2>Grad Show 2024</h2>
+          <h2>Grad Show 2025</h2>
           {showComingSoon && (
             <span className={styles.coming_soon}>Coming Soon!</span>
           )}
