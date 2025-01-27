@@ -50,10 +50,7 @@ const Artists = ({ artistList, majorArtworks }) => {
   }, [scrollPosition])
 
   return (
-    <div
-      className={styles.headerWrapper}
-      style={{ overflowX: 'hidden !important', maxWidth: '100vw !important' }}
-    >
+    <div className={styles.headerWrapper}>
       {/* header */}
       <div
         className={styles.artistsHeader}
