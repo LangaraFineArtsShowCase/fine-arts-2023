@@ -16,7 +16,7 @@ const About = ({ artistList }) => {
   return (
     <>
       <Head>
-        <title>About - Langara Fine Arts Grad Show 2024</title>
+        <title>About - Langara Fine Arts Grad Show 2025</title>
       </Head>
       <Header artistList={artistList} originPage="about" />
       <main className={styles.main}>
@@ -24,7 +24,7 @@ const About = ({ artistList }) => {
           <div className={styles.wrapper}>
             <h1 className={styles.pageTitle}>Fine Arts</h1>
             <h2 className={styles.pageSubtitle}>
-              Grad Show <small>2024</small>
+              Grad Show <small>2025</small>
             </h2>
             <div className={styles.videoWrapper}>
               <ReactPlayer
@@ -49,13 +49,13 @@ const About = ({ artistList }) => {
               <p>
                 <strong>
                   Welcome to the Langara Fine Arts virtual graduation showcase
-                  for 2024!
+                  for 2025!
                 </strong>
               </p>
               <p>
                 This digital presentation of artworks complements our on-campus
                 exhibition held at Langara College on West 49th Avenue in
-                Vancouver from April 25<sup>th</sup> — May 5<sup>th</sup>, 2024.
+                Vancouver from April 25<sup>th</sup> — May 5<sup>th</sup>, 2025.
                 Made in our ceramics, drawing, design, Indigenous carving & tool
                 making, painting, performance, print media, public art, media,
                 textile and sculpture courses, these works display the
@@ -266,7 +266,7 @@ const About = ({ artistList }) => {
         <section className={`${styles.section} ${styles.thankYouSection}`}>
           <div className={styles.wrapper}>
             <div className={styles.thankYouTitle}>
-              <h2>THANK YOUs:</h2>
+              <h2>Thank Yous:</h2>
             </div>
             <div>
               <p>
