@@ -1,22 +1,18 @@
-import client from "../apollo/client"
+import client from '../apollo/client'
 import { GET_ARTISTS_MAJOR, GET_ARTIST_LIST } from '../apollo/queries/queries'
 import { studioArray } from '../config/data_config'
 import styles from '../styles/Artists.module.css'
 import ArtworkContainer from '../components/ArtworksContainer'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Image from 'next/image'
 
-const Artists = ({
-  artistList,
-  majorArtworks,
-}) => {
+const Artists = ({ artistList, majorArtworks }) => {
   const [vw, setVw] = useState(1)
   const [scrollPosition, setScrollPosition] = useState(0)
   const [headerStyle] = useState('transparent')
   const [headerOrigin, setHeaderOrigin] = useState('artists')
-
 
   useEffect(() => {
     // let alist = getArtistList()
@@ -72,7 +68,7 @@ const Artists = ({
 
       <div className={styles.heroSection}>
         <Image
-          src="/images/NewArtistsPage1.jpg"
+          src="/2024/images/NewArtistsPage1.jpg"
           alt="cover image"
           layout="fill"
           style={{
@@ -95,34 +91,31 @@ const Artists = ({
 export default Artists
 
 export async function getStaticProps(context) {
+  try {
+    const { data: artistList } = await client.query({
+      query: GET_ARTIST_LIST,
+    })
 
-    try {
-      const { data: artistList } = await client.query({
-        query: GET_ARTIST_LIST,
-      })
-  
-      const { data: majorArtworks } = await client.query({
-        query: GET_ARTISTS_MAJOR,
-      })
+    const { data: majorArtworks } = await client.query({
+      query: GET_ARTISTS_MAJOR,
+    })
 
+    return {
+      props: {
+        artistList: artistList?.artists2024?.nodes,
+        majorArtworks: majorArtworks?.artworks2024?.nodes,
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
+    }
+  } catch (error) {
+    console.log('error', error)
 
-      return {
-        props: {
-          artistList: artistList?.artists2024?.nodes,
-          majorArtworks: majorArtworks?.artworks2024?.nodes,
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
-  
-    } catch (error) {
-      console.log('error', error)
-  
-      return {
-        props: {
-          artistList: [],
-          majorArtworks: [],
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
+    return {
+      props: {
+        artistList: [],
+        majorArtworks: [],
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
     }
   }
+}
