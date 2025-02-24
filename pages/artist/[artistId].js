@@ -1,4 +1,4 @@
-import client from "../../apollo/client"
+import client from '../../apollo/client'
 import { GET_ARTIST_LIST, GET_ARTIST } from '../../apollo/queries/queries'
 import { studioArray, awardWinners } from '../../config/data_config'
 import styles from '../../styles/Artist.module.css'
@@ -29,7 +29,7 @@ const Artist = ({ artistList }) => {
     if (artistId) {
       const alist = getArtistList()
       alist.then((result) => {
-        result.data.artists2024.nodes.map((a, i) => {
+        result.data.artists2025.nodes.map((a, i) => {
           if (a.author.node.userId == artistId) {
             setDisplay(true)
             setCurrentArtist(a)
@@ -48,10 +48,10 @@ const Artist = ({ artistList }) => {
 
       const detail = getArtistWork(currentArtistId)
       detail.then((result) => {
-        if (result.data.artists2024.nodes.length == 1) {
-          const nodes = result.data?.artists2024?.nodes[0]
+        if (result.data.artists2025.nodes.length == 1) {
+          const nodes = result.data?.artists2025?.nodes[0]
           const artistInfo = nodes?.artistFields
-          const artworkArray = nodes?.author?.node?.artworks2024?.nodes
+          const artworkArray = nodes?.author?.node?.artworks2025?.nodes
           if (artistInfo) {
             setArtistDetail(artistInfo)
           }
@@ -219,76 +219,72 @@ const Artist = ({ artistList }) => {
 
 export default Artist
 
-async function getArtistList(){
-    let aList;
+async function getArtistList() {
+  let aList
 
-    try{
-        let aList = await client.query({
-            query: GET_ARTIST_LIST
-        })
+  try {
+    let aList = await client.query({
+      query: GET_ARTIST_LIST,
+    })
 
-        return aList
-    }catch(err){
-        // console.log(err);
-    }
+    return aList
+  } catch (err) {
+    // console.log(err);
+  }
 }
 
-async function getArtistWork(a){
-    let arts;
-    try{
-        arts = await client.query({
-            query: GET_ARTIST,
-            variables:{
-                userId: a
-            }
-        })
-        return arts;
-    }catch(err){
-        console.log(err);
-    }
+async function getArtistWork(a) {
+  let arts
+  try {
+    arts = await client.query({
+      query: GET_ARTIST,
+      variables: {
+        userId: a,
+      },
+    })
+    return arts
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export async function getStaticProps(context) {
-
-    try {
-  
-      const { data } = await client.query({
-          query: GET_ARTIST_LIST
-      })
-  
-      return {
-        props: {
-          artistList: data?.artists2024?.nodes,
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
-  
-    } catch (error) {
-      console.log('error', error)
-  
-      return {
-        props: {
-          artistList: [],
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
-    }
-  }
-
-export async function getStaticPaths() {
-
-    const { data: artistList } = await client.query({
-        query: GET_ARTIST_LIST
+  try {
+    const { data } = await client.query({
+      query: GET_ARTIST_LIST,
     })
 
     return {
-      paths: artistList?.artists2024?.nodes.map((artist) => {
-        return {
-          params: {
-            artistId: artist.author.node.userId.toString(),
-          },
-        }
-      }),
-      fallback: process.env.REVALIDATE_DATA === 'true' ? 'blocking' : false,
+      props: {
+        artistList: data?.artists2025?.nodes,
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
     }
+  } catch (error) {
+    console.log('error', error)
+
+    return {
+      props: {
+        artistList: [],
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
+    }
+  }
+}
+
+export async function getStaticPaths() {
+  const { data: artistList } = await client.query({
+    query: GET_ARTIST_LIST,
+  })
+
+  return {
+    paths: artistList?.artists2025?.nodes.map((artist) => {
+      return {
+        params: {
+          artistId: artist.author.node.userId.toString(),
+        },
+      }
+    }),
+    fallback: process.env.REVALIDATE_DATA === 'true' ? 'blocking' : false,
+  }
 }

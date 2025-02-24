@@ -59,7 +59,7 @@ export async function getStaticProps(context) {
 
     return {
       props: {
-        artistList: data?.artists2024?.nodes,
+        artistList: data?.artists2025?.nodes,
       },
       revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
     }

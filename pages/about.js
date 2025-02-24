@@ -408,8 +408,8 @@ export async function getStaticProps(context) {
 
     return {
       props: {
-        artistList: artistList?.artists2024?.nodes,
-        majorArtworks: majorArtworks?.artworks2024?.nodes,
+        artistList: artistList?.artists2025?.nodes,
+        majorArtworks: majorArtworks?.artworks2025?.nodes,
       },
       revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
     }

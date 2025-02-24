@@ -1,19 +1,19 @@
-import client from "../../apollo/client"
+import client from '../../apollo/client'
 import {
   GET_ARTISTS_MAJOR,
   GET_ARTIST_LIST,
   GET_STUDIO_WORKS,
-  GET_CUSTOM_ARTWORKS
+  GET_CUSTOM_ARTWORKS,
 } from '../../apollo/queries/queries'
 import { studioArray } from '../../config/data_config'
-import styles from "../../styles/Studio.module.css"
-import ArtworkContainer from "../../components/ArtworksContainer"
+import styles from '../../styles/Studio.module.css'
+import ArtworkContainer from '../../components/ArtworksContainer'
 import { useRouter } from 'next/router'
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react'
 
-import Image from 'next/image';
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
+import Image from 'next/image'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import ArtistArtworks from '@/components/ArtistArtworks'
 
 const Studio = ({ artistList, customArtworks }) => {
@@ -34,7 +34,7 @@ const Studio = ({ artistList, customArtworks }) => {
 
   const items = useMemo(
     () => [
-      ...(studioWork?.data?.artworks2024?.nodes ?? []),
+      ...(studioWork?.data?.artworks2025?.nodes ?? []),
       ...(customArtworks
         ?.filter((data) => data?.artworkFields?.studio === studio)
         ?.map((data) => ({ ...data, custom: true })) ?? []),
@@ -92,7 +92,7 @@ const Studio = ({ artistList, customArtworks }) => {
         s.then((result) => {
           setStudioWork(result)
           const studioArtists = []
-          result?.data.artworks2024.nodes.map((element) => {
+          result?.data.artworks2025.nodes.map((element) => {
             let add = true
             studioArtists.map((a) => {
               if (a.userId === element.author.node.userId) {
@@ -102,7 +102,7 @@ const Studio = ({ artistList, customArtworks }) => {
             if (add) {
               let studioArtist = {
                 userId: element.author?.node?.userId,
-                name: element.author?.node?.artists2024?.nodes[0]?.artistFields
+                name: element.author?.node?.artists2025?.nodes[0]?.artistFields
                   ?.artistName,
               }
               studioArtists.push(studioArtist)
@@ -195,91 +195,89 @@ const Studio = ({ artistList, customArtworks }) => {
 
 export default Studio
 
-async function getArtistList(){
-    let aList;
+async function getArtistList() {
+  let aList
 
-    try{
-        let aList = await client.query({
-            query: GET_ARTIST_LIST
-        })
+  try {
+    let aList = await client.query({
+      query: GET_ARTIST_LIST,
+    })
 
-        return aList
-    }catch(err){
-        console.log(err);
-    }
+    return aList
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-async function getArtists(){
-    let a;
-    try{
-        let a = await client.query({
-          query: GET_ARTISTS_MAJOR,
-        })
+async function getArtists() {
+  let a
+  try {
+    let a = await client.query({
+      query: GET_ARTISTS_MAJOR,
+    })
 
-        return a
-    }catch(err){
-        console.log(err);
-    }
+    return a
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-async function getStudioWorks(s){
-    let a;
-    try{
-        a = await client.query({
-            query: GET_STUDIO_WORKS,
-            variables:{
-                studio: s
-            }
-        })
-        return a;
-    }catch(err){
-        // console.log(err);
-    }
+async function getStudioWorks(s) {
+  let a
+  try {
+    a = await client.query({
+      query: GET_STUDIO_WORKS,
+      variables: {
+        studio: s,
+      },
+    })
+    return a
+  } catch (err) {
+    // console.log(err);
+  }
 }
 
 export async function getStaticProps(context) {
+  try {
+    const { data } = await client.query({
+      query: GET_ARTIST_LIST,
+    })
 
-    try {
-  
-      const { data } = await client.query({
-          query: GET_ARTIST_LIST
-      })
-
-      const { data: custom } = await client.query({
-        query: GET_CUSTOM_ARTWORKS,
-      })
-
-      return {
-        props: {
-          artistList: data?.artists2024?.nodes,
-          customArtworks: custom?.customArtworks?.nodes?.filter((data)=> data?.customArtworkYear?.year === 2024),
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
-  
-    } catch (error) {
-      console.log('error', error)
-  
-      return {
-        props: {
-          artistList: [],
-          customArtworks: [],
-        },
-        revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
-      }
-    }
-  }
-
-  export async function getStaticPaths() {
+    const { data: custom } = await client.query({
+      query: GET_CUSTOM_ARTWORKS,
+    })
 
     return {
-      paths: studioArray.map((studio) => {
-        return {
-          params: {
-            studio: studio.studioName,
-          },
-        }
-      }),
-      fallback: process.env.REVALIDATE_DATA === 'true' ? 'blocking' : false,
+      props: {
+        artistList: data?.artists2025?.nodes,
+        customArtworks: custom?.customArtworks?.nodes?.filter(
+          (data) => data?.customArtworkYear?.year === 2025
+        ),
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
     }
+  } catch (error) {
+    console.log('error', error)
+
+    return {
+      props: {
+        artistList: [],
+        customArtworks: [],
+      },
+      revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
+    }
+  }
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: studioArray.map((studio) => {
+      return {
+        params: {
+          studio: studio.studioName,
+        },
+      }
+    }),
+    fallback: process.env.REVALIDATE_DATA === 'true' ? 'blocking' : false,
+  }
 }
