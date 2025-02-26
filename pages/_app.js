@@ -10,6 +10,10 @@ export default function App({ Component, pageProps }) {
   const [showComingSoon, setShowComingSoon] = useState(false)
 
   useEffect(() => {
+    console.log(
+      process.env.NEXT_PUBLIC_ENABLE_COMING_SOON,
+      process.env.NEXT_PUBLIC_ENABLE_COMING_SOON === 'true'
+    )
     setShowComingSoon(process.env.NEXT_PUBLIC_ENABLE_COMING_SOON === 'true')
   }, [])
 

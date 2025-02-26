@@ -180,9 +180,7 @@ const Studio = ({ artistList, customArtworks }) => {
             </>
           ) : (
             <>
-              {/* <div className={styles.noArt}>
-                    No art work to show.
-                </div> */}
+              <div className={styles.noArt}>No art work to show.</div>
             </>
           )}
         </>
@@ -233,7 +231,7 @@ async function getStudioWorks(s) {
     })
     return a
   } catch (err) {
-    // console.log(err);
+    console.log(err)
   }
 }
 
