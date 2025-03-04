@@ -23,7 +23,7 @@ const Home = ({ artistList, showComingSoon }) => {
       />
       <main className={styles.main}>
         <div className={styles.title}>
-          <span className={styles.school}>Langara</span>
+          <span className={styles.school}>Langara snəw̓eyəɬ leləm̓</span>
           <h1>
             <span>Fine</span> <span>Arts</span>
           </h1>
