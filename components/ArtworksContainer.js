@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import SideList from "./SideList";
-import Image from 'next/image';
-import styles from "../styles/ArtworksContainer.module.css";
-import { useRouter } from 'next/router';
-import ExpandArtwork from './ExpandArtwork';
-import  unescape  from 'lodash/unescape';
+import React, { useState, useEffect } from 'react'
+import SideList from './SideList'
+import Image from 'next/image'
+import styles from '../styles/ArtworksContainer.module.css'
+import { useRouter } from 'next/router'
+import ExpandArtwork from './ExpandArtwork'
+import unescape from 'lodash/unescape'
 
 const ArtworkContainer = ({ items, artistsNames, originPage }) => {
   const [shuffledItems, setShuffledItems] = useState([])
@@ -16,14 +16,17 @@ const ArtworkContainer = ({ items, artistsNames, originPage }) => {
 
   const shuffle = (artworks, additionals) => {
     if (artworks) {
-        let studentArtworks = artworks
-        for (let i = studentArtworks.length - 1; i >= 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [studentArtworks[i], studentArtworks[j]] = [studentArtworks[j], studentArtworks[i]]
-        }
-        setShuffledItems(studentArtworks)
+      let studentArtworks = artworks
+      for (let i = studentArtworks.length - 1; i >= 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[studentArtworks[i], studentArtworks[j]] = [
+          studentArtworks[j],
+          studentArtworks[i],
+        ]
+      }
+      setShuffledItems(studentArtworks)
     }
-    
+
     if (additionals.length > 0) {
       additionals.sort((a, b) => {
         let orderA = a.artworkFields.order
@@ -108,7 +111,7 @@ const ArtworkContainer = ({ items, artistsNames, originPage }) => {
                       </div>
 
                       <div>
-                        {item.author.node.artists2024.nodes.map((artist, i) => (
+                        {item.author.node.artists2025.nodes.map((artist, i) => (
                           <div
                             className={styles.artistName}
                             key={i}
@@ -152,7 +155,7 @@ const ArtworkContainer = ({ items, artistsNames, originPage }) => {
                       </div>
 
                       <div>
-                        {item.author.node.artists2024.nodes.map((artist, i) => (
+                        {item.author.node.artists2025.nodes.map((artist, i) => (
                           <div
                             className={styles.artistName}
                             key={i}

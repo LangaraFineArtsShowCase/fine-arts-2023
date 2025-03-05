@@ -14,7 +14,7 @@ const Home = ({ artistList, showComingSoon }) => {
   return (
     <>
       <Head>
-        <title>Langara Fine Arts Grad Show 2024</title>
+        <title>Langara Fine Arts Grad Show 2025</title>
       </Head>
       <Header
         artistList={artistList}
@@ -23,11 +23,11 @@ const Home = ({ artistList, showComingSoon }) => {
       />
       <main className={styles.main}>
         <div className={styles.title}>
-          <span className={styles.school}>Langara</span>
+          <span className={styles.school}>Langara snəw̓eyəɬ leləm̓</span>
           <h1>
             <span>Fine</span> <span>Arts</span>
           </h1>
-          <h2>Grad Show 2024</h2>
+          <h2>Grad Show 2025</h2>
           {showComingSoon && (
             <span className={styles.coming_soon}>Coming Soon!</span>
           )}
@@ -59,7 +59,7 @@ export async function getStaticProps(context) {
 
     return {
       props: {
-        artistList: data?.artists2024?.nodes,
+        artistList: data?.artists2025?.nodes,
       },
       revalidate: process.env.REVALIDATE_DATA === 'true' ? 30 : false,
     }

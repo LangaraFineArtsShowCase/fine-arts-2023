@@ -10,7 +10,7 @@ const Footer = () => {
     <footer className={styles.siteFooter}>
       <div className={styles.wrapper}>
         <div>
-          <h3>Fine Arts Grad Show 2024</h3>
+          <h3>Fine Arts Grad Show 2025</h3>
           <ul>
             <li>
               <Link href="/artists">Artists</Link>
@@ -23,6 +23,9 @@ const Footer = () => {
         <div>
           <h3>Previous showcase</h3>
           <ul>
+            <li>
+              <Link href="https://past.langarafinagradshow.com/2024">2024</Link>
+            </li>
             <li>
               <Link href="https://past.langarafinagradshow.com/2023">2023</Link>
             </li>
