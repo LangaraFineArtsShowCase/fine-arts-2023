@@ -14,7 +14,7 @@ const Home = ({ artistList, showComingSoon }) => {
   return (
     <>
       <Head>
-        <title>Langara Fine Arts Grad Show 2025</title>
+        <title>Langara snəw̓eyəɬ leləm̓ Fine Arts Grad Show 2025</title>
       </Head>
       <Header
         artistList={artistList}
@@ -23,7 +23,10 @@ const Home = ({ artistList, showComingSoon }) => {
       />
       <main className={styles.main}>
         <div className={styles.title}>
-          <span className={styles.school}>Langara snəw̓eyəɬ leləm̓</span>
+          <span>
+            <span className={styles.school}>Langara</span>
+            <span className={styles.schoolIndigenousName}>snəw̓eyəɬ leləm̓</span>
+          </span>
           <h1>
             <span>Fine</span> <span>Arts</span>
           </h1>
