@@ -296,7 +296,10 @@ const About = ({ artistList }) => {
                 (Web & Mobile App Instructors). <strong>Vinicius Souza </strong>{' '}
                 (Web & Mobile App Student, Developer). Thank you, team!
               </p>
-              <p>Photos by __________, Splash Page Image: ___________</p>
+              <p>
+                Splash Page Image: Serigraphy Detail, Martha DzhenganinStudio,
+                photos by Claire Thomas, Maria Gazzola and Shradha Chonkar
+              </p>
             </div>
 
             <div>
