@@ -3,7 +3,7 @@ export const imageBasePath = ''
 export const studioArray = [
   {
     studioID: 1,
-    order: 5,
+    order: 8,
     mobileOrder: 11,
     studioName: 'ceramics',
     studioSlug: 'ceramics',
@@ -54,9 +54,9 @@ export const studioArray = [
   },
   {
     studioID: 4,
-    order: 7,
+    order: 4,
     mobileOrder: 3,
-    studioName: 'indigenous carving & toolmaking',
+    studioName: 'indigenous carving',
     studioSlug: 'indigenous carving & toolmaking',
     studioDescription:
       'Indigenous Carving classes at Langara integrate conversations about ancient cultural artistic forms and traditions into the classroom in an authentic way. Through Coast Salish teachings on safe and effective tool use, students develop foundational wood carving skills and develop sculptural forms with hand tools. In Tool Making classes, students work mostly with simple hand tools to modify, refurbish, or repurpose existing tools, or create their own for use in their personal or artistic practice. Carving knives, clay working and printmaking tools or tool and brush rolls are common projects.',
@@ -68,7 +68,7 @@ export const studioArray = [
   },
   {
     studioID: 5,
-    order: 10,
+    order: 9,
     mobileOrder: 10,
     studioName: 'media',
     studioSlug: 'media',
@@ -82,7 +82,7 @@ export const studioArray = [
   },
   {
     studioID: 6,
-    order: 11,
+    order: 7,
     mobileOrder: 9,
     studioName: 'painting',
     studioSlug: 'painting',
@@ -96,7 +96,7 @@ export const studioArray = [
   },
   {
     studioID: 7,
-    order: 9,
+    order: 10,
     mobileOrder: 5,
     studioName: 'performance',
     studioSlug: 'performance',
@@ -110,7 +110,7 @@ export const studioArray = [
   },
   {
     studioID: 8,
-    order: 8,
+    order: 5,
     mobileOrder: 7,
     studioName: 'print media',
     studioSlug: 'print media',
@@ -124,7 +124,7 @@ export const studioArray = [
   },
   {
     studioID: 9,
-    order: 4,
+    order: 11,
     mobileOrder: 4,
     studioName: 'public art',
     studioSlug: 'public art',

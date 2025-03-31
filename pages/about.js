@@ -297,8 +297,11 @@ const About = ({ artistList }) => {
                 (Web & Mobile App Student, Developer). Thank you, team!
               </p>
               <p>
-                Splash Page Image: Serigraphy Detail, Martha DzhenganinStudio,
-                photos by Claire Thomas, Maria Gazzola and Shradha Chonkar
+                Splash Page Image: Serigraphy Detail, Martha Dzhenganin
+                <br />
+                Image Layout: Leann Juatco
+                <br />
+                Photos by Claire Thomas, Maria Gazzola and Shradha Chonkar
               </p>
             </div>
 
