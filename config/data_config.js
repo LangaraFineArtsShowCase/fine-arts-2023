@@ -148,7 +148,7 @@ export const studioArray = [
       'Steven Hubert',
       'Scott Kemp',
       'Natalie Purschwitz',
-      'Workshop Coordinator: Will Morrison',
+      '&Workshop Coordinator: Will Morrison',
     ],
     studioImage: [
       `${imageBasePath}/images/studios/Sculpture1-min.jpg`,
@@ -173,67 +173,67 @@ export const studioArray = [
 
 export const aboutImages = [
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/01About_PublicArt.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_1.JPEG`,
     altText: 'Alt text for image 1',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/02About_Print.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_2.JPEG`,
     altText: 'Alt text for image 2',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/03About_Carving.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_3.JPEG`,
     altText: 'Alt text for image 3',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/04About_Textiles.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_4.JPEG`,
     altText: 'Alt text for image 4',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/05About_Painting.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_5.JPEG`,
     altText: 'Alt text for image 5',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/06About_Ceramics.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_6.JPEG`,
     altText: 'Alt text for image 6',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/07About_Drawing.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_7.JPEG`,
     altText: 'Alt text for image 7',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/08About_Design.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_8.jpg`,
     altText: 'Alt text for image 8',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/09About_Mashup.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_9.JPEG`,
     altText: 'Alt text for image 9',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/10About_Sculpture.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_10.JPEG`,
     altText: 'Alt text for image 10',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/11About_Media.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_11.JPEG`,
     altText: 'Alt text for image 11',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/12About_Community.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_12.JPEG`,
     altText: 'Alt text for image 12',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/13About_PublicArtMashup.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_13.JPEG`,
     altText: 'Alt text for image 13',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/14About_Ceramics.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_14.JPEG`,
     altText: 'Alt text for image 14',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/15About_Performance.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_15.JPEG`,
     altText: 'Alt text for image 15',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/16About_Sculpture.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_16.JPEG`,
     altText: 'Alt text for image 16',
   },
 ]

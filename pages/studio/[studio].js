@@ -148,7 +148,10 @@ const Studio = ({ artistList, customArtworks }) => {
                 Studio Faculty:{' '}
                 {studioDetail.studioFaculty.map((item, index) => (
                   <span key={item}>
-                    {item}
+                    {item.startsWith('&') && <br />}
+                    {item.startsWith('&')
+                      ? item.substring(1, item.length)
+                      : item}
                     {index !== studioDetail.studioFaculty.length - 1 && ', '}
                   </span>
                 ))}
@@ -160,7 +163,7 @@ const Studio = ({ artistList, customArtworks }) => {
               )}
             </div>
             <div className={styles.title}>
-              {display && <h1>{studioName.toUpperCase()}</h1>}
+              {display && <h1>{studioName}</h1>}
             </div>
           </div>
 

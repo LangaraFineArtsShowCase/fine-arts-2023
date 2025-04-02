@@ -52,17 +52,22 @@ const SideList = (props) => {
 
             {!props.artistsNames ? (
               <>
-                {props.list.map((item, index) => (
-                  <li key={index}>
-                    <div>
-                      <Link href={`studio/${item.toLowerCase()}`}>
-                        {item.toLowerCase() == 'indigenous carving & toolmaking'
-                          ? 'indigenous carving'
-                          : item.toLowerCase()}
-                      </Link>
-                    </div>
-                  </li>
-                ))}
+                {props.list
+                  .sort((a, b) => {
+                    return a < b ? -1 : 1
+                  })
+                  .map((item, index) => (
+                    <li key={index}>
+                      <div>
+                        <Link href={`studio/${item.toLowerCase()}`}>
+                          {item.toLowerCase() ==
+                          'indigenous carving & toolmaking'
+                            ? 'indigenous carving'
+                            : item.toLowerCase()}
+                        </Link>
+                      </div>
+                    </li>
+                  ))}
               </>
             ) : (
               <>

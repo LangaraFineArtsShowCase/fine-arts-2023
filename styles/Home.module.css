@@ -57,27 +57,61 @@
   color: white;
   line-height: 0.9;
   z-index: 1;
+  text-transform: uppercase;
+}
+.title .langaraLogoWrapper {
+  width: 100%;
+  text-align: end;
+}
+.title .langaraLogoWrapper img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  max-width: 280px;
+  height: auto;
+  position: relative;
+  right: -50%;
 }
 
 .title h1 {
-  display: inline;
-  text-transform: uppercase;
+  display: flex;
+  gap: 1vw;
+  align-content: center;
+  align-items: center;
 }
-
 .title h1 span:first-child {
-  display: block;
-  font-size: 320px;
-  font-size: 22vw;
-  letter-spacing: 6vw;
+  display: flex;
+  writing-mode: vertical-rl;
+  letter-spacing: -3vw;
+  font-size: 7vw;
   font-weight: 800;
+  text-orientation: upright;
 }
 
 .title h1 span:last-child {
-  font-size: 195px;
-  font-size: 13vw;
+  font-size: 5rem;
+  font-size: 20vw;
   font-weight: 800;
   letter-spacing: 1vw;
 }
+@media screen and (min-width: 700px) {
+  .title h1 span:first-child {
+    display: flex;
+    writing-mode: vertical-rl;
+    letter-spacing: -1vw;
+    font-size: 3.2vw;
+    font-weight: 800;
+    text-orientation: upright;
+  }
+
+  .title h1 span:last-child {
+    font-size: 5rem;
+    font-size: 10.5vw;
+    font-weight: 800;
+    letter-spacing: 1vw;
+  }
+}
+/*
 
 .title h2 {
   display: inline-block;
@@ -92,7 +126,7 @@
 .title h2 span:first-child {
   display: block;
 }
-
+*/
 .buttonWrapper {
   position: absolute;
   bottom: 45px;
