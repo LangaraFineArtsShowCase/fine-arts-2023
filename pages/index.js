@@ -29,7 +29,7 @@ const Home = ({ artistList, showComingSoon }) => {
               src={'/images/home/Splash_Page_Text.png'}
               alt="Splash Page Text"
               aria-hidden="true"
-              className={styles.splahTextImg}
+              className={styles.splashTextImg}
             />
           </div>
           <h1 className={styles.visuallyHidden}>Fine Arts Grad Show 2025</h1>
