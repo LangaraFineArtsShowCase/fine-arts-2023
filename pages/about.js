@@ -75,11 +75,16 @@ const About = ({ artistList }) => {
         </section>
 
         <section className={styles.carousel}>
-          <Carousel cols={4} rows={1} gap={10} loop={true}>
+          <Carousel cols={4} rows={1} gap={0} loop={true}>
             {aboutImages.map((image, i) => (
               <Carousel.Item key={i}>
                 <div className={styles.carouselItemWrapper}>
-                  <Image src={image.thumbnailPath} alt="image" fill />
+                  <Image
+                    src={image.thumbnailPath}
+                    alt={image.altText}
+                    aria-hidden="true"
+                    fill
+                  />
                 </div>
               </Carousel.Item>
             ))}
@@ -140,11 +145,11 @@ const About = ({ artistList }) => {
             <ul className={styles.facultyList}>
               <li>
                 <strong>Stephanie Aitken</strong>
-                <span>- printmaking, drawing</span>
+                <span>- painting, drawing</span>
               </li>
               <li>
                 <strong>Gloria Han</strong>
-                <span>- ceramics</span>
+                <span>- ceramics, professional practice</span>
               </li>
               <li>
                 <strong>Steve Hubert</strong>
@@ -204,8 +209,8 @@ const About = ({ artistList }) => {
               <li>
                 <strong>Elizabeth Milton</strong>
                 <span>
-                  - Assistant Department Chair, performance, media studio,
-                  drawing and professional practice
+                  - Assistant Department Chair, performance, media, drawing and
+                  professional practice
                 </span>
               </li>
             </ul>
@@ -297,8 +302,11 @@ const About = ({ artistList }) => {
                 (Web & Mobile App Student, Developer). Thank you, team!
               </p>
               <p>
-                Splash Page Image: Serigraphy Detail, Martha DzhenganinStudio,
-                photos by Claire Thomas, Maria Gazzola and Shradha Chonkar
+                Splash Page Image: Serigraphy Detail, Martha Dzhenganin
+                <br />
+                Image Layout: Leann Juatco
+                <br />
+                Photos by Claire Thomas, Maria Gazzola and Shradha Chonkar
               </p>
             </div>
 
@@ -342,7 +350,7 @@ const About = ({ artistList }) => {
             >
               <h2>Langara Fine Arts</h2>
               <Image
-                src={`${imageBasePath}/images/about/Langara-Fine-Arts-New.jpg`}
+                src={`${imageBasePath}/images/about/Thumbnail_About.jpg`}
                 alt="langara fine arts"
                 width={361}
                 height={361}

@@ -27,10 +27,6 @@
   color: white;
 }
 
-.heroSection img {
-  filter: brightness(50%);
-}
-
 .artistsHeader {
   /* position: sticky; */
   font-size: 1.75vw;

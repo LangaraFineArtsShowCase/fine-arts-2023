@@ -3,7 +3,7 @@ export const imageBasePath = ''
 export const studioArray = [
   {
     studioID: 1,
-    order: 5,
+    order: 8,
     mobileOrder: 11,
     studioName: 'ceramics',
     studioSlug: 'ceramics',
@@ -54,9 +54,9 @@ export const studioArray = [
   },
   {
     studioID: 4,
-    order: 7,
+    order: 4,
     mobileOrder: 3,
-    studioName: 'indigenous carving & toolmaking',
+    studioName: 'indigenous carving',
     studioSlug: 'indigenous carving & toolmaking',
     studioDescription:
       'Indigenous Carving classes at Langara integrate conversations about ancient cultural artistic forms and traditions into the classroom in an authentic way. Through Coast Salish teachings on safe and effective tool use, students develop foundational wood carving skills and develop sculptural forms with hand tools. In Tool Making classes, students work mostly with simple hand tools to modify, refurbish, or repurpose existing tools, or create their own for use in their personal or artistic practice. Carving knives, clay working and printmaking tools or tool and brush rolls are common projects.',
@@ -68,7 +68,7 @@ export const studioArray = [
   },
   {
     studioID: 5,
-    order: 10,
+    order: 9,
     mobileOrder: 10,
     studioName: 'media',
     studioSlug: 'media',
@@ -82,7 +82,7 @@ export const studioArray = [
   },
   {
     studioID: 6,
-    order: 11,
+    order: 7,
     mobileOrder: 9,
     studioName: 'painting',
     studioSlug: 'painting',
@@ -96,7 +96,7 @@ export const studioArray = [
   },
   {
     studioID: 7,
-    order: 9,
+    order: 10,
     mobileOrder: 5,
     studioName: 'performance',
     studioSlug: 'performance',
@@ -110,7 +110,7 @@ export const studioArray = [
   },
   {
     studioID: 8,
-    order: 8,
+    order: 5,
     mobileOrder: 7,
     studioName: 'print media',
     studioSlug: 'print media',
@@ -124,7 +124,7 @@ export const studioArray = [
   },
   {
     studioID: 9,
-    order: 4,
+    order: 11,
     mobileOrder: 4,
     studioName: 'public art',
     studioSlug: 'public art',
@@ -148,7 +148,7 @@ export const studioArray = [
       'Steven Hubert',
       'Scott Kemp',
       'Natalie Purschwitz',
-      'Workshop Coordinator: Will Morrison',
+      '&Workshop Coordinator: Will Morrison',
     ],
     studioImage: [
       `${imageBasePath}/images/studios/Sculpture1-min.jpg`,
@@ -173,67 +173,67 @@ export const studioArray = [
 
 export const aboutImages = [
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/01About_PublicArt.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_1.JPEG`,
     altText: 'Alt text for image 1',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/02About_Print.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_2.JPEG`,
     altText: 'Alt text for image 2',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/03About_Carving.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_3.JPEG`,
     altText: 'Alt text for image 3',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/04About_Textiles.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_4.JPEG`,
     altText: 'Alt text for image 4',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/05About_Painting.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_5.JPEG`,
     altText: 'Alt text for image 5',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/06About_Ceramics.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_6.JPEG`,
     altText: 'Alt text for image 6',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/07About_Drawing.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_7.JPEG`,
     altText: 'Alt text for image 7',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/08About_Design.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_8.jpg`,
     altText: 'Alt text for image 8',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/09About_Mashup.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_9.JPEG`,
     altText: 'Alt text for image 9',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/10About_Sculpture.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_10.JPEG`,
     altText: 'Alt text for image 10',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/11About_Media.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_11.JPEG`,
     altText: 'Alt text for image 11',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/12About_Community.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_12.JPEG`,
     altText: 'Alt text for image 12',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/13About_PublicArtMashup.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_13.JPEG`,
     altText: 'Alt text for image 13',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/14About_Ceramics.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_14.JPEG`,
     altText: 'Alt text for image 14',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/15About_Performance.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_15.JPEG`,
     altText: 'Alt text for image 15',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/16About_Sculpture.jpg`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_16.JPEG`,
     altText: 'Alt text for image 16',
   },
 ]

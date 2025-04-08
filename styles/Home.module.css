@@ -3,23 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 45px 40px;
   width: 100vw;
   height: 100vh;
-  background: url('/images/home/2025SplashPage.jpg') center center no-repeat;
+  background: url('/images/home/2025SplashPage.jpg') center right no-repeat;
   background-size: cover;
   box-sizing: border-box;
-}
-
-.main::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  z-index: 0;
+  overflow: hidden;
 }
 
 .school {
@@ -57,48 +46,52 @@
   color: white;
   line-height: 0.9;
   z-index: 1;
-}
-
-.title h1 {
-  display: inline;
   text-transform: uppercase;
 }
-
-.title h1 span:first-child {
+.visuallyHidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.splashTextImgWrapper {
+  width: 100%;
+  min-width: 350px;
+  max-width: 90vw;
+  max-height: calc(100vh - 50px);
+}
+.splashTextImg {
+  width: 100%;
   display: block;
-  font-size: 320px;
-  font-size: 22vw;
-  letter-spacing: 6vw;
-  font-weight: 800;
+  object-fit: contain;
+  height: auto;
+  scale: 120%;
 }
-
-.title h1 span:last-child {
-  font-size: 195px;
-  font-size: 13vw;
-  font-weight: 800;
-  letter-spacing: 1vw;
+.langaraLogoWrapper {
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
-
-.title h2 {
-  display: inline-block;
-  font-size: 42px;
-  font-size: 3vw;
-  text-transform: uppercase;
-  font-style: italic;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.title h2 span:first-child {
+.langaraLogoWrapper img {
+  width: 100%;
   display: block;
+  object-fit: contain;
+  height: auto;
+  max-width: 320px;
 }
-
 .buttonWrapper {
   position: absolute;
   bottom: 45px;
   right: 40px;
   display: flex;
   justify-content: flex-end;
+  z-index: 999;
 }
 
 .buttonWrapper a {
@@ -122,4 +115,22 @@
 .buttonWrapper a:hover {
   background-position-x: 0;
   color: black;
+}
+@media screen and (max-width: 600px) {
+  .buttonWrapper {
+    left: 0;
+    right: 0;
+  }
+  .buttonWrapper a {
+    margin: auto;
+    margin-bottom: 5vh;
+  }
+  .langaraLogoWrapper img {
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .splashTextImgWrapper {
+    max-width: 75vw;
+  }
 }

@@ -18,6 +18,7 @@ import ArtistArtworks from '@/components/ArtistArtworks'
 
 const Studio = ({ artistList, customArtworks }) => {
   const [artist, setArtist] = useState({})
+  const [studioName, setStudioName] = useState('')
   const [artistsNames, setArtistsNames] = useState({})
 
   const [studioWork, setStudioWork] = useState({})
@@ -68,8 +69,9 @@ const Studio = ({ artistList, customArtworks }) => {
 
   useEffect(() => {
     if (studio) {
+      console.log(studio)
       const foundStudio = studioArray.find(
-        (studioObj) => studioObj.studioName == studio.toLowerCase()
+        (studioObj) => studioObj.studioSlug == studio.toLowerCase()
       )
 
       if (foundStudio) {
@@ -81,6 +83,10 @@ const Studio = ({ artistList, customArtworks }) => {
           studio = 'media studio'
         }
         let s = getStudioWorks(studio)
+        if (studio == 'indigenous carving & toolmaking') {
+          studio = 'indigenous carving'
+        }
+        setStudioName(studio)
         a.then((result) => {
           setArtist(result)
         })
@@ -142,7 +148,10 @@ const Studio = ({ artistList, customArtworks }) => {
                 Studio Faculty:{' '}
                 {studioDetail.studioFaculty.map((item, index) => (
                   <span key={item}>
-                    {item}
+                    {item.startsWith('&') && <br />}
+                    {item.startsWith('&')
+                      ? item.substring(1, item.length)
+                      : item}
                     {index !== studioDetail.studioFaculty.length - 1 && ', '}
                   </span>
                 ))}
@@ -154,7 +163,7 @@ const Studio = ({ artistList, customArtworks }) => {
               )}
             </div>
             <div className={styles.title}>
-              {display && <h1>{studio.toUpperCase()}</h1>}
+              {display && <h1>{studioName}</h1>}
             </div>
           </div>
 

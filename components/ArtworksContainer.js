@@ -187,7 +187,6 @@ const ArtworkContainer = ({ items, artistsNames, originPage }) => {
                 'Ceramics',
                 'Painting',
                 'Indigenous Carving & Toolmaking',
-                'Drawing',
                 'Design',
                 'Sculpture',
                 'Media',
