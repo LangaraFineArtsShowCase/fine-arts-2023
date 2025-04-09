@@ -19,7 +19,6 @@
   margin: 0px;
   padding-top: 1vw;
   margin-bottom: 30px;
-  text-transform: uppercase;
 }
 .pageTitle {
   text-transform: uppercase;
@@ -28,6 +27,7 @@
   font-weight: 700;
   font-size: 5vw;
   line-height: 130%;
+  text-transform: uppercase;
 }
 
 .artistDesc {

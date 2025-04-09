@@ -32,13 +32,19 @@
 
 .coming_soon {
   font-size: 42px;
-  font-size: 3vw;
+  font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
   font-style: italic;
   letter-spacing: 3px;
-  padding-left: 1.5vw;
+  padding: 1.5vw;
   display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  text-align: right;
+  color: white;
 }
 
 .title {
@@ -83,7 +89,7 @@
   display: block;
   object-fit: contain;
   height: auto;
-  max-width: 320px;
+  max-width: 350px;
 }
 .buttonWrapper {
   position: absolute;
@@ -127,10 +133,26 @@
   }
   .langaraLogoWrapper img {
     margin: 0 auto;
+    min-width: 50vw;
+  }
+  .coming_soon {
+    text-align: center;
+    font-size: 3.2rem;
+    bottom: 10vh;
   }
 }
 @media screen and (min-width: 1000px) {
   .splashTextImgWrapper {
     max-width: 75vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .langaraLogoWrapper img {
+    max-width: 25vw;
+  }
+  .coming_soon {
+    text-align: right;
+    font-size: 3vw;
+    bottom: 0;
   }
 }
