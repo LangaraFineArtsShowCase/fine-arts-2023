@@ -318,16 +318,16 @@ const About = ({ artistList }) => {
               <p>Many thanks to the following folks who support our program:</p>
               <ul className={styles.thankYouList}>
                 <li>
-                  <strong>Rebecca Slaven</strong>
-                  <span>- Fine Arts Librarian</span>
+                  <strong>Darren Bernaerdt</strong>
+                  <span>- Dean of Arts</span>
                 </li>
                 <li>
                   <strong>Spencer Dane</strong>
                   <span>- Creative Arts and Industries Division Chair</span>
                 </li>
                 <li>
-                  <strong>Darren Bernaerdt</strong>
-                  <span>- Dean of Arts</span>
+                  <strong>Rebecca Slaven</strong>
+                  <span>- Fine Arts Librarian</span>
                 </li>
                 <li>
                   <span>Our amazing life models:</span>

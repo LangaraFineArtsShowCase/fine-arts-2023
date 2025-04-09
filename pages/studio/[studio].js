@@ -25,6 +25,7 @@ const Studio = ({ artistList, customArtworks }) => {
 
   const [display, setDisplay] = useState(false)
   const [studioDetail, setStudioDetail] = useState({})
+  const [studioFallbackImages, setStudioFallbackImages] = useState([])
   const [vh, setVh] = useState(1)
   const [scrollPosition, setScrollPosition] = useState(0)
   const [headerStyle, setHeaderStyle] = useState('transparent')
@@ -69,7 +70,6 @@ const Studio = ({ artistList, customArtworks }) => {
 
   useEffect(() => {
     if (studio) {
-      console.log(studio)
       const foundStudio = studioArray.find(
         (studioObj) => studioObj.studioSlug == studio.toLowerCase()
       )
@@ -187,10 +187,21 @@ const Studio = ({ artistList, customArtworks }) => {
                 </div>
               )}
             </>
+          ) : studioDetail.fallbackImages ? (
+            <div
+              style={{
+                paddingLeft: '3vw',
+              }}
+            >
+              <ArtistArtworks
+                items={{
+                  fallbackImages: true,
+                  images: [...studioDetail.fallbackImages],
+                }}
+              />
+            </div>
           ) : (
-            <>
-              <div className={styles.noArt}>No art work to show.</div>
-            </>
+            <div className={styles.noArt}>No art work to show.</div>
           )}
         </>
       )}

@@ -107,6 +107,20 @@ export const studioArray = [
       `${imageBasePath}/images/studios/PerformanceArt1-min.jpg`,
       `${imageBasePath}/images/studios/PerformanceArt1.jpg`,
     ],
+    fallbackImages: [
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_1.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_2.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_3.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_4.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_5.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_6.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_7.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_8.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_9.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_10.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_11.jpg`,
+      `${imageBasePath}/images/studios/performance/Performance_StudioPage_12.jpg`,
+    ],
   },
   {
     studioID: 8,
@@ -173,31 +187,31 @@ export const studioArray = [
 
 export const aboutImages = [
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_1.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_1.jpg`,
     altText: 'Alt text for image 1',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_2.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_2.jpg`,
     altText: 'Alt text for image 2',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_3.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_3.jpg`,
     altText: 'Alt text for image 3',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_4.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_4.jpg`,
     altText: 'Alt text for image 4',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_5.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_5.jpg`,
     altText: 'Alt text for image 5',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_6.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_6.jpg`,
     altText: 'Alt text for image 6',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_7.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_7.jpg`,
     altText: 'Alt text for image 7',
   },
   {
@@ -205,36 +219,52 @@ export const aboutImages = [
     altText: 'Alt text for image 8',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_9.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_9.jpg`,
     altText: 'Alt text for image 9',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_10.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_10.jpg`,
     altText: 'Alt text for image 10',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_11.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_11.jpg`,
     altText: 'Alt text for image 11',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_12.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_12.jpg`,
     altText: 'Alt text for image 12',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_13.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_13.jpg`,
     altText: 'Alt text for image 13',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_14.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_14.jpg`,
     altText: 'Alt text for image 14',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_15.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_15.jpg`,
     altText: 'Alt text for image 15',
   },
   {
-    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_16.JPEG`,
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_16.jpg`,
     altText: 'Alt text for image 16',
+  },
+  {
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_17.jpg`,
+    altText: 'Alt text for image 17',
+  },
+  {
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_18.jpg`,
+    altText: 'Alt text for image 18',
+  },
+  {
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_19.jpg`,
+    altText: 'Alt text for image 19',
+  },
+  {
+    thumbnailPath: `${imageBasePath}/images/about/slides/AboutPage_Collage_20.jpg`,
+    altText: 'Alt text for image 20',
   },
 ]
 //TODO: Pending alternative text

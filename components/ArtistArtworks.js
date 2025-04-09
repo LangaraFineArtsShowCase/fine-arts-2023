@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import styles from "../styles/ArtistArtworks.module.css";
-import ExpandArtwork from './ExpandArtwork';
-import  unescape  from 'lodash/unescape';
-
+import React, { useState, useEffect } from 'react'
+import Image from 'next/image'
+import styles from '../styles/ArtistArtworks.module.css'
+import ExpandArtwork from './ExpandArtwork'
+import unescape from 'lodash/unescape'
+import { size } from 'lodash'
 
 const ArtistArtworks = ({ items }) => {
   const [col1, setCol1] = useState([])
@@ -33,16 +33,40 @@ const ArtistArtworks = ({ items }) => {
   }, [])
 
   useEffect(() => {
-    let artworks = items
-
-    if (artworks.length > 0) {
-      artworks.sort((a, b) => {
-        let orderA = a.artworkFields.order
-        let orderB = b.artworkFields.order
-        return orderA - orderB
+    if (items.fallbackImages) {
+      const fallbackArtworks = items.images.map((item) => {
+        return {
+          artworkFields: {
+            thumbnail: {
+              mediaItemUrl: item,
+              mediaDetails: {
+                height: 500,
+                width: 500,
+              },
+            },
+            artType: 'single_view',
+            image2d: { sourceUrl: item },
+            sourceUrl: item,
+            size: '',
+            material: '',
+            artworkTitle: '',
+          },
+        }
       })
+      console.log(fallbackArtworks)
+      setShuffled(fallbackArtworks)
+    } else {
+      let artworks = items
 
-      setShuffled(artworks)
+      if (artworks.length > 0) {
+        artworks.sort((a, b) => {
+          let orderA = a.artworkFields.order
+          let orderB = b.artworkFields.order
+          return orderA - orderB
+        })
+        console.log(artworks)
+        setShuffled(artworks)
+      }
     }
   }, [items])
 
@@ -61,6 +85,7 @@ const ArtistArtworks = ({ items }) => {
         colThree.push(i + 2)
       }
     }
+    console.log(colOne, colTwo, colThree)
 
     if (vw < 768) {
       colOne = []
@@ -101,8 +126,8 @@ const ArtistArtworks = ({ items }) => {
   }, [shuffle, vw])
 
   const handlePopup = (i) => {
-    if(!!shuffle[i].custom){
-        return
+    if (!!shuffle[i].custom) {
+      return
     }
     setShow(true)
     setPopUpContent(shuffle[i])
