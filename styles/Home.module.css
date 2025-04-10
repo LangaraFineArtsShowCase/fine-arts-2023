@@ -138,7 +138,11 @@
   .coming_soon {
     text-align: center;
     font-size: 3.2rem;
-    bottom: 10vh;
+    bottom: 15vh;
+  }
+  .splashTextImg {
+    position: relative;
+    top: -10vh;
   }
 }
 @media screen and (min-width: 1000px) {
