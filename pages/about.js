@@ -302,7 +302,7 @@ const About = ({ artistList }) => {
                 (Web & Mobile App Student, Developer). Thank you, team!
               </p>
               <p>
-                Splash Page Image: Serigraphy Detail, Martha Dzhenganin
+                Splash Page Image: Serigraphy Detail, Martha
                 <br />
                 Image Layout: Leann Juatco
                 <br />

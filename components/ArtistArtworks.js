@@ -51,6 +51,7 @@ const ArtistArtworks = ({ items }) => {
             material: '',
             artworkTitle: '',
           },
+          custom: true,
         }
       })
       console.log(fallbackArtworks)
@@ -146,7 +147,11 @@ const ArtistArtworks = ({ items }) => {
             {col1.length > 0 &&
               col1.map((i) => (
                 <div
-                  className={styles.artworkContainer}
+                  className={[
+                    items.fallbackImages
+                      ? styles.fallbackImage
+                      : styles.artworkContainer,
+                  ]}
                   key={i}
                   style={{
                     marginBottom: !!shuffle[i]?.custom ? '10vw' : undefined,
@@ -188,7 +193,11 @@ const ArtistArtworks = ({ items }) => {
             {col2.length > 0 &&
               col2.map((i) => (
                 <div
-                  className={styles.artworkContainer}
+                  className={[
+                    items.fallbackImages
+                      ? styles.fallbackImage
+                      : styles.artworkContainer,
+                  ]}
                   key={i}
                   style={{
                     marginBottom: !!shuffle[i]?.custom ? '10vw' : undefined,
