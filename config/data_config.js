@@ -159,6 +159,8 @@ export const studioArray = [
     fallbackImages: [
       `${imageBasePath}/images/studios/fallbacks/public_art/01PublicArt.jpg`,
       `${imageBasePath}/images/studios/fallbacks/public_art/02PublicArt.jpg`,
+      `${imageBasePath}/images/studios/fallbacks/public_art/03PublicArt.jpg`,
+      `${imageBasePath}/images/studios/fallbacks/public_art/04PublicArt.jpg`,
     ],
   },
   {
