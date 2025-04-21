@@ -5,7 +5,7 @@ import ExpandArtwork from './ExpandArtwork'
 import unescape from 'lodash/unescape'
 import { size } from 'lodash'
 
-const ArtistArtworks = ({ items }) => {
+const ArtistArtworks = ({ items, fallbackImages }) => {
   const [col1, setCol1] = useState([])
   const [col2, setCol2] = useState([])
   const [col3, setCol3] = useState([])
@@ -33,9 +33,13 @@ const ArtistArtworks = ({ items }) => {
   }, [])
 
   useEffect(() => {
-    if (items.fallbackImages) {
-      const fallbackArtworks = items.images.map((item) => {
+    let artworks = items
+    console.log(artworks)
+    let fallbackArtworks = []
+    if (fallbackImages) {
+      fallbackArtworks = fallbackImages.images.map((item) => {
         return {
+          isFallbackImage: true,
           artworkFields: {
             thumbnail: {
               mediaItemUrl: item,
@@ -54,22 +58,17 @@ const ArtistArtworks = ({ items }) => {
           custom: true,
         }
       })
-      console.log(fallbackArtworks)
-      setShuffled(fallbackArtworks)
-    } else {
-      let artworks = items
-
-      if (artworks.length > 0) {
-        artworks.sort((a, b) => {
-          let orderA = a.artworkFields.order
-          let orderB = b.artworkFields.order
-          return orderA - orderB
-        })
-        console.log(artworks)
-        setShuffled(artworks)
-      }
     }
-  }, [items])
+    if (artworks.length > 0) {
+      artworks.sort((a, b) => {
+        let orderA = a.artworkFields.order
+        let orderB = b.artworkFields.order
+        return orderA - orderB
+      })
+    }
+    console.log([...artworks, ...fallbackArtworks])
+    setShuffled([...artworks, ...fallbackArtworks])
+  }, [items, fallbackImages])
 
   useEffect(() => {
     let colOne = []
@@ -194,7 +193,7 @@ const ArtistArtworks = ({ items }) => {
               col2.map((i) => (
                 <div
                   className={[
-                    items.fallbackImages
+                    shuffle[i]?.isFallbackImage
                       ? styles.fallbackImage
                       : styles.artworkContainer,
                   ]}
@@ -239,7 +238,11 @@ const ArtistArtworks = ({ items }) => {
             {col3.length > 0 &&
               col3.map((i) => (
                 <div
-                  className={styles.artworkContainer}
+                  className={[
+                    items.fallbackImages
+                      ? styles.fallbackImage
+                      : styles.artworkContainer,
+                  ]}
                   key={i}
                   style={{
                     marginBottom: !!shuffle[i]?.custom ? '10vw' : undefined,

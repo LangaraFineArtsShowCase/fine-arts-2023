@@ -43,6 +43,7 @@ const Studio = ({ artistList, customArtworks }) => {
     ],
     [studioWork, customArtworks, studio]
   )
+  useEffect(() => console.log(items), [items])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -167,7 +168,7 @@ const Studio = ({ artistList, customArtworks }) => {
             </div>
           </div>
 
-          {items.length > 0 ? (
+          {items.length > 0 && (
             <>
               {artistsNames.length > 0 ? (
                 <div>
@@ -175,6 +176,9 @@ const Studio = ({ artistList, customArtworks }) => {
                     items={items}
                     artistsNames={artistsNames}
                     originPage="studio"
+                    fallbackImages={{
+                      images: [],
+                    }}
                   />
                 </div>
               ) : (
@@ -183,24 +187,39 @@ const Studio = ({ artistList, customArtworks }) => {
                     paddingLeft: '3vw',
                   }}
                 >
-                  <ArtistArtworks items={items} />
+                  <ArtistArtworks
+                    items={items}
+                    fallbackImages={{
+                      images: [],
+                    }}
+                  />
+                  <ArtistArtworks
+                    items={[]}
+                    fallbackImages={{
+                      images: studioDetail.fallbackImages
+                        ? [...studioDetail.fallbackImages]
+                        : [],
+                    }}
+                  />
                 </div>
               )}
             </>
-          ) : studioDetail.fallbackImages ? (
+          )}
+          {studioDetail.fallbackImages && (
             <div
               style={{
                 paddingLeft: '3vw',
               }}
             >
               <ArtistArtworks
-                items={{
-                  fallbackImages: true,
+                items={[]}
+                fallbackImages={{
                   images: [...studioDetail.fallbackImages],
                 }}
               />
             </div>
-          ) : (
+          )}
+          {items.length == 0 && !studioDetail.fallbackImages && (
             <div className={styles.noArt}>No art work to show.</div>
           )}
         </>

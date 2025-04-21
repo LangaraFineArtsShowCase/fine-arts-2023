@@ -6,7 +6,12 @@ import { useRouter } from 'next/router'
 import ExpandArtwork from './ExpandArtwork'
 import unescape from 'lodash/unescape'
 
-const ArtworkContainer = ({ items, artistsNames, originPage }) => {
+const ArtworkContainer = ({
+  items,
+  artistsNames,
+  originPage,
+  fallbackImages,
+}) => {
   const [shuffledItems, setShuffledItems] = useState([])
   const [leftColumn, setLeftColumn] = useState([])
   const [rightColumn, setRightColumn] = useState([])
@@ -17,13 +22,14 @@ const ArtworkContainer = ({ items, artistsNames, originPage }) => {
   const shuffle = (artworks, additionals) => {
     if (artworks) {
       let studentArtworks = artworks
+      /*
       for (let i = studentArtworks.length - 1; i >= 0; i--) {
         const j = Math.floor(Math.random() * (i + 1))
         ;[studentArtworks[i], studentArtworks[j]] = [
           studentArtworks[j],
           studentArtworks[i],
         ]
-      }
+      }*/
       setShuffledItems(studentArtworks)
     }
 
@@ -55,8 +61,34 @@ const ArtworkContainer = ({ items, artistsNames, originPage }) => {
   }, [shuffledItems.length, artworks.length, additionalArtworks.length])
 
   useEffect(() => {
+    let fallbackArtworks = []
+    if (fallbackImages) {
+      fallbackArtworks = fallbackImages.images.map((item) => {
+        return {
+          isFallbackImage: true,
+          artworkFields: {
+            thumbnail: {
+              mediaItemUrl: item,
+              mediaDetails: {
+                height: 500,
+                width: 500,
+              },
+              order: 1000,
+            },
+            artType: 'single_view',
+            image2d: { sourceUrl: item },
+            sourceUrl: item,
+            size: '',
+            material: '',
+            artworkTitle: '',
+          },
+          custom: true,
+        }
+      })
+    }
     if (items?.length) {
-      setArtworks(items?.filter((artwork) => !artwork?.custom))
+      let artworks = items?.filter((artwork) => !artwork?.custom)
+      setArtworks([...artworks, ...fallbackArtworks])
       setAdditionalArtworks(items?.filter((artwork) => !!artwork?.custom))
     }
   }, [items, artistsNames])
