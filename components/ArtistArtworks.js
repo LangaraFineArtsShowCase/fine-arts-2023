@@ -34,9 +34,17 @@ const ArtistArtworks = ({ items, fallbackImages }) => {
 
   useEffect(() => {
     let artworks = items
-    console.log(artworks)
-    let fallbackArtworks = []
+    let finalArray = []
+    if (artworks.length > 0) {
+      artworks.sort((a, b) => {
+        let orderA = a.artworkFields.order
+        let orderB = b.artworkFields.order
+        return orderA - orderB
+      })
+      finalArray.push(...artworks)
+    }
     if (fallbackImages) {
+      let fallbackArtworks = []
       fallbackArtworks = fallbackImages.images.map((item) => {
         return {
           isFallbackImage: true,
@@ -58,16 +66,9 @@ const ArtistArtworks = ({ items, fallbackImages }) => {
           custom: true,
         }
       })
+      finalArray.push(...fallbackArtworks)
     }
-    if (artworks.length > 0) {
-      artworks.sort((a, b) => {
-        let orderA = a.artworkFields.order
-        let orderB = b.artworkFields.order
-        return orderA - orderB
-      })
-    }
-    console.log([...artworks, ...fallbackArtworks])
-    setShuffled([...artworks, ...fallbackArtworks])
+    setShuffled(finalArray)
   }, [items, fallbackImages])
 
   useEffect(() => {

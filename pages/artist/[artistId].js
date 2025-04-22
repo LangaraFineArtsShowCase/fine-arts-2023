@@ -72,6 +72,7 @@ const Artist = ({ artistList }) => {
 
   useEffect(() => {
     const artF = []
+    console.log(artistWork)
     if (artistWork.length > 0) {
       artistWork.map((art, index) => {
         if (!artF.includes(art.artworkFields.studio)) {
