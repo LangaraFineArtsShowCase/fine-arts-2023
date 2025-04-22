@@ -86,8 +86,6 @@ const ArtistArtworks = ({ items, fallbackImages }) => {
         colThree.push(i + 2)
       }
     }
-    console.log(colOne, colTwo, colThree)
-
     if (vw < 768) {
       colOne = []
       colTwo = []
@@ -148,7 +146,7 @@ const ArtistArtworks = ({ items, fallbackImages }) => {
               col1.map((i) => (
                 <div
                   className={[
-                    items.fallbackImages
+                    shuffle[i]?.isFallbackImage
                       ? styles.fallbackImage
                       : styles.artworkContainer,
                   ]}
@@ -240,7 +238,7 @@ const ArtistArtworks = ({ items, fallbackImages }) => {
               col3.map((i) => (
                 <div
                   className={[
-                    items.fallbackImages
+                    shuffle[i]?.isFallbackImage
                       ? styles.fallbackImage
                       : styles.artworkContainer,
                   ]}

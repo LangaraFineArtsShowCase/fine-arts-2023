@@ -43,8 +43,6 @@ const Studio = ({ artistList, customArtworks }) => {
     ],
     [studioWork, customArtworks, studio]
   )
-  useEffect(() => console.log(items), [items])
-
   useEffect(() => {
     const handleScroll = () => {
       const height = window.innerHeight * 0.01
