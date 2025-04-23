@@ -5,7 +5,7 @@ import ExpandArtwork from './ExpandArtwork'
 import unescape from 'lodash/unescape'
 import { size } from 'lodash'
 
-const ArtistArtworks = ({ items }) => {
+const ArtistArtworks = ({ items, fallbackImages }) => {
   const [col1, setCol1] = useState([])
   const [col2, setCol2] = useState([])
   const [col3, setCol3] = useState([])
@@ -33,9 +33,21 @@ const ArtistArtworks = ({ items }) => {
   }, [])
 
   useEffect(() => {
-    if (items.fallbackImages) {
-      const fallbackArtworks = items.images.map((item) => {
+    let artworks = items
+    let finalArray = []
+    if (artworks.length > 0) {
+      artworks.sort((a, b) => {
+        let orderA = a.artworkFields.order
+        let orderB = b.artworkFields.order
+        return orderA - orderB
+      })
+      finalArray.push(...artworks)
+    }
+    if (fallbackImages) {
+      let fallbackArtworks = []
+      fallbackArtworks = fallbackImages.images.map((item) => {
         return {
+          isFallbackImage: true,
           artworkFields: {
             thumbnail: {
               mediaItemUrl: item,
@@ -51,24 +63,13 @@ const ArtistArtworks = ({ items }) => {
             material: '',
             artworkTitle: '',
           },
+          custom: true,
         }
       })
-      console.log(fallbackArtworks)
-      setShuffled(fallbackArtworks)
-    } else {
-      let artworks = items
-
-      if (artworks.length > 0) {
-        artworks.sort((a, b) => {
-          let orderA = a.artworkFields.order
-          let orderB = b.artworkFields.order
-          return orderA - orderB
-        })
-        console.log(artworks)
-        setShuffled(artworks)
-      }
+      finalArray.push(...fallbackArtworks)
     }
-  }, [items])
+    setShuffled(finalArray)
+  }, [items, fallbackImages])
 
   useEffect(() => {
     let colOne = []
@@ -85,8 +86,6 @@ const ArtistArtworks = ({ items }) => {
         colThree.push(i + 2)
       }
     }
-    console.log(colOne, colTwo, colThree)
-
     if (vw < 768) {
       colOne = []
       colTwo = []
@@ -146,7 +145,11 @@ const ArtistArtworks = ({ items }) => {
             {col1.length > 0 &&
               col1.map((i) => (
                 <div
-                  className={styles.artworkContainer}
+                  className={[
+                    shuffle[i]?.isFallbackImage
+                      ? styles.fallbackImage
+                      : styles.artworkContainer,
+                  ]}
                   key={i}
                   style={{
                     marginBottom: !!shuffle[i]?.custom ? '10vw' : undefined,
@@ -188,7 +191,11 @@ const ArtistArtworks = ({ items }) => {
             {col2.length > 0 &&
               col2.map((i) => (
                 <div
-                  className={styles.artworkContainer}
+                  className={[
+                    shuffle[i]?.isFallbackImage
+                      ? styles.fallbackImage
+                      : styles.artworkContainer,
+                  ]}
                   key={i}
                   style={{
                     marginBottom: !!shuffle[i]?.custom ? '10vw' : undefined,
@@ -230,7 +237,11 @@ const ArtistArtworks = ({ items }) => {
             {col3.length > 0 &&
               col3.map((i) => (
                 <div
-                  className={styles.artworkContainer}
+                  className={[
+                    shuffle[i]?.isFallbackImage
+                      ? styles.fallbackImage
+                      : styles.artworkContainer,
+                  ]}
                   key={i}
                   style={{
                     marginBottom: !!shuffle[i]?.custom ? '10vw' : undefined,
