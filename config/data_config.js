@@ -284,43 +284,53 @@ export const aboutImages = [
 
 export const awardWinners = [
   {
-    winnerArtistID: 153,
-    winnerArtistName: 'Jordan Mitchell',
+    winnerArtistID: 203,
+    winnerArtistName: 'Kinuka Hara',
     awardName: 'Sculptural Ceramics Award',
   },
   {
-    winnerArtistID: 165,
-    winnerArtistName: 'Naomi Zhang',
-    awardName: 'FUNCTIONAL CERAMICS AWARD',
+    winnerArtistID: 212,
+    winnerArtistName: 'Tatiana Ragonesi',
+    awardName: 'Functional Ceramics Award',
   },
   {
-    winnerArtistID: 161,
-    winnerArtistName: 'Netsanet Tsegaye',
+    winnerArtistID: 201,
+    winnerArtistName: 'Hannah Dettling',
     awardName: 'Printmaking Award',
   },
   {
-    winnerArtistID: 136,
-    winnerArtistName: 'Hiva Barikani',
+    winnerArtistID: 192,
+    winnerArtistName: 'Charlie Sandeman',
     awardName: 'Sculpture Award',
   },
   {
-    winnerArtistID: 135,
-    winnerArtistName: 'Nicole Abas',
+    winnerArtistID: 199,
+    winnerArtistName: 'Kit Chen',
     awardName: 'Drawing Award',
   },
   {
-    winnerArtistID: 162,
-    winnerArtistName: 'Eden Veaudry',
+    winnerArtistID: 209,
+    winnerArtistName: 'Eddie Olson Pearson',
     awardName: 'Painting Award',
   },
   {
-    winnerArtistID: 140,
-    winnerArtistName: 'Lindsay Chow',
-    awardName: 'Fine Arts Program Award',
+    winnerArtistID: 191,
+    winnerArtistName: 'Quang Vu Ngo',
+    awardName: 'Design Award',
   },
   {
-    winnerArtistID: 154,
-    winnerArtistName: 'Natasha Nitschke',
+    winnerArtistID: 184,
+    winnerArtistName: 'Leann Juatco',
+    awardName: 'Media Studio Award',
+  },
+  {
+    winnerArtistID: 204,
+    winnerArtistName: 'Cassandra Hamilton Brown',
+    awardName: 'Fine Arts Community Award',
+  },
+  {
+    winnerArtistID: 181,
+    winnerArtistName: 'Martha Dzhenganin',
     awardName: 'Joanne Zabudsky Memorial Award',
   },
 ]
