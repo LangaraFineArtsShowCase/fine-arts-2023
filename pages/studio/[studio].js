@@ -309,7 +309,7 @@ export async function getStaticPaths() {
     paths: studioArray.map((studio) => {
       return {
         params: {
-          studio: studio.studioName,
+          studio: studio.studioSlug,
         },
       }
     }),
