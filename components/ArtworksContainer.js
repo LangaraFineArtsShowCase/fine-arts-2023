@@ -29,7 +29,7 @@ const ArtworkContainer = ({
           studentArtworks[j],
           studentArtworks[i],
         ]
-      
+      }
       setShuffledItems(studentArtworks)
     }
 
